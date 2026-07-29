@@ -62,6 +62,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add content pipeline/seen.json app/public/content
           git commit -m "chore(content): daily $(date -u +%F)" || echo "nothing to commit"
+          git pull --rebase origin main
           git push
 
       - name: Build PWA
