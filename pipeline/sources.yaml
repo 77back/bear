@@ -1,0 +1,53 @@
+# 数据源清单（构建框架 §8.1）
+# 每源：name / type(rss|page) / url / category / limit
+# category ∈ 时政|时评|国际|通稿|人物  （五类，缺一不可）
+#
+# 默认走 RSSHub（rsshub.app 公共实例），可通过环境变量 RSSHUB_BASE 换自建实例。
+# 路由失效时 fetch.py 自动退化为栏目页直抓；两类都失败则跳过并告警，不阻塞整体（§8.1）。
+#
+# 注：RSSHub 公共路由时有变动，执行时可增删；务必保证五类各至少 1 条。
+
+# 时政
+- name: 中国政府网要闻
+  type: rss
+  url: ${RSSHUB_BASE}/gov/yaowen
+  category: 时政
+  limit: 4
+- name: 新华社时政
+  type: rss
+  url: ${RSSHUB_BASE}/xinhuanet/news/politics
+  category: 时政
+  limit: 3
+
+# 时评
+- name: 人民网评
+  type: rss
+  url: ${RSSHUB_BASE}/people/opinion
+  category: 时评
+  limit: 4
+- name: 光明网时评
+  type: rss
+  url: ${RSSHUB_BASE}/guangming/comment
+  category: 时评
+  limit: 3
+
+# 国际
+- name: 新华社国际
+  type: rss
+  url: ${RSSHUB_BASE}/xinhuanet/news/world
+  category: 国际
+  limit: 4
+
+# 通稿（实务素材）
+- name: 新华社通稿
+  type: rss
+  url: ${RSSHUB_BASE}/xinhuanet/news
+  category: 通稿
+  limit: 5
+
+# 人物案例
+- name: 求是网
+  type: rss
+  url: ${RSSHUB_BASE}/qstheory/leaders
+  category: 人物
+  limit: 3
