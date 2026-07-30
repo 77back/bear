@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import { useTaskStore } from '@/stores/task'
 import { useContentStore } from '@/stores/content'
 import { getSetting } from '@/db/seed'
-import { parseDate, type Subject } from '@/db'
+import { parseDate, type Subject, type Task } from '@/db'
 
 const router = useRouter()
 const store = useTaskStore()
@@ -56,6 +56,28 @@ async function addOne() {
   newTitle.value = ''
 }
 
+// 编辑已有任务（行内编辑标题/备注）
+const editingId = ref<number | null>(null)
+const editTitle = ref('')
+const editMeta = ref('')
+
+function startEdit(t: Task) {
+  editingId.value = t.id!
+  editTitle.value = t.title
+  editMeta.value = t.meta ?? ''
+}
+
+async function saveEdit() {
+  const title = editTitle.value.trim()
+  if (editingId.value == null || !title) return
+  await store.updateTask(editingId.value, { title, meta: editMeta.value.trim() || undefined })
+  editingId.value = null
+}
+
+function cancelEdit() {
+  editingId.value = null
+}
+
 async function doCheckin() {
   const r = await store.checkin()
   showToast(r.msg)
@@ -83,7 +105,7 @@ function onReport(type: 'week' | 'month') {
       <div class="card-title">
         今日任务
         <span style="font-size:12px;color:var(--text-3);font-weight:400">{{ store.progressText }}</span>
-        <button class="more" @click="adjusting = !adjusting">{{ adjusting ? '完成' : '调整' }}</button>
+        <button class="more" @click="adjusting = !adjusting; cancelEdit()">{{ adjusting ? '完成' : '调整' }}</button>
       </div>
       <div class="bar" style="margin-bottom:8px">
         <i :style="{ width: store.progressPct + '%', background: 'var(--brand)' }"></i>
@@ -108,7 +130,7 @@ function onReport(type: 'week' | 'month') {
         </div>
       </div>
 
-      <!-- 调整模式：增删 -->
+      <!-- 调整模式：增删改 -->
       <div v-else>
         <div
           v-for="t in store.tasks"
@@ -116,11 +138,23 @@ function onReport(type: 'week' | 'month') {
           class="task-row"
           style="cursor:default"
         >
-          <div class="task-info">
-            <div class="task-name">{{ t.title }}</div>
-          </div>
-          <span class="tag" :class="subjectTagClass[t.subject]">{{ subjectLabel[t.subject] }}</span>
-          <button class="more" style="color:#C0453E" @click="store.removeTask(t.id!)">删除</button>
+          <template v-if="editingId === t.id">
+            <div class="task-info" style="display:flex;flex-direction:column;gap:6px">
+              <input class="input" v-model="editTitle" placeholder="任务标题" @keyup.enter="saveEdit" @keyup.esc="cancelEdit" />
+              <input class="input" v-model="editMeta" placeholder="备注（可选）" @keyup.enter="saveEdit" @keyup.esc="cancelEdit" />
+            </div>
+            <button class="more" @click="saveEdit">保存</button>
+            <button class="more" @click="cancelEdit">取消</button>
+          </template>
+          <template v-else>
+            <div class="task-info">
+              <div class="task-name">{{ t.title }}</div>
+              <div class="task-meta" v-if="t.meta">{{ t.meta }}</div>
+            </div>
+            <span class="tag" :class="subjectTagClass[t.subject]">{{ subjectLabel[t.subject] }}</span>
+            <button class="more" @click="startEdit(t)">编辑</button>
+            <button class="more" style="color:#C0453E" @click="store.removeTask(t.id!)">删除</button>
+          </template>
         </div>
         <div style="display:flex;gap:8px;margin-top:8px">
           <select class="select" style="width:90px" v-model="newSubject">

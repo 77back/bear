@@ -56,13 +56,22 @@ export const useReviewStore = defineStore('review', () => {
     return id
   }
 
-  /** 完成一次复习（标记 doneAt）→ 复习完成计入当日任务 */
-  async function complete(reviewId: number) {
+  /** 完成一次复习（标记 doneAt）→ 复习完成计入当日任务；全部 stage 走完则归档入案例库，返回是否归档 */
+  async function complete(reviewId: number): Promise<boolean> {
     const r = reviews.value.find((x) => x.id === reviewId)
-    if (!r || r.doneAt) return
+    if (!r || r.doneAt) return false
     r.doneAt = Date.now()
     await db.reviews.update(reviewId, { doneAt: r.doneAt })
+    let archived = false
+    const m = materialOf(r.materialId)
+    const allDone = reviews.value.every((x) => x.materialId !== r.materialId || x.doneAt)
+    if (m && !m.archived && allDone) {
+      m.archived = true
+      await db.materials.update(m.id!, { archived: true })
+      archived = true
+    }
     await syncTask()
+    return archived
   }
 
   async function removeMaterial(materialId: number) {

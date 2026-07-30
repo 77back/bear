@@ -90,6 +90,18 @@ export const useTaskStore = defineStore('task', () => {
     tasks.value = tasks.value.filter((x) => x.id !== id)
   }
 
+  /** 编辑已有任务的标题/备注；title 为空或 id 不存在时拒绝（保持原样） */
+  async function updateTask(id: number, patch: { title?: string; meta?: string }) {
+    const t = tasks.value.find((x) => x.id === id)
+    if (!t) return
+    if (patch.title !== undefined && !patch.title.trim()) return
+    const changes: { title?: string; meta?: string } = {}
+    if (patch.title !== undefined) changes.title = patch.title.trim()
+    if (patch.meta !== undefined) changes.meta = patch.meta
+    await db.tasks.update(id, changes)
+    Object.assign(t, changes)
+  }
+
   // ---- 申论复习任务接入（阶段4）：复习完成计入当日任务 ----
   const REVIEW_TASK_TITLE = '申论 · 复习到期案例'
 
@@ -141,6 +153,7 @@ export const useTaskStore = defineStore('task', () => {
     toggle,
     addTask,
     removeTask,
+    updateTask,
     ensureReviewTask,
     setReviewTaskStatus,
     checkin

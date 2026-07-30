@@ -139,5 +139,28 @@
 - 批改 API key 存本地（自用 PWA 可接受）；公网部署应走后端代理。
 - 评论领域标签来自管线（pinglun domains），降级模式下为空 → 领域筛选暂按全量；配 LLM 后填充。
 
+---
+
+## 反馈迭代 · 波次 1（2026-07-30）✅
+
+> 依据 `../使用反馈与修改建议.md`（用户思维导图整理）。四项决策：行测统计页替换为入门记录页；刷课进度=课程清单+课时计数；刷题记录手动+粘贴批量导入都做；媒体常识接受人工维护静态内容。
+
+**完成清单**
+- 今日任务可编辑：`stores/task.ts` 新增 `updateTask(id, {title?, meta?})`（空 title 拒绝、id 不存在静默返回）；TodayView 调整模式行内编辑（Enter 保存 / Esc 取消）。
+- 复盘归档入案例库：Material 加非索引字段 `archived?`（不动 schema 版本）；`stores/review.ts` complete() 走完 5 stage 自动归档并返回是否触发；ShenlunView 归档 toast；MaterialDetail 按「复习中 / 已归档」分组。
+- 行测重构（替换主页）：
+  - Dexie 升 version 2，新增 `courses` 表（++id, name, totalLessons, doneLessons, createdAt），旧表原样兼容。
+  - `stores/course.ts`：增删改/±1 课时（封顶封底）/单课与整体进度派生。
+  - `core/xingceImport.ts`（纯）：粘贴批量导入解析——`[日期] 板块 总数 正确 [用时分钟] [薄弱标签...]`，容忍空格/逗号/顿号/制表符，板块按 QUIZ_MODULES 归一别名（资料分析→资料 等），日期可选（默认今天），用时入库换算秒；逐行报错（行号+原因），空行跳过，绝不静默吞错。
+  - 新 `/xc` 主页：统计分析入口 + 刷课进度卡（进度条/行内编辑/新增课程）+ 刷题记录卡（近 8 条 + 手动录入→QuizPage + 批量导入→新 ImportPage）。
+  - 统计降级：`/xc/stats`（XingceStats.vue，旧五卡原样，ECharts 独立 chunk 507KB 仍懒加载）；`/xc/import`（粘贴→预览成功/失败明细→确认写入 quizLogs，stats store 新增 importMany）。
+- 明确不做（用户标注可舍弃）：错题导入分析、600 字改写练习。
+
+**自测**：vitest 14 文件 104 通过（task 11 / TodayView 4 / review 10 / course 6 / xingceImport 12 / ImportPage 2，余为既有用例无回归）；`npm run build` 通过（新主页 chunk 6.7KB，主 bundle 不含 ECharts）。
+
+**已知问题 / 待办（波次 2/3）**
+- 管线：sources 收敛头部央媒；申论文章统一分析（一篇产出结构+案例+话题领域分类）；每日好句子/标题产出。
+- 实务：拟标题练习；评论选题清单机制（人工 topic 清单+六大央媒源）；"其他"只读板块（策划案例抓取 + 媒体常识人工静态 JSON）。
+
 
 

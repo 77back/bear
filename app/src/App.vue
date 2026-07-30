@@ -18,14 +18,8 @@ const activeRoot = computed(() => {
 </script>
 
 <template>
-  <!-- 状态栏（装饰，自用 PWA 不追求像素级） -->
-  <div class="statusbar">
-    <span>9:41</span>
-    <div class="icons">
-      <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
-      <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M23.5 4v4a2 2 0 000-4z" fill="currentColor" opacity=".4"/></svg>
-    </div>
-  </div>
+  <!-- 顶部安全区间距（刘海屏/灵动岛，standalone 模式下内容避让系统状态栏） -->
+  <div class="safe-top"></div>
 
   <!-- 屏幕区：路由出口 -->
   <main class="screen active">
@@ -56,24 +50,10 @@ const activeRoot = computed(() => {
 </template>
 
 <style scoped>
-.statusbar {
-  height: 44px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 28px;
-  font-size: 14px;
-  font-weight: 600;
+.safe-top {
+  height: env(safe-area-inset-top);
   flex-shrink: 0;
-  z-index: 5;
   background: var(--bg);
-  padding-top: env(safe-area-inset-top);
-}
-.statusbar .icons {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  color: var(--text);
 }
 .fade-enter-active,
 .fade-leave-active {

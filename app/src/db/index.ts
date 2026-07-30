@@ -49,6 +49,7 @@ export interface Material {
   usage?: string
   source?: string
   collectedAt: number
+  archived?: boolean // 非索引字段：复习全部走完 → 归档入案例库
 }
 
 // 复习阶段：0=收藏当日，后续 1/3/7/15 天
@@ -79,6 +80,15 @@ export interface Setting {
   value: unknown
 }
 
+// 刷课进度（阶段：学习入门）：每门课记录总课时/已完成课时
+export interface Course {
+  id?: number
+  name: string
+  totalLessons: number
+  doneLessons: number
+  createdAt: number
+}
+
 export class PrepDB extends Dexie {
   tasks!: Table<Task, number>
   checkins!: Table<Checkin, string>
@@ -87,6 +97,7 @@ export class PrepDB extends Dexie {
   reviews!: Table<Review, number>
   practiceLogs!: Table<PracticeLog, number>
   settings!: Table<Setting, string>
+  courses!: Table<Course, number>
 
   constructor() {
     super('bear-prep')
@@ -99,6 +110,10 @@ export class PrepDB extends Dexie {
       reviews: '++id, materialId, dueDate, stage',
       practiceLogs: '++id, date, qtype',
       settings: 'key'
+    })
+    // 版本 2：新增 courses（刷课进度），旧表原样保留，向后兼容
+    this.version(2).stores({
+      courses: '++id, createdAt'
     })
   }
 }

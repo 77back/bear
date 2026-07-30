@@ -36,10 +36,11 @@ const dueWithMaterial = computed(() =>
 )
 
 async function completeReview(id: number) {
-  await review.complete(id)
+  const archived = await review.complete(id)
   revealed.value.delete(id)
   revealed.value = new Set(revealed.value)
-  showToast(review.dueCount === 0 ? '今日复习已全部完成 ✓' : `还剩 ${review.dueCount} 项待复习`)
+  if (archived) showToast('复习全部完成，已纳入案例库 ✓')
+  else showToast(review.dueCount === 0 ? '今日复习已全部完成 ✓' : `还剩 ${review.dueCount} 项待复习`)
 }
 
 async function collectCase() {

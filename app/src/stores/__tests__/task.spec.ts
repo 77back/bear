@@ -136,4 +136,49 @@ describe('今日任务 store（阶段1 集成）', () => {
     const todayCell = s.monthCells.find((c) => c.date === '2026-07-29')
     expect(todayCell?.level).toBe(4) // 100% → l4
   })
+
+  it('updateTask：修改标题/备注并持久化，不影响完成状态', async () => {
+    setDay(2026, 7, 29)
+    const s = useTaskStore()
+    await s.load()
+    const t = s.tasks[0]
+    await s.toggle(t.id!) // 先置为 done
+    await s.updateTask(t.id!, { title: '  资料分析 20 题  ', meta: '改后的备注' })
+
+    expect(t.title).toBe('资料分析 20 题') // 首尾空白被裁剪
+    expect(t.meta).toBe('改后的备注')
+    expect(t.status).toBe('done') // 状态不受影响
+    expect(t.doneAt).toBeDefined()
+
+    // 持久化：重新 load 后仍是新值
+    const s2 = useTaskStore()
+    await s2.load()
+    const reloaded = s2.tasks.find((x) => x.id === t.id)!
+    expect(reloaded.title).toBe('资料分析 20 题')
+    expect(reloaded.meta).toBe('改后的备注')
+  })
+
+  it('updateTask：id 不存在时不报错且无任何变化', async () => {
+    setDay(2026, 7, 29)
+    const s = useTaskStore()
+    await s.load()
+    await s.updateTask(999999, { title: '不存在' })
+    expect(s.tasks.length).toBe(6)
+    expect(await db.tasks.get(999999)).toBeUndefined()
+  })
+
+  it('updateTask：空 title 被拒绝，内存与库都保持原值', async () => {
+    setDay(2026, 7, 29)
+    const s = useTaskStore()
+    await s.load()
+    const t = s.tasks[0]
+    const originTitle = t.title
+    const originMeta = t.meta
+    await s.updateTask(t.id!, { title: '   ', meta: '也不应生效' })
+    expect(t.title).toBe(originTitle)
+    expect(t.meta).toBe(originMeta)
+    const row = await db.tasks.get(t.id!)
+    expect(row!.title).toBe(originTitle)
+    expect(row!.meta).toBe(originMeta)
+  })
 })

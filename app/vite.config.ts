@@ -41,6 +41,11 @@ export default defineConfig({
     })
   ],
   base: './',
+  preview: {
+    // 允许 cloudflared 隧道域名访问（手机测试用，true = 放行所有 host）
+    allowedHosts: true,
+    cors: true
+  },
   build: {
     // 行测页按需引入 ECharts，懒加载独立 chunk（首屏不加载），放宽提示阈值
     chunkSizeWarningLimit: 600

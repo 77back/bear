@@ -45,4 +45,49 @@ describe('TodayView 渲染（阶段1 冒烟）', () => {
     expect(wrapper.text()).toContain('1/6')
     expect(wrapper.findAll('.task-row.done').length).toBe(1)
   })
+
+  it('调整模式：编辑第一条任务标题与备注，保存后生效', async () => {
+    const router = createRouter({
+      history: createMemoryHistory(),
+      routes: [{ path: '/', component: { template: '<div/>' } }]
+    })
+    const wrapper = mount(TodayView, { global: { plugins: [router] } })
+    await settle()
+
+    // 进入调整模式
+    const adjustBtn = wrapper.findAll('button').find((b) => b.text() === '调整')!
+    await adjustBtn.trigger('click')
+
+    // 第一行点编辑 → 出现两个输入框
+    const editBtn = wrapper.findAll('button').filter((b) => b.text() === '编辑')[0]
+    await editBtn.trigger('click')
+    const inputs = wrapper.findAll('.task-row input')
+    expect(inputs.length).toBe(2)
+    await inputs[0].setValue('改后的标题')
+    await inputs[1].setValue('改后的备注')
+
+    // 保存 → 新文案出现在列表里
+    const saveBtn = wrapper.findAll('button').find((b) => b.text() === '保存')!
+    await saveBtn.trigger('click')
+    await settle(20)
+    expect(wrapper.text()).toContain('改后的标题')
+    expect(wrapper.text()).toContain('改后的备注')
+  })
+
+  it('调整模式：编辑时取消 → 标题不变', async () => {
+    const router = createRouter({
+      history: createMemoryHistory(),
+      routes: [{ path: '/', component: { template: '<div/>' } }]
+    })
+    const wrapper = mount(TodayView, { global: { plugins: [router] } })
+    await settle()
+    const origin = wrapper.findAll('.task-row .task-name')[0].text()
+
+    await wrapper.findAll('button').find((b) => b.text() === '调整')!.trigger('click')
+    await wrapper.findAll('button').filter((b) => b.text() === '编辑')[0].trigger('click')
+    await wrapper.findAll('.task-row input')[0].setValue('不应保存')
+    await wrapper.findAll('button').find((b) => b.text() === '取消')!.trigger('click')
+
+    expect(wrapper.findAll('.task-row .task-name')[0].text()).toBe(origin)
+  })
 })
