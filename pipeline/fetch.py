@@ -1,15 +1,20 @@
 """抓取与去重（构建框架 §8.2）。
 
-RSSHub 路由优先；失效退化栏目页直抓；两类都失败则跳过并告警，不阻塞整体。
-输出 pipeline/raw/YYYY-MM-DD.json。
+源类型：
+- rss  ：RSS 全文（content/summary 作正文），失败退化栏目页直抓；
+- page ：栏目页单页直抓（整页当一条，best-effort）；
+- list ：两级抓取——列表页（HTML 或 RSS/XML）提取文章链接，逐篇抓文章页用 <p> 聚合正文。
+单源失败跳过并告警，不阻塞整体。输出 pipeline/raw/YYYY-MM-DD.json。
 """
 from __future__ import annotations
 
 import json
+import random
 import re
 import sys
 import time
 from typing import Iterable
+from urllib.parse import urljoin
 
 import feedparser
 import httpx
@@ -105,9 +110,114 @@ def fetch_page(source: dict, client: httpx.Client) -> list[dict]:
     ]
 
 
+# ---------- 两级抓取（type: list） ----------
+_MIN_BODY = 200  # §8.2：正文 <200 字丢弃
+
+
+def _polite_sleep() -> None:
+    """礼貌抓取：文章请求间隔 0.5~1s。"""
+    time.sleep(0.5 + random.random() * 0.5)
+
+
+def _list_entries(source: dict, content: str, base_url: str) -> list[tuple[str, str]]:
+    """从列表页提取 (link, title)，去重保序。
+
+    列表页是 RSS/XML 时直接取 <item> 的 title+link（不再依赖 description 长度）；
+    否则按 linkPattern 正则提取链接，相对链接用 urljoin 补全。
+    """
+    head = content.lstrip()[:300].lower()
+    if head.startswith("<?xml") or head.startswith("<rss") or head.startswith("<feed"):
+        parsed = feedparser.parse(content)
+        entries = [
+            ((e.get("link") or "").strip(), (e.get("title") or "").strip())
+            for e in parsed.entries
+            if e.get("link")
+        ]
+    else:
+        pattern = source.get("linkPattern")
+        if not pattern:
+            raise ValueError(f"list 源缺少 linkPattern: {source['name']}")
+        entries = []
+        for m in re.finditer(pattern, content, re.I):
+            link = urljoin(base_url, m.group(1) if m.groups() else m.group(0))
+            entries.append((link, ""))  # 标题留空，抓文章页时从 <title> 取
+    seen_links: set[str] = set()
+    out: list[tuple[str, str]] = []
+    for link, title in entries:
+        if link and link not in seen_links:
+            seen_links.add(link)
+            out.append((link, title))
+    return out
+
+
+_TITLE_RE = re.compile(r"<title[^>]*>(.*?)</title>", re.I | re.S)
+# 站点 <title> 常见后缀分隔：「标题-网站名」「标题_栏目_网站名」
+_TITLE_SEP_RE = re.compile(r"[-_—|]")
+
+
+def _article_title(html: str, fallback: str) -> str:
+    m = _TITLE_RE.search(html)
+    raw = common.strip_html(m.group(1)) if m else ""
+    head = _TITLE_SEP_RE.split(raw)[0].strip()
+    return head or raw or fallback
+
+
+def _article_body(html: str) -> str:
+    """<p> 聚合正文（沿用 extract_text/strip_html 思路）。"""
+    paras = [common.strip_html(x[1]) for x in _P_RE.findall(html)]
+    return "\n".join(p for p in paras if p)
+
+
+def fetch_list(source: dict, client: httpx.Client) -> list[dict]:
+    """list 源：列表页提取链接 → 逐篇抓文章页补正文。
+
+    单篇失败/正文不足跳过该篇并告警，不阻塞；一篇都抓不到才算该源失败。
+    抓到 limit 篇即停，最多尝试 limit*3 个候选链接。
+    """
+    url = source["url"]
+    resp = client.get(url)
+    resp.raise_for_status()
+    candidates = _list_entries(source, resp.text, url)
+    if not candidates:
+        raise RuntimeError(f"列表页未提取到文章链接({source['name']})")
+
+    limit = int(source.get("limit", 4))
+    max_try = max(limit * 3, limit + 2)
+    items: list[dict] = []
+    for link, title in candidates[:max_try]:
+        if len(items) >= limit:
+            break
+        _polite_sleep()
+        try:
+            r = client.get(link)
+            r.raise_for_status()
+            body = _article_body(r.text)
+            if len(body) < _MIN_BODY:
+                warn(f"正文不足 {_MIN_BODY} 字跳过({link[:60]})")
+                continue
+            items.append(
+                {
+                    "title": title or _article_title(r.text, source["name"]),
+                    "link": link,
+                    "pubDate": today_str(),
+                    "category": source["category"],
+                    "source": source["name"],
+                    "body": body,
+                }
+            )
+        except Exception as e:  # noqa: BLE001  单篇失败不阻塞
+            warn(f"文章抓取失败({link[:60]}): {e}")
+    if not items:
+        raise RuntimeError(f"所有文章抓取失败或正文不足({source['name']})")
+    return items
+
+
 def fetch_source(source: dict, client: httpx.Client) -> Iterable[dict]:
     """按 type 抓取；失败抛异常由调用方告警跳过。"""
-    if source.get("type") == "page":
+    stype = source.get("type")
+    if stype == "list":
+        return fetch_list(source, client)
+    if stype == "page":
         return fetch_page(source, client)
     # rss 失败时退化栏目页直抓
     try:
@@ -139,7 +249,7 @@ def run(date_str: str | None = None) -> Path:
                 if picked >= limit:
                     break
                 # §8.2：正文 <200 字丢弃
-                if len(it["body"]) < 200:
+                if len(it["body"]) < _MIN_BODY:
                     continue
                 fp = fingerprint(it["title"], it["link"])
                 if fp in seen or fp in new_fps:
@@ -168,7 +278,7 @@ def run(date_str: str | None = None) -> Path:
     cats = {"时政", "时评", "国际", "通稿", "人物"}
     missing = cats - set(category_counts)
     if missing:
-        warn(f"未覆盖类别: {sorted(missing)}（建议检查 RSSHub 路由或补充源）")
+        warn(f"未覆盖类别: {sorted(missing)}（建议检查 sources.yaml 中对应源是否失效）")
     return out_path
 
 

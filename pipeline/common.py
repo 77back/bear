@@ -10,6 +10,9 @@ from pathlib import Path
 
 import yaml
 
+# 【已弃用 2026-07】RSSHub 公共实例（rsshub.app 及公共镜像）整体失效，
+# sources.yaml 已改为央媒站直链（type: list 两级抓取）。
+# rsshub_base / DEFAULT_RSSHUB_BASE 仅为兼容保留，勿在新源中使用。
 DEFAULT_RSSHUB_BASE = "https://rsshub.app"
 ROOT = Path(__file__).resolve().parent
 
@@ -44,7 +47,7 @@ def _substitute_env(value: str) -> str:
 
 
 def load_sources(path: Path | None = None) -> list[dict]:
-    """读 sources.yaml，展开 ${ENV}（如 RSSHUB_BASE）。"""
+    """读 sources.yaml，展开 ${ENV}（如历史遗留的 RSSHUB_BASE，已弃用）。"""
     path = path or (ROOT / "sources.yaml")
     raw = path.read_text(encoding="utf-8")
     data = yaml.safe_load(raw) or []

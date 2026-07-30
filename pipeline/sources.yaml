@@ -1,53 +1,55 @@
 # 数据源清单（构建框架 §8.1）
-# 每源：name / type(rss|page) / url / category / limit
+# 每源：name / type(rss|page|list) / url / category / limit
 # category ∈ 时政|时评|国际|通稿|人物  （五类，缺一不可）
 #
-# 默认走 RSSHub（rsshub.app 公共实例），可通过环境变量 RSSHUB_BASE 换自建实例。
-# 路由失效时 fetch.py 自动退化为栏目页直抓；两类都失败则跳过并告警，不阻塞整体（§8.1）。
-#
-# 注：RSSHub 公共路由时有变动，执行时可增删；务必保证五类各至少 1 条。
+# 【2026-07 起弃用 RSSHub】公共实例（rsshub.app 及镜像）已整体失效，改为央媒站直链。
+# type: list —— 两级抓取：列表页（HTML 或 RSS/XML）按 linkPattern 提取文章链接
+# （相对链接自动补全），再逐篇抓文章页用 <p> 聚合正文，≥200 字保留。
+# RSS/XML 列表页无需 linkPattern，直接取 <item> 的 title+link。
 
-# 时政
+# 时政 —— 中国政府网要闻
+# https://www.gov.cn/yaowen/ 为 JS 跳转页，真实列表数据在 YAOWENLIEBIAO.json；
+# JSON 里 "URL" 字段即文章链接，仅取 /yaowen/ 下文本稿（排除 tv.cctv 视频与图表页）。
 - name: 中国政府网要闻
-  type: rss
-  url: ${RSSHUB_BASE}/gov/yaowen
+  type: list
+  url: https://www.gov.cn/yaowen/liebiao/YAOWENLIEBIAO.json
+  linkPattern: '"URL":\s*"(https://www\.gov\.cn/yaowen/[^"]+\.htm)"'
   category: 时政
   limit: 4
-- name: 新华社时政
-  type: rss
-  url: ${RSSHUB_BASE}/xinhuanet/news/politics
-  category: 时政
-  limit: 3
 
-# 时评
-- name: 人民网评
-  type: rss
-  url: ${RSSHUB_BASE}/people/opinion
-  category: 时评
-  limit: 4
-- name: 光明网时评
-  type: rss
-  url: ${RSSHUB_BASE}/guangming/comment
+# 时评 —— 人民网观点频道
+# 首页内嵌文章链接形如 http://opinion.people.com.cn/n1/2026/0723/c223228-40766737.html
+- name: 人民网观点
+  type: list
+  url: http://opinion.people.com.cn/
+  linkPattern: 'https?://opinion\.people\.com\.cn/n1/\d{4}/\d{4}/c\d+-\d+\.html'
   category: 时评
   limit: 3
 
-# 国际
-- name: 新华社国际
-  type: rss
-  url: ${RSSHUB_BASE}/xinhuanet/news/world
+# 国际 —— 新华网国际频道
+# 文章链接形如 https://www.news.cn/world/20260729/<32位hash>/c.html
+# （xinhuanet.com 全站 403，改用 news.cn 主域）
+- name: 新华网国际
+  type: list
+  url: https://www.news.cn/world/
+  linkPattern: 'https://www\.news\.cn/world/\d{8}/[0-9a-f]+/c\.html'
   category: 国际
+  limit: 3
+
+# 通稿（实务素材）—— 中新网滚动新闻
+# 官方 RSS 存活（分钟级更新），但每条 description 仅约 100 字、不足 200 字门槛，
+# 故按 list 处理：从 <item> 取标题+链接，再抓文章页补正文。
+- name: 中新网滚动新闻
+  type: list
+  url: https://www.chinanews.com.cn/rss/scroll-news.xml
+  category: 通稿
   limit: 4
 
-# 通稿（实务素材）
-- name: 新华社通稿
-  type: rss
-  url: ${RSSHUB_BASE}/xinhuanet/news
-  category: 通稿
-  limit: 5
-
-# 人物案例
-- name: 求是网
-  type: rss
-  url: ${RSSHUB_BASE}/qstheory/leaders
+# 人物案例 —— 求是网「英模人物」专栏
+# 文章链接形如 https://www.qstheory.cn/20260530/<32位hash>/c.html（单双引号 href 混排，正则直接匹配 URL）
+- name: 求是网英模人物
+  type: list
+  url: https://www.qstheory.cn/v9zhuanqu/zhuanqu/ymrw/index.htm
+  linkPattern: 'https://www\.qstheory\.cn/\d{8}/[0-9a-f]+/c\.html'
   category: 人物
-  limit: 3
+  limit: 2
