@@ -121,3 +121,28 @@ def test_rss_as_list_source():
     assert [it["title"] for it in items] == ["滚动新闻一", "滚动新闻二"]
     # 正文来自文章页 <p> 聚合，而非 RSS description
     assert all(len(it["body"]) >= fetch._MIN_BODY for it in items)
+
+
+def _item(fp, cat="时政"):
+    return {"fp": fp, "title": fp, "link": f"https://x/{fp}", "category": cat, "body": "x"}
+
+
+def test_merge_same_day_keeps_previous_when_nothing_new():
+    prev = [_item("a"), _item("b", "时评")]
+    merged, counts = fetch.merge_same_day(prev, [], [])
+    assert [i["fp"] for i in merged] == ["a", "b"]
+    assert counts == {"时政": 1, "时评": 1}
+
+
+def test_merge_same_day_dedup_and_recount():
+    prev = [_item("a"), _item("b")]
+    kept = [_item("b"), _item("c", "国际")]
+    merged, counts = fetch.merge_same_day(prev, kept, ["b", "c"])
+    assert sorted(i["fp"] for i in merged) == ["a", "b", "c"]
+    assert counts == {"时政": 2, "国际": 1}
+
+
+def test_merge_same_day_ignores_items_without_fp():
+    merged, counts = fetch.merge_same_day([{"title": "无指纹"}], [_item("a")], ["a"])
+    assert [i["fp"] for i in merged] == ["a"]
+    assert counts == {"时政": 1}

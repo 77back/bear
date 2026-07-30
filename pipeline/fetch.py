@@ -227,6 +227,25 @@ def fetch_source(source: dict, client: httpx.Client) -> Iterable[dict]:
         return fetch_page(source, client)
 
 
+def merge_same_day(prev_items: list[dict], kept: list[dict], new_fps: list[str]) -> tuple[list[dict], dict]:
+    """同日重跑幂等：把当日已抓到的旧条目并入本次结果（按 fp 去重）。
+
+    防止"全部已见 → 本次 0 篇 → 空 raw 覆盖"把当日已有内容清掉。
+    返回 (合并后 items, 重算的 category_counts)。
+    """
+    known = set(new_fps)
+    merged = list(kept)
+    for it in prev_items:
+        fp = it.get("fp")
+        if fp and fp not in known:
+            merged.append(it)
+            known.add(fp)
+    counts: dict[str, int] = {}
+    for it in merged:
+        counts[it["category"]] = counts.get(it["category"], 0) + 1
+    return merged, counts
+
+
 def run(date_str: str | None = None) -> Path:
     date_str = date_str or today_str()
     sources = load_sources()
@@ -268,6 +287,13 @@ def run(date_str: str | None = None) -> Path:
     out_dir = ROOT / "raw"
     ensure_dir(out_dir)
     out_path = out_dir / f"{date_str}.json"
+    # 同日重跑幂等：合并当日已有 raw，避免空包覆盖（§8.2 去重的副作用）
+    if out_path.exists():
+        try:
+            prev_items = json.loads(out_path.read_text(encoding="utf-8")).get("items", [])
+        except Exception:  # noqa: BLE001  旧文件损坏则当作无历史
+            prev_items = []
+        kept, category_counts = merge_same_day(prev_items, kept, new_fps)
     out_path.write_text(
         json.dumps({"date": date_str, "count": len(kept), "byCategory": category_counts, "items": kept},
                    ensure_ascii=False, indent=2),
