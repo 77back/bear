@@ -83,6 +83,9 @@ function toPractice(qtype: string) {
       <div class="rec-head"><span class="tag sw">每日案例 + 对应练习</span></div>
       <div class="rec-title">{{ content.daily.shiwu.material.title }}</div>
       <div class="rec-body">{{ content.daily.shiwu.material.body }}</div>
+      <div style="font-size:12px;color:var(--text-3);margin-top:6px">
+        来源：<a v-if="content.daily.shiwu.material.url" :href="content.daily.shiwu.material.url" target="_blank" rel="noopener" style="color:var(--text-3)">{{ content.daily.shiwu.material.source }}</a><span v-else>{{ content.daily.shiwu.material.source }}</span>
+      </div>
       <div class="practice-btns">
         <button v-for="ex in content.daily.shiwu.exercises" :key="ex.qtype" class="pbtn" @click="toPractice(ex.qtype)">{{ ex.qtype }}</button>
       </div>
@@ -106,7 +109,7 @@ function toPractice(qtype: string) {
       </div>
       <div v-for="(it, i) in content.shizheng.items.slice(0, 8)" :key="i" class="sz-row">
         <span class="sz-num">{{ String(i + 1).padStart(2, '0') }}</span>
-        <span class="sz-name">{{ it.title }}</span>
+        <span class="sz-name">{{ it.title }}<span v-if="it.source" style="font-size:11px;color:var(--text-3)"> · {{ it.source }}</span></span>
         <span v-if="it.points.length" class="sz-heat">{{ it.points.length }} 点</span>
       </div>
       <div v-if="content.shizheng.items.length === 0" style="font-size:12px;color:var(--text-3)">本月暂无时政统计</div>
@@ -121,6 +124,9 @@ function toPractice(qtype: string) {
           <li v-for="(p, j) in g.points.slice(0,3)" :key="j">{{ p }}</li>
         </ul>
         <div v-if="g.reading" class="rec-body" style="background:#E7F0F0;padding:8px 10px;border-radius:8px">{{ g.reading }}</div>
+        <div style="font-size:12px;color:var(--text-3);margin:4px 0 10px">
+          来源：<a v-if="g.url" :href="g.url" target="_blank" rel="noopener" style="color:var(--text-3)">{{ g.source }}</a><span v-else>{{ g.source }}</span>
+        </div>
       </div>
     </div>
 
@@ -138,7 +144,7 @@ function toPractice(qtype: string) {
         <span class="case-dot"></span>
         <div>
           <div class="case-title">{{ p.title }}</div>
-          <div class="case-meta">{{ p.month }} · {{ p.structure || '论点结构' }}</div>
+          <div class="case-meta">{{ p.month }}{{ p.source ? ' · ' + p.source : '' }} · {{ p.structure || '论点结构' }}</div>
         </div>
       </div>
       <div v-if="filteredPinglun.length === 0" style="font-size:12px;color:var(--text-3)">评论库暂无内容</div>

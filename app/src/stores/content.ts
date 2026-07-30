@@ -15,6 +15,7 @@ export interface CaseItem {
   themes: string[]
   usage: string
   source: string
+  url?: string
 }
 export interface ArticleItem {
   title: string
@@ -29,7 +30,7 @@ export interface ShiwuExercise {
   reference: string
 }
 export interface ShiwuPackage {
-  material: { title: string; body: string; source: string }
+  material: { title: string; body: string; source: string; url?: string }
   exercises: ShiwuExercise[]
 }
 export interface StructureItem {
@@ -42,6 +43,7 @@ export interface GuojiItem {
   points: string[]
   reading: string
   source: string
+  url?: string
 }
 export interface DailyPackage {
   date: string
@@ -63,6 +65,7 @@ export interface ShizhengItem {
   domains: string[]
   reading: string
   source: string
+  url?: string
 }
 export interface ShizhengMonth {
   month: string
@@ -75,6 +78,7 @@ export interface PinglunEntry {
   domains: string[]
   structure: string
   examUse: string
+  source?: string
 }
 export interface PinglunDetail {
   id: string

@@ -117,6 +117,9 @@ const stages = computed(() =>
       <div class="card-title">每日案例推荐 <button class="more" @click="content.load()">换一批</button></div>
       <div class="rec-title" style="margin-bottom:6px">{{ content.daily.cases[0].title }}</div>
       <div class="rec-body">{{ content.daily.cases[0].summary }}</div>
+      <div style="font-size:12px;color:var(--text-3);margin-top:6px">
+        来源：<a v-if="content.daily.cases[0].url" :href="content.daily.cases[0].url" target="_blank" rel="noopener" style="color:var(--text-3)">{{ content.daily.cases[0].source }}</a><span v-else>{{ content.daily.cases[0].source }}</span>
+      </div>
       <div class="rec-foot">
         <span v-for="t in content.daily.cases[0].themes" :key="t" class="tag sl">{{ t }}</span>
         <span style="margin-left:auto;font-size:12px;color:var(--brand);font-weight:600;cursor:pointer;padding:4px 0" @click="collectCase">＋ 收藏进素材库</span>
@@ -145,7 +148,7 @@ const stages = computed(() =>
         </div>
         <div class="article-info">
           <div class="article-title">{{ content.daily.article.title }}</div>
-          <div class="article-meta">{{ content.daily.article.source }}<br />金句：{{ content.daily.article.quotes[0] || '—' }}</div>
+          <div class="article-meta"><a v-if="content.daily.article.url" :href="content.daily.article.url" target="_blank" rel="noopener" style="color:inherit">{{ content.daily.article.source }}</a><span v-else>{{ content.daily.article.source }}</span><br />金句：{{ content.daily.article.quotes[0] || '—' }}</div>
         </div>
       </div>
       <button class="btn btn-soft" style="margin-top:12px;background:#F7EFD8;color:#9A7B1A" @click="collectArticle">收藏进素材库</button>

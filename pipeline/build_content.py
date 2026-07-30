@@ -70,6 +70,7 @@ def build_daily(proc_items: list[dict], date_str: str) -> dict:
                 "themes": r.get("themes", []),
                 "usage": r.get("usage", ""),
                 "source": it.get("source", ""),
+                "url": it.get("link", ""),
             }
         )
 
@@ -100,7 +101,7 @@ def build_daily(proc_items: list[dict], date_str: str) -> dict:
         if r.get("correct"):
             exercises.append({"qtype": "纠错", "prompt": r["correct"].get("prompt", ""), "reference": json.dumps(r["correct"].get("items", []), ensure_ascii=False)})
         shiwu = {
-            "material": {"title": it["title"], "body": it.get("summary", ""), "source": it.get("source", "")},
+            "material": {"title": it["title"], "body": it.get("summary", ""), "source": it.get("source", ""), "url": it.get("link", "")},
             "exercises": exercises,
         }
 
@@ -114,6 +115,7 @@ def build_daily(proc_items: list[dict], date_str: str) -> dict:
                 "points": r.get("points", []),
                 "reading": r.get("reading", ""),
                 "source": it.get("source", ""),
+                "url": it.get("link", ""),
             }
         )
 
@@ -133,47 +135,55 @@ def build_daily(proc_items: list[dict], date_str: str) -> dict:
 def build_shizheng_monthly(proc_items: list[dict], month: str) -> dict:
     path = CONTENT / "shizheng" / f"{month}.json"
     data = _read_json(path, {"month": month, "items": []})
-    seen_titles = {x["title"] for x in data["items"]}
+    by_title = {x["title"]: x for x in data["items"]}
     for it in proc_items:
         if it["category"] != "时政":
             continue
-        if it["title"] in seen_titles:
-            continue
         r = it.get("result", {})
-        data["items"].append(
-            {
-                "title": it["title"],
-                "points": r.get("points", []),
-                "domains": r.get("domains", []),
-                "reading": r.get("reading", ""),
-                "source": it.get("source", ""),
-            }
-        )
-        seen_titles.add(it["title"])
+        old = by_title.get(it["title"])
+        if old is not None:
+            # 已存在：回填后加的字段（source/url），不重复追加
+            old.setdefault("source", it.get("source", ""))
+            if not old.get("url"):
+                old["url"] = it.get("link", "")
+            continue
+        item = {
+            "title": it["title"],
+            "points": r.get("points", []),
+            "domains": r.get("domains", []),
+            "reading": r.get("reading", ""),
+            "source": it.get("source", ""),
+            "url": it.get("link", ""),
+        }
+        data["items"].append(item)
+        by_title[it["title"]] = item
     return data
 
 
 def build_pinglun(proc_items: list[dict], month: str) -> None:
     index_path = CONTENT / "pinglun" / "index.json"
     index = _read_json(index_path, [])
-    existing = {x["id"] for x in index}
+    by_id = {x["id"]: x for x in index}
     for it in proc_items:
         if it["category"] != "时评":
             continue
         pid = _pid(it["title"])
         r = it.get("result", {})
-        if pid not in existing:
-            index.append(
-                {
-                    "id": pid,
-                    "title": it["title"],
-                    "month": month,
-                    "domains": [],
-                    "structure": "；".join(r.get("structure", [])[:2]),
-                    "examUse": r.get("examUse", ""),
-                }
-            )
-            existing.add(pid)
+        if pid in by_id:
+            # 已存在：回填后加的 source 字段
+            by_id[pid].setdefault("source", it.get("source", ""))
+        else:
+            entry = {
+                "id": pid,
+                "title": it["title"],
+                "month": month,
+                "domains": [],
+                "structure": "；".join(r.get("structure", [])[:2]),
+                "examUse": r.get("examUse", ""),
+                "source": it.get("source", ""),
+            }
+            index.append(entry)
+            by_id[pid] = entry
         # 详情
         _write_json(
             CONTENT / "pinglun" / month / f"{pid}.json",
