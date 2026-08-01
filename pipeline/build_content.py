@@ -253,15 +253,18 @@ def build_pinglun(proc_items: list[dict], month: str) -> None:
             continue
         pid = _pid(it["title"])
         r = it.get("result", {})
+        domain = common.normalize_domain(r.get("domain"))
         if pid in by_id:
-            # 已存在：回填后加的 source 字段
+            # 已存在：回填后加的 source/domains 字段
             by_id[pid].setdefault("source", it.get("source", ""))
+            if domain != "其他" and not by_id[pid].get("domains"):
+                by_id[pid]["domains"] = [domain]
         else:
             entry = {
                 "id": pid,
                 "title": it["title"],
                 "month": month,
-                "domains": [],
+                "domains": [domain] if domain != "其他" else [],
                 "structure": "；".join(r.get("structure", [])[:2]),
                 "examUse": r.get("examUse", ""),
                 "source": it.get("source", ""),
@@ -279,6 +282,7 @@ def build_pinglun(proc_items: list[dict], month: str) -> None:
                 "methods": r.get("methods", []),
                 "quotes": r.get("quotes", []),
                 "examUse": r.get("examUse", ""),
+                "domain": domain,
                 "source": it.get("source", ""),
             },
         )

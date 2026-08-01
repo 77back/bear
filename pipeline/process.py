@@ -41,7 +41,8 @@ SCHEMAS = {
     },
     "通稿": {
         "desc": "输出 JSON：{news:{prompt:消息写作任务(材料+要求300字), reference:参考范文要点}, "
-                "title:{prompt:拟标题任务, samples:[3个推荐标题]}, correct:{prompt:纠错任务, items:[{error,answer}]}}",
+                "title:{prompt:拟标题任务, samples:[3个推荐标题]}, correct:{prompt:纠错任务, items:[{error,answer}]}, "
+                "domain:领域标签（仅从给定清单选一个）}",
     },
     "人物": {
         "desc": "输出 JSON：{themes:[适用主题], deed:事迹摘要, usage:用法示范, domain:领域标签（仅从给定清单选一个）}",
@@ -155,9 +156,9 @@ def process_item(item: dict, llm: LLMClient) -> dict:
 
     system = f"你是新闻/申论教研助手。{NO_HALLUC}"
     user = f"原文：\n{body}\n\n按以下要求加工，{schema['desc']}。只输出 JSON。"
-    if cat in ("时评", "人物"):
+    if cat in ("时评", "人物", "通稿", "时政"):
         # 领域清单写死，防分类漂移
-        user += f"\ndomain 只能从以下领域清单中选一个：{'、'.join(common.DOMAINS)}；拿不准就选「其他」。"
+        user += f"\n领域标签只能从以下领域清单中选：{'、'.join(common.DOMAINS)}；拿不准就选「其他」。"
     try:
         raw = llm.complete(system, user)
         data = parse_json_safe(raw)
@@ -176,12 +177,21 @@ def sanitize(cat: str, data: dict, body: str) -> dict:
     if cat in ("时政", "国际"):
         pts = data.get("points", [])
         data["points"] = filter_points(pts, body)
+        if cat == "时政":
+            # 领域标签兜底到固定清单，去重保序
+            seen_d: set[str] = set()
+            data["domains"] = [
+                d for d in (common.normalize_domain(x) for x in data.get("domains", []))
+                if not (d in seen_d or seen_d.add(d))
+            ]
     if cat == "时评":
         data["quotes"] = verify_quotes(data.get("quotes", []), body)
         data["structure"] = [s for s in data.get("structure", []) if s]
         data["methods"] = [s for s in data.get("methods", []) if s]
         data["domain"] = common.normalize_domain(data.get("domain"))
         data["shenlun"] = _sanitize_shenlun(data.get("shenlun"), body)
+    if cat == "通稿":
+        data["domain"] = common.normalize_domain(data.get("domain"))
     if cat == "人物":
         # 事迹摘要至少与原文有重合，否则置空
         deed = data.get("deed", "")
@@ -238,6 +248,7 @@ def degrade(item: dict, cat: str) -> dict:
             "news": {"prompt": f"依据素材写 300 字消息", "reference": first_chars(body, 160)},
             "title": {"prompt": "为素材拟标题", "samples": []},
             "correct": {"prompt": "基于原文找出 3 处可设的错误点", "items": []},
+            "domain": "其他",
         }
     return out
 
