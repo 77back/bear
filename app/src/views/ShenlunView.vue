@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { useReviewStore } from '@/stores/review'
 import { useContentStore } from '@/stores/content'
 import { STAGE_LABEL } from '@/core/ebbinghaus'
+import { pickCaseRec } from '@/core/library'
 import type { ReviewStage } from '@/db'
 
 const router = useRouter()
@@ -29,6 +30,22 @@ const shenlun = computed(() => content.daily?.shenlun)
 const hasShenlun = computed(
   () => !!(shenlun.value && (shenlun.value.sentence || shenlun.value.title || shenlun.value.case))
 )
+
+// 每日案例推荐：当日包 cases 为空时从案例库兜底（按日期确定性轮换选 5 条）
+const archiveOffset = ref(0)
+const caseRec = computed(() =>
+  pickCaseRec(content.daily?.cases, content.archive, content.latest, archiveOffset.value)
+)
+const dailyCases = computed(() => (caseRec.value.mode === 'daily' ? caseRec.value.items : []))
+const archiveCases = computed(() => (caseRec.value.mode === 'archive' ? caseRec.value.items : []))
+// 换一批（两种模式统一入口）：当日包模式切换日期包；兜底模式步进 +5 轮换案例库
+const canNextBatch = computed(() =>
+  caseRec.value.mode === 'daily' ? content.dates.length > 1 : content.archive.length > 5
+)
+function nextBatch() {
+  if (caseRec.value.mode === 'daily') content.nextDaily()
+  else archiveOffset.value += 5
+}
 
 // 翻面状态：已翻开的复习卡 id 集合
 const revealed = ref<Set<number>>(new Set())
@@ -136,22 +153,37 @@ const stages = computed(() =>
       </div>
     </div>
 
-    <!-- 每日案例推荐 -->
-    <div class="card" v-if="content.daily?.cases?.length">
+    <!-- 每日案例推荐（当日包 cases 为空时从案例库兜底） -->
+    <div class="card" v-if="dailyCases.length || archiveCases.length">
       <div class="card-title">
         每日案例推荐
-        <span v-if="content.daily.cases[0].domain" class="tag sl" style="margin-left:4px">{{ content.daily.cases[0].domain }}</span>
-        <button v-if="content.dates.length > 1" class="more" @click="content.nextDaily()">换一批</button>
+        <span v-if="dailyCases.length && dailyCases[0].domain" class="tag sl" style="margin-left:4px">{{ dailyCases[0].domain }}</span>
+        <button v-if="canNextBatch" class="more" @click="nextBatch()">换一批</button>
       </div>
-      <div class="rec-title" style="margin-bottom:6px">{{ content.daily.cases[0].title }}</div>
-      <div class="rec-body">{{ content.daily.cases[0].summary }}</div>
-      <div style="font-size:12px;color:var(--text-3);margin-top:6px">
-        来源：<a v-if="content.daily.cases[0].url" :href="content.daily.cases[0].url" target="_blank" rel="noopener" style="color:var(--text-3)">{{ content.daily.cases[0].source }}</a><span v-else>{{ content.daily.cases[0].source }}</span>
-      </div>
-      <div class="rec-foot">
-        <span v-for="t in content.daily.cases[0].themes" :key="t" class="tag sl">{{ t }}</span>
-        <span style="margin-left:auto;font-size:12px;color:var(--brand);font-weight:600;cursor:pointer;padding:4px 0" @click="collectCase">＋ 收藏进素材库</span>
-      </div>
+      <template v-if="dailyCases.length">
+        <div class="rec-title" style="margin-bottom:6px">{{ dailyCases[0].title }}</div>
+        <div class="rec-body">{{ dailyCases[0].summary }}</div>
+        <div style="font-size:12px;color:var(--text-3);margin-top:6px">
+          来源：<a v-if="dailyCases[0].url" :href="dailyCases[0].url" target="_blank" rel="noopener" style="color:var(--text-3)">{{ dailyCases[0].source }}</a><span v-else>{{ dailyCases[0].source }}</span>
+        </div>
+        <div class="rec-foot">
+          <span v-for="t in dailyCases[0].themes" :key="t" class="tag sl">{{ t }}</span>
+          <span style="margin-left:auto;font-size:12px;color:var(--brand);font-weight:600;cursor:pointer;padding:4px 0" @click="collectCase">＋ 收藏进素材库</span>
+        </div>
+      </template>
+      <template v-else>
+        <div v-for="(c, i) in archiveCases" :key="c.id" :style="i > 0 ? 'border-top:1px solid var(--line);padding-top:10px;margin-top:10px' : ''">
+          <div class="rec-title" style="margin-bottom:6px">{{ c.title }}</div>
+          <div class="rec-body">{{ c.text }}</div>
+          <div style="font-size:12px;color:var(--text-3);margin-top:6px">
+            来源：<a v-if="c.url" :href="c.url" target="_blank" rel="noopener" style="color:var(--text-3)">{{ c.source }}</a><span v-else>{{ c.source }}</span>
+          </div>
+          <div class="rec-foot">
+            <span class="tag sl">{{ c.domain }}</span>
+            <span style="margin-left:auto;font-size:12px;color:var(--text-3)">来自案例库</span>
+          </div>
+        </div>
+      </template>
     </div>
 
     <!-- 文章结构推荐 -->

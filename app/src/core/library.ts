@@ -1,4 +1,4 @@
-import type { ArchiveCase, PinglunEntry } from '@/stores/content'
+import type { ArchiveCase, CaseItem, PinglunEntry } from '@/stores/content'
 
 /**
  * 案例库 / 评论库检索（纯函数，构建框架外的新增工具）。
@@ -52,4 +52,46 @@ export function filterPinglun(list: PinglunEntry[], f: PinglunFilter): PinglunEn
     if (f.domain && f.domain !== '全部领域' && !(p.domains || []).includes(f.domain)) return false
     return kwMatch(f.keyword ?? '', [p.title, p.structure, examUseText(p.examUse), p.source])
   })
+}
+
+/** 日期字符串 → 非负整数 hash（简单确定性：同一天结果不变，换一天换一批） */
+export function hashDate(date: string): number {
+  let h = 0
+  for (let i = 0; i < date.length; i++) h = (h * 31 + date.charCodeAt(i)) >>> 0
+  return h
+}
+
+/**
+ * 空包兜底：按日期确定性从案例库选 count 条（起始位置 = (hash(date)+offset) % length，环绕取条）。
+ * offset 由「换一批」步进累加，同一天刷新结果不变。
+ */
+export function fallbackCases(
+  archive: ArchiveCase[],
+  date: string,
+  offset = 0,
+  count = 5
+): ArchiveCase[] {
+  if (!archive.length) return []
+  const start = (hashDate(date) + offset) % archive.length
+  const out: ArchiveCase[] = []
+  for (let i = 0; i < Math.min(count, archive.length); i++) {
+    out.push(archive[(start + i) % archive.length])
+  }
+  return out
+}
+
+/** 每日案例推荐结果：当日包有 cases 用当日包，否则走案例库兜底 */
+export type CaseRec =
+  | { mode: 'daily'; items: CaseItem[] }
+  | { mode: 'archive'; items: ArchiveCase[] }
+
+export function pickCaseRec(
+  daily: CaseItem[] | null | undefined,
+  archive: ArchiveCase[],
+  date: string,
+  offset = 0,
+  count = 5
+): CaseRec {
+  if (daily && daily.length) return { mode: 'daily', items: daily }
+  return { mode: 'archive', items: fallbackCases(archive, date, offset, count) }
 }

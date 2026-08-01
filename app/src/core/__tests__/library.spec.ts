@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { kwMatch, monthsOf, filterCases, filterPinglun } from '@/core/library'
-import type { ArchiveCase, PinglunEntry } from '@/stores/content'
+import { kwMatch, monthsOf, filterCases, filterPinglun, hashDate, fallbackCases, pickCaseRec } from '@/core/library'
+import type { ArchiveCase, CaseItem, PinglunEntry } from '@/stores/content'
 
 const cases: ArchiveCase[] = [
   { id: '1', date: '2026-07-02', domain: '经济发展', title: '深圳前海改革', text: '制度创新案例', source: '新华社' },
@@ -77,5 +77,83 @@ describe('filterPinglun', () => {
   })
   it('"全部领域"等同不限', () => {
     expect(filterPinglun(pinglun, { domain: '全部领域' })).toHaveLength(3)
+  })
+})
+
+const bigArchive: ArchiveCase[] = Array.from({ length: 12 }, (_, i) => ({
+  id: `c${i}`,
+  date: `2026-07-${String(i + 1).padStart(2, '0')}`,
+  domain: '经济发展',
+  title: `案例${i}`,
+  text: `正文${i}`,
+  source: '新华社'
+}))
+
+describe('hashDate', () => {
+  it('同一日期结果相同（确定性）', () => {
+    expect(hashDate('2026-08-01')).toBe(hashDate('2026-08-01'))
+  })
+  it('返回非负整数', () => {
+    for (const d of ['', '2026-08-01', '2026-12-31', 'abc']) {
+      const h = hashDate(d)
+      expect(Number.isInteger(h)).toBe(true)
+      expect(h).toBeGreaterThanOrEqual(0)
+    }
+  })
+})
+
+describe('fallbackCases（空包兜底）', () => {
+  it('同一天刷新结果不变', () => {
+    const a = fallbackCases(bigArchive, '2026-08-01')
+    const b = fallbackCases(bigArchive, '2026-08-01')
+    expect(a.map((c) => c.id)).toEqual(b.map((c) => c.id))
+    expect(a).toHaveLength(5)
+  })
+  it('换一天自动换一批（起始位置随日期 hash 变化）', () => {
+    const starts = new Set(
+      ['2026-08-01', '2026-08-02', '2026-08-03', '2026-08-04'].map(
+        (d) => fallbackCases(bigArchive, d)[0].id
+      )
+    )
+    expect(starts.size).toBeGreaterThan(1)
+  })
+  it('换一批：offset 步进 +5 轮换，环绕取模', () => {
+    const first = fallbackCases(bigArchive, '2026-08-01', 0)
+    const second = fallbackCases(bigArchive, '2026-08-01', 5)
+    const start = (hashDate('2026-08-01') + 0) % bigArchive.length
+    expect(second[0].id).toBe(bigArchive[(start + 5) % bigArchive.length].id)
+    // 两组不重叠（库大于 10 条时）
+    expect(second.map((c) => c.id).some((id) => first.map((c) => c.id).includes(id))).toBe(false)
+  })
+  it('库为空返回空；库不足 5 条时全部返回', () => {
+    expect(fallbackCases([], '2026-08-01')).toEqual([])
+    expect(fallbackCases(cases, '2026-08-01')).toHaveLength(3)
+  })
+})
+
+describe('pickCaseRec（两种模式统一入口）', () => {
+  const dailyCases: CaseItem[] = [
+    { title: '当日案例', summary: '摘要', themes: ['经济'], usage: '用法', source: '人民日报' }
+  ]
+  it('当日包有 cases 时不走兜底', () => {
+    const r = pickCaseRec(dailyCases, bigArchive, '2026-08-01')
+    expect(r.mode).toBe('daily')
+    expect(r.items).toBe(dailyCases)
+  })
+  it('cases 为空/缺失时走案例库兜底', () => {
+    for (const empty of [[], null, undefined] as (CaseItem[] | null | undefined)[]) {
+      const r = pickCaseRec(empty, bigArchive, '2026-08-01')
+      expect(r.mode).toBe('archive')
+      expect(r.items).toHaveLength(5)
+    }
+  })
+  it('兜底模式下 offset 步进换一批', () => {
+    const a = pickCaseRec([], bigArchive, '2026-08-01', 0)
+    const b = pickCaseRec([], bigArchive, '2026-08-01', 5)
+    expect(a.mode).toBe('archive')
+    expect(b.mode).toBe('archive')
+    if (a.mode === 'archive' && b.mode === 'archive') {
+      expect(a.items[0].id).not.toBe(b.items[0].id)
+    }
   })
 })
