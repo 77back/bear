@@ -77,7 +77,7 @@ export interface PinglunEntry {
   month: string
   domains: string[]
   structure: string
-  examUse: string
+  examUse: string | string[] // 管线产出两种形态都有
   source?: string
 }
 export interface PinglunDetail {
@@ -99,6 +99,7 @@ async function fetchJson<T>(url: string): Promise<T> {
 
 export const useContentStore = defineStore('content', () => {
   const latest = ref('')
+  const dates = ref<string[]>([])
   const daily = ref<DailyPackage | null>(null)
   const loading = ref(false)
   const error = ref('')
@@ -145,6 +146,7 @@ export const useContentStore = defineStore('content', () => {
     try {
       const idx = await fetchJson<ContentIndex>(`${BASE}content/index.json`)
       latest.value = idx.latest
+      dates.value = idx.dates
       // 先取最新；失败则按 dates 回退到最近可用
       const pkg = (await fetchDaily(idx.latest)) ?? await fallback(idx.dates)
       daily.value = pkg
@@ -165,14 +167,28 @@ export const useContentStore = defineStore('content', () => {
     return null
   }
 
+  /** 换一批：在 index.dates 中循环切换到下一个日期的内容包 */
+  async function nextDaily(): Promise<void> {
+    if (dates.value.length < 2) return
+    const i = dates.value.indexOf(latest.value)
+    const next = dates.value[(i + 1) % dates.value.length]
+    const pkg = await fetchDaily(next)
+    if (pkg) {
+      daily.value = pkg
+      latest.value = pkg.date
+    }
+  }
+
   return {
     latest,
+    dates,
     daily,
     loading,
     error,
     shizheng,
     pinglunIndex,
     load,
+    nextDaily,
     loadShizheng,
     loadPinglunIndex,
     loadPinglunDetail

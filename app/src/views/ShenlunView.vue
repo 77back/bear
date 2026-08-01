@@ -114,7 +114,7 @@ const stages = computed(() =>
 
     <!-- 每日案例推荐 -->
     <div class="card" v-if="content.daily?.cases?.length">
-      <div class="card-title">每日案例推荐 <button class="more" @click="content.load()">换一批</button></div>
+      <div class="card-title">每日案例推荐 <button v-if="content.dates.length > 1" class="more" @click="content.nextDaily()">换一批</button></div>
       <div class="rec-title" style="margin-bottom:6px">{{ content.daily.cases[0].title }}</div>
       <div class="rec-body">{{ content.daily.cases[0].summary }}</div>
       <div style="font-size:12px;color:var(--text-3);margin-top:6px">

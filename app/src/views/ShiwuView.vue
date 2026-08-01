@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useContentStore } from '@/stores/content'
+import { useContentStore, type PinglunEntry, type PinglunDetail } from '@/stores/content'
 import { usePracticeStore } from '@/stores/practice'
 import { getSetting } from '@/db/seed'
 import { shizhengPriority } from '@/core/recommend'
@@ -9,15 +9,7 @@ import { shizhengPriority } from '@/core/recommend'
 const router = useRouter()
 const content = useContentStore()
 const practice = usePracticeStore()
-const toast = ref('')
-let toastTimer: ReturnType<typeof setTimeout> | undefined
 const examDate = ref('2026-11-27')
-
-function showToast(msg: string) {
-  toast.value = msg
-  clearTimeout(toastTimer)
-  toastTimer = setTimeout(() => (toast.value = ''), 2400)
-}
 
 onMounted(async () => {
   examDate.value = await getSetting('examDate', '2026-11-27')
@@ -47,6 +39,31 @@ const filteredPinglun = computed(() => {
 function toPractice(qtype: string) {
   router.push({ path: '/sw/practice', query: { qtype } })
 }
+
+/** 平滑滚动到页内区块 */
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
+
+// 评论库行内展开：url 在详情包里，展开时按需拉取并缓存
+const expandedId = ref<string | null>(null)
+const pinglunDetails = ref<Record<string, PinglunDetail | null>>({})
+
+async function togglePinglun(p: PinglunEntry) {
+  if (expandedId.value === p.id) {
+    expandedId.value = null
+    return
+  }
+  expandedId.value = p.id
+  if (!(p.id in pinglunDetails.value)) {
+    pinglunDetails.value[p.id] = await content.loadPinglunDetail(p.month, p.id)
+  }
+}
+
+/** examUse 兼容字符串/数组两种产出形态 */
+function fmtExamUse(v: PinglunEntry['examUse']): string {
+  return Array.isArray(v) ? v.join('；') : v
+}
 </script>
 
 <template>
@@ -56,12 +73,12 @@ function toPractice(qtype: string) {
 
     <!-- 四板块入口 -->
     <div class="grid4">
-      <div class="grid-item" @click="showToast('时政政策解读：见下方月度统计')">
+      <div v-if="content.shizheng" class="grid-item" @click="scrollTo('shizheng')">
         <div class="gicon" style="background:#F9E7DD;color:var(--sw)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
         <div class="gname">时政政策解读</div>
         <div class="gdesc">月度时政统计 + 专业理论解读</div>
       </div>
-      <div class="grid-item" @click="showToast(content.daily?.guoji?.length ? '国际新闻解读' : '国际解读待内容管线')">
+      <div v-if="content.daily?.guoji?.length" class="grid-item" @click="scrollTo('guoji')">
         <div class="gicon" style="background:#E7F0F0;color:var(--xc)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
         <div class="gname">国际新闻解读</div>
         <div class="gdesc">重点国外新闻 + 专业视角拆解</div>
@@ -71,7 +88,7 @@ function toPractice(qtype: string) {
         <div class="gname">实务每日练习</div>
         <div class="gdesc">消息 / 评论 / 采访策划</div>
       </div>
-      <div class="grid-item" @click="$el?.querySelector('#pinglun')?.scrollIntoView({behavior:'smooth'})">
+      <div class="grid-item" @click="scrollTo('pinglun')">
         <div class="gicon" style="background:#E4EFEA;color:var(--brand)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.6 8.6 0 01-3.8-.9L3 21l2-5.2a8.4 8.4 0 117-4.3 8.4 8.4 0 019 0z"/></svg></div>
         <div class="gname">评论案例库</div>
         <div class="gdesc">按月归档 · 按领域检索</div>
@@ -101,7 +118,7 @@ function toPractice(qtype: string) {
     </div>
 
     <!-- 时政月统计 -->
-    <div v-if="content.shizheng" class="card" :class="{ 'rec-card': prioritizeShizheng }" :style="prioritizeShizheng ? 'border-left-color:var(--sw)' : ''">
+    <div v-if="content.shizheng" id="shizheng" class="card" :class="{ 'rec-card': prioritizeShizheng }" :style="prioritizeShizheng ? 'border-left-color:var(--sw)' : ''">
       <div class="card-title">
         {{ content.shizheng.month }} 时政知识点
         <span v-if="prioritizeShizheng" class="tag sw" style="margin-left:auto">距考&lt;30天 · 置顶</span>
@@ -116,7 +133,7 @@ function toPractice(qtype: string) {
     </div>
 
     <!-- 国际新闻解读 -->
-    <div v-if="content.daily?.guoji?.length" class="card">
+    <div v-if="content.daily?.guoji?.length" id="guoji" class="card">
       <div class="card-title">国际新闻解读</div>
       <div v-for="(g, i) in content.daily.guoji" :key="i">
         <div class="rec-title" style="font-size:14px">{{ g.title }}</div>
@@ -140,16 +157,22 @@ function toPractice(qtype: string) {
       <div class="chip-row">
         <button v-for="f in fields" :key="f" class="chip" :class="{ on: selField === f }" @click="selField = f">{{ f }}</button>
       </div>
-      <div v-for="p in filteredPinglun" :key="p.id" class="case-row" @click="showToast(p.structure || p.examUse || '查看详情')">
+      <div v-for="p in filteredPinglun" :key="p.id" class="case-row" @click="togglePinglun(p)">
         <span class="case-dot"></span>
-        <div>
+        <div style="flex:1">
           <div class="case-title">{{ p.title }}</div>
           <div class="case-meta">{{ p.month }}{{ p.source ? ' · ' + p.source : '' }} · {{ p.structure || '论点结构' }}</div>
+          <div v-if="expandedId === p.id" style="margin-top:8px;border-top:1px solid var(--line);padding-top:8px">
+            <div v-if="p.structure" class="rec-body">结构：{{ p.structure }}</div>
+            <div v-if="fmtExamUse(p.examUse)" style="font-size:12px;color:#A34E24;margin-top:6px">考用：{{ fmtExamUse(p.examUse) }}</div>
+            <div style="font-size:12px;color:var(--text-3);margin-top:6px">
+              来源：{{ p.source || '—' }}
+              <a v-if="pinglunDetails[p.id]?.url" :href="pinglunDetails[p.id]!.url" target="_blank" rel="noopener" style="color:var(--brand);margin-left:8px" @click.stop>查看原文</a>
+            </div>
+          </div>
         </div>
       </div>
       <div v-if="filteredPinglun.length === 0" style="font-size:12px;color:var(--text-3)">评论库暂无内容</div>
     </div>
-
-    <div class="toast" :class="{ show: toast }">{{ toast }}</div>
   </div>
 </template>

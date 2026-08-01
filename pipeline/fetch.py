@@ -44,10 +44,27 @@ def _client() -> httpx.Client:
     return httpx.Client(headers={"User-Agent": UA}, timeout=TIMEOUT, follow_redirects=True)
 
 
+RETRY_TIMES = 2  # 网络层错误（超时/连接失败）最多重试 2 次
+
+
+def _get(client: httpx.Client, url: str) -> httpx.Response:
+    """带有限重试的 GET：仅对网络层错误（超时/连接失败）重试，HTTP 状态码错误不重试。"""
+    last: httpx.TransportError | None = None
+    for attempt in range(RETRY_TIMES + 1):
+        try:
+            return client.get(url)
+        except httpx.TransportError as e:
+            last = e
+            if attempt < RETRY_TIMES:
+                warn(f"请求失败，{attempt + 1}/{RETRY_TIMES} 次重试({url[:60]}): {e}")
+                time.sleep(1 + attempt)
+    raise last  # type: ignore[misc]
+
+
 # ---------- RSS 抓取 ----------
 def fetch_rss(source: dict, client: httpx.Client) -> list[dict]:
     url = source["url"]
-    resp = client.get(url)
+    resp = _get(client, url)
     resp.raise_for_status()
     parsed = feedparser.parse(resp.content)
     items: list[dict] = []
@@ -88,7 +105,7 @@ _P_RE = re.compile(r"<(p|article)[^>]*>(.*?)</\1>", re.I | re.S)
 
 def fetch_page(source: dict, client: httpx.Client) -> list[dict]:
     url = source["url"]
-    resp = client.get(url)
+    resp = _get(client, url)
     resp.raise_for_status()
     html = resp.text
     # 标题
@@ -175,7 +192,7 @@ def fetch_list(source: dict, client: httpx.Client) -> list[dict]:
     抓到 limit 篇即停，最多尝试 limit*3 个候选链接。
     """
     url = source["url"]
-    resp = client.get(url)
+    resp = _get(client, url)
     resp.raise_for_status()
     candidates = _list_entries(source, resp.text, url)
     if not candidates:
@@ -189,7 +206,7 @@ def fetch_list(source: dict, client: httpx.Client) -> list[dict]:
             break
         _polite_sleep()
         try:
-            r = client.get(link)
+            r = _get(client, link)
             r.raise_for_status()
             body = _article_body(r.text)
             if len(body) < _MIN_BODY:

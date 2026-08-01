@@ -3,21 +3,21 @@ import { onMounted, computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import type { EChartsOption } from 'echarts'
 import { useStatsStore } from '@/stores/stats'
+import { todayStr, addDays } from '@/db'
 import EChart from '@/components/EChart.vue'
 
 // 行测统计分析（二级页）：原行测主页的统计内容整体迁移至此，ECharts 仅在本页懒加载
 const router = useRouter()
 const store = useStatsStore()
-const toast = ref('')
-let toastTimer: ReturnType<typeof setTimeout> | undefined
-
-function showToast(msg: string) {
-  toast.value = msg
-  clearTimeout(toastTimer)
-  toastTimer = setTimeout(() => (toast.value = ''), 2400)
-}
 
 onMounted(() => store.load())
+
+// 「详情」行内展开：本周（近 7 天，与周目标同口径）刷题明细
+const showWeekDetail = ref(false)
+const weekLogs = computed(() => {
+  const from = todayStr(addDays(new Date(), -6))
+  return store.logs.filter((l) => l.date >= from).sort((a, b) => b.date.localeCompare(a.date))
+})
 
 const RING_R = 40
 const RING_C = 2 * Math.PI * RING_R
@@ -72,7 +72,7 @@ function pct(r: number) {
     <div class="card">
       <div class="card-title">
         本周目标
-        <button class="more" @click="showToast(`本周已刷 ${store.weekDone} / ${store.weeklyGoal} 题`)">详情</button>
+        <button class="more" @click="showWeekDetail = !showWeekDetail">详情</button>
       </div>
       <div class="ring-wrap">
         <div class="ring">
@@ -96,6 +96,14 @@ function pct(r: number) {
             <span style="color:var(--brand);font-weight:600" @click="router.push('/xc/quiz')">＋ 录入今日刷题</span>
           </div>
         </div>
+      </div>
+      <div v-if="showWeekDetail" style="margin-top:10px;border-top:1px solid var(--line);padding-top:10px">
+        <div v-for="(l, i) in weekLogs" :key="l.id ?? i" class="stat-line">
+          <span class="stat-name">{{ l.date.slice(5) }}</span>
+          <span style="flex:1">{{ l.module }}</span>
+          <span class="stat-val">{{ l.correct }}/{{ l.total }} · {{ l.total ? pct(l.correct / l.total) : '—' }}</span>
+        </div>
+        <div v-if="weekLogs.length === 0" style="font-size:12px;color:var(--text-3)">本周暂无刷题记录</div>
       </div>
     </div>
 
@@ -141,16 +149,8 @@ function pct(r: number) {
     <div class="card">
       <div class="card-title">下周任务建议</div>
       <div class="advice">{{ store.advice }}</div>
-      <button
-        class="btn btn-soft"
-        style="margin-top:12px"
-        :disabled="!hasData"
-        @click="showToast('已采纳建议，下周计划已更新')"
-      >采纳建议，更新下周计划</button>
     </div>
 
     <button class="btn btn-soft" style="margin-bottom:12px" @click="router.push('/xc')">返回行测</button>
-
-    <div class="toast" :class="{ show: toast }">{{ toast }}</div>
   </div>
 </template>

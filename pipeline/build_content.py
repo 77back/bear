@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -52,6 +53,42 @@ def _write_json(p: Path, data) -> None:
 
 def _pid(title: str) -> str:
     return hashlib.sha1(title.encode("utf-8")).hexdigest()[:12]
+
+
+# ---------- 每日包质量门槛 ----------
+# CI 夜间抓取不稳定时会产出稀疏包（cases=0、guoji=0、article 空），
+# 不得覆盖当日已有的丰富包（历史教训：10266B 好包被 5273B 瘦包覆盖）。
+
+SPARSE_BYTE_RATIO = 0.7  # 新包字节数不足旧包 70% 视为明显更瘦
+
+
+def _daily_richness(daily: dict) -> dict:
+    """丰富度指标：非空板块数（案例/国际/文章/实务素材/结构）+ 包字节数。"""
+    sections = sum(
+        1
+        for x in (
+            daily.get("cases") or [],
+            daily.get("guoji") or [],
+            daily.get("article") or {},
+            (daily.get("shiwu") or {}).get("material") or {},
+            daily.get("structure") or {},
+        )
+        if x
+    )
+    size = len(json.dumps(daily, ensure_ascii=False).encode("utf-8"))
+    return {"sections": sections, "bytes": size}
+
+
+def should_write_daily(new: dict, old: dict | None) -> tuple[bool, str]:
+    """质量门槛判定：新包明显更瘦时拒绝覆盖。返回 (是否写盘, 原因)。"""
+    if old is None:
+        return True, "无旧包，正常写入"
+    n, o = _daily_richness(new), _daily_richness(old)
+    if n["sections"] < o["sections"]:
+        return False, f"非空板块数变少（{n['sections']} < 旧包 {o['sections']}）"
+    if n["bytes"] < o["bytes"] * SPARSE_BYTE_RATIO:
+        return False, f"包字节数不足旧包 {SPARSE_BYTE_RATIO:.0%}（{n['bytes']} < 旧包 {o['bytes']}）"
+    return True, f"丰富度不劣于旧包（板块 {n['sections']}/{o['sections']}，字节 {n['bytes']}/{o['bytes']}）"
 
 
 def build_daily(proc_items: list[dict], date_str: str) -> dict:
@@ -223,7 +260,16 @@ def run(date_str: str | None = None) -> Path:
 
     daily = build_daily(items, date_str)
     daily_path = CONTENT / "daily" / f"{date_str}.json"
-    _write_json(daily_path, daily)
+    # 质量门槛：稀疏新包不得覆盖当日已有的丰富旧包
+    old_daily = _read_json(daily_path, None)
+    if not isinstance(old_daily, dict):  # 旧文件损坏/非对象 → 当作无历史
+        old_daily = None
+    ok, reason = should_write_daily(daily, old_daily)
+    if ok:
+        _write_json(daily_path, daily)
+        print(f"[build] daily→{daily_path}（{reason}）")
+    else:
+        print(f"[build][WARN] 拒绝覆盖：{reason}；保留旧包 {daily_path}", file=sys.stderr)
 
     shizheng = build_shizheng_monthly(items, month)
     _write_json(CONTENT / "shizheng" / f"{month}.json", shizheng)
@@ -231,7 +277,7 @@ def run(date_str: str | None = None) -> Path:
     build_pinglun(items, month)
     update_latest_index(date_str)
 
-    print(f"[build] daily→{daily_path}；时政月统计/评论库已更新")
+    print("[build] 时政月统计/评论库已更新")
     return daily_path
 
 

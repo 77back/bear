@@ -76,4 +76,37 @@ describe('content store（阶段3 读取当日包）', () => {
     expect(c.daily).toBeNull()
     expect(c.error).not.toBe('')
   })
+
+  it('nextDaily：在 dates 中循环切换内容包（换一批）', async () => {
+    const PKG2: DailyPackage = {
+      ...PKG,
+      date: '2026-07-30',
+      cases: [{ title: '乙案例', summary: '另一则', themes: [], usage: '', source: '人民日报' }]
+    }
+    mockFetch({
+      'content/index.json': { latest: '2026-07-30', dates: ['2026-07-30', '2026-07-29'] },
+      'content/daily/2026-07-30.json': PKG2,
+      'content/daily/2026-07-29.json': PKG
+    })
+    const c = useContentStore()
+    await c.load()
+    expect(c.daily?.date).toBe('2026-07-30')
+    await c.nextDaily()
+    expect(c.daily?.date).toBe('2026-07-29')
+    expect(c.daily?.cases[0].title).toBe('林丹')
+    await c.nextDaily() // 循环回最新
+    expect(c.daily?.date).toBe('2026-07-30')
+    expect(c.daily?.cases[0].title).toBe('乙案例')
+  })
+
+  it('nextDaily：仅一个日期可用时无操作', async () => {
+    mockFetch({
+      'content/index.json': { latest: '2026-07-29', dates: ['2026-07-29'] },
+      'content/daily/2026-07-29.json': PKG
+    })
+    const c = useContentStore()
+    await c.load()
+    await c.nextDaily()
+    expect(c.daily?.date).toBe('2026-07-29')
+  })
 })
