@@ -36,6 +36,9 @@ SCHEMAS = {
     "时评": {
         "desc": "输出 JSON：{structure:[论点分步], methods:[论证手法], quotes:[金句，必须原文逐字摘录], examUse:适用考题方向, "
                 "domain:领域标签（仅从给定清单选一个）, "
+                "outline:[4~7段逐段结构拆解，按原文顺序，每项 "
+                "{role:该段在文中的作用（如「引论·现象切入」「分论点·政策维度」「结尾·升华」，形式自由）, "
+                "gist:该段大意（一两句话，须基于原文，≤120字）}], "
                 "shenlun:{sentence:一个最适合申论摘抄的好句子（原文逐字摘录）, "
                 "title:一个值得仿写的好标题, case:一个可用于申论论证的文中事例（≤100字）}}",
     },
@@ -190,6 +193,7 @@ def sanitize(cat: str, data: dict, body: str) -> dict:
         data["methods"] = [s for s in data.get("methods", []) if s]
         data["domain"] = common.normalize_domain(data.get("domain"))
         data["shenlun"] = _sanitize_shenlun(data.get("shenlun"), body)
+        data["outline"] = _sanitize_outline(data.get("outline"), body)
     if cat == "通稿":
         data["domain"] = common.normalize_domain(data.get("domain"))
     if cat == "人物":
@@ -222,6 +226,25 @@ def _sanitize_shenlun(sl, body: str) -> dict:
     return out
 
 
+def _sanitize_outline(outline, body: str) -> list[dict]:
+    """逐段结构拆解防幻觉：role/gist 非空、gist ≤120 字、gist 与原文有重合（沿用要点 3-gram 轻校验）。
+    不合格项剔除；全部不合格 → 空数组。"""
+    if not isinstance(outline, list):
+        return []
+    out = []
+    for seg in outline:
+        if not isinstance(seg, dict):
+            continue
+        role = str(seg.get("role") or "").strip()
+        gist = str(seg.get("gist") or "").strip()
+        if not role or not gist or len(gist) > 120:
+            continue
+        if not filter_points([gist], body):  # gist 与原文零重合 → 疑似编造
+            continue
+        out.append({"role": role, "gist": gist})
+    return out
+
+
 def degrade(item: dict, cat: str) -> dict:
     """降级：仅原文摘录 + 启发式结构，绝不编造。"""
     body = item["body"]
@@ -239,8 +262,8 @@ def degrade(item: dict, cat: str) -> dict:
     if cat in ("时政", "国际"):
         out["result"] = {"points": sents, "domains": [], "angles": [], "reading": ""}
     elif cat == "时评":
-        # 降级：无三件套（shenlun 省略 → 每日包为空对象），domain 归「其他」
-        out["result"] = {"structure": sents[:3], "methods": [], "quotes": [], "examUse": "", "domain": "其他"}
+        # 降级：无三件套（shenlun 省略 → 每日包为空对象），outline 为空，domain 归「其他」
+        out["result"] = {"structure": sents[:3], "methods": [], "quotes": [], "examUse": "", "domain": "其他", "outline": []}
     elif cat == "人物":
         out["result"] = {"themes": [], "deed": first_chars(body, 120), "usage": "", "domain": "其他"}
     elif cat == "通稿":

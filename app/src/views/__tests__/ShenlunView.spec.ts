@@ -84,3 +84,73 @@ describe('ShenlunView 每日三件套（显隐逻辑）', () => {
     expect(wrapper.text()).not.toContain('每日三件套')
   })
 })
+
+describe('ShenlunView 每日一文（结构拆解绑定真实文章）', () => {
+  it('article 为空 → 不渲染任何结构卡（通用模板已移除），页面其余卡片兜底', async () => {
+    mockDaily({ ...PKG_BASE, article: { title: '', url: '', structure: [], quotes: [], source: '' } })
+    const wrapper = mount(ShenlunView, { global: { plugins: [makeRouter()] } })
+    await settle()
+
+    const text = wrapper.text()
+    expect(text).not.toContain('每日一文')
+    expect(text).not.toContain('文章结构推荐')
+    expect(text).not.toContain('五段三分式') // 通用模板不再展示
+    expect(text).toContain('每日案例推荐') // 其余卡片仍在，页面不空
+  })
+
+  it('有 article + outline → 渲染标题、领域、来源、查看原文与逐段 role/gist', async () => {
+    mockDaily({
+      ...PKG_BASE,
+      article: {
+        title: '把群众小事当成大事来办',
+        url: 'https://example.com/a1',
+        structure: [],
+        outline: [
+          { role: '引论·现象切入', gist: '从社区小事切入，引出基层治理主题' },
+          { role: '分论点·政策维度', gist: '政策供给要精准对接群众需求' },
+          { role: '结尾·升华', gist: '把小事办成大事，彰显治理温度' }
+        ],
+        quotes: ['民生无小事'],
+        domain: '基层治理',
+        source: '人民日报'
+      }
+    })
+    const wrapper = mount(ShenlunView, { global: { plugins: [makeRouter()] } })
+    await settle()
+
+    const text = wrapper.text()
+    expect(text).toContain('每日一文')
+    expect(text).toContain('把群众小事当成大事来办')
+    expect(text).toContain('基层治理')
+    expect(text).toContain('人民日报')
+    expect(text).toContain('查看原文')
+    expect(text).toContain('引论·现象切入')
+    expect(text).toContain('从社区小事切入，引出基层治理主题')
+    expect(text).toContain('分论点·政策维度')
+    expect(text).toContain('结尾·升华')
+    expect(text).toContain('收藏进素材库')
+    expect(text).not.toContain('文章结构推荐')
+
+    const link = wrapper.find('a[href="https://example.com/a1"]')
+    expect(link.exists()).toBe(true)
+    expect(link.attributes('target')).toBe('_blank')
+  })
+
+  it('outline 为空（旧包/降级）→ 卡片仍显示标题来源，但不渲染逐段列表', async () => {
+    mockDaily({
+      ...PKG_BASE,
+      article: { title: '算法不能算计', url: '', structure: [], quotes: [], domain: '科技创新', source: '新华社' }
+    })
+    const wrapper = mount(ShenlunView, { global: { plugins: [makeRouter()] } })
+    await settle()
+
+    const text = wrapper.text()
+    expect(text).toContain('每日一文')
+    expect(text).toContain('算法不能算计')
+    expect(text).toContain('科技创新')
+    expect(text).toContain('新华社')
+    expect(text).not.toContain('查看原文') // 无 url → 链接不渲染
+    expect(text).not.toContain('引论')
+    expect(text).toContain('收藏进素材库')
+  })
+})

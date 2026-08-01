@@ -18,10 +18,15 @@ export interface CaseItem {
   source: string
   url?: string
 }
+export interface ArticleOutlineSeg {
+  role: string // 该段在文中的作用（如「引论·现象切入」，形式自由）
+  gist: string // 该段大意（≤120 字，管线已校验基于原文）
+}
 export interface ArticleItem {
   title: string
   url: string
   structure: string[]
+  outline?: ArticleOutlineSeg[] // 逐段结构拆解（旧内容包可能没有）
   quotes: string[]
   domain?: string
   source: string

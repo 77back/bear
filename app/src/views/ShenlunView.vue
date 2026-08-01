@@ -186,34 +186,23 @@ const stages = computed(() =>
       </template>
     </div>
 
-    <!-- 文章结构推荐 -->
-    <div class="card" v-if="content.daily?.structure">
-      <div class="card-title">文章结构推荐</div>
-      <div style="font-size:14px;font-weight:600;margin-bottom:4px">{{ content.daily.structure.name }}</div>
-      <div class="structure">
-        <template v-for="(n, i) in content.daily.structure.nodes" :key="i">
-          <span class="node">{{ n }}</span>
-          <span v-if="i < content.daily.structure.nodes.length - 1" class="arrow">→</span>
-        </template>
-      </div>
-      <div class="rec-body">{{ content.daily.structure.fragment }}</div>
-    </div>
-
-    <!-- 每日文章推荐 -->
+    <!-- 每日一文（真实时评 + 逐段结构拆解；article 为空时整卡不渲染） -->
     <div class="card" v-if="content.daily?.article?.title">
       <div class="card-title">
-        每日文章推荐
+        每日一文
         <span v-if="content.daily.article.domain" class="tag sl" style="margin-left:auto">{{ content.daily.article.domain }}</span>
       </div>
-      <div class="article-card">
-        <div class="article-cover">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4a2 2 0 00-2-2H6.5A2.5 2.5 0 004 4.5v15z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"/></svg>
-        </div>
-        <div class="article-info">
-          <div class="article-title">{{ content.daily.article.title }}</div>
-          <div class="article-meta"><a v-if="content.daily.article.url" :href="content.daily.article.url" target="_blank" rel="noopener" style="color:inherit">{{ content.daily.article.source }}</a><span v-else>{{ content.daily.article.source }}</span><br />金句：{{ content.daily.article.quotes[0] || '—' }}</div>
-        </div>
+      <div class="rec-title" style="margin-bottom:6px">{{ content.daily.article.title }}</div>
+      <div style="font-size:12px;color:var(--text-3);margin-bottom:8px">
+        来源：{{ content.daily.article.source }}
+        <a v-if="content.daily.article.url" :href="content.daily.article.url" target="_blank" rel="noopener" style="color:var(--brand);font-weight:600;margin-left:8px">查看原文 →</a>
       </div>
+      <template v-if="content.daily.article.outline?.length">
+        <div v-for="(seg, i) in content.daily.article.outline" :key="i" style="display:flex;gap:8px;padding:7px 0;align-items:flex-start">
+          <span class="tag sl" style="flex-shrink:0;margin-top:2px">{{ seg.role }}</span>
+          <span style="font-size:14px;line-height:1.7">{{ seg.gist }}</span>
+        </div>
+      </template>
       <button class="btn btn-soft" style="margin-top:12px;background:#F7EFD8;color:#9A7B1A" @click="collectArticle">收藏进素材库</button>
     </div>
 

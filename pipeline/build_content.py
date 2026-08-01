@@ -122,6 +122,7 @@ def build_daily(proc_items: list[dict], date_str: str) -> dict:
             "title": it["title"],
             "url": it.get("link", ""),
             "structure": r.get("structure", []),
+            "outline": r.get("outline", []),
             "quotes": r.get("quotes", []),
             "domain": common.normalize_domain(r.get("domain")),
             "source": it.get("source", ""),

@@ -286,3 +286,83 @@ def test_archive_append_dedup_accumulate(tmp_path, monkeypatch):
     assert [x["title"] for x in data] == ["案例A", "案例B", "案例C"]
     assert data[2]["date"] == "2026-07-30"
     assert data[2]["domain"] == "科技创新"
+
+
+# ---------- 时评：逐段结构拆解 outline ----------
+def test_sanitize_outline_keeps_valid():
+    data = {
+        "structure": [], "methods": [], "quotes": [],
+        "outline": [
+            {"role": "引论·现象切入", "gist": "返乡青年王磊带领村民种植猕猴桃，人均年收入翻了一番"},
+            {"role": "结尾·升华", "gist": "基层治理要把群众小事当成大事来办"},
+        ],
+    }
+    out = process.sanitize("时评", data, BODY2)
+    assert [s["role"] for s in out["outline"]] == ["引论·现象切入", "结尾·升华"]
+    assert out["outline"][0]["gist"].startswith("返乡青年王磊")
+
+
+def test_sanitize_outline_drops_bad_items():
+    data = {
+        "outline": [
+            {"role": "", "gist": "王磊返乡种猕猴桃"},  # role 空 → 丢
+            {"role": "引论", "gist": ""},  # gist 空 → 丢
+            {"role": "引论", "gist": "王磊返乡种猕猴桃，" + "乡亲" * 100},  # gist 超 120 字 → 丢
+            {"role": "分论点", "gist": "马斯克宣布火星移民计划取得重大突破性进展"},  # 与原文零重合 → 丢
+            {"role": "结尾", "gist": "民生无小事，枝叶总关情"},  # 合规 → 保留
+            "不是对象",  # 非 dict → 丢
+        ]
+    }
+    out = process.sanitize("时评", data, BODY2)
+    assert out["outline"] == [{"role": "结尾", "gist": "民生无小事，枝叶总关情"}]
+
+
+def test_sanitize_outline_all_bad_falls_back_empty():
+    data = {"outline": [{"role": "引论", "gist": "纯属编造与原文毫无干系的段落大意"}]}
+    out = process.sanitize("时评", data, BODY2)
+    assert out["outline"] == []
+    # 非列表输入同样降级为空数组，不崩溃
+    assert process.sanitize("时评", {"outline": None}, BODY2)["outline"] == []
+    assert process.sanitize("时评", {}, BODY2)["outline"] == []
+
+
+def test_degrade_shiping_outline_empty():
+    item = {"title": "评论", "link": "l", "source": "s", "category": "时评", "body": BODY2}
+    out = process.degrade(item, "时评")
+    assert out["result"]["outline"] == []
+
+
+def test_process_item_outline_via_llm():
+    item = {"title": "评论", "link": "l", "source": "s", "category": "时评", "body": BODY2}
+    llm = _FakeLLM({
+        "structure": [], "methods": [], "quotes": [], "domain": "乡村振兴",
+        "outline": [
+            {"role": "引论·现象切入", "gist": "王磊带领村民种植猕猴桃"},
+            {"role": "分论点", "gist": "火星移民计划取得突破"},  # 编造 → sanitize 剔除
+        ],
+    })
+    out = process.process_item(item, llm)
+    assert out["degraded"] is False
+    assert out["result"]["outline"] == [{"role": "引论·现象切入", "gist": "王磊带领村民种植猕猴桃"}]
+
+
+# ---------- 装配：outline 进 article ----------
+def test_build_daily_article_outline():
+    items = [
+        _proc_item("时评", title="把小事办成大事", result={
+            "structure": ["点题"], "quotes": [], "domain": "基层治理",
+            "outline": [{"role": "引论·现象切入", "gist": "王磊返乡种猕猴桃"}],
+        }),
+    ]
+    daily = build_content.build_daily(items, "2026-07-29")
+    assert daily["article"]["outline"] == [{"role": "引论·现象切入", "gist": "王磊返乡种猕猴桃"}]
+
+
+def test_build_daily_article_outline_missing_defaults_empty():
+    items = [
+        _proc_item("时评", title="某评论", result={"structure": [], "quotes": []}),  # 旧加工产物无 outline
+    ]
+    daily = build_content.build_daily(items, "2026-07-29")
+    assert daily["article"]["outline"] == []
+    # 无时评时 article 为空对象
+    assert build_content.build_daily([], "2026-07-29")["article"] == {}
