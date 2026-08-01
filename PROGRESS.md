@@ -164,3 +164,30 @@
 
 
 
+
+---
+
+## 反馈迭代 · 波次 3b：媒体备考板块（2026-08-01）✅
+
+> 用户第二轮反馈要求 2：新开「媒体备考」板块，只做信息搜集展示，不出题。
+
+**完成清单**
+- 数据层 `content/media/`（静态 JSON，人工维护）：
+  - `orgs.json` 29 条机构常识（{id, org, point, detail, tag}）：新华社/人民日报/总台各 5 条，光明日报、工人日报、经济日报、中国青年报、新华社河南分社、河南日报、河南电视台各 2 条；tag 分「考过」（真题方向：创刊时间、任仲平署名、总台合并来源、5G+4K/8K+AI、获奖作品等）与「常识」。
+  - `mediaKnowledge.json` 22 条（一带一路含义、媒体融合、四全媒体、两组「四力」、记者节、48 字职责使命等）。
+  - `plans.json` 16 条：采访策划 8（采访对象+问题清单）、报道策划 8（栏目/形式/角度/传播），选题覆盖乡村振兴、文旅、基层治理、科技创新、就业民生、生态文明、粮食安全、文化传承、县域经济、重大主题。
+  - `reports.json` 5 条调研报告提纲+写法提示（含通用模板骨架）。
+  - 事实性内容保守处理：拿不准的（新华社获奖作品-年份对应、河南广播电视台组建年份、经济日报隶属表述、人民日报"世界十大报纸"排名、"大片看总台"官方表述）均在 detail 注明「待核实」，宁少勿假。
+- App 层：
+  - `stores/content.ts`：MediaOrg/MediaKnowledgeItem/MediaPlan/MediaReport 接口 + `loadMedia()`（四文件各自独立降级为空数组）。
+  - `core/library.ts`：`filterMediaOrgs/filterMediaKnowledge/filterMediaPlans/filterMediaReports`（复用 kwMatch，机构/类型筛选+关键词交集）。
+  - 底部导航加第 5 个 tab「媒体」（/media → MediaView.vue），SVG 广播图标沿用原型风格；tabbar flex:1，375px 下每 tab 约 75px、两字 label@10px 一行放下，无需改 CSS。
+  - `MediaView.vue` 纯只读：五分区 chip 切换（机构常识/媒体常识/采访策划/报道策划/调研报告），机构常识内置机构 chip 筛选，行内展开详情；顶部关键词跨分区搜索（有关键词时展示所有命中的分区）。
+- 管线（pipeline/）未动，自动抓取源后续再加。
+
+**自测**：vitest 20 文件 161 通过（新增 13：store media 3 / core media 5 / MediaView 5，既有 148 无回归）；`npm run build` 通过（MediaView chunk 7.1KB）；`pipeline/sync_to_app.py` 已同步，`app/public/content/media/` 就位，build 产物 dist/content/media/ 已确认。
+
+**已知问题 / 待办**
+- 「待核实」条目需人工核对官方口径后补录（获奖作品年份、组建年份等）。
+- 媒体板块目前纯静态，后续可接管线抓取源扩充策划案例。
+

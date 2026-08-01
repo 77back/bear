@@ -217,7 +217,7 @@ def build_case_archive(daily: dict, date_str: str) -> Path:
     return path
 
 
-def build_shizheng_monthly(proc_items: list[dict], month: str) -> dict:
+def build_shizheng_monthly(proc_items: list[dict], month: str, date: str = "") -> dict:
     path = CONTENT / "shizheng" / f"{month}.json"
     data = _read_json(path, {"month": month, "items": []})
     by_title = {x["title"]: x for x in data["items"]}
@@ -227,22 +227,34 @@ def build_shizheng_monthly(proc_items: list[dict], month: str) -> dict:
         r = it.get("result", {})
         old = by_title.get(it["title"])
         if old is not None:
-            # 已存在：回填后加的字段（source/url），不重复追加
+            # 已存在：回填后加的字段（source/url/analysis），不重复追加
             old.setdefault("source", it.get("source", ""))
             if not old.get("url"):
                 old["url"] = it.get("link", "")
+            if not old.get("analysis") and r.get("analysis"):
+                old["analysis"] = r["analysis"]
             continue
         item = {
+            "date": date,
             "title": it["title"],
             "points": r.get("points", []),
             "domains": r.get("domains", []),
             "reading": r.get("reading", ""),
+            "analysis": r.get("analysis", ""),
             "source": it.get("source", ""),
             "url": it.get("link", ""),
         }
         data["items"].append(item)
         by_title[it["title"]] = item
     return data
+
+
+def write_shizheng_index() -> Path:
+    """时政库索引：扫描 content/shizheng/ 下实际存在的月份文件（供 App 时政库加载）。"""
+    months = sorted(p.stem for p in (CONTENT / "shizheng").glob("*.json") if p.stem != "index")
+    path = CONTENT / "shizheng" / "index.json"
+    _write_json(path, {"months": months})
+    return path
 
 
 def build_pinglun(proc_items: list[dict], month: str) -> None:
@@ -323,8 +335,9 @@ def run(date_str: str | None = None) -> Path:
     else:
         print(f"[build][WARN] 拒绝覆盖：{reason}；保留旧包 {daily_path}", file=sys.stderr)
 
-    shizheng = build_shizheng_monthly(items, month)
+    shizheng = build_shizheng_monthly(items, month, date_str)
     _write_json(CONTENT / "shizheng" / f"{month}.json", shizheng)
+    write_shizheng_index()
 
     # 案例归档：累积合并，不受每日包质量门槛限制（即使当日包被拒绝覆盖也照归档）
     archive_path = build_case_archive(daily, date_str)

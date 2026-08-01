@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { kwMatch, monthsOf, filterCases, filterPinglun, hashDate, fallbackCases, pickCaseRec } from '@/core/library'
-import type { ArchiveCase, CaseItem, PinglunEntry } from '@/stores/content'
+import { kwMatch, monthsOf, filterCases, filterPinglun, filterShizheng, pickDailyKnowledge, hashDate, fallbackCases, pickCaseRec } from '@/core/library'
+import type { ArchiveCase, CaseItem, KnowledgeItem, PinglunEntry, ShizhengMonth } from '@/stores/content'
 
 const cases: ArchiveCase[] = [
   { id: '1', date: '2026-07-02', domain: '经济发展', title: '深圳前海改革', text: '制度创新案例', source: '新华社' },
@@ -155,5 +155,68 @@ describe('pickCaseRec（两种模式统一入口）', () => {
     if (a.mode === 'archive' && b.mode === 'archive') {
       expect(a.items[0].id).not.toBe(b.items[0].id)
     }
+  })
+})
+
+describe('filterShizheng（时政库检索）', () => {
+  const months: ShizhengMonth[] = [
+    {
+      month: '2026-07',
+      items: [
+        { title: '城市工作会议召开', points: [], domains: ['经济发展'], reading: '', analysis: '城市更新进入存量时代', source: '新华社' },
+        { title: '乡村全面振兴规划发布', points: [], domains: ['乡村振兴'], reading: '新传视角解读', source: '人民日报' }
+      ]
+    },
+    {
+      month: '2026-06',
+      items: [
+        { title: '生态文明示范区扩容', points: [], domains: ['生态文明'], reading: '', source: '央视新闻' }
+      ]
+    }
+  ]
+  it('空关键词返回全部分区', () => {
+    const r = filterShizheng(months, '')
+    expect(r.map((m) => m.month)).toEqual(['2026-07', '2026-06'])
+    expect(r[0].items).toHaveLength(2)
+  })
+  it('关键词命中 title/analysis/reading/domains 任一，且剔除空分区', () => {
+    expect(filterShizheng(months, '城市').map((m) => m.month)).toEqual(['2026-07'])
+    expect(filterShizheng(months, '存量')[0].items[0].title).toContain('城市')
+    expect(filterShizheng(months, '新传')[0].items[0].title).toContain('乡村')
+    expect(filterShizheng(months, '生态文明').map((m) => m.month)).toEqual(['2026-06'])
+    expect(filterShizheng(months, '不存在')).toEqual([])
+  })
+})
+
+describe('pickDailyKnowledge（每日纠错轮换）', () => {
+  const list: KnowledgeItem[] = Array.from({ length: 36 }, (_, i) => ({
+    id: `k${i}`,
+    point: `知识点${i}`,
+    wrong: 'w',
+    right: 'r',
+    note: 'n'
+  }))
+  it('同一天结果确定不变；序号为 1 起算', () => {
+    const a = pickDailyKnowledge(list, '2026-08-01')
+    const b = pickDailyKnowledge(list, '2026-08-01')
+    expect(a).not.toBeNull()
+    expect(a!.index).toBe(b!.index)
+    expect(a!.item.id).toBe(b!.item.id)
+    expect(a!.index).toBeGreaterThanOrEqual(1)
+    expect(a!.index).toBeLessThanOrEqual(36)
+  })
+  it('按当年第几天取模：相邻两天轮换一条', () => {
+    const a = pickDailyKnowledge(list, '2026-03-01')!
+    const b = pickDailyKnowledge(list, '2026-03-02')!
+    expect(b.index).toBe((a.index % 36) + 1)
+  })
+  it('跨年重新计数：次年 01-01 从第 1 条开始', () => {
+    // 轮换按「当年」第几天取模，跨年日序归零，不保证与 12-31 连续
+    const b = pickDailyKnowledge(list, '2026-01-01')!
+    expect(b.index).toBe(1)
+    expect(b.item.id).toBe('k0')
+  })
+  it('空题库返回 null', () => {
+    expect(pickDailyKnowledge([], '2026-08-01')).toBeNull()
   })
 })

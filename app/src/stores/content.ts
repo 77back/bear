@@ -98,16 +98,26 @@ export interface ContentIndex {
 }
 
 export interface ShizhengItem {
+  date?: string // 入库日期（旧月度文件可能没有）
   title: string
   points: string[]
   domains: string[]
   reading: string
+  analysis?: string // 专家视角解读（旧加工产物可能没有）
   source: string
   url?: string
 }
 export interface ShizhengMonth {
   month: string
   items: ShizhengItem[]
+}
+// 每日纠错知识点（content/shiwu/knowledge.json，静态题库，按日轮换）
+export interface KnowledgeItem {
+  id: string
+  point: string
+  wrong: string
+  right: string
+  note: string
 }
 export interface PinglunEntry {
   id: string
@@ -118,6 +128,36 @@ export interface PinglunEntry {
   examUse: string | string[] // 管线产出两种形态都有
   source?: string
 }
+// 媒体备考板块（content/media/*.json，静态人工维护；文件缺失优雅降级为空数组）
+export interface MediaOrg {
+  id: string
+  org: string // 机构名（新华社/人民日报/中央广播电视总台/光明日报/工人日报/经济日报/中国青年报/新华社河南分社/河南日报/河南电视台）
+  point: string
+  detail: string
+  tag: string // '考过'（真题方向）或 '常识'
+}
+export interface MediaKnowledgeItem {
+  id: string
+  question: string
+  answer: string
+  domain?: string
+  tag: string
+}
+export interface MediaPlan {
+  id: string
+  type: string // '采访策划' 或 '报道策划'
+  topic: string
+  title: string
+  points: string[]
+  note: string
+}
+export interface MediaReport {
+  id: string
+  title: string
+  outline: string[]
+  tips: string
+}
+
 export interface PinglunDetail {
   id: string
   title: string
@@ -146,6 +186,12 @@ export const useContentStore = defineStore('content', () => {
   const shizheng = ref<ShizhengMonth | null>(null)
   const pinglunIndex = ref<PinglunEntry[]>([])
 
+  // 时政库：全部月份分区展示（shizheng/index.json 缺失时降级为当月）
+  const shizhengMonths = ref<ShizhengMonth[]>([])
+
+  // 每日纠错知识点（静态题库，线上旧部署可能没有 → 优雅降级为空数组）
+  const knowledge = ref<KnowledgeItem[]>([])
+
   // 案例归档（线上旧部署可能没有该文件 → 优雅降级为空数组）
   const archive = ref<ArchiveCase[]>([])
 
@@ -154,6 +200,35 @@ export const useContentStore = defineStore('content', () => {
       archive.value = await fetchJson<ArchiveCase[]>(`${BASE}content/archive/cases.json`)
     } catch {
       archive.value = []
+    }
+  }
+
+  // 媒体备考：四个静态文件各自独立降级，缺哪个哪个为空数组
+  const mediaOrgs = ref<MediaOrg[]>([])
+  const mediaKnowledge = ref<MediaKnowledgeItem[]>([])
+  const mediaPlans = ref<MediaPlan[]>([])
+  const mediaReports = ref<MediaReport[]>([])
+
+  async function loadMedia(): Promise<void> {
+    try {
+      mediaOrgs.value = await fetchJson<MediaOrg[]>(`${BASE}content/media/orgs.json`)
+    } catch {
+      mediaOrgs.value = []
+    }
+    try {
+      mediaKnowledge.value = await fetchJson<MediaKnowledgeItem[]>(`${BASE}content/media/mediaKnowledge.json`)
+    } catch {
+      mediaKnowledge.value = []
+    }
+    try {
+      mediaPlans.value = await fetchJson<MediaPlan[]>(`${BASE}content/media/plans.json`)
+    } catch {
+      mediaPlans.value = []
+    }
+    try {
+      mediaReports.value = await fetchJson<MediaReport[]>(`${BASE}content/media/reports.json`)
+    } catch {
+      mediaReports.value = []
     }
   }
 
@@ -170,6 +245,39 @@ export const useContentStore = defineStore('content', () => {
       shizheng.value = await fetchJson<ShizhengMonth>(`${BASE}content/shizheng/${month}.json`)
     } catch {
       shizheng.value = null
+    }
+  }
+
+  async function fetchShizhengMonth(month: string): Promise<ShizhengMonth | null> {
+    try {
+      return await fetchJson<ShizhengMonth>(`${BASE}content/shizheng/${month}.json`)
+    } catch {
+      return null
+    }
+  }
+
+  /** 时政库：读 index 的月份清单后逐月拉取；index 缺失降级为当月，单月文件缺失跳过 */
+  async function loadShizhengAll(): Promise<void> {
+    let months: string[] = []
+    try {
+      const idx = await fetchJson<{ months: string[] }>(`${BASE}content/shizheng/index.json`)
+      months = Array.isArray(idx.months) ? idx.months : []
+    } catch {
+      months = [new Date().toISOString().slice(0, 7)]
+    }
+    const out: ShizhengMonth[] = []
+    for (const m of [...months].sort().reverse()) {
+      const data = await fetchShizhengMonth(m)
+      if (data) out.push(data)
+    }
+    shizhengMonths.value = out
+  }
+
+  async function loadKnowledge(): Promise<void> {
+    try {
+      knowledge.value = await fetchJson<KnowledgeItem[]>(`${BASE}content/shiwu/knowledge.json`)
+    } catch {
+      knowledge.value = []
     }
   }
 
@@ -235,13 +343,22 @@ export const useContentStore = defineStore('content', () => {
     loading,
     error,
     shizheng,
+    shizhengMonths,
+    knowledge,
     pinglunIndex,
     archive,
     load,
     nextDaily,
     loadShizheng,
+    loadShizhengAll,
+    loadKnowledge,
     loadPinglunIndex,
     loadPinglunDetail,
-    loadArchive
+    loadArchive,
+    loadMedia,
+    mediaOrgs,
+    mediaKnowledge,
+    mediaPlans,
+    mediaReports
   }
 })

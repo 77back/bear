@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { onMounted, computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import type { EChartsOption } from 'echarts'
 import { useCourseStore } from '@/stores/course'
 import { useStatsStore } from '@/stores/stats'
-import type { Course } from '@/db'
+import { todayStr, addDays, type Course } from '@/db'
+import EChart from '@/components/EChart.vue'
 
-// 行测主页（学习入门阶段）：刷课进度 + 刷题记录；统计图表降级到 /xc/stats
+// 行测主页（学习入门阶段）：统计概览 + 刷课进度 + 刷题记录
 const router = useRouter()
 const courseStore = useCourseStore()
 const statsStore = useStatsStore()
@@ -60,6 +62,57 @@ async function removeCourse(id: number) {
   showToast('已删除课程')
 }
 
+/* ---------- 统计概览 ---------- */
+// 「本周明细」行内展开：近 7 天（与周目标同口径）刷题明细
+const showWeekDetail = ref(false)
+const weekLogs = computed(() => {
+  const from = todayStr(addDays(new Date(), -6))
+  return statsStore.logs.filter((l) => l.date >= from).sort((a, b) => b.date.localeCompare(a.date))
+})
+
+const totalCount = computed(() => statsStore.logs.reduce((s, l) => s + l.total, 0))
+const totalCorrect = computed(() => statsStore.logs.reduce((s, l) => s + l.correct, 0))
+const overallRate = computed(() => (totalCount.value ? totalCorrect.value / totalCount.value : 0))
+
+const hasData = computed(() => statsStore.logs.length > 0)
+const trend7 = computed(() => statsStore.trend.slice(-7))
+const trendOption = computed<EChartsOption>(() => ({
+  grid: { left: 10, right: 18, top: 18, bottom: 22 },
+  xAxis: { type: 'category', show: false, data: trend7.value.map((t) => t.date) },
+  yAxis: { type: 'value', min: 0, max: 1, show: false },
+  tooltip: {
+    trigger: 'axis',
+    formatter: (p: any) =>
+      `${p[0].axisValue.slice(5)}　${p[0].data > 0 ? Math.round(p[0].data * 100) + '%' : '无记录'}`
+  },
+  series: [
+    {
+      type: 'line',
+      smooth: true,
+      symbol: 'circle',
+      symbolSize: 5,
+      data: trend7.value.map((t) => +(t.rate || 0).toFixed(3)),
+      itemStyle: { color: '#4F8A8B' },
+      lineStyle: { color: '#4F8A8B', width: 2.5 },
+      areaStyle: {
+        color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [
+          { offset: 0, color: 'rgba(79,138,139,.22)' }, { offset: 1, color: 'rgba(79,138,139,0)' }
+        ] }
+      },
+      markLine: {
+        silent: true,
+        symbol: 'none',
+        lineStyle: { color: '#C0453E', type: 'dashed', width: 1 },
+        data: [{ yAxis: 0.65, label: { formatter: '65%', color: '#C0453E', fontSize: 10 } }]
+      }
+    }
+  ]
+}))
+
+function pct(r: number) {
+  return Math.round(r * 100) + '%'
+}
+
 /* ---------- 刷题记录 ---------- */
 const recentLogs = computed(() =>
   [...statsStore.logs].sort((a, b) => (b.id ?? 0) - (a.id ?? 0)).slice(0, 8)
@@ -75,13 +128,37 @@ function rateOf(l: { total: number; correct: number }) {
     <div class="page-title">行测</div>
     <div class="page-sub">学习入门 · 刷课进度 · 刷题记录</div>
 
-    <!-- 统计分析入口（二级页） -->
-    <div class="card entry" @click="router.push('/xc/stats')">
-      <div class="entry-info">
-        <div class="entry-name">统计分析</div>
-        <div class="entry-desc">周目标 · 板块正确率 · 14 天趋势 · 薄弱点</div>
+    <!-- 统计概览 -->
+    <div class="card">
+      <div class="card-title">
+        统计概览
+        <button class="more" @click="showWeekDetail = !showWeekDetail">本周明细</button>
       </div>
-      <span class="entry-arrow">›</span>
+      <div class="ov-row">
+        <div class="ov-item">
+          <b class="tnum">{{ statsStore.weekDone }}/{{ statsStore.weeklyGoal }}</b>
+          <span>本周刷题</span>
+        </div>
+        <div class="ov-item">
+          <b class="tnum">{{ totalCount }}</b>
+          <span>总题量</span>
+        </div>
+        <div class="ov-item">
+          <b class="tnum">{{ totalCount ? pct(overallRate) : '—' }}</b>
+          <span>正确率</span>
+        </div>
+      </div>
+      <div class="ov-trend-title">近 7 天正确率趋势</div>
+      <EChart v-if="hasData" :option="trendOption" :height="120" />
+      <div v-else style="font-size:12px;color:var(--text-3)">录入刷题后显示趋势曲线</div>
+      <div v-if="showWeekDetail" style="margin-top:10px;border-top:1px solid var(--line);padding-top:10px">
+        <div v-for="(l, i) in weekLogs" :key="l.id ?? i" class="stat-line">
+          <span class="stat-name">{{ l.date.slice(5) }}</span>
+          <span style="flex:1">{{ l.module }}</span>
+          <span class="stat-val">{{ l.correct }}/{{ l.total }} · {{ l.total ? pct(l.correct / l.total) : '—' }}</span>
+        </div>
+        <div v-if="weekLogs.length === 0" style="font-size:12px;color:var(--text-3)">本周暂无刷题记录</div>
+      </div>
     </div>
 
     <!-- 刷课进度 -->
@@ -164,33 +241,31 @@ function rateOf(l: { total: number; correct: number }) {
 </template>
 
 <style scoped>
-/* 统计分析入口 */
-.entry {
+/* 统计概览 */
+.ov-row {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
+  margin-bottom: 12px;
 }
-.entry:active {
-  transform: scale(0.98);
-}
-.entry-info {
+.ov-item {
   flex: 1;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
 }
-.entry-name {
+.ov-item b {
   font-size: var(--fs-16);
   font-weight: 600;
+  color: var(--xc);
 }
-.entry-desc {
+.ov-item span {
   font-size: 12px;
   color: var(--text-3);
-  margin-top: 3px;
 }
-.entry-arrow {
-  font-size: 22px;
+.ov-trend-title {
+  font-size: 12px;
   color: var(--text-3);
-  line-height: 1;
+  margin-bottom: 4px;
 }
 
 /* 课程行 */

@@ -248,6 +248,7 @@ def merge_outputs(processed: list[dict]) -> None:
     for m, items in sorted(by_month.items()):
         data = build_content.build_shizheng_monthly(items, m)
         build_content._write_json(build_content.CONTENT / "shizheng" / f"{m}.json", data)
+    build_content.write_shizheng_index()
 
 
 # ---------- 统计输出 ----------
@@ -272,6 +273,8 @@ def print_stats() -> None:
     print(f"[stats] pinglun/index.json 共 {len(idx)} 条，月份分布: {dict(sorted(pm.items()))}")
 
     for p in sorted((content / "shizheng").glob("*.json")):
+        if p.stem == "index":
+            continue
         d = json.loads(p.read_text(encoding="utf-8"))
         print(f"[stats] shizheng/{p.name} 共 {len(d.get('items', []))} 条")
 

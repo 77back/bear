@@ -28,7 +28,8 @@ NO_HALLUC = (
 # 每类的系统指令与输出结构描述
 SCHEMAS = {
     "时政": {
-        "desc": "输出 JSON：{points:[3~5条要点], domains:[领域标签], angles:[可考角度], reading:新传视角解读≤200字}",
+        "desc": "输出 JSON：{points:[3~5条要点], domains:[领域标签], angles:[可考角度], reading:新传视角解读≤200字, "
+                "analysis:专家视角解读≤200字（2~3句：这件事为什么重要、涉及什么政策背景）}",
     },
     "国际": {
         "desc": "输出 JSON：{points:[事件要点], reading:国际传播/跨文化传播视角解读≤200字}",
@@ -187,6 +188,9 @@ def sanitize(cat: str, data: dict, body: str) -> dict:
                 d for d in (common.normalize_domain(x) for x in data.get("domains", []))
                 if not (d in seen_d or seen_d.add(d))
             ]
+            # 专家解读从简：非空、≤200 字，否则降级为空串
+            analysis = str(data.get("analysis") or "").strip()
+            data["analysis"] = analysis[:200] if analysis else ""
     if cat == "时评":
         data["quotes"] = verify_quotes(data.get("quotes", []), body)
         data["structure"] = [s for s in data.get("structure", []) if s]
@@ -261,6 +265,8 @@ def degrade(item: dict, cat: str) -> dict:
     sents = [s.strip() for s in sents if 6 <= len(s.strip()) <= 60][:5]
     if cat in ("时政", "国际"):
         out["result"] = {"points": sents, "domains": [], "angles": [], "reading": ""}
+        if cat == "时政":
+            out["result"]["analysis"] = ""
     elif cat == "时评":
         # 降级：无三件套（shenlun 省略 → 每日包为空对象），outline 为空，domain 归「其他」
         out["result"] = {"structure": sents[:3], "methods": [], "quotes": [], "examUse": "", "domain": "其他", "outline": []}

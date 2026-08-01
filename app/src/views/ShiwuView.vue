@@ -2,26 +2,32 @@
 import { onMounted, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useContentStore, type PinglunEntry, type PinglunDetail } from '@/stores/content'
-import { usePracticeStore } from '@/stores/practice'
 import { getSetting } from '@/db/seed'
 import { shizhengPriority } from '@/core/recommend'
-import { filterPinglun } from '@/core/library'
+import { filterPinglun, pickDailyKnowledge } from '@/core/library'
 
 const router = useRouter()
 const content = useContentStore()
-const practice = usePracticeStore()
 const examDate = ref('2026-11-27')
 
 onMounted(async () => {
   examDate.value = await getSetting('examDate', '2026-11-27')
-  await practice.load()
   await content.load()
   const month = new Date().toISOString().slice(0, 7)
   await content.loadShizheng(month)
   await content.loadPinglunIndex()
+  await content.loadKnowledge()
 })
 
 const prioritizeShizheng = computed(() => shizhengPriority(examDate.value))
+
+// 每日纠错知识点：按当年第几天确定性轮换（当天刷新不变）
+const todayStr = (() => {
+  const d = new Date()
+  const p = (n: number) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`
+})()
+const dailyKnowledge = computed(() => pickDailyKnowledge(content.knowledge, todayStr))
 
 // 评论库筛选
 const months = computed(() => [...new Set(content.pinglunIndex.map((p) => p.month))].sort().reverse())
@@ -34,8 +40,8 @@ const filteredPinglun = computed(() =>
   filterPinglun(content.pinglunIndex, { keyword: pinglunKw.value, month: selMonth.value, domain: selField.value })
 )
 
-function toPractice(qtype: string) {
-  router.push({ path: '/sw/practice', query: { qtype } })
+function toShizhengLibrary() {
+  router.push('/sw/shizheng')
 }
 
 /** 平滑滚动到页内区块 */
@@ -71,20 +77,15 @@ function fmtExamUse(v: PinglunEntry['examUse']): string {
 
     <!-- 四板块入口 -->
     <div class="grid4">
-      <div v-if="content.shizheng" class="grid-item" @click="scrollTo('shizheng')">
+      <div v-if="content.shizheng" class="grid-item" @click="toShizhengLibrary">
         <div class="gicon" style="background:#F9E7DD;color:var(--sw)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
         <div class="gname">时政政策解读</div>
-        <div class="gdesc">月度时政统计 + 专业理论解读</div>
+        <div class="gdesc">时政库 · 月度统计 + 解读</div>
       </div>
       <div v-if="content.daily?.guoji?.length" class="grid-item" @click="scrollTo('guoji')">
         <div class="gicon" style="background:#E7F0F0;color:var(--xc)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
         <div class="gname">国际新闻解读</div>
         <div class="gdesc">重点国外新闻 + 专业视角拆解</div>
-      </div>
-      <div class="grid-item" @click="toPractice('消息')">
-        <div class="gicon" style="background:#F7EFD8;color:#9A7B1A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div>
-        <div class="gname">实务每日练习</div>
-        <div class="gdesc">消息 / 评论 / 采访策划</div>
       </div>
       <div class="grid-item" @click="scrollTo('pinglun')">
         <div class="gicon" style="background:#E4EFEA;color:var(--brand)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.6 8.6 0 01-3.8-.9L3 21l2-5.2a8.4 8.4 0 117-4.3 8.4 8.4 0 019 0z"/></svg></div>
@@ -93,26 +94,24 @@ function fmtExamUse(v: PinglunEntry['examUse']): string {
       </div>
     </div>
 
-    <!-- 每日案例 + 对应练习 -->
+    <!-- 每日消息 -->
     <div v-if="content.daily?.shiwu?.material" class="card rec-card" style="border-left-color:var(--sw)">
-      <div class="rec-head"><span class="tag sw">每日案例 + 对应练习</span></div>
+      <div class="rec-head"><span class="tag sw">每日消息</span></div>
       <div class="rec-title">{{ content.daily.shiwu.material.title }}</div>
       <div class="rec-body">{{ content.daily.shiwu.material.body }}</div>
       <div style="font-size:12px;color:var(--text-3);margin-top:6px">
         来源：<a v-if="content.daily.shiwu.material.url" :href="content.daily.shiwu.material.url" target="_blank" rel="noopener" style="color:var(--text-3)">{{ content.daily.shiwu.material.source }}</a><span v-else>{{ content.daily.shiwu.material.source }}</span>
-      </div>
-      <div class="practice-btns">
-        <button v-for="ex in content.daily.shiwu.exercises" :key="ex.qtype" class="pbtn" @click="toPractice(ex.qtype)">{{ ex.qtype }}</button>
+        <a v-if="content.daily.shiwu.material.url" :href="content.daily.shiwu.material.url" target="_blank" rel="noopener" style="color:var(--brand);margin-left:8px">查看原文 →</a>
       </div>
     </div>
 
-    <!-- 实务推荐（统计驱动） -->
-    <div class="card">
-      <div class="card-title">练习推荐</div>
-      <div class="advice" style="background:#F9E7DD;color:#A34E24">
-        近 14 天练习最少的是「{{ practice.recommendQtype }}」题型，建议今日加练 1 个。
-        <span style="display:block;margin-top:4px;font-size:11px;opacity:.8">已练 {{ practice.total14 }} 次 · 统计驱动推荐</span>
-      </div>
+    <!-- 每日纠错知识点 -->
+    <div v-if="dailyKnowledge" class="card">
+      <div class="card-title">每日纠错 <span class="more">第 {{ dailyKnowledge.index }}/{{ content.knowledge.length }} 条</span></div>
+      <div class="rec-title" style="font-size:14px">{{ dailyKnowledge.item.point }}</div>
+      <div class="rec-body" style="background:#F9E7DD;margin-top:6px">错误：{{ dailyKnowledge.item.wrong }}</div>
+      <div class="rec-body" style="background:#E4EFEA;margin-top:6px">正确：{{ dailyKnowledge.item.right }}</div>
+      <div style="font-size:12px;color:var(--text-2);margin-top:8px;line-height:1.7">{{ dailyKnowledge.item.note }}</div>
     </div>
 
     <!-- 时政月统计 -->
@@ -128,6 +127,9 @@ function fmtExamUse(v: PinglunEntry['examUse']): string {
         <span v-if="it.points.length" class="sz-heat">{{ it.points.length }} 点</span>
       </div>
       <div v-if="content.shizheng.items.length === 0" style="font-size:12px;color:var(--text-3)">本月暂无时政统计</div>
+      <div style="margin-top:10px;text-align:right">
+        <span style="font-size:12px;color:var(--sw);font-weight:600;cursor:pointer" @click="toShizhengLibrary">进入时政库 →</span>
+      </div>
     </div>
 
     <!-- 国际新闻解读 -->

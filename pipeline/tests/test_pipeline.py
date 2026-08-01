@@ -366,3 +366,62 @@ def test_build_daily_article_outline_missing_defaults_empty():
     assert daily["article"]["outline"] == []
     # 无时评时 article 为空对象
     assert build_content.build_daily([], "2026-07-29")["article"] == {}
+
+
+# ---------- 时政：专家解读 analysis ----------
+def test_sanitize_shizheng_analysis():
+    data = {"points": [], "domains": [], "analysis": "  这次发射进一步完善了国土普查遥感体系。  "}
+    out = process.sanitize("时政", data, BODY)
+    assert out["analysis"] == "这次发射进一步完善了国土普查遥感体系。"
+
+
+def test_sanitize_shizheng_analysis_truncates_200():
+    data = {"points": [], "domains": [], "analysis": "长" * 300}
+    out = process.sanitize("时政", data, BODY)
+    assert len(out["analysis"]) == 200
+    # 空/非字符串 → 降级为空串
+    assert process.sanitize("时政", {"analysis": ""}, BODY)["analysis"] == ""
+    assert process.sanitize("时政", {"analysis": None}, BODY)["analysis"] == ""
+    assert process.sanitize("时政", {}, BODY)["analysis"] == ""
+
+
+def test_process_item_shizheng_analysis_via_llm():
+    item = {"title": "遥感四十二号", "link": "l", "source": "新华社", "category": "时政", "body": BODY}
+    llm = _FakeLLM({
+        "points": ["遥感卫星发射成功"], "domains": ["科技创新"],
+        "reading": "r", "analysis": "此次发射是长征系列第520次飞行，体现航天工程体系化能力。",
+    })
+    out = process.process_item(item, llm)
+    assert out["degraded"] is False
+    assert out["result"]["analysis"].startswith("此次发射")
+
+
+def test_degrade_shizheng_analysis_empty():
+    item = {"title": "遥感四十二号", "link": "l", "source": "新华社", "category": "时政", "body": BODY}
+    out = process.degrade(item, "时政")
+    assert out["result"]["analysis"] == ""
+
+
+def test_shizheng_monthly_writes_analysis_and_date(tmp_path, monkeypatch):
+    monkeypatch.setattr(build_content, "CONTENT", tmp_path)
+    items = [_proc_item("时政", title="城市工作会议", result={"points": ["p1"], "analysis": "解读A"})]
+    m1 = build_content.build_shizheng_monthly(items, "2026-07", "2026-07-15")
+    assert m1["items"][0]["analysis"] == "解读A"
+    assert m1["items"][0]["date"] == "2026-07-15"
+    # 旧条目缺 analysis 时，再加工可回填
+    m1["items"][0]["analysis"] = ""
+    items2 = [_proc_item("时政", title="城市工作会议", result={"points": ["p1"], "analysis": "解读B"})]
+    m2 = build_content.build_shizheng_monthly(items2, "2026-07")
+    assert len(m2["items"]) == 1
+    assert m2["items"][0]["analysis"] == "解读B"
+
+
+def test_write_shizheng_index(tmp_path, monkeypatch):
+    monkeypatch.setattr(build_content, "CONTENT", tmp_path)
+    items = [_proc_item("时政", title="会议A")]
+    build_content._write_json(tmp_path / "shizheng" / "2026-06.json", {"month": "2026-06", "items": []})
+    build_content._write_json(tmp_path / "shizheng" / "2026-07.json",
+                              build_content.build_shizheng_monthly(items, "2026-07", "2026-07-15"))
+    path = build_content.write_shizheng_index()
+    idx = json.loads(path.read_text(encoding="utf-8"))
+    assert idx == {"months": ["2026-06", "2026-07"]}

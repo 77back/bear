@@ -129,3 +129,53 @@ describe('content store（阶段3 读取当日包）', () => {
     expect(c.archive).toEqual([])
   })
 })
+
+describe('时政库 loadShizhengAll', () => {
+  const M7 = { month: '2026-07', items: [{ title: '会议A', points: [], domains: ['经济发展'], reading: '', analysis: '解读A', source: '新华社' }] }
+  const M6 = { month: '2026-06', items: [{ title: '规划B', points: [], domains: [], reading: '', source: '人民日报' }] }
+
+  it('按 index 月份清单逐月加载，新→旧排序', async () => {
+    mockFetch({
+      'content/shizheng/index.json': { months: ['2026-06', '2026-07'] },
+      'content/shizheng/2026-07.json': M7,
+      'content/shizheng/2026-06.json': M6
+    })
+    const c = useContentStore()
+    await c.loadShizhengAll()
+    expect(c.shizhengMonths.map((m) => m.month)).toEqual(['2026-07', '2026-06'])
+    expect(c.shizhengMonths[0].items[0].analysis).toBe('解读A')
+  })
+
+  it('index 不存在（旧部署）：优雅降级为当月，当月也取不到则为空', async () => {
+    globalThis.fetch = vi.fn(async () => notFound()) as unknown as typeof globalThis.fetch
+    const c = useContentStore()
+    await c.loadShizhengAll()
+    expect(c.shizhengMonths).toEqual([])
+  })
+
+  it('单月文件缺失：跳过该月，不影响其他月份', async () => {
+    globalThis.fetch = vi.fn(async (url: string) => {
+      if (url.includes('shizheng/index.json')) return ok({ months: ['2026-06', '2026-07'] })
+      if (url.includes('shizheng/2026-06.json')) return ok(M6)
+      return notFound() // 2026-07 缺失
+    }) as unknown as typeof globalThis.fetch
+    const c = useContentStore()
+    await c.loadShizhengAll()
+    expect(c.shizhengMonths.map((m) => m.month)).toEqual(['2026-06'])
+  })
+
+  it('loadKnowledge 成功加载 / 文件缺失降级为空数组', async () => {
+    mockFetch({
+      'content/shiwu/knowledge.json': [{ id: 'k01', point: '时间表述须具体', wrong: 'w', right: 'r', note: 'n' }]
+    })
+    const c = useContentStore()
+    await c.loadKnowledge()
+    expect(c.knowledge).toHaveLength(1)
+    expect(c.knowledge[0].point).toBe('时间表述须具体')
+
+    globalThis.fetch = vi.fn(async () => notFound()) as unknown as typeof globalThis.fetch
+    const c2 = useContentStore()
+    await c2.loadKnowledge()
+    expect(c2.knowledge).toEqual([])
+  })
+})
