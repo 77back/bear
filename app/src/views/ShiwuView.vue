@@ -5,6 +5,7 @@ import { useContentStore, type PinglunEntry, type PinglunDetail } from '@/stores
 import { usePracticeStore } from '@/stores/practice'
 import { getSetting } from '@/db/seed'
 import { shizhengPriority } from '@/core/recommend'
+import { filterPinglun } from '@/core/library'
 
 const router = useRouter()
 const content = useContentStore()
@@ -27,14 +28,11 @@ const months = computed(() => [...new Set(content.pinglunIndex.map((p) => p.mont
 const fields = ['全部领域', '时政', '经济', '文化', '科技', '民生']
 const selMonth = ref('')
 const selField = ref('全部领域')
+const pinglunKw = ref('')
 
-const filteredPinglun = computed(() => {
-  return content.pinglunIndex.filter((p) => {
-    if (selMonth.value && p.month !== selMonth.value) return false
-    if (selField.value !== '全部领域' && !(p.domains || []).includes(selField.value)) return false
-    return true
-  })
-})
+const filteredPinglun = computed(() =>
+  filterPinglun(content.pinglunIndex, { keyword: pinglunKw.value, month: selMonth.value, domain: selField.value })
+)
 
 function toPractice(qtype: string) {
   router.push({ path: '/sw/practice', query: { qtype } })
@@ -149,7 +147,8 @@ function fmtExamUse(v: PinglunEntry['examUse']): string {
 
     <!-- 评论案例库 -->
     <div id="pinglun" class="card">
-      <div class="card-title">评论案例库 <span class="more">{{ filteredPinglun.length }} 篇</span></div>
+      <div class="card-title">评论案例库 <span class="more">共 {{ content.pinglunIndex.length }} 篇 / 筛选 {{ filteredPinglun.length }} 篇</span></div>
+      <input v-model="pinglunKw" class="input" style="margin-bottom:10px" placeholder="搜索标题 / 结构 / 考用 / 来源…" />
       <div v-if="months.length" class="chip-row">
         <button class="chip" :class="{ on: !selMonth }" @click="selMonth = ''">全部</button>
         <button v-for="m in months" :key="m" class="chip" :class="{ on: selMonth === m }" @click="selMonth = m">{{ m.slice(5) }}月</button>
@@ -172,7 +171,9 @@ function fmtExamUse(v: PinglunEntry['examUse']): string {
           </div>
         </div>
       </div>
-      <div v-if="filteredPinglun.length === 0" style="font-size:12px;color:var(--text-3)">评论库暂无内容</div>
+      <div v-if="filteredPinglun.length === 0" style="font-size:12px;color:var(--text-3)">
+        {{ content.pinglunIndex.length ? '没有匹配的评论' : '评论库暂无内容' }}
+      </div>
     </div>
   </div>
 </template>

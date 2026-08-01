@@ -2,11 +2,14 @@
 import { onMounted, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useContentStore, CASE_DOMAINS } from '@/stores/content'
+import { filterCases, monthsOf } from '@/core/library'
 
-// 案例库：管线累积归档（content/archive/cases.json），按领域筛选浏览
+// 案例库：管线累积归档（content/archive/cases.json），关键词 + 领域 + 月份检索
 const router = useRouter()
 const content = useContentStore()
 const active = ref('全部')
+const activeMonth = ref('')
+const keyword = ref('')
 
 onMounted(() => content.loadArchive())
 
@@ -16,29 +19,53 @@ const domains = computed(() => [
   ...CASE_DOMAINS.filter((d) => content.archive.some((c) => c.domain === d))
 ])
 
+// 月份 chip：只列实际存在的月份，新→旧
+const months = computed(() => monthsOf(content.archive.map((c) => c.date)))
+
 const list = computed(() =>
-  active.value === '全部' ? content.archive : content.archive.filter((c) => c.domain === active.value)
+  filterCases(content.archive, { keyword: keyword.value, domain: active.value, month: activeMonth.value })
 )
 </script>
 
 <template>
   <div>
     <div class="page-title">案例库</div>
-    <div class="page-sub">每日案例自动归档累积 · 按领域浏览</div>
-
-    <div class="chip-row" v-if="content.archive.length">
-      <button
-        v-for="d in domains"
-        :key="d"
-        class="chip"
-        :class="{ on: active === d }"
-        :style="active === d ? { background: 'var(--sl)' } : {}"
-        @click="active = d"
-      >{{ d }}</button>
+    <div class="page-sub">
+      每日案例自动归档累积 · 共 {{ content.archive.length }} 条<template v-if="content.archive.length"> / 当前筛选 {{ list.length }} 条</template>
     </div>
+
+    <template v-if="content.archive.length">
+      <input v-model="keyword" class="input" style="margin-bottom:10px" placeholder="搜索标题 / 内容 / 来源…" />
+
+      <div class="chip-row">
+        <button
+          v-for="d in domains"
+          :key="d"
+          class="chip"
+          :class="{ on: active === d }"
+          :style="active === d ? { background: 'var(--sl)' } : {}"
+          @click="active = d"
+        >{{ d }}</button>
+      </div>
+
+      <div class="chip-row">
+        <button class="chip" :class="{ on: !activeMonth }" @click="activeMonth = ''">全部月份</button>
+        <button
+          v-for="m in months"
+          :key="m"
+          class="chip"
+          :class="{ on: activeMonth === m }"
+          @click="activeMonth = m"
+        >{{ m.slice(0, 4) }}年{{ Number(m.slice(5)) }}月</button>
+      </div>
+    </template>
 
     <div v-if="!content.archive.length" class="card" style="text-align:center;color:var(--text-3);padding:32px 16px">
       案例库积累中 · 每日内容会自动归档到这里
+    </div>
+
+    <div v-else-if="!list.length" class="card" style="text-align:center;color:var(--text-3);padding:32px 16px">
+      没有匹配的案例
     </div>
 
     <div v-for="c in list" :key="c.id" class="card">
