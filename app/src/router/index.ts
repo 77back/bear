@@ -12,6 +12,7 @@ const router = createRouter({
     { path: '/xc/stats', name: 'xc-stats', component: () => import('@/views/sub/XingceStats.vue') },
     { path: '/sl', name: 'sl', component: () => import('@/views/ShenlunView.vue') },
     { path: '/sl/material/:id', name: 'sl-material', component: () => import('@/views/sub/MaterialDetail.vue') },
+    { path: '/sl/cases', name: 'sl-cases', component: () => import('@/views/sub/CaseLibrary.vue') },
     { path: '/sw', name: 'sw', component: () => import('@/views/ShiwuView.vue') },
     { path: '/sw/practice', name: 'sw-practice', component: () => import('@/views/sub/WritingPractice.vue') },
     { path: '/report', name: 'report', component: () => import('@/views/sub/ReportPage.vue') },

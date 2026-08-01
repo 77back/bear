@@ -109,4 +109,23 @@ describe('content store（阶段3 读取当日包）', () => {
     await c.nextDaily()
     expect(c.daily?.date).toBe('2026-07-29')
   })
+
+  it('loadArchive 成功：归档案例填充', async () => {
+    mockFetch({
+      'content/archive/cases.json': [
+        { id: 'a1', date: '2026-07-29', domain: '乡村振兴', title: '案例A', text: '正文', source: '新华社', url: 'http://a' }
+      ]
+    })
+    const c = useContentStore()
+    await c.loadArchive()
+    expect(c.archive.length).toBe(1)
+    expect(c.archive[0].domain).toBe('乡村振兴')
+  })
+
+  it('loadArchive 文件不存在（旧部署）：优雅降级为空数组', async () => {
+    globalThis.fetch = vi.fn(async () => notFound()) as unknown as typeof globalThis.fetch
+    const c = useContentStore()
+    await c.loadArchive()
+    expect(c.archive).toEqual([])
+  })
 })

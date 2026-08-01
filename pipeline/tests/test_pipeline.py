@@ -137,3 +137,152 @@ def test_pinglun_index_append(tmp_path, monkeypatch):
     build_content.build_pinglun(items, "2026-07")
     idx2 = json.loads((tmp_path / "pinglun" / "index.json").read_text(encoding="utf-8"))
     assert len(idx2) == 1
+
+
+# ---------- 申论：领域标签 + 每日三件套 ----------
+BODY2 = (
+    "乡村振兴关键在人。返乡青年王磊带领村民种植猕猴桃，"
+    "发展电商直播带货，人均年收入翻了一番。"
+    "民生无小事，枝叶总关情。基层治理要把群众小事当成大事来办。"
+)
+
+
+def test_normalize_domain_fallback():
+    assert common.normalize_domain("经济发展") == "经济发展"
+    assert common.normalize_domain("月球探索") == "其他"  # 清单外 → 其他
+    assert common.normalize_domain(None) == "其他"
+    assert common.normalize_domain(["基层治理"]) == "其他"  # 非字符串 → 其他
+
+
+def test_sanitize_domain_out_of_list_falls_back():
+    data = {"structure": [], "methods": [], "quotes": [], "domain": "不存在的领域", "shenlun": {}}
+    out = process.sanitize("时评", data, BODY2)
+    assert out["domain"] == "其他"
+
+
+def test_sanitize_shenlun_keeps_verified():
+    data = {
+        "structure": [], "methods": [], "quotes": [], "domain": "基层治理",
+        "shenlun": {
+            "sentence": "民生无小事，枝叶总关情",  # 原文逐字 → 保留
+            "title": "把群众小事当成大事来办",
+            "case": "王磊带领村民种植猕猴桃",  # 与原文重合 → 保留
+        },
+    }
+    out = process.sanitize("时评", data, BODY2)
+    assert out["shenlun"]["sentence"] == "民生无小事，枝叶总关情"
+    assert out["shenlun"]["title"] == "把群众小事当成大事来办"
+    assert "王磊" in out["shenlun"]["case"]
+
+
+def test_sanitize_shenlun_drops_fabricated():
+    data = {
+        "shenlun": {
+            "sentence": "这句话原文里压根没有出现过",  # 非原文 → 丢
+            "title": "标题保留",
+            "case": "纯属编造的事例",  # 与原文无重合 → 丢
+        }
+    }
+    out = process.sanitize("时评", data, BODY2)
+    assert "sentence" not in out["shenlun"]
+    assert "case" not in out["shenlun"]
+    assert out["shenlun"]["title"] == "标题保留"
+
+
+class _FakeLLM:
+    """mock LLM：不打真实 API，顺便断言领域清单写进了 prompt。"""
+
+    enabled = True
+
+    def __init__(self, payload):
+        self.payload = payload
+
+    def complete(self, system, user):
+        assert "经济发展" in user and "其他" in user  # 领域清单写死在 prompt 里
+        return json.dumps(self.payload, ensure_ascii=False)
+
+
+def test_process_item_domain_normalized_via_llm():
+    item = {"title": "评论", "link": "l", "source": "s", "category": "时评", "body": BODY2}
+    llm = _FakeLLM({"structure": [], "methods": [], "quotes": [], "domain": "量子速读"})
+    out = process.process_item(item, llm)
+    assert out["degraded"] is False
+    assert out["result"]["domain"] == "其他"  # 清单外归其他
+    assert out["result"]["shenlun"] == {}  # 无三件套 → 空对象
+
+
+def test_degrade_has_domain_but_no_shenlun():
+    item = {"title": "评论", "link": "l", "source": "s", "category": "时评", "body": BODY2}
+    out = process.degrade(item, "时评")
+    assert out["result"]["domain"] == "其他"
+    assert "shenlun" not in out["result"]
+
+
+# ---------- 装配：三件套 + 领域 ----------
+def test_build_daily_shenlun_and_domains():
+    items = [
+        _proc_item("人物", title="王磊", result={"themes": ["青年返乡"], "usage": "用法", "domain": "乡村振兴"}),
+        _proc_item("时评", title="把小事办成大事", result={
+            "structure": ["点题"], "quotes": ["民生无小事"], "domain": "基层治理",
+            "shenlun": {"sentence": "民生无小事，枝叶总关情", "title": "把群众小事当大事", "case": "王磊带领村民种植猕猴桃"},
+        }),
+    ]
+    daily = build_content.build_daily(items, "2026-07-29")
+    assert daily["shenlun"] == {
+        "sentence": "民生无小事，枝叶总关情",
+        "title": "把群众小事当大事",
+        "case": "王磊带领村民种植猕猴桃",
+    }
+    assert daily["cases"][0]["domain"] == "乡村振兴"
+    assert daily["article"]["domain"] == "基层治理"
+
+
+def test_build_daily_degraded_shenlun_empty_domain_fallback():
+    items = [
+        _proc_item("人物", title="某案例", result={"themes": [], "usage": ""}),  # 无 domain
+        _proc_item("时评", title="某评论", result={"structure": [], "quotes": []}),  # 降级：无 shenlun
+    ]
+    daily = build_content.build_daily(items, "2026-07-29")
+    assert daily["shenlun"] == {}
+    assert daily["cases"][0]["domain"] == "其他"
+    assert daily["article"]["domain"] == "其他"
+
+
+# ---------- 案例归档：累积追加与去重 ----------
+def test_archive_id_stable():
+    a = build_content._archive_id({"url": "http://a", "title": "t"})
+    b = build_content._archive_id({"url": "http://a", "title": "t"})
+    c = build_content._archive_id({"url": "", "title": "t"})
+    assert a == b and a != c and len(a) == 12
+
+
+def test_archive_append_dedup_accumulate(tmp_path, monkeypatch):
+    monkeypatch.setattr(build_content, "CONTENT", tmp_path)
+    daily1 = {
+        "cases": [
+            {"title": "案例A", "summary": "甲", "domain": "乡村振兴", "source": "新华社", "url": "http://a"},
+            {"title": "案例B", "summary": "乙", "domain": "其他", "source": "人民日报", "url": ""},
+        ]
+    }
+    build_content.build_case_archive(daily1, "2026-07-29")
+    path = tmp_path / "archive" / "cases.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    assert len(data) == 2
+    assert data[0]["id"] and data[0]["date"] == "2026-07-29"
+    assert data[0]["domain"] == "乡村振兴"
+    assert data[0]["text"] == "甲"
+    assert data[1]["url"] == ""
+
+    # 跨天累积：同 url 不重复、无 url 同 title 不重复、新案例追加
+    daily2 = {
+        "cases": [
+            {"title": "案例A改了名", "summary": "甲2", "domain": "乡村振兴", "source": "新华社", "url": "http://a"},
+            {"title": "案例B", "summary": "乙2", "domain": "其他", "source": "人民日报", "url": ""},
+            {"title": "案例C", "summary": "丙", "domain": "科技创新", "source": "求是网", "url": "http://c"},
+        ]
+    }
+    build_content.build_case_archive(daily2, "2026-07-30")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    assert [x["title"] for x in data] == ["案例A", "案例B", "案例C"]
+    assert data[2]["date"] == "2026-07-30"
+    assert data[2]["domain"] == "科技创新"

@@ -14,6 +14,7 @@ export interface CaseItem {
   summary: string
   themes: string[]
   usage: string
+  domain?: string // 领域标签（旧内容包可能没有）
   source: string
   url?: string
 }
@@ -22,7 +23,14 @@ export interface ArticleItem {
   url: string
   structure: string[]
   quotes: string[]
+  domain?: string
   source: string
+}
+// 每日三件套（从当日申论文章提取；旧包/降级时为空对象）
+export interface ShenlunTrio {
+  sentence?: string
+  title?: string
+  case?: string
 }
 export interface ShiwuExercise {
   qtype: '消息' | '标题' | '纠错'
@@ -49,10 +57,35 @@ export interface DailyPackage {
   date: string
   cases: CaseItem[]
   article: ArticleItem
+  shenlun?: ShenlunTrio
   shiwu: ShiwuPackage
   structure: StructureItem
   guoji: GuojiItem[]
 }
+
+// 案例归档（content/archive/cases.json，管线累积产出）
+export interface ArchiveCase {
+  id: string
+  date: string
+  domain: string
+  title: string
+  text: string
+  source: string
+  url?: string
+}
+
+// 领域清单（与管线 common.DOMAINS 一致，案例库筛选用）
+export const CASE_DOMAINS = [
+  '经济发展',
+  '政务服务',
+  '基层治理',
+  '乡村振兴',
+  '民生保障',
+  '生态文明',
+  '文化建设',
+  '科技创新',
+  '其他'
+] as const
 
 export interface ContentIndex {
   latest: string
@@ -107,6 +140,17 @@ export const useContentStore = defineStore('content', () => {
   // 实务页：时政月统计 / 评论库
   const shizheng = ref<ShizhengMonth | null>(null)
   const pinglunIndex = ref<PinglunEntry[]>([])
+
+  // 案例归档（线上旧部署可能没有该文件 → 优雅降级为空数组）
+  const archive = ref<ArchiveCase[]>([])
+
+  async function loadArchive(): Promise<void> {
+    try {
+      archive.value = await fetchJson<ArchiveCase[]>(`${BASE}content/archive/cases.json`)
+    } catch {
+      archive.value = []
+    }
+  }
 
   async function fetchDaily(date: string): Promise<DailyPackage | null> {
     try {
@@ -187,10 +231,12 @@ export const useContentStore = defineStore('content', () => {
     error,
     shizheng,
     pinglunIndex,
+    archive,
     load,
     nextDaily,
     loadShizheng,
     loadPinglunIndex,
-    loadPinglunDetail
+    loadPinglunDetail,
+    loadArchive
   }
 })

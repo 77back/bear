@@ -21,7 +21,14 @@ function showToast(msg: string) {
 onMounted(() => {
   review.load()
   content.load()
+  content.loadArchive() // 案例库入口计数用；无此文件时静默为空
 })
+
+// 每日三件套（旧内容包无 shenlun 字段 → 整卡隐藏）
+const shenlun = computed(() => content.daily?.shenlun)
+const hasShenlun = computed(
+  () => !!(shenlun.value && (shenlun.value.sentence || shenlun.value.title || shenlun.value.case))
+)
 
 // 翻面状态：已翻开的复习卡 id 集合
 const revealed = ref<Set<number>>(new Set())
@@ -112,9 +119,30 @@ const stages = computed(() =>
       </div>
     </div>
 
+    <!-- 每日三件套（好句子/好标题/好案例；为空时整卡隐藏） -->
+    <div class="card" v-if="hasShenlun">
+      <div class="card-title">每日三件套 <span class="more">{{ content.latest }}</span></div>
+      <div v-if="shenlun?.sentence" style="display:flex;gap:8px;padding:7px 0;align-items:flex-start">
+        <span class="tag sl" style="flex-shrink:0;margin-top:2px">好句子</span>
+        <span style="font-size:14px;line-height:1.7">{{ shenlun.sentence }}</span>
+      </div>
+      <div v-if="shenlun?.title" style="display:flex;gap:8px;padding:7px 0;align-items:flex-start">
+        <span class="tag sl" style="flex-shrink:0;margin-top:2px">好标题</span>
+        <span style="font-size:14px;line-height:1.7">{{ shenlun.title }}</span>
+      </div>
+      <div v-if="shenlun?.case" style="display:flex;gap:8px;padding:7px 0;align-items:flex-start">
+        <span class="tag sl" style="flex-shrink:0;margin-top:2px">好案例</span>
+        <span style="font-size:14px;line-height:1.7">{{ shenlun.case }}</span>
+      </div>
+    </div>
+
     <!-- 每日案例推荐 -->
     <div class="card" v-if="content.daily?.cases?.length">
-      <div class="card-title">每日案例推荐 <button v-if="content.dates.length > 1" class="more" @click="content.nextDaily()">换一批</button></div>
+      <div class="card-title">
+        每日案例推荐
+        <span v-if="content.daily.cases[0].domain" class="tag sl" style="margin-left:4px">{{ content.daily.cases[0].domain }}</span>
+        <button v-if="content.dates.length > 1" class="more" @click="content.nextDaily()">换一批</button>
+      </div>
       <div class="rec-title" style="margin-bottom:6px">{{ content.daily.cases[0].title }}</div>
       <div class="rec-body">{{ content.daily.cases[0].summary }}</div>
       <div style="font-size:12px;color:var(--text-3);margin-top:6px">
@@ -141,7 +169,10 @@ const stages = computed(() =>
 
     <!-- 每日文章推荐 -->
     <div class="card" v-if="content.daily?.article?.title">
-      <div class="card-title">每日文章推荐</div>
+      <div class="card-title">
+        每日文章推荐
+        <span v-if="content.daily.article.domain" class="tag sl" style="margin-left:auto">{{ content.daily.article.domain }}</span>
+      </div>
       <div class="article-card">
         <div class="article-cover">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4a2 2 0 00-2-2H6.5A2.5 2.5 0 004 4.5v15z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"/></svg>
@@ -160,6 +191,15 @@ const stages = computed(() =>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
       </div>
       <div style="flex:1"><div style="font-size:15px;font-weight:600">我的素材库</div><div style="font-size:12px;color:var(--text-3);margin-top:2px">{{ review.collectedCount }} 个素材 · 按主题检索</div></div>
+      <span style="color:var(--text-3)">›</span>
+    </div>
+
+    <!-- 案例库入口（管线累积归档，按领域浏览） -->
+    <div class="card" style="display:flex;align-items:center;gap:12px;cursor:pointer" @click="router.push('/sl/cases')">
+      <div style="width:40px;height:40px;border-radius:12px;background:#F7EFD8;display:flex;align-items:center;justify-content:center;color:#9A7B1A;flex-shrink:0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4a2 2 0 00-2-2H6.5A2.5 2.5 0 004 4.5v15z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"/></svg>
+      </div>
+      <div style="flex:1"><div style="font-size:15px;font-weight:600">案例库</div><div style="font-size:12px;color:var(--text-3);margin-top:2px">{{ content.archive.length }} 个案例 · 按领域浏览</div></div>
       <span style="color:var(--text-3)">›</span>
     </div>
 

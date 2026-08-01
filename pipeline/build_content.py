@@ -106,13 +106,15 @@ def build_daily(proc_items: list[dict], date_str: str) -> dict:
                 "summary": it.get("summary", ""),
                 "themes": r.get("themes", []),
                 "usage": r.get("usage", ""),
+                "domain": common.normalize_domain(r.get("domain")),
                 "source": it.get("source", ""),
                 "url": it.get("link", ""),
             }
         )
 
-    # 文章 ← 时评（取第 1 篇）
+    # 文章 ← 时评（取第 1 篇）；三件套来自同一篇申论文章
     article = {}
+    shenlun: dict = {}
     if by_cat.get("时评"):
         it = by_cat["时评"][0]
         r = it.get("result", {})
@@ -121,8 +123,10 @@ def build_daily(proc_items: list[dict], date_str: str) -> dict:
             "url": it.get("link", ""),
             "structure": r.get("structure", []),
             "quotes": r.get("quotes", []),
+            "domain": common.normalize_domain(r.get("domain")),
             "source": it.get("source", ""),
         }
+        shenlun = r.get("shenlun") or {}
 
     # 实务 ← 通稿（取第 1 篇）
     shiwu = {}
@@ -163,10 +167,53 @@ def build_daily(proc_items: list[dict], date_str: str) -> dict:
         "date": date_str,
         "cases": cases,
         "article": article,
+        "shenlun": shenlun,
         "shiwu": shiwu,
         "structure": struct,
         "guoji": guoji,
     }
+
+
+# ---------- 案例归档（累积，为冷启动回填与 App 案例库打底） ----------
+def _archive_key(case: dict) -> str:
+    """去重键：有 url 按 url，无 url 按 title。"""
+    return (case.get("url") or "").strip() or f"title:{(case.get('title') or '').strip()}"
+
+
+def _archive_id(case: dict) -> str:
+    """稳定 id：sha1(url 或 title) 前 12 位。"""
+    basis = (case.get("url") or "").strip() or (case.get("title") or "").strip()
+    return hashlib.sha1(basis.encode("utf-8")).hexdigest()[:12]
+
+
+def build_case_archive(daily: dict, date_str: str) -> Path:
+    """当日案例追加进 content/archive/cases.json（读旧→合并去重→写回）。
+    累积合并、不覆盖；不受每日包质量门槛限制。"""
+    path = CONTENT / "archive" / "cases.json"
+    data = _read_json(path, [])
+    if not isinstance(data, list):  # 旧文件损坏 → 重新累积
+        data = []
+    seen = {_archive_key(x) for x in data}
+    added = 0
+    for c in daily.get("cases") or []:
+        key = _archive_key(c)
+        if key == "title:" or key in seen:  # 无 url 且无标题 → 无法去重，跳过
+            continue
+        data.append(
+            {
+                "id": _archive_id(c),
+                "date": date_str,
+                "domain": c.get("domain", "其他"),
+                "title": c.get("title", ""),
+                "text": c.get("summary", ""),
+                "source": c.get("source", ""),
+                "url": c.get("url", ""),
+            }
+        )
+        seen.add(key)
+        added += 1
+    _write_json(path, data)
+    return path
 
 
 def build_shizheng_monthly(proc_items: list[dict], month: str) -> dict:
@@ -273,6 +320,10 @@ def run(date_str: str | None = None) -> Path:
 
     shizheng = build_shizheng_monthly(items, month)
     _write_json(CONTENT / "shizheng" / f"{month}.json", shizheng)
+
+    # 案例归档：累积合并，不受每日包质量门槛限制（即使当日包被拒绝覆盖也照归档）
+    archive_path = build_case_archive(daily, date_str)
+    print(f"[build] 案例归档 → {archive_path}")
 
     build_pinglun(items, month)
     update_latest_index(date_str)

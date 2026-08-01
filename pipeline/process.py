@@ -34,14 +34,17 @@ SCHEMAS = {
         "desc": "输出 JSON：{points:[事件要点], reading:国际传播/跨文化传播视角解读≤200字}",
     },
     "时评": {
-        "desc": "输出 JSON：{structure:[论点分步], methods:[论证手法], quotes:[金句，必须原文逐字摘录], examUse:适用考题方向}",
+        "desc": "输出 JSON：{structure:[论点分步], methods:[论证手法], quotes:[金句，必须原文逐字摘录], examUse:适用考题方向, "
+                "domain:领域标签（仅从给定清单选一个）, "
+                "shenlun:{sentence:一个最适合申论摘抄的好句子（原文逐字摘录）, "
+                "title:一个值得仿写的好标题, case:一个可用于申论论证的文中事例（≤100字）}}",
     },
     "通稿": {
         "desc": "输出 JSON：{news:{prompt:消息写作任务(材料+要求300字), reference:参考范文要点}, "
                 "title:{prompt:拟标题任务, samples:[3个推荐标题]}, correct:{prompt:纠错任务, items:[{error,answer}]}}",
     },
     "人物": {
-        "desc": "输出 JSON：{themes:[适用主题], deed:事迹摘要, usage:用法示范}",
+        "desc": "输出 JSON：{themes:[适用主题], deed:事迹摘要, usage:用法示范, domain:领域标签（仅从给定清单选一个）}",
     },
 }
 
@@ -152,6 +155,9 @@ def process_item(item: dict, llm: LLMClient) -> dict:
 
     system = f"你是新闻/申论教研助手。{NO_HALLUC}"
     user = f"原文：\n{body}\n\n按以下要求加工，{schema['desc']}。只输出 JSON。"
+    if cat in ("时评", "人物"):
+        # 领域清单写死，防分类漂移
+        user += f"\ndomain 只能从以下领域清单中选一个：{'、'.join(common.DOMAINS)}；拿不准就选「其他」。"
     try:
         raw = llm.complete(system, user)
         data = parse_json_safe(raw)
@@ -166,7 +172,7 @@ def process_item(item: dict, llm: LLMClient) -> dict:
 
 
 def sanitize(cat: str, data: dict, body: str) -> dict:
-    """防幻觉：校验金句/要点。"""
+    """防幻觉：校验金句/要点；领域兜底；三件套校验。"""
     if cat in ("时政", "国际"):
         pts = data.get("points", [])
         data["points"] = filter_points(pts, body)
@@ -174,13 +180,36 @@ def sanitize(cat: str, data: dict, body: str) -> dict:
         data["quotes"] = verify_quotes(data.get("quotes", []), body)
         data["structure"] = [s for s in data.get("structure", []) if s]
         data["methods"] = [s for s in data.get("methods", []) if s]
+        data["domain"] = common.normalize_domain(data.get("domain"))
+        data["shenlun"] = _sanitize_shenlun(data.get("shenlun"), body)
     if cat == "人物":
         # 事迹摘要至少与原文有重合，否则置空
         deed = data.get("deed", "")
         terms = re.findall(r"[一-龥]{2,}", deed)
         if not any(t in _norm(body) for t in terms):
             data["deed"] = ""
+        data["domain"] = common.normalize_domain(data.get("domain"))
     return data
+
+
+def _sanitize_shenlun(sl, body: str) -> dict:
+    """每日三件套防幻觉：好句子必须原文逐字；案例需与原文有重合；只保留非空字段。"""
+    if not isinstance(sl, dict):
+        return {}
+    nb = _norm(body)
+    out: dict = {}
+    sentence = str(sl.get("sentence") or "").strip()
+    if sentence and _norm(sentence) in nb:
+        out["sentence"] = sentence
+    title = str(sl.get("title") or "").strip()
+    if title:
+        out["title"] = title
+    case = str(sl.get("case") or "").strip()
+    if case:
+        terms = re.findall(r"[一-龥]{2,}", case)
+        if any(t in nb for t in terms):
+            out["case"] = case
+    return out
 
 
 def degrade(item: dict, cat: str) -> dict:
@@ -200,9 +229,10 @@ def degrade(item: dict, cat: str) -> dict:
     if cat in ("时政", "国际"):
         out["result"] = {"points": sents, "domains": [], "angles": [], "reading": ""}
     elif cat == "时评":
-        out["result"] = {"structure": sents[:3], "methods": [], "quotes": [], "examUse": ""}
+        # 降级：无三件套（shenlun 省略 → 每日包为空对象），domain 归「其他」
+        out["result"] = {"structure": sents[:3], "methods": [], "quotes": [], "examUse": "", "domain": "其他"}
     elif cat == "人物":
-        out["result"] = {"themes": [], "deed": first_chars(body, 120), "usage": ""}
+        out["result"] = {"themes": [], "deed": first_chars(body, 120), "usage": "", "domain": "其他"}
     elif cat == "通稿":
         out["result"] = {
             "news": {"prompt": f"依据素材写 300 字消息", "reference": first_chars(body, 160)},

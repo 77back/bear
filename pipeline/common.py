@@ -87,6 +87,26 @@ def save_seen(seen: set[str], path: Path | None = None) -> None:
     )
 
 
+# ---------- 领域清单（固定，防分类漂移） ----------
+# 写死在 prompt 里让模型只能从中选；清单外返回值一律归「其他」。
+DOMAINS = [
+    "经济发展",
+    "政务服务",
+    "基层治理",
+    "乡村振兴",
+    "民生保障",
+    "生态文明",
+    "文化建设",
+    "科技创新",
+    "其他",
+]
+
+
+def normalize_domain(value) -> str:
+    """领域兜底：非字符串或不在固定清单内 → 「其他」。"""
+    return value if isinstance(value, str) and value in DOMAINS else "其他"
+
+
 # ---------- 正文清洗 ----------
 _TAG_RE = re.compile(r"<[^>]+>")
 _WS_RE = re.compile(r"\s+")
