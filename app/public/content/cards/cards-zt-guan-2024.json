@@ -1,1508 +1,1574 @@
 [
-  {
-    "id": "zt-guan-2024-001",
-    "kind": "single",
-    "stem": "中央广播电视总台的成立时间是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "2016 年 9 月",
-      "B": "2018 年 3 月",
-      "C": "2020 年 5 月",
-      "D": "2017 年 10 月"
-    }
-  },
-  {
-    "id": "zt-guan-2024-002",
-    "kind": "single",
-    "stem": "中央广播电视总台作为党的意识形态重镇，首要坚持的政治原则是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "市场导向",
-      "B": "政治家办台",
-      "C": "娱乐优先",
-      "D": "国际化导向"
-    }
-  },
-  {
-    "id": "zt-guan-2024-003",
-    "kind": "single",
-    "stem": "2024 年中央广播电视总台重点推进的媒体融合方向不包括（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "大屏小屏协同发展",
-      "B": "传统媒体单一发展",
-      "C": "优质网络视听内容上大屏",
-      "D": "跨媒体联制联播"
-    }
-  },
-  {
-    "id": "zt-guan-2024-004",
-    "kind": "single",
-    "stem": "管理的首要职能是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "组织",
-      "B": "计划",
-      "C": "控制",
-      "D": "领导"
-    }
-  },
-  {
-    "id": "zt-guan-2024-005",
-    "kind": "single",
-    "stem": "广电总局 2024 年 8 月印发的《关于丰富电视大屏内容 进一步满足人民群众文化需求的意见（试行）》中，强调要强化的核心原则是（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "新闻立台",
-      "B": "娱乐至上",
-      "C": "流量优先",
-      "D": "盈利导向"
-    }
-  },
-  {
-    "id": "zt-guan-2024-006",
-    "kind": "single",
-    "stem": "中央广播电视总台的使命不包括（ ）",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "高举旗帜、引领导向",
-      "B": "围绕中心、服务大局",
-      "C": "追求利益、扩大规模",
-      "D": "联接中外、 沟通世界"
-    }
-  },
-  {
-    "id": "zt-guan-2024-007",
-    "kind": "single",
-    "stem": "决策遵循的基本原则是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "最优原则",
-      "B": "满意原则",
-      "C": "最快原则",
-      "D": "最省原则"
-    }
-  },
-  {
-    "id": "zt-guan-2024-008",
-    "kind": "single",
-    "stem": "2024 年我国货物贸易进出口总值（1—11 月）达到（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "39.79 万亿元",
-      "B": "37.21 万亿元",
-      "C": "41.56 万亿元",
-      "D": "35.88 万亿元"
-    }
-  },
-  {
-    "id": "zt-guan-2024-009",
-    "kind": "single",
-    "stem": "中央广播电视总台旗下不包括的媒体平台是（ ）",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "央视网",
-      "B": "央广网",
-      "C": "人民网",
-      "D": "国际在线"
-    }
-  },
-  {
-    "id": "zt-guan-2024-010",
-    "kind": "single",
-    "stem": "媒介融合背景下，传媒管理应从封闭型转向（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "僵化型",
-      "B": "开放型",
-      "C": "控制型",
-      "D": "保守型"
-    }
-  },
-  {
-    "id": "zt-guan-2024-011",
-    "kind": "single",
-    "stem": "下列不属于管理决策类型的是（ ）",
-    "answer": "D",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "战略决策",
-      "B": "战术决策",
-      "C": "业务决策",
-      "D": "随机决策"
-    }
-  },
-  {
-    "id": "zt-guan-2024-012",
-    "kind": "single",
-    "stem": "2024 年我国对多少个国家实行免签政策，为服务贸易注入新动能（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "38 个",
-      "B": "32 个",
-      "C": "45 个",
-      "D": "29 个"
-    }
-  },
-  {
-    "id": "zt-guan-2024-013",
-    "kind": "single",
-    "stem": "中央广播电视总台推进“三个转变”，其中不包括（ ）",
-    "answer": "D",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "从传统广播电视媒体向国际一流原创视音频制作发布的全媒体机构转变",
-      "B": "从单一传播向融合传播转变",
-      "C": "从本土媒体向国际媒体转变",
-      "D": "从规模扩张向质量提升转变"
-    }
-  },
-  {
-    "id": "zt-guan-2024-014",
-    "kind": "single",
-    "stem": "组织中最基本的管理关系是（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "上下级关系",
-      "B": "同事关系",
-      "C": "劳资关系",
-      "D": "合作关系"
-    }
-  },
-  {
-    "id": "zt-guan-2024-015",
-    "kind": "single",
-    "stem": "广电总局 2024 年政策中，允许电视剧实行的播出模式是（ ）",
-    "answer": "D",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "独家首播",
-      "B": "多星联播",
-      "C": "禁止重播",
-      "D": "仅网络播出"
-    }
-  },
-  {
-    "id": "zt-guan-2024-016",
-    "kind": "single",
-    "stem": "习近平总书记指出，做好党的新闻舆论工作，事关（ ）个方面的重大问题",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "3",
-      "B": "4",
-      "C": "5",
-      "D": "6"
-    }
-  },
-  {
-    "id": "zt-guan-2024-017",
-    "kind": "single",
-    "stem": "风险型决策与不确定型决策的核心区别是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "决策主体不同",
-      "B": "决策目标不同",
-      "C": "每种结果发生的概率是否已知",
-      "D": "决策过程不同"
-    }
-  },
-  {
-    "id": "zt-guan-2024-018",
-    "kind": "single",
-    "stem": "2024 年我国跨境电商企业数量已超过（ ）",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "10 万家",
-      "B": "12 万家",
-      "C": "15 万家",
-      "D": "8 万家"
-    }
-  },
-  {
-    "id": "zt-guan-2024-019",
-    "kind": "single",
-    "stem": "中央广播电视总台党建工作的核心目标是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "提高收视率",
-      "B": "强化政治机关意识",
-      "C": "扩大广告收入",
-      "D": "增加节目数量"
-    }
-  },
-  {
-    "id": "zt-guan-2024-020",
-    "kind": "single",
-    "stem": "下列不属于控制职能的环节是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "制定标准",
-      "B": "衡量绩效",
-      "C": "纠正偏差",
-      "D": "明确目标"
-    }
-  },
-  {
-    "id": "zt-guan-2024-021",
-    "kind": "single",
-    "stem": "央广网作为总台核心新媒体平台，其特色是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "以视频为特色",
-      "B": "以音频为特色",
-      "C": "以文字为特色",
-      "D": "以图片为特色"
-    }
-  },
-  {
-    "id": "zt-guan-2024-022",
-    "kind": "single",
-    "stem": "2024 年我国关税总水平降至（ ）",
-    "answer": "D",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "7.3%",
-      "B": "8.1%",
-      "C": "6.5%",
-      "D": "9.2%"
-    }
-  },
-  {
-    "id": "zt-guan-2024-023",
-    "kind": "single",
-    "stem": "古典决策理论的假设基础是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "有限理性人",
-      "B": "经济人",
-      "C": "社会人",
-      "D": "复杂人"
-    }
-  },
-  {
-    "id": "zt-guan-2024-024",
-    "kind": "single",
-    "stem": "中央广播电视总台在国际舆论斗争中，针对西方抹黑攻击采取的举措不包括 （ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "发布《国际锐评》",
-      "B": "全球独家采访国际知名人士",
-      "C": "回避交锋",
-      "D": "用事实反击污蔑"
-    }
-  },
-  {
-    "id": "zt-guan-2024-025",
-    "kind": "single",
-    "stem": "媒介融合时代，传媒管理应从僵化型转向（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "人本型",
-      "B": "控制型",
-      "C": "封闭型",
-      "D": "粗放型"
-    }
-  },
-  {
-    "id": "zt-guan-2024-026",
-    "kind": "single",
-    "stem": "2024 年东盟继续稳居我国第几大贸易伙伴（ ）",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "第一",
-      "B": "第二",
-      "C": "第三",
-      "D": "第四"
-    }
-  },
-  {
-    "id": "zt-guan-2024-027",
-    "kind": "single",
-    "stem": "管理岗位的核心能力不包括（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "统筹协调能力",
-      "B": "专业技术操作能力",
-      "C": "决策能力",
-      "D": "沟通能力"
-    }
-  },
-  {
-    "id": "zt-guan-2024-028",
-    "kind": "single",
-    "stem": "中央广播电视总台打造的《平“语”近人——习近平喜欢的典故》属于哪类节目 （ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "娱乐综艺",
-      "B": "新闻评论",
-      "C": "思想阐释类",
-      "D": "体育赛事"
-    }
-  },
-  {
-    "id": "zt-guan-2024-029",
-    "kind": "single",
-    "stem": "行为决策理论的提出者是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "泰勒",
-      "B": "赫伯特·西蒙",
-      "C": "法约尔",
-      "D": "韦伯"
-    }
-  },
-  {
-    "id": "zt-guan-2024-030",
-    "kind": "single",
-    "stem": "广电总局 2024 年政策中，推动优秀网络视听作品在电视大屏播出的核心目的是 （ ）",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "降低播出成本",
-      "B": "丰富大屏内容供给",
-      "C": "减少网络流量",
-      "D": "简化审核流程"
-    }
-  },
-  {
-    "id": "zt-guan-2024-031",
-    "kind": "single",
-    "stem": "中央广播电视总台的定位不包括（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "国家广播电视台",
-      "B": "党的意识形态重镇",
-      "C": "纯商业媒体",
-      "D": "国际一流新型主流媒体"
-    }
-  },
-  {
-    "id": "zt-guan-2024-032",
-    "kind": "single",
-    "stem": "下列属于长期决策的是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "物资储备",
-      "B": "投资方向选择",
-      "C": "日常考勤管理",
-      "D": "节目编排调整"
-    }
-  },
-  {
-    "id": "zt-guan-2024-033",
-    "kind": "single",
-    "stem": "2024 年我国与共建“一带一路”国家进出口额占我国进出口总值的比重达（ ）",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "47%",
-      "B": "38%",
-      "C": "52%",
-      "D": "41%"
-    }
-  },
-  {
-    "id": "zt-guan-2024-034",
-    "kind": "single",
-    "stem": "中央广播电视总台推进媒体融合的核心目标是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "提高广告收入",
-      "B": "打造国际一流新型主流媒体",
-      "C": "增加节目种类",
-      "D": "扩大员工规模"
-    }
-  },
-  {
-    "id": "zt-guan-2024-035",
-    "kind": "single",
-    "stem": "领导职能的核心是（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "指挥",
-      "B": "激励",
-      "C": "控制",
-      "D": "计划"
-    }
-  },
-  {
-    "id": "zt-guan-2024-036",
-    "kind": "single",
-    "stem": "2024 年宁波舟山港成为全球唯一拥有两座（ ）码头的港口",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "五百万箱级",
-      "B": "千万箱级",
-      "C": "一千五百万箱级",
-      "D": "两千万箱级"
-    }
-  },
-  {
-    "id": "zt-guan-2024-037",
-    "kind": "single",
-    "stem": "中央广播电视总台员工应具备的核心政治素养不包括（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "政治判断力",
-      "B": "政治领悟力",
-      "C": "政治执行力",
-      "D": "商业敏感度"
-    }
-  },
-  {
-    "id": "zt-guan-2024-038",
-    "kind": "single",
-    "stem": "下列不属于集体决策优点的是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "能更大范围汇总信息",
-      "B": "花费时间较少",
-      "C": "能得到更多认同",
-      "D": "能拟定更多备选方案"
-    }
-  },
-  {
-    "id": "zt-guan-2024-039",
-    "kind": "single",
-    "stem": "广电总局部署丰富电视大屏内容工作，强调要引导电视节目（ ）",
-    "answer": "D",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "开辟新赛道",
-      "B": "减少现实题材",
-      "C": "降低内容质量",
-      "D": "侧重娱乐化"
-    }
-  },
-  {
-    "id": "zt-guan-2024-040",
-    "kind": "single",
-    "stem": "中央广播电视总台在宣传报道中，提出的“头条工程”核心是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "娱乐节目头条",
-      "B": "体育赛事头条",
-      "C": "习近平新时代中国特色社会主义思想宣传阐释",
-      "D": "商业广告头条"
-    }
-  },
-  {
-    "id": "zt-guan-2024-041",
-    "kind": "single",
-    "stem": "管理的本质是（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "提高效率",
-      "B": "协调资源",
-      "C": "实现组织目标",
-      "D": "指挥下属"
-    }
-  },
-  {
-    "id": "zt-guan-2024-042",
-    "kind": "single",
-    "stem": "2024 年我国承接全球绿色船舶订单的比例超过（ ）",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "60%",
-      "B": "70%",
-      "C": "80%",
-      "D": "50%"
-    }
-  },
-  {
-    "id": "zt-guan-2024-043",
-    "kind": "single",
-    "stem": "中央广播电视总台的国际传播目标是（ ）",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "让世界更好认知、了解、读懂中国之治",
-      "B": "扩大商业影响力",
-      "C": "吸引更多国际广告",
-      "D": "模仿西方媒体模式"
-    }
-  },
-  {
-    "id": "zt-guan-2024-044",
-    "kind": "single",
-    "stem": "程序化决策针对的是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "例外问题",
-      "B": "例行问题",
-      "C": "重大问题",
-      "D": "突发问题"
-    }
-  },
-  {
-    "id": "zt-guan-2024-045",
-    "kind": "single",
-    "stem": "2024 年我国旅行服务进出口（1—10 月）达到（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "1.67 万亿元",
-      "B": "1.42 万亿元",
-      "C": "1.89 万亿元",
-      "D": "1.35 万亿元"
-    }
-  },
-  {
-    "id": "zt-guan-2024-046",
-    "kind": "single",
-    "stem": "中央广播电视总台管理岗位的核心职责是（ ）",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "节目采编",
-      "B": "技术维护",
-      "C": "统筹管理、推动目标实现",
-      "D": "广告销售"
-    }
-  },
-  {
-    "id": "zt-guan-2024-047",
-    "kind": "single",
-    "stem": "媒介融合时代，传媒管理应从控制型转向（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "服务型",
-      "B": "僵化型",
-      "C": "封闭型",
-      "D": "粗放型"
-    }
-  },
-  {
-    "id": "zt-guan-2024-048",
-    "kind": "single",
-    "stem": "2024 年我国推动实施自贸协定的国家不包括（ ）",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "尼加拉瓜",
-      "B": "厄瓜多尔",
-      "C": "塞尔维亚",
-      "D": "美国"
-    }
-  },
-  {
-    "id": "zt-guan-2024-049",
-    "kind": "single",
-    "stem": "中央广播电视总台坚持正面宣传为主，其核心目的是（ ）",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "提高收视率",
-      "B": "凝聚社会共识",
-      "C": "增加广告收入",
-      "D": "迎合市场需求"
-    }
-  },
-  {
-    "id": "zt-guan-2024-050",
-    "kind": "multi",
-    "stem": "中央广播电视总台的职责使命包括（ ）",
-    "answer": "ABCD",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "高举旗帜、引领导向",
-      "B": "团结人民、鼓舞士气",
-      "C": "澄清谬误、明辨是非",
-      "D": "联接中外、 沟通世界"
-    }
-  },
-  {
-    "id": "zt-guan-2024-051",
-    "kind": "multi",
-    "stem": "媒介融合背景下，传媒管理理念的转变包括（ ）",
-    "answer": "ABC",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "由封闭式管理转向开放式管理",
-      "B": "由僵化型管理转向人本型管理",
-      "C": "由控制型管理转向服务型管理",
-      "D": "由精细化管理转向粗放型管理"
-    }
-  },
-  {
-    "id": "zt-guan-2024-052",
-    "kind": "multi",
-    "stem": "2024 年我国外贸发展的新亮点包括（ ）",
-    "answer": "ABCD",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "绿色化、高端化产品出口增长",
-      "B": "跨境电商快速发展",
-      "C": "旅行服务成为服务贸易第一大领域",
-      "D": "贸易伙伴数量增加"
-    }
-  },
-  {
-    "id": "zt-guan-2024-053",
-    "kind": "multi",
-    "stem": "管理的基本职能包括（ ）",
-    "answer": "ABCD",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "计划",
-      "B": "组织",
-      "C": "领导",
-      "D": "控制"
-    }
-  },
-  {
-    "id": "zt-guan-2024-054",
-    "kind": "multi",
-    "stem": "广电总局 2024 年丰富电视大屏内容的举措包括（ ）",
-    "answer": "ABCD",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "强化新闻立台",
-      "B": "推动优秀网络视听作品上大屏",
-      "C": "精选境外优秀节目引进播出",
-      "D": "优化电视剧播出调控管理"
-    }
-  },
-  {
-    "id": "zt-guan-2024-055",
-    "kind": "multi",
-    "stem": "中央广播电视总台推进媒体融合的具体举措包括（ ）",
-    "answer": "ABCD",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "打造全媒体内容产品",
-      "B": "推进大屏小屏协同发展",
-      "C": "深化联制联播机制",
-      "D": "加强国际传播能力建设"
-    }
-  },
-  {
-    "id": "zt-guan-2024-056",
-    "kind": "multi",
-    "stem": "集体决策的缺点包括（ ）",
-    "answer": "ABC",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "花费时间较多",
-      "B": "产生群体思维",
-      "C": "责任不明确",
-      "D": "无法汇总更多信息"
-    }
-  },
-  {
-    "id": "zt-guan-2024-057",
-    "kind": "multi",
-    "stem": "中央广播电视总台坚持政治家办台的具体要求包括（ ）",
-    "answer": "ABCD",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "坚持党性原则",
-      "B": "坚持马克思主义新闻观",
-      "C": "坚持正确舆论导向",
-      "D": "坚持正面宣传为主"
-    }
-  },
-  {
-    "id": "zt-guan-2024-058",
-    "kind": "multi",
-    "stem": "2024 年我国稳外贸的“组合拳”包括（ ）",
-    "answer": "ABCD",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "加大对外贸企业融资支持",
-      "B": "提升外贸海运保障能力",
-      "C": "放宽数字领域市场准入",
-      "D": "降低关税总水平"
-    }
-  },
-  {
-    "id": "zt-guan-2024-059",
-    "kind": "multi",
-    "stem": "中央广播电视总台管理岗位应具备的核心能力包括（ ）",
-    "answer": "ABCD",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "统筹协调能力",
-      "B": "决策判断能力",
-      "C": "沟通表达能力",
-      "D": "政治素养"
-    }
-  },
-  {
-    "id": "zt-guan-2024-060",
-    "kind": "single",
-    "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。What is the main focus of the study mentioned in the text? (2 points)",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "The growth of social media platforms",
-      "B": "Gender differences in social media engagement",
-      "C": "The role of influencers in advertising",
-      "D": "The impact of social media on consumer relationships"
-    }
-  },
-  {
-    "id": "zt-guan-2024-061",
-    "kind": "single",
-    "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。Which platforms are more preferred by males according to the text? (2 points)",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "Instagram and Pinterest",
-      "B": "Facebook and Twitter",
-      "C": "LinkedIn and YouTube",
-      "D": "Instagram and Facebook"
-    }
-  },
-  {
-    "id": "zt-guan-2024-062",
-    "kind": "single",
-    "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。What kind of advertising appeals to women more strongly? (2 points)",
-    "answer": "C",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "Factual and useful content",
-      "B": "Transactional advertising emphasizing practicalities",
-      "C": "Emotional appeals",
-      "D": "Tech-focused content"
-    }
-  },
-  {
-    "id": "zt-guan-2024-063",
-    "kind": "single",
-    "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。Why do Instagram and Pinterest mainly attract female users? (2 points)",
-    "answer": "B",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "Their professional and tech-focused content",
-      "B": "Their visual and community-focused content",
-      "C": "Their transactional advertising",
-      "D": "Their factual and useful content"
-    }
-  },
-  {
-    "id": "zt-guan-2024-064",
-    "kind": "single",
-    "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。What is the practical significance of the study's findings? (2 points)",
-    "answer": "A",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "Helping companies improve gender-sensitive marketing tactics",
-      "B": "Promoting the growth of social media platforms",
-      "C": "Increasing the number of influencers",
-      "D": "Reducing advertising costs"
-    }
-  },
-  {
-    "id": "zt-guan-2024-065",
-    "kind": "qa",
-    "stem": "结合中央广播电视总台“党的意识形态重镇、国家广播电视台”的定位，谈谈管理岗位在推动媒体融合发展中应履行的核心职责。",
-    "answer": "1. 政治引领职责：坚守政治家办台原则，将正确舆论导向贯穿媒体融合全过程，落实意识形态工作责任制。 2. 统筹协调职责：统筹传统媒体与新媒体资源，推动大屏小屏协同发展，优化资源配置，降低运营成本。 3. 内容管理职责：推动优质内容创新，落实广电总局政策要求，引导现实题材创作， 推动网络视听内容上大屏。 4. 团队管理职责：坚持人本型管理，培养复合型人才，提升团队协同能力，激发员工创新活力。 5. 国际传播职责：助力国际一流新型主流媒体建设，统筹国际传播资源，讲好中国故事，争夺国际话语权。",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    }
-  },
-  {
-    "id": "zt-guan-2024-066",
-    "kind": "qa",
-    "stem": "题目：以管理赋能传播，以责任彰显担当——谈中央广播电视总台管理岗位的使命与实践要求：1. 结合 2024 年中央广播电视总台工作重点（如媒体融合、内容创新、国际传播、时政宣传等）；2. 紧扣管理岗位核心职责，体现管理与传播的协同作用；3. 观点明确、论据充分、条理清晰；4. 字数 800—1000 字。",
-    "answer": "1. 开头：明确总台定位与管理岗位的核心关联，点题“管理赋能传播，责任彰显担当”。 2. 主体分论点： （1）管理赋能内容传播，筑牢意识形态阵地（结合新闻立台、内容创新、广电总局 2024 年政策）； （2）管理推动媒体融合，激活传播新动能（结合大屏小屏协同、联制联播、资源整合）； （3）管理强化责任担当，提升国际传播力（结合国际舆论斗争、中国故事传播、全球影响力建设）； （4）管理聚焦队伍建设，夯实发展根基（结合人本管理、复合型人才培养）。 3. 结尾：总结管理岗位的使命，结合自身认知谈实践方向，升华主题。",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2024年中央广播电视总台管理岗位复试真题",
-      "year": 2024,
-      "reliability": "真题合集"
-    }
+ {
+  "id": "zt-guan-2024-001",
+  "kind": "single",
+  "stem": "中央广播电视总台的成立时间是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "机构历史",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "2016 年 9 月",
+   "B": "2018 年 3 月",
+   "C": "2020 年 5 月",
+   "D": "2017 年 10 月"
   }
+ },
+ {
+  "id": "zt-guan-2024-002",
+  "kind": "single",
+  "stem": "中央广播电视总台作为党的意识形态重镇，首要坚持的政治原则是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "市场导向",
+   "B": "政治家办台",
+   "C": "娱乐优先",
+   "D": "国际化导向"
+  }
+ },
+ {
+  "id": "zt-guan-2024-003",
+  "kind": "single",
+  "stem": "2024 年中央广播电视总台重点推进的媒体融合方向不包括（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "大屏小屏协同发展",
+   "B": "传统媒体单一发展",
+   "C": "优质网络视听内容上大屏",
+   "D": "跨媒体联制联播"
+  }
+ },
+ {
+  "id": "zt-guan-2024-004",
+  "kind": "single",
+  "stem": "管理的首要职能是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "组织",
+   "B": "计划",
+   "C": "控制",
+   "D": "领导"
+  }
+ },
+ {
+  "id": "zt-guan-2024-005",
+  "kind": "single",
+  "stem": "广电总局 2024 年 8 月印发的《关于丰富电视大屏内容 进一步满足人民群众文化需求的意见（试行）》中，强调要强化的核心原则是（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "新闻立台",
+   "B": "娱乐至上",
+   "C": "流量优先",
+   "D": "盈利导向"
+  }
+ },
+ {
+  "id": "zt-guan-2024-006",
+  "kind": "single",
+  "stem": "中央广播电视总台的使命不包括（ ）",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "高举旗帜、引领导向",
+   "B": "围绕中心、服务大局",
+   "C": "追求利益、扩大规模",
+   "D": "联接中外、 沟通世界"
+  }
+ },
+ {
+  "id": "zt-guan-2024-007",
+  "kind": "single",
+  "stem": "决策遵循的基本原则是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "最优原则",
+   "B": "满意原则",
+   "C": "最快原则",
+   "D": "最省原则"
+  }
+ },
+ {
+  "id": "zt-guan-2024-008",
+  "kind": "single",
+  "stem": "2024 年我国货物贸易进出口总值（1—11 月）达到（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "39.79 万亿元",
+   "B": "37.21 万亿元",
+   "C": "41.56 万亿元",
+   "D": "35.88 万亿元"
+  }
+ },
+ {
+  "id": "zt-guan-2024-009",
+  "kind": "single",
+  "stem": "中央广播电视总台旗下不包括的媒体平台是（ ）",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "央视网",
+   "B": "央广网",
+   "C": "人民网",
+   "D": "国际在线"
+  }
+ },
+ {
+  "id": "zt-guan-2024-010",
+  "kind": "single",
+  "stem": "媒介融合背景下，传媒管理应从封闭型转向（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "僵化型",
+   "B": "开放型",
+   "C": "控制型",
+   "D": "保守型"
+  }
+ },
+ {
+  "id": "zt-guan-2024-011",
+  "kind": "single",
+  "stem": "下列不属于管理决策类型的是（ ）",
+  "answer": "D",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "战略决策",
+   "B": "战术决策",
+   "C": "业务决策",
+   "D": "随机决策"
+  }
+ },
+ {
+  "id": "zt-guan-2024-012",
+  "kind": "single",
+  "stem": "2024 年我国对多少个国家实行免签政策，为服务贸易注入新动能（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "38 个",
+   "B": "32 个",
+   "C": "45 个",
+   "D": "29 个"
+  }
+ },
+ {
+  "id": "zt-guan-2024-013",
+  "kind": "single",
+  "stem": "中央广播电视总台推进“三个转变”，其中不包括（ ）",
+  "answer": "D",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "从传统广播电视媒体向国际一流原创视音频制作发布的全媒体机构转变",
+   "B": "从单一传播向融合传播转变",
+   "C": "从本土媒体向国际媒体转变",
+   "D": "从规模扩张向质量提升转变"
+  }
+ },
+ {
+  "id": "zt-guan-2024-014",
+  "kind": "single",
+  "stem": "组织中最基本的管理关系是（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "上下级关系",
+   "B": "同事关系",
+   "C": "劳资关系",
+   "D": "合作关系"
+  }
+ },
+ {
+  "id": "zt-guan-2024-015",
+  "kind": "single",
+  "stem": "广电总局 2024 年政策中，允许电视剧实行的播出模式是（ ）",
+  "answer": "D",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "独家首播",
+   "B": "多星联播",
+   "C": "禁止重播",
+   "D": "仅网络播出"
+  }
+ },
+ {
+  "id": "zt-guan-2024-016",
+  "kind": "single",
+  "stem": "习近平总书记指出，做好党的新闻舆论工作，事关（ ）个方面的重大问题",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "3",
+   "B": "4",
+   "C": "5",
+   "D": "6"
+  }
+ },
+ {
+  "id": "zt-guan-2024-017",
+  "kind": "single",
+  "stem": "风险型决策与不确定型决策的核心区别是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "决策主体不同",
+   "B": "决策目标不同",
+   "C": "每种结果发生的概率是否已知",
+   "D": "决策过程不同"
+  }
+ },
+ {
+  "id": "zt-guan-2024-018",
+  "kind": "single",
+  "stem": "2024 年我国跨境电商企业数量已超过（ ）",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "10 万家",
+   "B": "12 万家",
+   "C": "15 万家",
+   "D": "8 万家"
+  }
+ },
+ {
+  "id": "zt-guan-2024-019",
+  "kind": "single",
+  "stem": "中央广播电视总台党建工作的核心目标是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "提高收视率",
+   "B": "强化政治机关意识",
+   "C": "扩大广告收入",
+   "D": "增加节目数量"
+  }
+ },
+ {
+  "id": "zt-guan-2024-020",
+  "kind": "single",
+  "stem": "下列不属于控制职能的环节是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "制定标准",
+   "B": "衡量绩效",
+   "C": "纠正偏差",
+   "D": "明确目标"
+  }
+ },
+ {
+  "id": "zt-guan-2024-021",
+  "kind": "single",
+  "stem": "央广网作为总台核心新媒体平台，其特色是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "以视频为特色",
+   "B": "以音频为特色",
+   "C": "以文字为特色",
+   "D": "以图片为特色"
+  }
+ },
+ {
+  "id": "zt-guan-2024-022",
+  "kind": "single",
+  "stem": "2024 年我国关税总水平降至（ ）",
+  "answer": "D",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "7.3%",
+   "B": "8.1%",
+   "C": "6.5%",
+   "D": "9.2%"
+  }
+ },
+ {
+  "id": "zt-guan-2024-023",
+  "kind": "single",
+  "stem": "古典决策理论的假设基础是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "有限理性人",
+   "B": "经济人",
+   "C": "社会人",
+   "D": "复杂人"
+  }
+ },
+ {
+  "id": "zt-guan-2024-024",
+  "kind": "single",
+  "stem": "中央广播电视总台在国际舆论斗争中，针对西方抹黑攻击采取的举措不包括 （ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "发布《国际锐评》",
+   "B": "全球独家采访国际知名人士",
+   "C": "回避交锋",
+   "D": "用事实反击污蔑"
+  }
+ },
+ {
+  "id": "zt-guan-2024-025",
+  "kind": "single",
+  "stem": "媒介融合时代，传媒管理应从僵化型转向（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "人本型",
+   "B": "控制型",
+   "C": "封闭型",
+   "D": "粗放型"
+  }
+ },
+ {
+  "id": "zt-guan-2024-026",
+  "kind": "single",
+  "stem": "2024 年东盟继续稳居我国第几大贸易伙伴（ ）",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "第一",
+   "B": "第二",
+   "C": "第三",
+   "D": "第四"
+  }
+ },
+ {
+  "id": "zt-guan-2024-027",
+  "kind": "single",
+  "stem": "管理岗位的核心能力不包括（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "统筹协调能力",
+   "B": "专业技术操作能力",
+   "C": "决策能力",
+   "D": "沟通能力"
+  }
+ },
+ {
+  "id": "zt-guan-2024-028",
+  "kind": "single",
+  "stem": "中央广播电视总台打造的《平“语”近人——习近平喜欢的典故》属于哪类节目 （ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "娱乐综艺",
+   "B": "新闻评论",
+   "C": "思想阐释类",
+   "D": "体育赛事"
+  }
+ },
+ {
+  "id": "zt-guan-2024-029",
+  "kind": "single",
+  "stem": "行为决策理论的提出者是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "泰勒",
+   "B": "赫伯特·西蒙",
+   "C": "法约尔",
+   "D": "韦伯"
+  }
+ },
+ {
+  "id": "zt-guan-2024-030",
+  "kind": "single",
+  "stem": "广电总局 2024 年政策中，推动优秀网络视听作品在电视大屏播出的核心目的是 （ ）",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "降低播出成本",
+   "B": "丰富大屏内容供给",
+   "C": "减少网络流量",
+   "D": "简化审核流程"
+  }
+ },
+ {
+  "id": "zt-guan-2024-031",
+  "kind": "single",
+  "stem": "中央广播电视总台的定位不包括（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "国家广播电视台",
+   "B": "党的意识形态重镇",
+   "C": "纯商业媒体",
+   "D": "国际一流新型主流媒体"
+  }
+ },
+ {
+  "id": "zt-guan-2024-032",
+  "kind": "single",
+  "stem": "下列属于长期决策的是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "物资储备",
+   "B": "投资方向选择",
+   "C": "日常考勤管理",
+   "D": "节目编排调整"
+  }
+ },
+ {
+  "id": "zt-guan-2024-033",
+  "kind": "single",
+  "stem": "2024 年我国与共建“一带一路”国家进出口额占我国进出口总值的比重达（ ）",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "47%",
+   "B": "38%",
+   "C": "52%",
+   "D": "41%"
+  }
+ },
+ {
+  "id": "zt-guan-2024-034",
+  "kind": "single",
+  "stem": "中央广播电视总台推进媒体融合的核心目标是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "提高广告收入",
+   "B": "打造国际一流新型主流媒体",
+   "C": "增加节目种类",
+   "D": "扩大员工规模"
+  }
+ },
+ {
+  "id": "zt-guan-2024-035",
+  "kind": "single",
+  "stem": "领导职能的核心是（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "指挥",
+   "B": "激励",
+   "C": "控制",
+   "D": "计划"
+  }
+ },
+ {
+  "id": "zt-guan-2024-036",
+  "kind": "single",
+  "stem": "2024 年宁波舟山港成为全球唯一拥有两座（ ）码头的港口",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "五百万箱级",
+   "B": "千万箱级",
+   "C": "一千五百万箱级",
+   "D": "两千万箱级"
+  }
+ },
+ {
+  "id": "zt-guan-2024-037",
+  "kind": "single",
+  "stem": "中央广播电视总台员工应具备的核心政治素养不包括（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "政治判断力",
+   "B": "政治领悟力",
+   "C": "政治执行力",
+   "D": "商业敏感度"
+  }
+ },
+ {
+  "id": "zt-guan-2024-038",
+  "kind": "single",
+  "stem": "下列不属于集体决策优点的是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "能更大范围汇总信息",
+   "B": "花费时间较少",
+   "C": "能得到更多认同",
+   "D": "能拟定更多备选方案"
+  }
+ },
+ {
+  "id": "zt-guan-2024-039",
+  "kind": "single",
+  "stem": "广电总局部署丰富电视大屏内容工作，强调要引导电视节目（ ）",
+  "answer": "D",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "开辟新赛道",
+   "B": "减少现实题材",
+   "C": "降低内容质量",
+   "D": "侧重娱乐化"
+  }
+ },
+ {
+  "id": "zt-guan-2024-040",
+  "kind": "single",
+  "stem": "中央广播电视总台在宣传报道中，提出的“头条工程”核心是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "娱乐节目头条",
+   "B": "体育赛事头条",
+   "C": "习近平新时代中国特色社会主义思想宣传阐释",
+   "D": "商业广告头条"
+  }
+ },
+ {
+  "id": "zt-guan-2024-041",
+  "kind": "single",
+  "stem": "管理的本质是（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "提高效率",
+   "B": "协调资源",
+   "C": "实现组织目标",
+   "D": "指挥下属"
+  }
+ },
+ {
+  "id": "zt-guan-2024-042",
+  "kind": "single",
+  "stem": "2024 年我国承接全球绿色船舶订单的比例超过（ ）",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "60%",
+   "B": "70%",
+   "C": "80%",
+   "D": "50%"
+  }
+ },
+ {
+  "id": "zt-guan-2024-043",
+  "kind": "single",
+  "stem": "中央广播电视总台的国际传播目标是（ ）",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "让世界更好认知、了解、读懂中国之治",
+   "B": "扩大商业影响力",
+   "C": "吸引更多国际广告",
+   "D": "模仿西方媒体模式"
+  }
+ },
+ {
+  "id": "zt-guan-2024-044",
+  "kind": "single",
+  "stem": "程序化决策针对的是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "例外问题",
+   "B": "例行问题",
+   "C": "重大问题",
+   "D": "突发问题"
+  }
+ },
+ {
+  "id": "zt-guan-2024-045",
+  "kind": "single",
+  "stem": "2024 年我国旅行服务进出口（1—10 月）达到（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "1.67 万亿元",
+   "B": "1.42 万亿元",
+   "C": "1.89 万亿元",
+   "D": "1.35 万亿元"
+  }
+ },
+ {
+  "id": "zt-guan-2024-046",
+  "kind": "single",
+  "stem": "中央广播电视总台管理岗位的核心职责是（ ）",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "节目采编",
+   "B": "技术维护",
+   "C": "统筹管理、推动目标实现",
+   "D": "广告销售"
+  }
+ },
+ {
+  "id": "zt-guan-2024-047",
+  "kind": "single",
+  "stem": "媒介融合时代，传媒管理应从控制型转向（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "服务型",
+   "B": "僵化型",
+   "C": "封闭型",
+   "D": "粗放型"
+  }
+ },
+ {
+  "id": "zt-guan-2024-048",
+  "kind": "single",
+  "stem": "2024 年我国推动实施自贸协定的国家不包括（ ）",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "尼加拉瓜",
+   "B": "厄瓜多尔",
+   "C": "塞尔维亚",
+   "D": "美国"
+  }
+ },
+ {
+  "id": "zt-guan-2024-049",
+  "kind": "single",
+  "stem": "中央广播电视总台坚持正面宣传为主，其核心目的是（ ）",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "提高收视率",
+   "B": "凝聚社会共识",
+   "C": "增加广告收入",
+   "D": "迎合市场需求"
+  }
+ },
+ {
+  "id": "zt-guan-2024-050",
+  "kind": "multi",
+  "stem": "中央广播电视总台的职责使命包括（ ）",
+  "answer": "ABCD",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "高举旗帜、引领导向",
+   "B": "团结人民、鼓舞士气",
+   "C": "澄清谬误、明辨是非",
+   "D": "联接中外、 沟通世界"
+  }
+ },
+ {
+  "id": "zt-guan-2024-051",
+  "kind": "multi",
+  "stem": "媒介融合背景下，传媒管理理念的转变包括（ ）",
+  "answer": "ABC",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "由封闭式管理转向开放式管理",
+   "B": "由僵化型管理转向人本型管理",
+   "C": "由控制型管理转向服务型管理",
+   "D": "由精细化管理转向粗放型管理"
+  }
+ },
+ {
+  "id": "zt-guan-2024-052",
+  "kind": "multi",
+  "stem": "2024 年我国外贸发展的新亮点包括（ ）",
+  "answer": "ABCD",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "绿色化、高端化产品出口增长",
+   "B": "跨境电商快速发展",
+   "C": "旅行服务成为服务贸易第一大领域",
+   "D": "贸易伙伴数量增加"
+  }
+ },
+ {
+  "id": "zt-guan-2024-053",
+  "kind": "multi",
+  "stem": "管理的基本职能包括（ ）",
+  "answer": "ABCD",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "计划",
+   "B": "组织",
+   "C": "领导",
+   "D": "控制"
+  }
+ },
+ {
+  "id": "zt-guan-2024-054",
+  "kind": "multi",
+  "stem": "广电总局 2024 年丰富电视大屏内容的举措包括（ ）",
+  "answer": "ABCD",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "强化新闻立台",
+   "B": "推动优秀网络视听作品上大屏",
+   "C": "精选境外优秀节目引进播出",
+   "D": "优化电视剧播出调控管理"
+  }
+ },
+ {
+  "id": "zt-guan-2024-055",
+  "kind": "multi",
+  "stem": "中央广播电视总台推进媒体融合的具体举措包括（ ）",
+  "answer": "ABCD",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "打造全媒体内容产品",
+   "B": "推进大屏小屏协同发展",
+   "C": "深化联制联播机制",
+   "D": "加强国际传播能力建设"
+  }
+ },
+ {
+  "id": "zt-guan-2024-056",
+  "kind": "multi",
+  "stem": "集体决策的缺点包括（ ）",
+  "answer": "ABC",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "花费时间较多",
+   "B": "产生群体思维",
+   "C": "责任不明确",
+   "D": "无法汇总更多信息"
+  }
+ },
+ {
+  "id": "zt-guan-2024-057",
+  "kind": "multi",
+  "stem": "中央广播电视总台坚持政治家办台的具体要求包括（ ）",
+  "answer": "ABCD",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "坚持党性原则",
+   "B": "坚持马克思主义新闻观",
+   "C": "坚持正确舆论导向",
+   "D": "坚持正面宣传为主"
+  }
+ },
+ {
+  "id": "zt-guan-2024-058",
+  "kind": "multi",
+  "stem": "2024 年我国稳外贸的“组合拳”包括（ ）",
+  "answer": "ABCD",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "加大对外贸企业融资支持",
+   "B": "提升外贸海运保障能力",
+   "C": "放宽数字领域市场准入",
+   "D": "降低关税总水平"
+  }
+ },
+ {
+  "id": "zt-guan-2024-059",
+  "kind": "multi",
+  "stem": "中央广播电视总台管理岗位应具备的核心能力包括（ ）",
+  "answer": "ABCD",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "统筹协调能力",
+   "B": "决策判断能力",
+   "C": "沟通表达能力",
+   "D": "政治素养"
+  }
+ },
+ {
+  "id": "zt-guan-2024-060",
+  "kind": "single",
+  "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。What is the main focus of the study mentioned in the text? (2 points)",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "The growth of social media platforms",
+   "B": "Gender differences in social media engagement",
+   "C": "The role of influencers in advertising",
+   "D": "The impact of social media on consumer relationships"
+  }
+ },
+ {
+  "id": "zt-guan-2024-061",
+  "kind": "single",
+  "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。Which platforms are more preferred by males according to the text? (2 points)",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "Instagram and Pinterest",
+   "B": "Facebook and Twitter",
+   "C": "LinkedIn and YouTube",
+   "D": "Instagram and Facebook"
+  }
+ },
+ {
+  "id": "zt-guan-2024-062",
+  "kind": "single",
+  "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。What kind of advertising appeals to women more strongly? (2 points)",
+  "answer": "C",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "Factual and useful content",
+   "B": "Transactional advertising emphasizing practicalities",
+   "C": "Emotional appeals",
+   "D": "Tech-focused content"
+  }
+ },
+ {
+  "id": "zt-guan-2024-063",
+  "kind": "single",
+  "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。Why do Instagram and Pinterest mainly attract female users? (2 points)",
+  "answer": "B",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "Their professional and tech-focused content",
+   "B": "Their visual and community-focused content",
+   "C": "Their transactional advertising",
+   "D": "Their factual and useful content"
+  }
+ },
+ {
+  "id": "zt-guan-2024-064",
+  "kind": "single",
+  "stem": "Read the following text and answer the questions below. (10 points) Engaging Genders Differently: The Role of Emotion and Utility in Social Media Consumption The study assesses platform preferences, influencers' roles, and emotional and transactional engagement patterns using a mixed-method research approach. The results show that gender has a big effect on how people engage. For example, men like factual, useful content more than emotional, visually driven ads, while women respond more strongly to the latter. Whereas males favor professional and tech- focused networks like LinkedIn and YouTube, women predominate on platforms like Instagram and Pinterest, where they actively participate in lifestyle and community- driven efforts. While men react better to transactional advertising that emphasizes practicalities, women are more engaged by emotional appeals. These findings highlight the significance of gender-sensitive marketing tactics and provide practical suggestions for platform optimization, influencer partnerships, and content tailoring. By tailoring advertising to gender-specific tastes and behaviors, marketers can improve consumer relationships and achieve company goals, according to the report. Platforms like Facebook, Instagram, LinkedIn, and Twitter have grown rapidly, changing how companies interact with their audiences and opening up new avenues for specialized and focused advertising. For example, because of their visual and community-focused content, Instagram and Pinterest continue to draw primarily female users (Statista, 2024). Questions:。What is the practical significance of the study's findings? (2 points)",
+  "answer": "A",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "Helping companies improve gender-sensitive marketing tactics",
+   "B": "Promoting the growth of social media platforms",
+   "C": "Increasing the number of influencers",
+   "D": "Reducing advertising costs"
+  }
+ },
+ {
+  "id": "zt-guan-2024-065",
+  "kind": "qa",
+  "stem": "结合中央广播电视总台“党的意识形态重镇、国家广播电视台”的定位，谈谈管理岗位在推动媒体融合发展中应履行的核心职责。",
+  "answer": "1. 政治引领职责：坚守政治家办台原则，将正确舆论导向贯穿媒体融合全过程，落实意识形态工作责任制。 2. 统筹协调职责：统筹传统媒体与新媒体资源，推动大屏小屏协同发展，优化资源配置，降低运营成本。 3. 内容管理职责：推动优质内容创新，落实广电总局政策要求，引导现实题材创作， 推动网络视听内容上大屏。 4. 团队管理职责：坚持人本型管理，培养复合型人才，提升团队协同能力，激发员工创新活力。 5. 国际传播职责：助力国际一流新型主流媒体建设，统筹国际传播资源，讲好中国故事，争夺国际话语权。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  }
+ },
+ {
+  "id": "zt-guan-2024-066",
+  "kind": "qa",
+  "stem": "题目：以管理赋能传播，以责任彰显担当——谈中央广播电视总台管理岗位的使命与实践要求：1. 结合 2024 年中央广播电视总台工作重点（如媒体融合、内容创新、国际传播、时政宣传等）；2. 紧扣管理岗位核心职责，体现管理与传播的协同作用；3. 观点明确、论据充分、条理清晰；4. 字数 800—1000 字。",
+  "answer": "1. 开头：明确总台定位与管理岗位的核心关联，点题“管理赋能传播，责任彰显担当”。 2. 主体分论点： （1）管理赋能内容传播，筑牢意识形态阵地（结合新闻立台、内容创新、广电总局 2024 年政策）； （2）管理推动媒体融合，激活传播新动能（结合大屏小屏协同、联制联播、资源整合）； （3）管理强化责任担当，提升国际传播力（结合国际舆论斗争、中国故事传播、全球影响力建设）； （4）管理聚焦队伍建设，夯实发展根基（结合人本管理、复合型人才培养）。 3. 结尾：总结管理岗位的使命，结合自身认知谈实践方向，升华主题。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2024年中央广播电视总台管理岗位复试真题",
+   "year": 2024,
+   "reliability": "真题合集"
+  }
+ }
 ]

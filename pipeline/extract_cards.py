@@ -111,7 +111,14 @@ def join_wrap(text: str) -> str:
     return out.strip()
 
 
+# C0/C1 控制字符（保留 \n \t）及 Unicode 私有区字符（PDF 文本层私有区残留，如 \x01）
+_BAD_RANGES = [(0x00, 0x08), (0x0B, 0x1F), (0x7F, 0x9F),  # C0(保留换行/制表)/C1
+               (0xE000, 0xF8FF), (0xF0000, 0xFFFFD), (0x100000, 0x10FFFD)]  # 私有区
+BAD_CHARS = re.compile("[" + "".join(f"{chr(lo)}-{chr(hi)}" for lo, hi in _BAD_RANGES) + "]")
+
+
 def tidy(s: str) -> str:
+    s = BAD_CHARS.sub("", s)
     s = re.sub(r"[_＿]{2,}", "", s)  # 下划线填空占位
     s = re.sub(r"[ \t 　]+", " ", s)
     return s.strip()
@@ -1234,7 +1241,16 @@ def main() -> int:
             stem = c["stem"][:50].replace("\n", " ")
             print(f"  样例 {c['id']} [{c['kind']}] {stem}… 答案:{c['answer'][:20]}")
 
-    (OUT_DIR / "index.json").write_text(
+    # 保留非本脚本产出的 index 条目（如 extract_media_cards.py 的 mk-* 源）
+    index_path = OUT_DIR / "index.json"
+    own_keys = {e["key"] for e in index}
+    if index_path.exists():
+        try:
+            old = json.loads(index_path.read_text(encoding="utf-8"))
+            index.extend(e for e in old if e["key"] not in own_keys)
+        except json.JSONDecodeError:
+            pass
+    index_path.write_text(
         json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\n== 合计 {len(index)} 个来源、{total_cards} 张卡片 → {OUT_DIR}")
     if failures:

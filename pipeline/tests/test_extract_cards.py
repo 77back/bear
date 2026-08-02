@@ -366,6 +366,14 @@ def test_normalize_radicals_keeps_circles():
     assert ec.normalize_radicals("①②③") == "①②③"  # 圈号不被 NFKC 拆掉
 
 
+def test_tidy_strips_control_and_pua():
+    # C0 控制字符（如 rmrb-2021 PDF 残留的 \x01）与私有区字符被剥离
+    assert ec.tidy("\x01\x02\x1f阅读材料") == "阅读材料"
+    assert ec.tidy("材料完") == "材料完"
+    # 换行保留；tab 按既有规则折叠为单空格
+    assert ec.tidy("a\nb\tc") == "a\nb c"
+
+
 def test_extract_options_letters_in_order():
     stem, opts = ec.extract_options("题干什么（ ）\nA. 甲 B. 乙 C. 丙 D. 丁")
     assert stem.startswith("题干什么")

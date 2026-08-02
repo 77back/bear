@@ -173,6 +173,11 @@ export function wrongCards(cards: Card[], states: Map<string, CardState>): Wrong
 
 /* ---------- 考点覆盖统计 ---------- */
 
+/** 卡的模块标签：有二级考点用二级（tags[1]），否则回退一级（tags[0]） */
+export function moduleTag(c: Card): string {
+  return c.tags[1] ?? c.tags[0] ?? '未分类'
+}
+
 export interface CoverageRow {
   institution: string
   tag: string
@@ -182,12 +187,12 @@ export interface CoverageRow {
   wrong: number // 在复习队列中（答错过、未掌握）
 }
 
-/** 按机构 × 主标签（tags[0]）统计覆盖：总量/已掌握/复习中 */
+/** 按机构 × 考点（二级优先）统计覆盖：总量/已掌握/复习中 */
 export function coverageByTag(cards: Card[], states: Map<string, CardState>): CoverageRow[] {
   const rows = new Map<string, CoverageRow>()
   for (const c of cards) {
     const institution = c.source.institution
-    const tag = c.tags[0] ?? '未分类'
+    const tag = moduleTag(c)
     const label = `${institution} · ${tag}`
     let row = rows.get(label)
     if (!row) {
@@ -210,7 +215,7 @@ export function moduleSession(
   states: Map<string, CardState>
 ): Card[] {
   return cards
-    .filter((c) => c.source.institution === institution && (c.tags[0] ?? '未分类') === tag)
+    .filter((c) => c.source.institution === institution && moduleTag(c) === tag)
     .sort((a, b) => {
       const ma = states.get(a.id)?.mastered ? 1 : 0
       const mb = states.get(b.id)?.mastered ? 1 : 0

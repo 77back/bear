@@ -230,6 +230,16 @@ describe('moduleSession 按模块系统复习', () => {
   it('模块为空返回空数组', () => {
     expect(moduleSession([mk({ id: 'a' })], '总台', '媒体常识', new Map())).toEqual([])
   })
+
+  it('有二级标签时按二级分组（tags[1] 优先）', () => {
+    const cards = [
+      mk({ id: 'a', tags: ['媒体常识', '机构历史', '新华社'], source: { institution: '新华社', doc: 'd', reliability: 'r' } }),
+      mk({ id: 'b', tags: ['媒体常识', '企业文化', '新华社'], source: { institution: '新华社', doc: 'd', reliability: 'r' } })
+    ]
+    const rows = coverageByTag(cards, new Map())
+    expect(rows.map((r) => r.label).sort()).toEqual(['新华社 · 企业文化', '新华社 · 机构历史'])
+    expect(moduleSession(cards, '新华社', '机构历史', new Map()).map((c) => c.id)).toEqual(['a'])
+  })
 })
 
 describe('wrongCards / wrongCount 错题本', () => {
