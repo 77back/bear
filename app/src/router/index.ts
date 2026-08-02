@@ -16,6 +16,7 @@ const router = createRouter({
     { path: '/media', name: 'media', component: () => import('@/views/MediaView.vue') },
     { path: '/sw/shizheng', name: 'sw-shizheng', component: () => import('@/views/sub/ShizhengLibrary.vue') },
     { path: '/sw/practice', name: 'sw-practice', component: () => import('@/views/sub/WritingPractice.vue') },
+    { path: '/practice', name: 'practice', component: () => import('@/views/sub/CasualPractice.vue') },
     { path: '/report', name: 'report', component: () => import('@/views/sub/ReportPage.vue') },
     { path: '/settings', name: 'settings', component: () => import('@/views/sub/SettingsPage.vue') }
   ]

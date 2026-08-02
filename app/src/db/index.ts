@@ -89,6 +89,31 @@ export interface Course {
   createdAt: number
 }
 
+// 刷题卡片答题记录（随心练习/系统复习共用，见 考点地图与命题库设计.md §六）
+export type CardMode = 'casual' | 'review'
+export type SelfGrade = 'know' | 'vague' | 'unknown'
+
+export interface CardAttempt {
+  id?: number
+  cardId: string
+  date: string // 'YYYY-MM-DD'
+  mode: CardMode
+  correct: boolean
+  selfGrade?: SelfGrade // 翻卡自评（填空/改错/问答卡）；选择题无此字段
+  at: number // 时间戳
+}
+
+// 每卡累计掌握状态（答题记录聚合；SRS 调度字段第二波再加）
+export interface CardState {
+  cardId: string // 主键
+  seen: number
+  correctCount: number
+  wrongCount: number
+  streak: number // 连续答对次数
+  mastered: boolean // 连续答对 ≥2 次视为掌握
+  lastAt: number
+}
+
 export class PrepDB extends Dexie {
   tasks!: Table<Task, number>
   checkins!: Table<Checkin, string>
@@ -98,6 +123,8 @@ export class PrepDB extends Dexie {
   practiceLogs!: Table<PracticeLog, number>
   settings!: Table<Setting, string>
   courses!: Table<Course, number>
+  cardAttempts!: Table<CardAttempt, number>
+  cardStates!: Table<CardState, string>
 
   constructor() {
     super('bear-prep')
@@ -114,6 +141,11 @@ export class PrepDB extends Dexie {
     // 版本 2：新增 courses（刷课进度），旧表原样保留，向后兼容
     this.version(2).stores({
       courses: '++id, createdAt'
+    })
+    // 版本 3：新增刷题卡片的答题记录与掌握状态
+    this.version(3).stores({
+      cardAttempts: '++id, cardId, date, mode',
+      cardStates: 'cardId, lastAt'
     })
   }
 }

@@ -32,3 +32,9 @@ vite.config.js
 # env
 .env
 .env.local
+
+# 抽取调试产物
+pipeline/processed/ocr/
+pipeline/processed/probe/
+pipeline/probe.py
+pipeline/ocr_warmup.py

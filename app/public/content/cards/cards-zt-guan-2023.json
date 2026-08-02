@@ -1,0 +1,1427 @@
+[
+  {
+    "id": "zt-guan-2023-001",
+    "kind": "single",
+    "stem": "中央广播电视总台成立于（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "2017 年 3 月",
+      "B": "2018 年 3 月",
+      "C": "2019 年 3 月",
+      "D": "2020 年 3 月"
+    }
+  },
+  {
+    "id": "zt-guan-2023-002",
+    "kind": "single",
+    "stem": "中央广播电视总台的核心定位是（ ）",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "国家主流媒体",
+      "B": "娱乐传播平台",
+      "C": "地方宣传窗口",
+      "D": "商业媒体机构"
+    }
+  },
+  {
+    "id": "zt-guan-2023-003",
+    "kind": "single",
+    "stem": "2023 年中央广播电视总台重点推进的战略方向不包括（ ）",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "媒体深度融合",
+      "B": "数字化转型",
+      "C": "商业化过度扩张",
+      "D": "国际传播能力建设"
+    }
+  },
+  {
+    "id": "zt-guan-2023-004",
+    "kind": "single",
+    "stem": "管理学中的“计划、组织、领导、控制”四大职能，最早由（ ）系统提出",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "泰勒",
+      "B": "法约尔",
+      "C": "韦伯",
+      "D": "梅奥"
+    }
+  },
+  {
+    "id": "zt-guan-2023-005",
+    "kind": "single",
+    "stem": "中央广播电视总台旗下不包含的媒体平台是（ ）",
+    "answer": "D",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "中央电视台",
+      "B": "中央人民广播电台",
+      "C": "中国国际广播电台",
+      "D": "北京电视台"
+    }
+  },
+  {
+    "id": "zt-guan-2023-006",
+    "kind": "single",
+    "stem": "管理岗位的核心职责不包括（ ）",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "目标制定与拆解",
+      "B": "团队协调与激励",
+      "C": "具体业务操作执行",
+      "D": "风险防控与复盘"
+    }
+  },
+  {
+    "id": "zt-guan-2023-007",
+    "kind": "single",
+    "stem": "2023 年全国宣传思想文化工作会议强调，要聚焦（ ）这个首要政治任务",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "社会主义核心价值观宣传",
+      "B": "习近平新时代中国特色社会主义思想武装头脑",
+      "C": "国际传播能力提升",
+      "D": "媒体融合发展"
+    }
+  },
+  {
+    "id": "zt-guan-2023-008",
+    "kind": "single",
+    "stem": "管理学中“彼得原理”指的是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "人岗匹配原则",
+      "B": "晋升到不称职岗位的现象",
+      "C": "激励与惩罚并重",
+      "D": "权责对等原则"
+    }
+  },
+  {
+    "id": "zt-guan-2023-009",
+    "kind": "single",
+    "stem": "中央广播电视总台的台标中，英文缩写为（ ）",
+    "answer": "D",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "CCTV",
+      "B": "CNR",
+      "C": "CRTV",
+      "D": "CMG"
+    }
+  },
+  {
+    "id": "zt-guan-2023-010",
+    "kind": "single",
+    "stem": "下列不属于管理沟通基本原则的是（ ）",
+    "answer": "D",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "准确性",
+      "B": "及时性",
+      "C": "保密性",
+      "D": "随意性"
+    }
+  },
+  {
+    "id": "zt-guan-2023-011",
+    "kind": "single",
+    "stem": "2023 年中央广播电视总台春晚的主题是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "奋进新征程，建功新时代",
+      "B": "欢歌新时代，奋进新征程",
+      "C": "玉兔迎春，福满乾坤",
+      "D": "同心筑梦，共启新章"
+    }
+  },
+  {
+    "id": "zt-guan-2023-012",
+    "kind": "single",
+    "stem": "人力资源管理中，“绩效考核”的核心目的是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "惩罚落后员工",
+      "B": "激励员工成长、提升组织效能",
+      "C": "划分薪酬等级",
+      "D": "完成上级任务"
+    }
+  },
+  {
+    "id": "zt-guan-2023-013",
+    "kind": "single",
+    "stem": "中央广播电视总台推进媒体融合，打造的核心融合平台是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "央视网",
+      "B": "央视频",
+      "C": "学习强国",
+      "D": "人民日报客户端"
+    }
+  },
+  {
+    "id": "zt-guan-2023-014",
+    "kind": "single",
+    "stem": "下列属于战略管理核心环节的是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "日常运营管理",
+      "B": "战略制定与实施",
+      "C": "员工培训",
+      "D": "成本控制"
+    }
+  },
+  {
+    "id": "zt-guan-2023-015",
+    "kind": "single",
+    "stem": "2023 年是全面贯彻落实党的二十大精神的（ ）",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "开局之年",
+      "B": "关键之年",
+      "C": "收官之年",
+      "D": "深化之年"
+    }
+  },
+  {
+    "id": "zt-guan-2023-016",
+    "kind": "single",
+    "stem": "管理中“破窗效应”的核心启示是（ ）",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "及时纠正小问题，防止问题扩大",
+      "B": "注重团队凝聚力",
+      "C": "重视榜样的力量",
+      "D": "合理分配资源"
+    }
+  },
+  {
+    "id": "zt-guan-2023-017",
+    "kind": "single",
+    "stem": "中央广播电视总台国际传播的核心目标是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "提升商业影响力",
+      "B": "讲好中国故事、传播好中国声音",
+      "C": "引进国外优秀节目",
+      "D": "扩大受众规模"
+    }
+  },
+  {
+    "id": "zt-guan-2023-018",
+    "kind": "single",
+    "stem": "下列不属于财务管理核心内容的是（ ）",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "资金筹集",
+      "B": "资金使用",
+      "C": "员工招聘",
+      "D": "利润分配"
+    }
+  },
+  {
+    "id": "zt-guan-2023-019",
+    "kind": "single",
+    "stem": "2023 年中央广播电视总台重点打造的文化类节目不包括（ ）",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "《国家宝藏》",
+      "B": "《中国诗词大会》",
+      "C": "《奔跑吧》",
+      "D": "《典籍里的中国》"
+    }
+  },
+  {
+    "id": "zt-guan-2023-020",
+    "kind": "single",
+    "stem": "管理学中“激励理论”中的“需求层次理论”，由（ ）提出",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "马斯洛",
+      "B": "赫茨伯格",
+      "C": "弗鲁姆",
+      "D": "亚当斯"
+    }
+  },
+  {
+    "id": "zt-guan-2023-021",
+    "kind": "single",
+    "stem": "中央广播电视总台的宗旨是（ ）",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "服务人民，奉献社会",
+      "B": "实事求是，与时俱进",
+      "C": "传播真理，弘扬正气",
+      "D": "守正创新，融合发展"
+    }
+  },
+  {
+    "id": "zt-guan-2023-022",
+    "kind": "single",
+    "stem": "下列属于管理岗位必备能力的是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "专业技术操作能力",
+      "B": "战略思维与决策能力",
+      "C": "一线采编能力",
+      "D": "节目制作能力"
+    }
+  },
+  {
+    "id": "zt-guan-2023-023",
+    "kind": "single",
+    "stem": "2023 年，中央广播电视总台与哪个国际媒体机构开展了深度合作（ ）",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "美国有线电视新闻网（CNN）",
+      "B": "英国广播公司（BBC）",
+      "C": "俄罗斯国家电视台（RT）",
+      "D": "日本 NHK 电视台"
+    }
+  },
+  {
+    "id": "zt-guan-2023-024",
+    "kind": "single",
+    "stem": "管理中的“权责对等原则”是指（ ）",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "权力大于责任",
+      "B": "责任大于权力",
+      "C": "权力与责任相匹配",
+      "D": "权力与责任无关"
+    }
+  },
+  {
+    "id": "zt-guan-2023-025",
+    "kind": "single",
+    "stem": "中央广播电视总台旗下的数字电视频道不包括（ ）",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "央视财经频道",
+      "B": "央视体育频道",
+      "C": "湖南卫视",
+      "D": "央视新闻频道"
+    }
+  },
+  {
+    "id": "zt-guan-2023-026",
+    "kind": "single",
+    "stem": "下列不属于组织文化核心内容的是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "价值观",
+      "B": "规章制度",
+      "C": "组织精神",
+      "D": "组织愿景"
+    }
+  },
+  {
+    "id": "zt-guan-2023-027",
+    "kind": "single",
+    "stem": "2023 年全国两会期间，中央广播电视总台采用的创新传播方式不包括（ ）",
+    "answer": "D",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "4K 超高清直播",
+      "B": "虚拟主播播报",
+      "C": "短视频矩阵传播",
+      "D": "仅传统电视直播"
+    }
+  },
+  {
+    "id": "zt-guan-2023-028",
+    "kind": "single",
+    "stem": "管理学中“SWOT 分析”中的“S”指的是（ ）",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "优势",
+      "B": "劣势",
+      "C": "机会",
+      "D": "威胁"
+    }
+  },
+  {
+    "id": "zt-guan-2023-029",
+    "kind": "single",
+    "stem": "中央广播电视总台的宣传工作必须坚持的根本原则是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "经济效益优先",
+      "B": "党性原则",
+      "C": "娱乐性优先",
+      "D": "市场化原则"
+    }
+  },
+  {
+    "id": "zt-guan-2023-030",
+    "kind": "single",
+    "stem": "下列属于项目管理核心流程的是（ ）",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "项目启动-项目规划-项目执行-项目收尾",
+      "B": "项目招聘-项目培训-项目考核- 项目奖励",
+      "C": "项目调研-项目设计-项目宣传-项目盈利",
+      "D": "项目申请-项目审批-项目拨款-项目验收"
+    }
+  },
+  {
+    "id": "zt-guan-2023-031",
+    "kind": "single",
+    "stem": "2023 年，中央广播电视总台推出的重点纪录片是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "《舌尖上的中国 3》",
+      "B": "《航拍中国 4》",
+      "C": "《大国工匠》",
+      "D": "《记住乡愁》"
+    }
+  },
+  {
+    "id": "zt-guan-2023-032",
+    "kind": "single",
+    "stem": "管理沟通中，“上行沟通”是指（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "上级对下级的沟通",
+      "B": "下级对上级的沟通",
+      "C": "同级之间的沟通",
+      "D": "与外部人员的沟通"
+    }
+  },
+  {
+    "id": "zt-guan-2023-033",
+    "kind": "single",
+    "stem": "中央广播电视总台推进数字化转型的核心目标是（ ）",
+    "answer": "D",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "降低运营成本",
+      "B": "提升传播效能、扩大传播范围",
+      "C": "减少员工数量",
+      "D": "增加商业广告收入"
+    }
+  },
+  {
+    "id": "zt-guan-2023-034",
+    "kind": "single",
+    "stem": "下列不属于风险管理步骤的是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "风险识别",
+      "B": "风险评估",
+      "C": "风险规避",
+      "D": "风险忽视"
+    }
+  },
+  {
+    "id": "zt-guan-2023-035",
+    "kind": "single",
+    "stem": "2023 年，中央广播电视总台举办的重大文化活动是（ ）",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "中国国际进口博览会",
+      "B": "中央广播电视总台中秋晚会",
+      "C": "北京国际电影节",
+      "D": "上海世博会"
+    }
+  },
+  {
+    "id": "zt-guan-2023-036",
+    "kind": "single",
+    "stem": "管理学中“鲶鱼效应”的核心作用是（ ）",
+    "answer": "D",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "打破僵化，激发团队活力",
+      "B": "强化团队合作",
+      "C": "降低团队冲突",
+      "D": "提升团队凝聚力"
+    }
+  },
+  {
+    "id": "zt-guan-2023-037",
+    "kind": "single",
+    "stem": "中央广播电视总台的国际频道不包括（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "央视中文国际频道",
+      "B": "央视英语新闻频道",
+      "C": "央视法语频道",
+      "D": "央视少儿频道"
+    }
+  },
+  {
+    "id": "zt-guan-2023-038",
+    "kind": "single",
+    "stem": "下列属于薪酬管理基本原则的是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "平均主义",
+      "B": "公平性原则",
+      "C": "随意性原则",
+      "D": "重资历轻能力"
+    }
+  },
+  {
+    "id": "zt-guan-2023-039",
+    "kind": "single",
+    "stem": "2023 年，中央广播电视总台在媒体融合方面的重点举措是（ ）",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "减少新媒体投入",
+      "B": "推进“台网端微屏”一体化发展",
+      "C": "专注传统电视业务",
+      "D": "关闭部分广播频率"
+    }
+  },
+  {
+    "id": "zt-guan-2023-040",
+    "kind": "single",
+    "stem": "管理中的“目标管理法”最早由（ ）提出",
+    "answer": "A",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "德鲁克",
+      "B": "泰勒",
+      "C": "法约尔",
+      "D": "韦伯"
+    }
+  },
+  {
+    "id": "zt-guan-2023-041",
+    "kind": "single",
+    "stem": "中央广播电视总台必须坚守的舆论导向是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "娱乐导向",
+      "B": "正面宣传为主，团结稳定鼓劲",
+      "C": "商业导向",
+      "D": "猎奇导向"
+    }
+  },
+  {
+    "id": "zt-guan-2023-042",
+    "kind": "single",
+    "stem": "下列不属于管理岗位职业道德要求的是（ ）",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "廉洁自律",
+      "B": "爱岗敬业",
+      "C": "徇私舞弊",
+      "D": "责任担当"
+    }
+  },
+  {
+    "id": "zt-guan-2023-043",
+    "kind": "single",
+    "stem": "2023 年，中央广播电视总台在科技赋能方面的创新应用是（ ）",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "5G+4K/8K 超高清直播",
+      "B": "传统胶片拍摄",
+      "C": "人工手动剪辑",
+      "D": "纸质媒体传播"
+    }
+  },
+  {
+    "id": "zt-guan-2023-044",
+    "kind": "single",
+    "stem": "管理学中“木桶原理”的核心启示是（ ）",
+    "answer": "",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "发挥优势，规避劣势",
+      "B": "补齐短板，提升整体效能",
+      "C": "重视核心竞争力",
+      "D": "合理分配资源"
+    }
+  },
+  {
+    "id": "zt-guan-2023-045",
+    "kind": "multi",
+    "stem": "中央广播电视总台的核心职能包括（ ）",
+    "answer": "ABCE",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "新闻宣传",
+      "B": "文化传播",
+      "C": "国际传播",
+      "D": "商业盈利",
+      "E": "舆论引导"
+    }
+  },
+  {
+    "id": "zt-guan-2023-046",
+    "kind": "multi",
+    "stem": "管理岗位的核心素养包括（ ）",
+    "answer": "ABCD",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "政治素养",
+      "B": "战略思维",
+      "C": "沟通协调能力",
+      "D": "决策能力",
+      "E": "专业技术能力"
+    }
+  },
+  {
+    "id": "zt-guan-2023-047",
+    "kind": "multi",
+    "stem": "2023 年中央广播电视总台推进媒体融合的具体举措包括（ ）",
+    "answer": "ABCE",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "强化央视频、央视网等融合平台建设",
+      "B": "推进短视频内容创作",
+      "C": "实现“台网端微屏”一体化传播",
+      "D": "关闭传统广播电视频道",
+      "E": "加强融媒体人才培养"
+    }
+  },
+  {
+    "id": "zt-guan-2023-048",
+    "kind": "multi",
+    "stem": "管理学中的四大职能包括（ ）",
+    "answer": "ABCD",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "计划",
+      "B": "组织",
+      "C": "领导",
+      "D": "控制",
+      "E": "执行"
+    }
+  },
+  {
+    "id": "zt-guan-2023-049",
+    "kind": "multi",
+    "stem": "中央广播电视总台国际传播的主要渠道包括（ ）",
+    "answer": "ABCDE",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "国际频道播出",
+      "B": "海外记者站",
+      "C": "国际媒体合作",
+      "D": "新媒体海外账号",
+      "E": "海外文化交流活动"
+    }
+  },
+  {
+    "id": "zt-guan-2023-050",
+    "kind": "multi",
+    "stem": "人力资源管理的核心模块包括（ ）",
+    "answer": "ABCDE",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "招聘与配置",
+      "B": "培训与开发",
+      "C": "绩效考核",
+      "D": "薪酬福利",
+      "E": "员工关系"
+    }
+  },
+  {
+    "id": "zt-guan-2023-051",
+    "kind": "multi",
+    "stem": "2023 年中央广播电视总台重点宣传的主题包括（ ）",
+    "answer": "ABCD",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "党的二十大精神贯彻落实",
+      "B": "高质量发展",
+      "C": "乡村振兴",
+      "D": "国际形势分析",
+      "E": "娱乐明星八卦"
+    }
+  },
+  {
+    "id": "zt-guan-2023-052",
+    "kind": "multi",
+    "stem": "管理沟通的主要类型包括（ ）",
+    "answer": "ABCDE",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "上行沟通",
+      "B": "下行沟通",
+      "C": "平行沟通",
+      "D": "外部沟通",
+      "E": "非正式沟通"
+    }
+  },
+  {
+    "id": "zt-guan-2023-053",
+    "kind": "multi",
+    "stem": "中央广播电视总台打造的精品文化节目包括（ ）",
+    "answer": "ABCD",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "《典籍里的中国》",
+      "B": "《国家宝藏》",
+      "C": "《中国诗词大会》",
+      "D": "《朗读者》",
+      "E": "《新闻联播》"
+    }
+  },
+  {
+    "id": "zt-guan-2023-054",
+    "kind": "multi",
+    "stem": "风险管理的主要步骤包括（ ）",
+    "answer": "ABCD",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "风险识别",
+      "B": "风险评估",
+      "C": "风险应对",
+      "D": "风险监控",
+      "E": "风险忽视"
+    }
+  },
+  {
+    "id": "zt-guan-2023-055",
+    "kind": "multi",
+    "stem": "中央广播电视总台数字化转型的核心方向包括（ ）",
+    "answer": "ABCDE",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "技术数字化",
+      "B": "内容数字化",
+      "C": "传播数字化",
+      "D": "管理数字化",
+      "E": "运营数字化"
+    }
+  },
+  {
+    "id": "zt-guan-2023-056",
+    "kind": "single",
+    "stem": "Choose the best answer from the four options marked A, B, C and D. China Media Group (CMG), established in March 2018, is a national mainstream media group integrating television, radio, and new media. As a core force in China's media industry, CMG is committed to telling Chinese stories well, spreading Chinese voices, and promoting cultural exchanges between China and the world. In 2023, CMG focused on deepening media integration and digital transformation. It strengthened the construction of integrated platforms such as Yangshipin (CCTV News App) and CCTV.com, and vigorously developed short video content to meet the diverse needs of audiences. Meanwhile, CMG accelerated the construction of its international communication capacity, expanding cooperation with mainstream media organizations in various countries and regions, and enhancing the international influence of Chinese media. CMG adheres to the principle of party spirit in its publicity work, taking positive publicity as the main focus, and striving to create a sound public opinion environment for China's high-quality development. It also attaches great importance to the inheritance and promotion of excellent traditional Chinese culture, launching a series of high-quality cultural programs that are popular among audiences at home and abroad. For management positions in CMG, professionals with strong political literacy, strategic thinking, communication and coordination abilities, and decision-making skills are required. These positions play a crucial role in promoting the group's development strategy, coordinating team operations, and ensuring the smooth implementation of various tasks.。When was China Media Group established?",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "In March 2017",
+      "B": "In March 2018",
+      "C": "In March 2019",
+      "D": "In March 2020"
+    }
+  },
+  {
+    "id": "zt-guan-2023-057",
+    "kind": "single",
+    "stem": "Choose the best answer from the four options marked A, B, C and D. China Media Group (CMG), established in March 2018, is a national mainstream media group integrating television, radio, and new media. As a core force in China's media industry, CMG is committed to telling Chinese stories well, spreading Chinese voices, and promoting cultural exchanges between China and the world. In 2023, CMG focused on deepening media integration and digital transformation. It strengthened the construction of integrated platforms such as Yangshipin (CCTV News App) and CCTV.com, and vigorously developed short video content to meet the diverse needs of audiences. Meanwhile, CMG accelerated the construction of its international communication capacity, expanding cooperation with mainstream media organizations in various countries and regions, and enhancing the international influence of Chinese media. CMG adheres to the principle of party spirit in its publicity work, taking positive publicity as the main focus, and striving to create a sound public opinion environment for China's high-quality development. It also attaches great importance to the inheritance and promotion of excellent traditional Chinese culture, launching a series of high-quality cultural programs that are popular among audiences at home and abroad. For management positions in CMG, professionals with strong political literacy, strategic thinking, communication and coordination abilities, and decision-making skills are required. These positions play a crucial role in promoting the group's development strategy, coordinating team operations, and ensuring the smooth implementation of various tasks.。What is the core commitment of CMG?",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "To make profits through commercial activities",
+      "B": "To tell Chinese stories and spread Chinese voices",
+      "C": "To focus only on domestic media market",
+      "D": "To replace traditional media with new media"
+    }
+  },
+  {
+    "id": "zt-guan-2023-058",
+    "kind": "single",
+    "stem": "Choose the best answer from the four options marked A, B, C and D. China Media Group (CMG), established in March 2018, is a national mainstream media group integrating television, radio, and new media. As a core force in China's media industry, CMG is committed to telling Chinese stories well, spreading Chinese voices, and promoting cultural exchanges between China and the world. In 2023, CMG focused on deepening media integration and digital transformation. It strengthened the construction of integrated platforms such as Yangshipin (CCTV News App) and CCTV.com, and vigorously developed short video content to meet the diverse needs of audiences. Meanwhile, CMG accelerated the construction of its international communication capacity, expanding cooperation with mainstream media organizations in various countries and regions, and enhancing the international influence of Chinese media. CMG adheres to the principle of party spirit in its publicity work, taking positive publicity as the main focus, and striving to create a sound public opinion environment for China's high-quality development. It also attaches great importance to the inheritance and promotion of excellent traditional Chinese culture, launching a series of high-quality cultural programs that are popular among audiences at home and abroad. For management positions in CMG, professionals with strong political literacy, strategic thinking, communication and coordination abilities, and decision-making skills are required. These positions play a crucial role in promoting the group's development strategy, coordinating team operations, and ensuring the smooth implementation of various tasks.。What was CMG's focus in 2023?",
+    "answer": "B",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "Abandoning traditional media business",
+      "B": "Deepening media integration and digital transformation",
+      "C": "Reducing international communication efforts",
+      "D": "Focusing only on television programs"
+    }
+  },
+  {
+    "id": "zt-guan-2023-059",
+    "kind": "single",
+    "stem": "Choose the best answer from the four options marked A, B, C and D. China Media Group (CMG), established in March 2018, is a national mainstream media group integrating television, radio, and new media. As a core force in China's media industry, CMG is committed to telling Chinese stories well, spreading Chinese voices, and promoting cultural exchanges between China and the world. In 2023, CMG focused on deepening media integration and digital transformation. It strengthened the construction of integrated platforms such as Yangshipin (CCTV News App) and CCTV.com, and vigorously developed short video content to meet the diverse needs of audiences. Meanwhile, CMG accelerated the construction of its international communication capacity, expanding cooperation with mainstream media organizations in various countries and regions, and enhancing the international influence of Chinese media. CMG adheres to the principle of party spirit in its publicity work, taking positive publicity as the main focus, and striving to create a sound public opinion environment for China's high-quality development. It also attaches great importance to the inheritance and promotion of excellent traditional Chinese culture, launching a series of high-quality cultural programs that are popular among audiences at home and abroad. For management positions in CMG, professionals with strong political literacy, strategic thinking, communication and coordination abilities, and decision-making skills are required. These positions play a crucial role in promoting the group's development strategy, coordinating team operations, and ensuring the smooth implementation of various tasks.。What principle does CMG adhere to in its publicity work?",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "Commercial priority principle",
+      "B": "Entertainment priority principle",
+      "C": "Party spirit principle",
+      "D": "Market-oriented principle"
+    }
+  },
+  {
+    "id": "zt-guan-2023-060",
+    "kind": "single",
+    "stem": "Choose the best answer from the four options marked A, B, C and D. China Media Group (CMG), established in March 2018, is a national mainstream media group integrating television, radio, and new media. As a core force in China's media industry, CMG is committed to telling Chinese stories well, spreading Chinese voices, and promoting cultural exchanges between China and the world. In 2023, CMG focused on deepening media integration and digital transformation. It strengthened the construction of integrated platforms such as Yangshipin (CCTV News App) and CCTV.com, and vigorously developed short video content to meet the diverse needs of audiences. Meanwhile, CMG accelerated the construction of its international communication capacity, expanding cooperation with mainstream media organizations in various countries and regions, and enhancing the international influence of Chinese media. CMG adheres to the principle of party spirit in its publicity work, taking positive publicity as the main focus, and striving to create a sound public opinion environment for China's high-quality development. It also attaches great importance to the inheritance and promotion of excellent traditional Chinese culture, launching a series of high-quality cultural programs that are popular among audiences at home and abroad. For management positions in CMG, professionals with strong political literacy, strategic thinking, communication and coordination abilities, and decision-making skills are required. These positions play a crucial role in promoting the group's development strategy, coordinating team operations, and ensuring the smooth implementation of various tasks.。Which of the following is NOT required for management positions in CMG?",
+    "answer": "C",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    },
+    "options": {
+      "A": "Strong political literacy",
+      "B": "Strategic thinking",
+      "C": "Professional technical operation ability",
+      "D": "Decision-making skills"
+    }
+  },
+  {
+    "id": "zt-guan-2023-061",
+    "kind": "qa",
+    "stem": "结合中央广播电视总台的定位和 2023 年的发展重点，谈谈管理岗位人员在推进媒体融合过程中应承担的职责和发挥的作用。",
+    "answer": "1. 战略落地职责：结合总台媒体融合整体战略，制定本部门融合工作规划，拆解工作目标，确保各项举措落地见效；2. 团队协调职责：协调采编、技术、运营等不同岗位团队，打破部门壁垒，形成融合工作合力；3. 资源保障职责：合理调配人力、物力、 财力等资源，优先保障融合平台建设、内容创新等重点工作；4. 创新推动职责：关注行业融合发展趋势，鼓励团队开展内容形式、传播方式、管理模式创新；5. 风险防控职责：预判融合过程中可能出现的舆论风险、技术风险、管理风险，制定应对方案；6. 人才培养职责：加强融媒体人才队伍建设，提升团队数字化素养和综合能力，适配融合发展需求；7. 成效复盘职责：定期总结融合工作成效，分析存在问题，优化工作思路，推动媒体融合向纵深发展。",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    }
+  },
+  {
+    "id": "zt-guan-2023-062",
+    "kind": "qa",
+    "stem": "题目：守正创新担使命，履职尽责促发展——做新时代总台管理工作者要求：1. 结合中央广播电视总台的职能定位和管理岗位要求；2. 联系 2023 年媒体行业发展趋势和总台工作重点；3. 立意明确、观点正确、条理清晰、语言流畅；4. 不少于 800 字。",
+    "answer": "",
+    "analysis": "",
+    "tags": [
+      "媒体常识",
+      "总台"
+    ],
+    "source": {
+      "institution": "总台",
+      "doc": "2023年中央广播电视总台管理岗位复试真题",
+      "year": 2023,
+      "reliability": "真题合集"
+    }
+  }
+]
