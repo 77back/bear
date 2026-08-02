@@ -1,0 +1,257 @@
+[
+ {
+  "id": "mk-xhs-history-001",
+  "kind": "qa",
+  "stem": "新华社的前身是什么？于何时何地成立？负责人是谁？",
+  "answer": "前身为红色中华通讯社，1931年11月7日成立于江西瑞金，负责人是周以栗。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-002",
+  "kind": "qa",
+  "stem": "红色中华通讯社与《红色中华》报是什么关系？",
+  "answer": "二者是同一组织机构，一套人马、两块牌子，同时担负播发新闻和出版报纸的任务。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-003",
+  "kind": "qa",
+  "stem": "红色中华通讯社于何年何月在何处更名为新华社？",
+  "answer": "1937年1月，在延安更名为新华通讯社。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-004",
+  "kind": "qa",
+  "stem": "新中国成立后，新华社被定位为什么性质的国家通讯社？总部设在哪里？",
+  "answer": "集中统一的国家通讯社，总部设在北京。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-005",
+  "kind": "qa",
+  "stem": "新华社在境外设有多少个分社？其中有多少个总分社？",
+  "answer": "境外设有182个分社，其中包括7个总分社。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-006",
+  "kind": "qa",
+  "stem": "新华社英文对外新闻开播和正式设立国际新闻编辑部的时间分别是什么？",
+  "answer": "1944年9月1日英文对外新闻开播；1946年5月28日正式设立国际新闻编辑部。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-007",
+  "kind": "qa",
+  "stem": "新华社新中国成立前建立的首批境外分社有哪些？请分别列出名称及建立时间。",
+  "answer": "香港分社（1947年5月1日）、伦敦分社（1947年6月10日）、布拉格分社（1948年11月）、平壤分社（1949年9月21日）。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-008",
+  "kind": "qa",
+  "stem": "新华社使用多少种语言、向多少家新闻机构用户提供全媒体产品？",
+  "answer": "24小时使用15种语言，向全世界8000多家新闻机构用户提供文字、图片、图表、音频视频等全媒体产品。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-009",
+  "kind": "qa",
+  "stem": "2015年新华社提出的建设目标是什么？",
+  "answer": "建设“网上通讯社”。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-010",
+  "kind": "qa",
+  "stem": "毛泽东和邓小平分别对新华社提出过什么重要要求？",
+  "answer": "毛泽东要求“把地球管起来，让全世界都能听到我们的声音”；邓小平提出“新华社要向着世界大的通讯社的方向努力”。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-011",
+  "kind": "qa",
+  "stem": "党的十八大以来，党中央对新华社提出的奋斗目标是什么？",
+  "answer": "努力建成国际一流新型全媒体机构。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-012",
+  "kind": "qa",
+  "stem": "新华社提出的建社方针是什么？",
+  "answer": "政治建社、新闻立社、创新兴社。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-013",
+  "kind": "qa",
+  "stem": "“钟华论”是什么？创办于哪一年？",
+  "answer": "“钟华论”是新华社领导直接指挥、集中全社评论骨干力量打造的重要政论栏目，2019年创办。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-014",
+  "kind": "qa",
+  "stem": "新华网是什么性质的门户网站？用户遍及多少国家和地区？",
+  "answer": "新华网是国家通讯社新华社主办的综合新闻信息服务门户网站，用户遍及200多个国家和地区。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-history-015",
+  "kind": "qa",
+  "stem": "新华社是国际奥委会认可的唯一什么类型的国际通讯社？",
+  "answer": "唯一非西方的国际通讯社。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社发展史",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ }
+]

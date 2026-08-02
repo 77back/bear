@@ -1,0 +1,206 @@
+[
+ {
+  "id": "mk-xhs-culture-001",
+  "kind": "qa",
+  "stem": "新华社的根本定位是什么？",
+  "answer": "党和人民的耳目喉舌。",
+  "analysis": "这是新华社最核心的政治定位，也是理解其所有工作的出发点。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-002",
+  "kind": "qa",
+  "stem": "新华社肩负的重要使命包括哪些内容？",
+  "answer": "传播党的声音、反映人民意愿、推动社会进步。",
+  "analysis": "原文还提到，新华社致力于为国家的发展、社会的稳定以及人民的幸福提供强大的舆论支持和信息保障。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-003",
+  "kind": "qa",
+  "stem": "新华社的价值观念中，对新闻报道提出了哪些基本要求？",
+  "answer": "坚持正确的政治方向和舆论导向，弘扬社会主义核心价值观，坚守新闻真实性原则，追求客观、公正、全面的新闻报道。",
+  "analysis": "这些要求体现了新华社作为国家通讯社的立场和职业操守。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-004",
+  "kind": "qa",
+  "stem": "新华社在长期发展历程中形成的企业精神是什么？",
+  "answer": "敬业奉献、团结协作、勇于创新、追求卓越。",
+  "analysis": "这是新华社企业文化的核心概括，也是员工共同遵循的精神准则。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-005",
+  "kind": "qa",
+  "stem": "新华社企业文化中的“四力”是指什么？",
+  "answer": "传播力、引导力、影响力、公信力。",
+  "analysis": "原文指出，新华社通过勇于创新报道形式和传播手段，不断提升这“四力”。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-006",
+  "kind": "qa",
+  "stem": "新华社强调的团体意识有哪些具体内涵？",
+  "answer": "强调团队合作和集体荣誉感；各部门紧密协作形成工作合力；员工以新华社整体利益和声誉为出发点，相互支持、相互配合。",
+  "analysis": "这一意识旨在保证新华社整体事业的高效协同发展。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-007",
+  "kind": "qa",
+  "stem": "新华社树立品牌形象所依靠的关键词是什么？",
+  "answer": "权威、专业、及时、准确。",
+  "analysis": "这四个词是新华社新闻和信息服务的品质特征，也是其公信力的来源。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-008",
+  "kind": "qa",
+  "stem": "新华社新闻报道必须坚守的基本原则是什么？",
+  "answer": "新闻真实性原则。",
+  "analysis": "真实性是新闻的生命，新华社将其写入价值观念，凸显其重要性。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-009",
+  "kind": "qa",
+  "stem": "新华社在履行社会责任方面的要求是什么？",
+  "answer": "以高度的社会责任感，为社会传递正能量，引导社会舆论。",
+  "analysis": "这一要求与新华社“耳目喉舌”的定位紧密相连。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-010",
+  "kind": "qa",
+  "stem": "新华社“追求卓越”的具体目标是什么？",
+  "answer": "追求卓越品质，努力打造一流的新闻产品和信息服务。",
+  "analysis": "“追求卓越”是新华社企业精神的重要组成部分。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-011",
+  "kind": "qa",
+  "stem": "新华社的品牌形象在国内外处于什么地位？",
+  "answer": "是国内外公认的具有重要影响力的新闻媒体机构。",
+  "analysis": "其旗下众多报刊、网站、客户端等媒体平台和产品深受用户信赖。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-culture-012",
+  "kind": "qa",
+  "stem": "新华社在舆论引导方面承担的角色是什么？",
+  "answer": "引导社会舆论，为社会传递正能量。",
+  "analysis": "这是新华社价值观念中社会责任感的直接体现。",
+  "tags": [
+   "媒体常识",
+   "新华社"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社企业文化",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ }
+]
