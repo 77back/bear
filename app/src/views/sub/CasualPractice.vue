@@ -2,7 +2,18 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCardsStore, type Card } from '@/stores/cards'
-import { buildSession, gradeChoice, gradeJudge, selfGradeCorrect, isDirectAnswer } from '@/core/cards'
+import {
+  buildSession,
+  buildReviewQueue,
+  gradeChoice,
+  gradeJudge,
+  selfGradeCorrect,
+  isDirectAnswer,
+  dueCardIds,
+  coverageByTag,
+  type CoverageRow
+} from '@/core/cards'
+import { todayStr, type CardMode } from '@/db'
 
 /**
  * 随心练习（考点地图与命题库设计.md §六）：随机抽题、答一道来一道。
@@ -35,6 +46,7 @@ const masteredCount = computed(() => {
 })
 
 /* ---------- session ---------- */
+const mode = ref<CardMode>('casual')
 const queue = ref<Card[]>([])
 const pos = ref(0)
 const answeredCount = ref(0)
@@ -48,12 +60,45 @@ const lastCorrect = ref<boolean | null>(null)
 const isMulti = computed(() => current.value?.kind === 'multi')
 const optionLetters = computed(() => Object.keys(current.value?.options ?? {}).sort())
 
+/* ---------- 系统化复习 ---------- */
+const dueCount = computed(() => dueCardIds(store.states.values(), todayStr()).length)
+
+async function startReview() {
+  store.loading = true
+  const cards = await store.loadAll()
+  store.loading = false
+  const session = buildReviewQueue(cards, store.states.values(), todayStr())
+  if (!session.length) return
+  mode.value = 'review'
+  queue.value = session
+  pos.value = 0
+  answeredCount.value = 0
+  correctCount.value = 0
+  phase.value = 'session'
+  resetCard()
+}
+
+/* ---------- 考点覆盖看板 ---------- */
+const showCoverage = ref(false)
+const coverage = ref<CoverageRow[]>([])
+
+async function toggleCoverage() {
+  showCoverage.value = !showCoverage.value
+  if (showCoverage.value && !coverage.value.length) {
+    store.loading = true
+    const cards = await store.loadAll()
+    store.loading = false
+    coverage.value = coverageByTag(cards, store.states)
+  }
+}
+
 async function start() {
   store.loading = true
   const cards = await store.loadAll()
   store.loading = false
   const session = buildSession(cards, { institution: institution.value })
   if (!session.length) return
+  mode.value = 'casual'
   queue.value = session
   pos.value = 0
   answeredCount.value = 0
@@ -101,7 +146,7 @@ async function record(correct: boolean, selfGrade?: 'know' | 'vague' | 'unknown'
   lastCorrect.value = correct
   answeredCount.value += 1
   if (correct) correctCount.value += 1
-  await store.recordAttempt(card, 'casual', correct, selfGrade)
+  await store.recordAttempt(card, mode.value, correct, selfGrade)
 }
 
 async function flip() {
@@ -153,6 +198,44 @@ onMounted(async () => {
           {{ store.loading ? '加载中…' : '开始练习' }}
         </button>
       </div>
+      <!-- 系统化复习：错题到期队列 -->
+      <div class="card">
+        <div class="card-title" style="margin-bottom:6px">
+          今日复习
+          <span style="font-size:12px;color:var(--text-3);font-weight:400">到期 {{ dueCount }} 题</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-3);margin-bottom:12px">
+          {{ dueCount ? '做错的题按 1/3/7/15 天间隔回来，连续复习 4 次毕业' : '今日无到期复习。练习中做错的题会自动进入复习队列' }}
+        </div>
+        <button class="btn btn-primary" :disabled="!dueCount || store.loading" @click="startReview">
+          {{ store.loading ? '加载中…' : '开始复习' }}
+        </button>
+      </div>
+
+      <!-- 考点覆盖看板 -->
+      <div class="card">
+        <div class="card-title" style="margin-bottom:6px">
+          考点覆盖
+          <button class="more" @click="toggleCoverage">{{ showCoverage ? '收起' : '展开' }}</button>
+        </div>
+        <template v-if="showCoverage">
+          <div v-if="store.loading" style="font-size:13px;color:var(--text-3)">统计中…</div>
+          <div v-else-if="!coverage.length" style="font-size:13px;color:var(--text-3)">题库暂未上线</div>
+          <div v-else>
+            <div v-for="row in coverage" :key="row.label" class="cov-row">
+              <div class="cov-head">
+                <span>{{ row.label }}</span>
+                <span class="cov-num">
+                  {{ row.mastered }}/{{ row.total }}<template v-if="row.wrong"> · 复习中 {{ row.wrong }}</template>
+                </span>
+              </div>
+              <div class="bar"><i :style="{ width: Math.round((row.mastered / row.total) * 100) + '%', background: 'var(--brand)' }"></i></div>
+            </div>
+          </div>
+        </template>
+        <div v-else style="font-size:13px;color:var(--text-3)">各考点的题量与你的掌握进度</div>
+      </div>
+
       <div v-if="!store.index.length" class="card" style="color:var(--text-3);font-size:13px">
         题库暂未上线，等内容更新后再来。
       </div>
@@ -162,7 +245,7 @@ onMounted(async () => {
     <!-- 答题 -->
     <template v-else-if="phase === 'session' && current">
       <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-3);margin-bottom:8px">
-        <span>第 {{ pos + 1 }} / {{ queue.length }} 题</span>
+        <span>{{ mode === 'review' ? '复习' : '第' }} {{ pos + 1 }} / {{ queue.length }} 题</span>
         <span>已答 {{ answeredCount }} · 答对 {{ correctCount }}</span>
       </div>
 
@@ -320,5 +403,19 @@ onMounted(async () => {
 }
 .grade-row .btn {
   flex: 1;
+}
+.cov-row {
+  margin-top: 10px;
+}
+.cov-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 4px;
+}
+.cov-num {
+  color: var(--text-3);
+  font-size: 12px;
 }
 </style>

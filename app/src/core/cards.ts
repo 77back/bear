@@ -67,19 +67,109 @@ export function buildSession(cards: Card[], f: CardFilter, rng?: () => number): 
   return shuffle(filterCards(cards, f), rng)
 }
 
-/** 累计掌握状态：答对 streak+1（≥2 掌握）；答错 streak 清零、撤销掌握 */
-export function applyResult(prev: CardState | undefined, cardId: string, correct: boolean, at: number): CardState {
+/* ---------- SRS 复习调度（系统化学习，考点地图与命题库设计.md §六） ---------- */
+
+/** 复习成功后的下一间隔（天）：stage 1→3 天、2→7 天、3→15 天、4 → 掌握毕业 */
+export const SRS_INTERVALS = [3, 7, 15] as const
+export const SRS_GRADUATE = 4 // 成功复习 4 次视为掌握
+
+/** 答题结果：correct=答对；vague=自评模糊（不重置进度，明天再来）；wrong=答错/不会（重置） */
+export type CardOutcome = 'correct' | 'vague' | 'wrong'
+
+/** 'YYYY-MM-DD' + n 天 */
+export function addDaysStr(date: string, n: number): string {
+  const [y, m, d] = date.split('-').map(Number)
+  const dt = new Date(y, m - 1, d)
+  dt.setDate(dt.getDate() + n)
+  const p = (x: number) => String(x).padStart(2, '0')
+  return `${dt.getFullYear()}-${p(dt.getMonth() + 1)}-${p(dt.getDate())}`
+}
+
+/**
+ * 累计掌握状态 + SRS 调度。
+ * correct：streak+1；若在复习循环中（有 dueDate）则 srsStage+1，间隔 [3,7,15] 递进，4 次毕业。
+ * vague：不计答对、streak 清零，但 SRS 进度不重置，明天到期。
+ * wrong：streak 清零、撤销掌握，SRS 重置为 stage 0，明天到期。
+ * streak ≥2 同样判掌握并出队。
+ */
+export function applyResult(
+  prev: CardState | undefined,
+  cardId: string,
+  outcome: CardOutcome,
+  at: number,
+  today: string
+): CardState {
   const s: CardState = prev ?? { cardId, seen: 0, correctCount: 0, wrongCount: 0, streak: 0, mastered: false, lastAt: 0 }
   s.seen += 1
-  if (correct) {
+  if (outcome === 'correct') {
     s.correctCount += 1
     s.streak += 1
-    if (s.streak >= 2) s.mastered = true
+    if (s.dueDate) {
+      const stage = (s.srsStage ?? 0) + 1
+      s.srsStage = stage
+      s.dueDate = stage >= SRS_GRADUATE ? undefined : addDaysStr(today, SRS_INTERVALS[stage - 1])
+    }
+    // 掌握判定：复习循环外靠 streak≥2；循环内必须走完 4 阶段（否则复习两次就提前毕业）
+    if ((s.srsStage === undefined && s.streak >= 2) || (s.srsStage ?? 0) >= SRS_GRADUATE) {
+      s.mastered = true
+      s.dueDate = undefined
+    }
+  } else if (outcome === 'vague') {
+    s.wrongCount += 1
+    s.streak = 0
+    s.mastered = false
+    if (s.srsStage === undefined) s.srsStage = 0
+    s.dueDate = addDaysStr(today, 1)
   } else {
     s.wrongCount += 1
     s.streak = 0
     s.mastered = false
+    s.srsStage = 0
+    s.dueDate = addDaysStr(today, 1)
   }
   s.lastAt = at
   return s
+}
+
+/** 今日到期的复习卡 id：dueDate ≤ today 且未掌握，按到期日升序 */
+export function dueCardIds(states: Iterable<CardState>, today: string): string[] {
+  return [...states]
+    .filter((s) => !s.mastered && s.dueDate && s.dueDate <= today)
+    .sort((a, b) => a.dueDate!.localeCompare(b.dueDate!))
+    .map((s) => s.cardId)
+}
+
+/** 系统化复习队列：按到期顺序取卡（未掌握的错题优先，无需洗牌） */
+export function buildReviewQueue(cards: Card[], states: Iterable<CardState>, today: string): Card[] {
+  const byId = new Map(cards.map((c) => [c.id, c]))
+  return dueCardIds(states, today)
+    .map((id) => byId.get(id))
+    .filter((c): c is Card => !!c)
+}
+
+/* ---------- 考点覆盖统计 ---------- */
+
+export interface CoverageRow {
+  label: string
+  total: number
+  mastered: number
+  wrong: number // 在复习队列中（答错过、未掌握）
+}
+
+/** 按机构 × 主标签（tags[0]）统计覆盖：总量/已掌握/复习中 */
+export function coverageByTag(cards: Card[], states: Map<string, CardState>): CoverageRow[] {
+  const rows = new Map<string, CoverageRow>()
+  for (const c of cards) {
+    const label = `${c.source.institution} · ${c.tags[0] ?? '未分类'}`
+    let row = rows.get(label)
+    if (!row) {
+      row = { label, total: 0, mastered: 0, wrong: 0 }
+      rows.set(label, row)
+    }
+    row.total += 1
+    const st = states.get(c.id)
+    if (st?.mastered) row.mastered += 1
+    else if (st && st.wrongCount > 0) row.wrong += 1
+  }
+  return [...rows.values()].sort((a, b) => b.total - a.total)
 }

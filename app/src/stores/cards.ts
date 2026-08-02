@@ -85,7 +85,7 @@ export const useCardsStore = defineStore('cards', () => {
     states.value = new Map(all.map((s) => [s.cardId, s]))
   }
 
-  /** 记录一次答题：写 attempt + 累计 state，本地缓存同步 */
+  /** 记录一次答题：写 attempt + 累计 state（含 SRS 调度），本地缓存同步 */
   async function recordAttempt(
     card: Card,
     mode: CardMode,
@@ -96,7 +96,8 @@ export const useCardsStore = defineStore('cards', () => {
     const attempt: CardAttempt = { cardId: card.id, date: todayStr(), mode, correct, selfGrade, at }
     // 缓存取出的是 Vue 响应式 Proxy，展开为纯对象再累计，否则 IndexedDB 无法克隆
     const prev = states.value.get(card.id)
-    const next = applyResult(prev ? { ...prev } : undefined, card.id, correct, at)
+    const outcome = correct ? 'correct' : selfGrade === 'vague' ? 'vague' : 'wrong'
+    const next = applyResult(prev ? { ...prev } : undefined, card.id, outcome, at, todayStr())
     await db.transaction('rw', db.cardAttempts, db.cardStates, async () => {
       await db.cardAttempts.add(attempt)
       await db.cardStates.put(next)

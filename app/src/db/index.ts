@@ -103,15 +103,18 @@ export interface CardAttempt {
   at: number // 时间戳
 }
 
-// 每卡累计掌握状态（答题记录聚合；SRS 调度字段第二波再加）
+// 每卡累计掌握状态（答题记录聚合；非索引字段扩展不需要 Dexie 升版本）
 export interface CardState {
   cardId: string // 主键
   seen: number
   correctCount: number
   wrongCount: number
   streak: number // 连续答对次数
-  mastered: boolean // 连续答对 ≥2 次视为掌握
+  mastered: boolean // 连续答对 ≥2 次 或 SRS 走完 4 阶段视为掌握
   lastAt: number
+  // SRS 复习调度（第二波：系统化复习队列）：答错进入队列，stage 0→4 间隔 [1,3,7,15] 天
+  srsStage?: number // 已成功复习次数；undefined = 从未进入复习循环
+  dueDate?: string // 'YYYY-MM-DD' 下次到期日；undefined = 无待复习
 }
 
 export class PrepDB extends Dexie {
