@@ -150,6 +150,8 @@ export function buildReviewQueue(cards: Card[], states: Iterable<CardState>, tod
 /* ---------- 考点覆盖统计 ---------- */
 
 export interface CoverageRow {
+  institution: string
+  tag: string
   label: string
   total: number
   mastered: number
@@ -160,10 +162,12 @@ export interface CoverageRow {
 export function coverageByTag(cards: Card[], states: Map<string, CardState>): CoverageRow[] {
   const rows = new Map<string, CoverageRow>()
   for (const c of cards) {
-    const label = `${c.source.institution} · ${c.tags[0] ?? '未分类'}`
+    const institution = c.source.institution
+    const tag = c.tags[0] ?? '未分类'
+    const label = `${institution} · ${tag}`
     let row = rows.get(label)
     if (!row) {
-      row = { label, total: 0, mastered: 0, wrong: 0 }
+      row = { institution, tag, label, total: 0, mastered: 0, wrong: 0 }
       rows.set(label, row)
     }
     row.total += 1
@@ -172,4 +176,20 @@ export function coverageByTag(cards: Card[], states: Map<string, CardState>): Co
     else if (st && st.wrongCount > 0) row.wrong += 1
   }
   return [...rows.values()].sort((a, b) => b.total - a.total)
+}
+
+/** 按模块系统复习：取该机构×考点全部卡，未掌握在前、已掌握在后，按 id 稳定排序（不洗牌） */
+export function moduleSession(
+  cards: Card[],
+  institution: string,
+  tag: string,
+  states: Map<string, CardState>
+): Card[] {
+  return cards
+    .filter((c) => c.source.institution === institution && (c.tags[0] ?? '未分类') === tag)
+    .sort((a, b) => {
+      const ma = states.get(a.id)?.mastered ? 1 : 0
+      const mb = states.get(b.id)?.mastered ? 1 : 0
+      return ma - mb || a.id.localeCompare(b.id)
+    })
 }

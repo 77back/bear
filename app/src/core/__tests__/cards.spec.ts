@@ -11,7 +11,8 @@ import {
   applyResult,
   dueCardIds,
   buildReviewQueue,
-  coverageByTag
+  coverageByTag,
+  moduleSession
 } from '../cards'
 import type { Card } from '@/stores/cards'
 import type { CardState } from '@/db'
@@ -207,5 +208,24 @@ describe('coverageByTag 考点覆盖', () => {
     expect(xs).toMatchObject({ total: 2, mastered: 1, wrong: 1 })
     const sz = rows.find((r) => r.label === '时政押题 · 时政')!
     expect(sz).toMatchObject({ total: 1, mastered: 0, wrong: 0 })
+  })
+})
+
+describe('moduleSession 按模块系统复习', () => {
+  it('取该机构×考点全部卡，未掌握在前、按 id 稳定排序', () => {
+    const cards = [
+      mk({ id: 'm-3', tags: ['时政'], source: { institution: '时政押题', doc: 'd', reliability: 'r' } }),
+      mk({ id: 'm-1', tags: ['时政'], source: { institution: '时政押题', doc: 'd', reliability: 'r' } }),
+      mk({ id: 'm-2', tags: ['时政'], source: { institution: '时政押题', doc: 'd', reliability: 'r' } }),
+      mk({ id: 'x-1', tags: ['行测常识'], source: { institution: '新华社', doc: 'd', reliability: 'r' } })
+    ]
+    const states = new Map<string, CardState>([
+      ['m-2', { cardId: 'm-2', seen: 2, correctCount: 2, wrongCount: 0, streak: 2, mastered: true, lastAt: 0 }]
+    ])
+    const q = moduleSession(cards, '时政押题', '时政', states)
+    expect(q.map((c) => c.id)).toEqual(['m-1', 'm-3', 'm-2']) // 已掌握的 m-2 排最后
+  })
+  it('模块为空返回空数组', () => {
+    expect(moduleSession([mk({ id: 'a' })], '总台', '媒体常识', new Map())).toEqual([])
   })
 })

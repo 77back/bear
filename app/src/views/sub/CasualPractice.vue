@@ -11,6 +11,7 @@ import {
   isDirectAnswer,
   dueCardIds,
   coverageByTag,
+  moduleSession,
   type CoverageRow
 } from '@/core/cards'
 import { todayStr, type CardMode } from '@/db'
@@ -90,6 +91,22 @@ async function toggleCoverage() {
     store.loading = false
     coverage.value = coverageByTag(cards, store.states)
   }
+}
+
+/** 按模块系统复习：点覆盖看板某行 → 该模块全部题（未掌握在前） */
+async function startModule(row: CoverageRow) {
+  store.loading = true
+  const cards = await store.loadAll()
+  store.loading = false
+  const session = moduleSession(cards, row.institution, row.tag, store.states)
+  if (!session.length) return
+  mode.value = 'casual'
+  queue.value = session
+  pos.value = 0
+  answeredCount.value = 0
+  correctCount.value = 0
+  phase.value = 'session'
+  resetCard()
 }
 
 async function start() {
@@ -173,8 +190,8 @@ onMounted(async () => {
 
 <template>
   <div>
-    <div class="page-title">随心练习</div>
-    <div class="page-sub">随机刷真题 · 碎片时间做一道是一道</div>
+    <div class="page-title">刷题复习</div>
+    <div class="page-sub">随心练习 · 今日复习 · 按模块复习</div>
 
     <!-- 开局：选范围 -->
     <template v-if="phase === 'setup'">
@@ -212,17 +229,18 @@ onMounted(async () => {
         </button>
       </div>
 
-      <!-- 考点覆盖看板 -->
+      <!-- 考点覆盖看板：点行进入该模块系统复习 -->
       <div class="card">
         <div class="card-title" style="margin-bottom:6px">
-          考点覆盖
+          按模块复习
           <button class="more" @click="toggleCoverage">{{ showCoverage ? '收起' : '展开' }}</button>
         </div>
         <template v-if="showCoverage">
           <div v-if="store.loading" style="font-size:13px;color:var(--text-3)">统计中…</div>
           <div v-else-if="!coverage.length" style="font-size:13px;color:var(--text-3)">题库暂未上线</div>
-          <div v-else>
-            <div v-for="row in coverage" :key="row.label" class="cov-row">
+          <template v-else>
+            <div style="font-size:12px;color:var(--text-3)">点击模块进入系统复习，未掌握的题排在前面</div>
+            <div v-for="row in coverage" :key="row.label" class="cov-row" @click="startModule(row)">
               <div class="cov-head">
                 <span>{{ row.label }}</span>
                 <span class="cov-num">
@@ -231,9 +249,9 @@ onMounted(async () => {
               </div>
               <div class="bar"><i :style="{ width: Math.round((row.mastered / row.total) * 100) + '%', background: 'var(--brand)' }"></i></div>
             </div>
-          </div>
+          </template>
         </template>
-        <div v-else style="font-size:13px;color:var(--text-3)">各考点的题量与你的掌握进度</div>
+        <div v-else style="font-size:13px;color:var(--text-3)">按机构 × 考点逐个模块攻克，含掌握进度</div>
       </div>
 
       <div v-if="!store.index.length" class="card" style="color:var(--text-3);font-size:13px">
@@ -406,6 +424,7 @@ onMounted(async () => {
 }
 .cov-row {
   margin-top: 10px;
+  cursor: pointer;
 }
 .cov-head {
   display: flex;
