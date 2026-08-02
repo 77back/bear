@@ -12,7 +12,9 @@ import {
   dueCardIds,
   buildReviewQueue,
   coverageByTag,
-  moduleSession
+  moduleSession,
+  wrongCount,
+  wrongCards
 } from '../cards'
 import type { Card } from '@/stores/cards'
 import type { CardState } from '@/db'
@@ -227,5 +229,31 @@ describe('moduleSession 按模块系统复习', () => {
   })
   it('模块为空返回空数组', () => {
     expect(moduleSession([mk({ id: 'a' })], '总台', '媒体常识', new Map())).toEqual([])
+  })
+})
+
+describe('wrongCards / wrongCount 错题本', () => {
+  const mkState = (cardId: string, wrongCount: number, mastered: boolean, lastAt = 0): CardState => ({
+    cardId, seen: wrongCount + 1, correctCount: 1, wrongCount, streak: 0, mastered, lastAt
+  })
+  const cards = [mk({ id: 'a' }), mk({ id: 'b' }), mk({ id: 'c' }), mk({ id: 'd' })]
+
+  it('只收答错且未掌握的，按错次降序', () => {
+    const states = new Map<string, CardState>([
+      ['a', mkState('a', 1, false, 100)],
+      ['b', mkState('b', 3, false, 50)],
+      ['c', mkState('c', 2, true)], // 已掌握 → 移出
+      ['d', mkState('d', 0, false)] // 没错过
+    ])
+    expect(wrongCount(states.values())).toBe(2)
+    const list = wrongCards(cards, states)
+    expect(list.map((e) => e.card.id)).toEqual(['b', 'a'])
+    // 错次相同按最近答题降序
+    expect(list[0].state.wrongCount).toBe(3)
+  })
+
+  it('无错题返回空', () => {
+    expect(wrongCards(cards, new Map())).toEqual([])
+    expect(wrongCount(new Map().values())).toBe(0)
   })
 })

@@ -147,6 +147,30 @@ export function buildReviewQueue(cards: Card[], states: Iterable<CardState>, tod
     .filter((c): c is Card => !!c)
 }
 
+/* ---------- 错题本 ---------- */
+
+export interface WrongEntry {
+  card: Card
+  state: CardState
+}
+
+/** 错题数（仅看 states，无需加载卡片）：答错过且未掌握 */
+export function wrongCount(states: Iterable<CardState>): number {
+  let n = 0
+  for (const s of states) if (s.wrongCount > 0 && !s.mastered) n++
+  return n
+}
+
+/** 错题本清单：答错过且未掌握，按错次降序、最近答题降序 */
+export function wrongCards(cards: Card[], states: Map<string, CardState>): WrongEntry[] {
+  const out: WrongEntry[] = []
+  for (const c of cards) {
+    const s = states.get(c.id)
+    if (s && s.wrongCount > 0 && !s.mastered) out.push({ card: c, state: s })
+  }
+  return out.sort((a, b) => b.state.wrongCount - a.state.wrongCount || b.state.lastAt - a.state.lastAt)
+}
+
 /* ---------- 考点覆盖统计 ---------- */
 
 export interface CoverageRow {

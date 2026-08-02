@@ -12,7 +12,10 @@ import {
   dueCardIds,
   coverageByTag,
   moduleSession,
-  type CoverageRow
+  wrongCount,
+  wrongCards,
+  type CoverageRow,
+  type WrongEntry
 } from '@/core/cards'
 import { todayStr, type CardMode } from '@/db'
 
@@ -99,6 +102,37 @@ async function startModule(row: CoverageRow) {
   const cards = await store.loadAll()
   store.loading = false
   const session = moduleSession(cards, row.institution, row.tag, store.states)
+  if (!session.length) return
+  mode.value = 'casual'
+  queue.value = session
+  pos.value = 0
+  answeredCount.value = 0
+  correctCount.value = 0
+  phase.value = 'session'
+  resetCard()
+}
+
+/* ---------- 错题本 ---------- */
+const wrongN = computed(() => wrongCount(store.states.values()))
+const showWrong = ref(false)
+const wrongList = ref<WrongEntry[]>([])
+const expandedWrong = ref('') // 展开答案的错题 id
+
+async function toggleWrong() {
+  showWrong.value = !showWrong.value
+  expandedWrong.value = ''
+  if (showWrong.value) {
+    store.loading = true
+    const cards = await store.loadAll()
+    store.loading = false
+    wrongList.value = wrongCards(cards, store.states)
+  }
+}
+
+/** 错题专练：当前错题清单直接开一轮（错次多的在前） */
+async function startWrongDrill() {
+  if (!wrongList.value.length) await toggleWrong()
+  const session = wrongList.value.map((e) => e.card)
   if (!session.length) return
   mode.value = 'casual'
   queue.value = session
@@ -227,6 +261,37 @@ onMounted(async () => {
         <button class="btn btn-primary" :disabled="!dueCount || store.loading" @click="startReview">
           {{ store.loading ? '加载中…' : '开始复习' }}
         </button>
+      </div>
+
+      <!-- 错题本：随时查看所有做错的题 -->
+      <div class="card">
+        <div class="card-title" style="margin-bottom:6px">
+          错题本
+          <span style="font-size:12px;color:var(--text-3);font-weight:400">{{ wrongN }} 题待攻克</span>
+          <button v-if="wrongN" class="more" @click="toggleWrong">{{ showWrong ? '收起' : '展开' }}</button>
+        </div>
+        <div style="font-size:13px;color:var(--text-3);margin-bottom:10px">
+          {{ wrongN ? '做错的题都收在这里，掌握后自动移出' : '还没有错题，去练习刷几道吧' }}
+        </div>
+        <template v-if="showWrong">
+          <div v-if="store.loading" style="font-size:13px;color:var(--text-3)">加载中…</div>
+          <template v-else>
+            <div v-for="e in wrongList.slice(0, 50)" :key="e.card.id" class="wrong-row" @click="expandedWrong = expandedWrong === e.card.id ? '' : e.card.id">
+              <div class="wrong-stem">{{ e.card.stem }}</div>
+              <div class="wrong-meta">
+                错 {{ e.state.wrongCount }} 次 · 对 {{ e.state.correctCount }} 次 · {{ e.card.source.institution }}
+              </div>
+              <div v-if="expandedWrong === e.card.id" class="answer-box">
+                <div><b>答案：</b>{{ e.card.answer || '（原卷无标准答案）' }}</div>
+                <div v-if="e.card.analysis" style="margin-top:6px"><b>解析：</b>{{ e.card.analysis }}</div>
+              </div>
+            </div>
+            <div v-if="wrongList.length > 50" style="font-size:12px;color:var(--text-3);margin-top:6px">
+              仅显示前 50 题，共 {{ wrongList.length }} 题
+            </div>
+            <button class="btn btn-primary" style="margin-top:12px" @click="startWrongDrill">错题专练（{{ wrongList.length }} 题）</button>
+          </template>
+        </template>
       </div>
 
       <!-- 考点覆盖看板：点行进入该模块系统复习 -->
@@ -425,6 +490,28 @@ onMounted(async () => {
 .cov-row {
   margin-top: 10px;
   cursor: pointer;
+}
+.wrong-row {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+.wrong-row:last-of-type {
+  border-bottom: none;
+}
+.wrong-stem {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.wrong-meta {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 2px;
 }
 .cov-head {
   display: flex;
