@@ -1,1462 +1,1523 @@
 [
-  {
-    "id": "zt-guan-2025-001",
-    "kind": "single",
-    "stem": "中央广播电视总台的核心使命不包括（ ）",
-    "answer": "C",
-    "analysis": "总台作为国家主流媒体，核心使命是坚守主流舆论阵地、传播正能量，而非单纯追求商业利益和收视率，C 项表述错误，其余选项均为总台核心使命的重要组成部分。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "举旗帜、聚民心、育新人、兴文化、展形象",
-      "B": "传播党的声音、讲好中国故事",
-      "C": "单纯追求节目收视率和商业利益最大化",
-      "D": "引领主流舆论、弘扬正能量"
-    }
+ {
+  "id": "zt-guan-2025-001",
+  "kind": "single",
+  "stem": "中央广播电视总台的核心使命不包括（ ）",
+  "answer": "C",
+  "analysis": "总台作为国家主流媒体，核心使命是坚守主流舆论阵地、传播正能量，而非单纯追求商业利益和收视率，C 项表述错误，其余选项均为总台核心使命的重要组成部分。",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
   },
-  {
-    "id": "zt-guan-2025-002",
-    "kind": "single",
-    "stem": "2025 年中央广播电视总台重点推进的战略方向是（ ）",
-    "answer": "B",
-    "analysis": "媒体融合是广电行业高质量发展的必然趋势，2025 年总台持续推进传统媒体与新媒体深度融合，打造全媒体传播矩阵，A、C、D 均不符合总台战略方向。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "单一传统媒体深耕",
-      "B": "媒体融合向纵深发展，打造全媒体传播体系",
-      "C": "减少内容产出，聚焦精品化单一品类",
-      "D": "脱离主流舆论，追求多元化娱乐导向"
-    }
-  },
-  {
-    "id": "zt-guan-2025-003",
-    "kind": "single",
-    "stem": "下列不属于中央广播电视总台旗下平台的是（ ）",
-    "answer": "D",
-    "analysis": "北京卫视是北京广播电视台旗下平台，不属于中央广播电视总台；A、B、C 均为总台核心旗下平台。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "央视综合频道（CCTV-1）",
-      "B": "中央人民广播电台",
-      "C": "中国国际电视台（CGTN）",
-      "D": "北京卫视"
-    }
-  },
-  {
-    "id": "zt-guan-2025-004",
-    "kind": "single",
-    "stem": "管理的核心职能是（ ）",
-    "answer": "D",
-    "analysis": "决策是管理的核心，贯穿管理全过程，计划、组织、协调均为管理的基本职能，围绕决策展开，服务于决策的落实。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "计划",
-      "B": "组织",
-      "C": "协调",
-      "D": "决策"
-    }
-  },
-  {
-    "id": "zt-guan-2025-005",
-    "kind": "single",
-    "stem": "中央广播电视总台实行的管理体制是（ ）",
-    "answer": "B",
-    "analysis": "总台作为国家重要媒体机构，实行集中统一领导、分级分类管理的体制，兼顾统一性和灵活性，A、C、D 表述均错误。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "分散管理、各自为政",
-      "B": "集中统一领导、分级分类管理",
-      "C": "市场化自主管理，不受监管",
-      "D": "垂直管理，无分级权限"
-    }
-  },
-  {
-    "id": "zt-guan-2025-006",
-    "kind": "single",
-    "stem": "下列关于媒体融合的表述，错误的是（ ）",
-    "answer": "C",
-    "analysis": "媒体融合需坚持主流价值导向，流量提升需建立在正确导向基础上，C 项表述错误；A、B、D 均为媒体融合的正确内涵。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "是传统媒体与新媒体的优势互补",
-      "B": "核心是内容融合，技术为支撑",
-      "C": "无需兼顾主流价值导向，重点是流量提升",
-      "D": "是广电行业高质量发展的必然趋势"
-    }
-  },
-  {
-    "id": "zt-guan-2025-007",
-    "kind": "single",
-    "stem": "人力资源管理中，“选人、育人、用人、留人”的核心是（ ）",
-    "answer": "C",
-    "analysis": "“选人、育人、留人”的最终目的是“用人”，发挥人才价值，实现组织目标，用人是核心环节。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "选人",
-      "B": "育人",
-      "C": "用人",
-      "D": "留人"
-    }
-  },
-  {
-    "id": "zt-guan-2025-008",
-    "kind": "single",
-    "stem": "中央广播电视总台的发展愿景是成为（ ）",
-    "answer": "A",
-    "analysis": "总台愿景是打造全球领先的全媒体机构，提升国际传播力；B、C、D 均不符合总台公益属性和发展定位。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "全球领先的全媒体机构",
-      "B": "国内最大的娱乐媒体平台",
-      "C": "单一语种的国际传播平台",
-      "D": "以商业盈利为核心的媒体集团"
-    }
-  },
-  {
-    "id": "zt-guan-2025-009",
-    "kind": "single",
-    "stem": "管理岗位的核心能力不包括（ ）",
-    "answer": "B",
-    "analysis": "专业技术操作能力是一线业务岗位的核心能力，管理岗位核心能力侧重统筹、 沟通、解决问题等综合能力。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "统筹协调能力",
-      "B": "专业技术操作能力",
-      "C": "沟通表达能力",
-      "D": "问题解决能力"
-    }
-  },
-  {
-    "id": "zt-guan-2025-010",
-    "kind": "single",
-    "stem": "下列法律法规中，与广播电视管理无关的是（ ）",
-    "answer": "D",
-    "analysis": "D 项是规范道路交通安全的法律法规，与广播电视管理无关；A、B、C 均为广播电视行业相关法规或公约。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "《广播电视管理条例》",
-      "B": "《网络信息内容生态治理规定》",
-      "C": "《新闻出版广播影视从业人员廉洁行为自律公约》",
-      "D": "《中华人民共和国道路交通安全法》"
-    }
-  },
-  {
-    "id": "zt-guan-2025-011",
-    "kind": "single",
-    "stem": "计划工作的首要步骤是（ ）",
-    "answer": "A",
-    "analysis": "计划工作的逻辑顺序是：确定目标→制定方案→评估风险→执行计划，首要步骤是确定目标。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "确定目标",
-      "B": "制定方案",
-      "C": "评估风险",
-      "D": "执行计划"
-    }
-  },
-  {
-    "id": "zt-guan-2025-012",
-    "kind": "single",
-    "stem": "中央广播电视总台成立的时间是（ ）",
-    "answer": "B",
-    "analysis": "中央广播电视总台于2018 年正式成立，整合了原中央电视台、中央人民广播电台、中国国际广播电台。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "2016 年",
-      "B": "2018 年",
-      "C": "2020 年",
-      "D": "2022 年"
-    }
-  },
-  {
-    "id": "zt-guan-2025-013",
-    "kind": "single",
-    "stem": "下列关于团队管理的表述，正确的是（ ）",
-    "answer": "C",
-    "analysis": "团队管理的核心是激发团队活力，兼顾工作效率和团队凝聚力；A、B、D 表述错误，优秀团队需明确分工，领导者需带头参与、统筹协调。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "团队管理的核心是控制员工行为",
-      "B": "优秀团队无需明确分工，协同即可",
-      "C": "团队管理需兼顾效率与凝聚力",
-      "D": "领导者无需参与团队执行，只需指挥"
-    }
-  },
-  {
-    "id": "zt-guan-2025-014",
-    "kind": "single",
-    "stem": "中央广播电视总台国际传播的核心目标是（ ）",
-    "answer": "B",
-    "analysis": "总台国际传播的核心目标是讲好中国故事，展示真实、立体、全面的中国，促进国际文化交流，A、C、D 均非核心目标。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "扩大海外商业影响力",
-      "B": "向世界展示真实、立体、全面的中国",
-      "C": "引进海外娱乐节目",
-      "D": "提升海外收视率排名"
-    }
-  },
-  {
-    "id": "zt-guan-2025-015",
-    "kind": "single",
-    "stem": "沟通的关键是（ ）",
-    "answer": "B",
-    "analysis": "沟通是双向过程，核心关键是倾听与理解，确保信息传递准确、需求对接到位，表达清晰、语气委婉是沟通的辅助技巧。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "表达清晰",
-      "B": "倾听理解",
-      "C": "语气委婉",
-      "D": "信息传递速度"
-    }
-  },
-  {
-    "id": "zt-guan-2025-016",
-    "kind": "single",
-    "stem": "下列不属于管理决策基本特征的是（ ）",
-    "answer": "B",
-    "analysis": "管理决策需基于客观实际，具备目标性、可行性、选择性，主观性不属于决策的基本特征，决策应避免主观臆断。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "目标性",
-      "B": "主观性",
-      "C": "可行性",
-      "D": "选择性"
-    }
-  },
-  {
-    "id": "zt-guan-2025-017",
-    "kind": "single",
-    "stem": "中央广播电视总台旗下的新媒体平台是（ ）",
-    "answer": "C",
-    "analysis": "央视频是总台自主打造的新媒体核心平台；抖音、快手、微信视频号是第三方新媒体平台，不属于总台旗下。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "抖音",
-      "B": "快手",
-      "C": "央视频",
-      "D": "微信视频号"
-    }
-  },
-  {
-    "id": "zt-guan-2025-018",
-    "kind": "single",
-    "stem": "绩效考核的核心目的是（ ）",
-    "answer": "B",
-    "analysis": "绩效考核的核心是“激励提升”，而非惩罚或单纯分级，通过考核发现问题、激发潜力，助力组织目标实现。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "惩罚落后员工",
-      "B": "激励员工提升绩效，实现组织目标",
-      "C": "区分员工等级",
-      "D": "完成上级交办的任务"
-    }
-  },
-  {
-    "id": "zt-guan-2025-019",
-    "kind": "single",
-    "stem": "下列关于意识形态工作的表述，错误的是（ ）",
-    "answer": "C",
-    "analysis": "意识形态导向是底线，不可因追求流量而调整，必须始终坚持正确导向；A、 B、D 均为意识形态工作的正确表述。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "是广播电视工作的生命线",
-      "B": "需坚持马克思主义新闻观",
-      "C": "可根据流量需求调整意识形态导向",
-      "D": "要牢牢掌握意识形态工作领导权"
-    }
-  },
-  {
-    "id": "zt-guan-2025-020",
-    "kind": "single",
-    "stem": "组织设计的核心是（ ）",
-    "answer": "B",
-    "analysis": "组织设计的核心是合理划分权责关系，明确各岗位、各部门的权力与责任，确保协同高效，A、C、D 是组织设计的基础环节。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "明确组织目标",
-      "B": "划分权责关系",
-      "C": "确定组织规模",
-      "D": "选择组织形式"
-    }
-  },
-  {
-    "id": "zt-guan-2025-021",
-    "kind": "single",
-    "stem": "中央广播电视总台举办的重大公益活动不包括（ ）",
-    "answer": "D",
-    "analysis": "商业选秀节目以商业盈利为主要目的，不属于公益活动；A、B、C 均为总台举办的重大公益或公益相关活动（春晚兼具公益属性和文化传播属性）。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "感动中国年度人物评选",
-      "B": "春节联欢晚会",
-      "C": "公益广告展播",
-      "D": "商业选秀节目"
-    }
-  },
-  {
-    "id": "zt-guan-2025-022",
-    "kind": "single",
-    "stem": "危机管理的首要原则是（ ）",
-    "answer": "A",
-    "analysis": "危机管理的首要原则是快速响应、主动应对，及时控制事态发展；B、C、D 均为危机管理的禁忌行为。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "快速响应",
-      "B": "隐瞒信息",
-      "C": "推卸责任",
-      "D": "等待上级指示"
-    }
-  },
-  {
-    "id": "zt-guan-2025-023",
-    "kind": "single",
-    "stem": "下列关于媒体伦理的表述，正确的是（ ）",
-    "answer": "C",
-    "analysis": "媒体伦理的核心是尊重事实、坚守职业道德，A、B、D 均违反媒体伦理规范。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "为追求热点，可虚构新闻事实",
-      "B": "媒体人无需遵守廉洁自律要求",
-      "C": "需尊重事实、坚守职业道德",
-      "D": "可随意披露他人隐私获取流量"
-    }
-  },
-  {
-    "id": "zt-guan-2025-024",
-    "kind": "single",
-    "stem": "管理中的“权责对等”原则是指（ ）",
-    "answer": "C",
-    "analysis": "权责对等原则即“有多大权力，承担多大责任”，确保权力与责任相匹配，避免权力滥用或责任推诿。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "权力大于责任",
-      "B": "责任大于权力",
-      "C": "权力与责任相匹配",
-      "D": "权力与责任无关"
-    }
-  },
-  {
-    "id": "zt-guan-2025-025",
-    "kind": "single",
-    "stem": "中央广播电视总台的英文缩写是（ ）",
-    "answer": "C",
-    "analysis": "CMG 是中央广播电视总台（China Media Group）的英文缩写；CCTV 是原中央电视台缩写，CNR 是原中央人民广播电台缩写，CGTN 是中国国际电视台缩写。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "CCTV",
-      "B": "CNR",
-      "C": "CMG",
-      "D": "CGTN"
-    }
-  },
-  {
-    "id": "zt-guan-2025-026",
-    "kind": "single",
-    "stem": "下列不属于计划职能的内容是（ ）",
-    "answer": "C",
-    "analysis": "协调部门关系属于管理的协调职能，确定目标、制定策略、规划资源均为计划职能的核心内容。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "确定组织目标",
-      "B": "制定实施策略",
-      "C": "协调部门关系",
-      "D": "规划资源配置"
-    }
-  },
-  {
-    "id": "zt-guan-2025-027",
-    "kind": "single",
-    "stem": "媒体管理中，内容审核的核心是（ ）",
-    "answer": "C",
-    "analysis": "总台作为主流媒体，内容审核的核心是把控政治导向和价值导向，确保内容合规、传递正能量，A、B、D 均非核心。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "审核内容的娱乐性",
-      "B": "审核内容的商业价值",
-      "C": "审核内容的政治导向和价值导向",
-      "D": "审核内容的传播速度"
-    }
-  },
-  {
-    "id": "zt-guan-2025-028",
-    "kind": "single",
-    "stem": "领导的核心作用是（ ）",
-    "answer": "C",
-    "analysis": "领导的核心作用是引领方向、带动团队，指挥、激励是领导的具体手段，控制是管理的独立职能。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "指挥",
-      "B": "激励",
-      "C": "引领和带动",
-      "D": "控制"
-    }
-  },
-  {
-    "id": "zt-guan-2025-029",
-    "kind": "single",
-    "stem": "中央广播电视总台不涉及的业务领域是（ ）",
-    "answer": "D",
-    "analysis": "汽车制造属于工业领域，与总台媒体业务无关；A、B、C 均为总台涉及的核心业务领域。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "广播电视播出",
-      "B": "新媒体内容生产",
-      "C": "电影发行",
-      "D": "汽车制造"
-    }
-  },
-  {
-    "id": "zt-guan-2025-030",
-    "kind": "single",
-    "stem": "下列关于目标管理的表述，正确的是（ ）",
-    "answer": "B",
-    "analysis": "目标管理强调上下级共同制定目标，核心是自我管理、自我控制，需对目标完成情况进行考核，目标制定需贴合实际，A、C、D 表述错误。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "目标由上级单方面制定，下级执行",
-      "B": "目标管理的核心是自我管理和自我控制",
-      "C": "无需对目标完成情况进行考核",
-      "D": "目标制定无需结合实际，越高越好"
-    }
-  },
-  {
-    "id": "zt-guan-2025-031",
-    "kind": "single",
-    "stem": "广播电视节目制作管理的核心是（ ）",
-    "answer": "B",
-    "analysis": "节目制作管理的核心是“质量+导向”，成本控制、制作速度是辅助要求，无法满足所有观众需求，B 项表述正确。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "降低制作成本",
-      "B": "保证节目质量和导向正确",
-      "C": "追求制作速度",
-      "D": "满足所有观众需求"
-    }
-  },
-  {
-    "id": "zt-guan-2025-032",
-    "kind": "single",
-    "stem": "下列不属于沟通障碍的是（ ）",
-    "answer": "C",
-    "analysis": "清晰的表达是有效沟通的基础，不属于沟通障碍；语言差异、情绪干扰、传递延迟均会阻碍沟通效率。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "语言差异",
-      "B": "情绪干扰",
-      "C": "清晰的表达",
-      "D": "信息传递延迟"
-    }
-  },
-  {
-    "id": "zt-guan-2025-033",
-    "kind": "single",
-    "stem": "中央广播电视总台推进媒体融合的重点举措不包括（ ）",
-    "answer": "C",
-    "analysis": "总台推进媒体融合是“传统媒体+新媒体”协同发展，而非关闭传统频道；A、B、 D 均为总台媒体融合的重点举措。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "打造融媒体产品",
-      "B": "整合台内资源",
-      "C": "关闭传统广播电视频道",
-      "D": "加强新媒体人才培养"
-    }
-  },
-  {
-    "id": "zt-guan-2025-034",
-    "kind": "single",
-    "stem": "绩效考核中，“德、能、勤、绩、廉”五个方面，核心是（ ）",
-    "answer": "C",
-    "analysis": "“德、能、勤、绩、廉”中，“绩”是核心，体现员工的工作成效和对组织的贡献， 德、能、勤、廉是绩的基础保障。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "德",
-      "B": "能",
-      "C": "绩",
-      "D": "廉"
-    }
-  },
-  {
-    "id": "zt-guan-2025-035",
-    "kind": "single",
-    "stem": "下列关于公益广告的表述，错误的是（ ）",
-    "answer": "B",
-    "analysis": "公益广告以传递正能量、履行社会责任为目的，不追求盈利；A、C、D 均为公益广告的正确表述。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "是广播电视媒体的社会责任体现",
-      "B": "以盈利为目的",
-      "C": "传递正能量和正确价值观",
-      "D": "可提升媒体公信力"
-    }
-  },
-  {
-    "id": "zt-guan-2025-036",
-    "kind": "single",
-    "stem": "管理决策中，SWOT 分析的核心是（ ）",
-    "answer": "A",
-    "analysis": "SWOT 分析的核心是梳理组织内部的优势（S）、劣势（W），以及外部环境的机会（O）、威胁（T），为决策提供依据。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "分析自身优势和劣势、外部机会和威胁",
-      "B": "分析市场竞争格局",
-      "C": "分析员工绩效",
-      "D": "分析财务状况"
-    }
-  },
-  {
-    "id": "zt-guan-2025-037",
-    "kind": "single",
-    "stem": "中央广播电视总台的核心价值观是（ ）",
-    "answer": "A",
-    "analysis": "总台作为主流媒体，核心价值观是真实、客观、公正、专业；B、C、D 不符合总台公益属性和传播定位。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "真实、客观、公正、专业",
-      "B": "流量至上、娱乐为王",
-      "C": "商业优先、盈利为本",
-      "D": "自由、开放、多元"
-    }
-  },
-  {
-    "id": "zt-guan-2025-038",
-    "kind": "single",
-    "stem": "下列不属于组织文化的内容是（ ）",
-    "answer": "C",
-    "analysis": "组织文化是组织共同的理念、制度、作风等，组织成员的个人爱好属于个人行为，不属于组织文化范畴。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "组织理念",
-      "B": "组织制度",
-      "C": "组织成员的个人爱好",
-      "D": "组织作风"
-    }
-  },
-  {
-    "id": "zt-guan-2025-039",
-    "kind": "single",
-    "stem": "广播电视管理中，安全播出的核心要求是（ ）",
-    "answer": "A",
-    "analysis": "安全播出的核心是“三无”：无中断、无错误、无不良信息，确保播出安全和导向正确；B、C、D 均非安全播出的核心要求。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "无中断、无错误、无不良信息",
-      "B": "收视率第一",
-      "C": "节目新颖",
-      "D": "广告投放量大"
-    }
-  },
-  {
-    "id": "zt-guan-2025-040",
-    "kind": "single",
-    "stem": "下列关于激励机制的表述，正确的是（ ）",
-    "answer": "C",
-    "analysis": "激励包括物质激励和精神激励，需结合员工需求制定，有效的激励能激发员工潜力、提升积极性，对核心员工同样有效，A、B、D 表述错误。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "激励只有物质激励一种形式",
-      "B": "激励无需结合员工需求",
-      "C": "有效的激励可提升员工积极性",
-      "D": "激励对核心员工无效"
-    }
-  },
-  {
-    "id": "zt-guan-2025-041",
-    "kind": "single",
-    "stem": "中央广播电视总台国际传播的主要语种不包括（ ）",
-    "answer": "D",
-    "analysis": "火星语并非真实存在的通用语种，总台国际传播涵盖英语、法语、日语等多种主流语种，D 项表述错误。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "英语",
-      "B": "法语",
-      "C": "日语",
-      "D": "火星语"
-    }
-  },
-  {
-    "id": "zt-guan-2025-042",
-    "kind": "single",
-    "stem": "管理中的“例外原则”是指（ ）",
-    "answer": "A",
-    "analysis": "例外原则的核心是“抓大放小”，领导者聚焦例外（非常规、重要）事务，常规事务授权下属处理，提升管理效率。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "领导者只处理例外情况，常规事务交由下属处理",
-      "B": "领导者处理所有事务，不放手给下属",
-      "C": "对例外情况视而不见",
-      "D": "例外情况由上级统一处理"
-    }
-  },
-  {
-    "id": "zt-guan-2025-043",
-    "kind": "single",
-    "stem": "下列关于新媒体管理的表述，错误的是（ ）",
-    "answer": "B",
-    "analysis": "新媒体管理同样需要严格遵守内容审核规范，坚守导向底线；A、C、D 均为新媒体管理的正确要求。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "需注重用户体验",
-      "B": "无需遵守内容审核规范",
-      "C": "要注重内容创新",
-      "D": "需加强数据监测和分析"
-    }
-  },
-  {
-    "id": "zt-guan-2025-044",
-    "kind": "single",
-    "stem": "中央广播电视总台举办的年度重大文艺活动是（ ）",
-    "answer": "A",
-    "analysis": "春节联欢晚会是总台每年举办的重大文艺活动；B、C、D 均为地方卫视或第三方平台举办的娱乐节目。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "春节联欢晚会",
-      "B": "中国好声音",
-      "C": "奔跑吧",
-      "D": "极限挑战"
-    }
-  },
-  {
-    "id": "zt-guan-2025-045",
-    "kind": "single",
-    "stem": "下列不属于管理能力的是（ ）",
-    "answer": "B",
-    "analysis": "专业编辑能力是内容制作岗位的专业能力，统筹规划、应急处置、团队领导均为管理岗位的核心能力。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "统筹规划能力",
-      "B": "专业编辑能力",
-      "C": "应急处置能力",
-      "D": "团队领导能力"
-    }
-  },
-  {
-    "id": "zt-guan-2025-046",
-    "kind": "single",
-    "stem": "广播电视行业的发展趋势是（ ）",
-    "answer": "B",
-    "analysis": "当前广播电视行业的核心发展趋势是媒体融合、技术智能化、内容精品化，A、 C、D 均不符合行业发展规律。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "单一化、传统化",
-      "B": "融合化、智能化、精品化",
-      "C": "脱离主流、娱乐化",
-      "D": "减少内容产出、聚焦单一领域"
-    }
-  },
-  {
-    "id": "zt-guan-2025-047",
-    "kind": "single",
-    "stem": "中央广播电视总台管理岗位的核心职责是（ ）",
-    "answer": "B",
-    "analysis": "管理岗位的核心职责是统筹协调、把控方向，保障组织目标落地；A、C、D 均为一线业务岗位的职责。 有两个或两个以上正确答案，请将正确答案的序号填涂在答题卡对应位置，多选、少选、错选均不得分）",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "负责节目拍摄制作",
-      "B": "统筹协调各项工作，保障组织目标实现",
-      "C": "负责广告投放",
-      "D": "负责设备维护"
-    }
-  },
-  {
-    "id": "zt-guan-2025-048",
-    "kind": "multi",
-    "stem": "中央广播电视总台的核心职能包括（ ）",
-    "answer": "ABCD",
-    "analysis": "总台核心职能涵盖新闻宣传（传递党的声音）、内容生产（打造优质节目）、 国际传播（讲好中国故事）、公益服务（履行社会责任），四项均正确。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "新闻宣传",
-      "B": "内容生产",
-      "C": "国际传播",
-      "D": "公益服务"
-    }
-  },
-  {
-    "id": "zt-guan-2025-049",
-    "kind": "multi",
-    "stem": "管理的基本职能包括（ ）",
-    "answer": "ABCD",
-    "analysis": "管理的四大基本职能是计划、组织、领导、控制，相互关联、缺一不可，共同构成管理的完整流程。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "计划",
-      "B": "组织",
-      "C": "领导",
-      "D": "控制"
-    }
-  },
-  {
-    "id": "zt-guan-2025-050",
-    "kind": "multi",
-    "stem": "媒体融合背景下，中央广播电视总台的发展举措包括（ ）",
-    "answer": "ABC",
-    "analysis": "D 项表述错误，总台推进媒体融合是传统与新媒体协同发展，而非拒绝转型； A、B、C 均为总台媒体融合的核心举措。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "打造融媒体传播矩阵",
-      "B": "加强新媒体人才队伍建设",
-      "C": "推进内容、技术、渠道深度融合",
-      "D": "坚守传统媒体阵地，拒绝新媒体转型"
-    }
-  },
-  {
-    "id": "zt-guan-2025-051",
-    "kind": "multi",
-    "stem": "广播电视管理岗位需具备的核心素养包括（ ）",
-    "answer": "ABCD",
-    "analysis": "总台管理岗位需具备政治素养（坚守导向）、管理素养（统筹能力）、行业素养（了解广电行业）、沟通素养（协同高效），四项均为核心素养。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "政治素养",
-      "B": "管理素养",
-      "C": "行业素养",
-      "D": "沟通素养"
-    }
-  },
-  {
-    "id": "zt-guan-2025-052",
-    "kind": "multi",
-    "stem": "下列属于中央广播电视总台旗下新媒体平台的有（ ）",
-    "answer": "ABC",
-    "analysis": "D 项人民日报客户端是人民日报社旗下平台，不属于总台；A、B、C 均为总台自主打造的新媒体平台。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "央视频",
-      "B": "央视新闻客户端",
-      "C": "央广新闻客户端",
-      "D": "人民日报客户端"
-    }
-  },
-  {
-    "id": "zt-guan-2025-053",
-    "kind": "multi",
-    "stem": "危机管理的基本流程包括（ ）",
-    "answer": "ABCD",
-    "analysis": "危机管理的完整流程是“预防→监测→处置→复盘”，预防是前提，监测是基础， 处置是核心，复盘是提升。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "危机预防",
-      "B": "危机监测",
-      "C": "危机处置",
-      "D": "危机复盘"
-    }
-  },
-  {
-    "id": "zt-guan-2025-054",
-    "kind": "multi",
-    "stem": "广播电视节目管理的核心要求包括（ ）",
-    "answer": "ABC",
-    "analysis": "D 项流量至上不符合总台节目管理要求，节目管理核心是导向正确、内容优质、安全播出，兼顾传播效果与正能量传递。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "导向正确",
-      "B": "内容优质",
-      "C": "安全播出",
-      "D": "流量至上"
-    }
-  },
-  {
-    "id": "zt-guan-2025-055",
-    "kind": "multi",
-    "stem": "人力资源管理的主要模块包括（ ）",
-    "answer": "ABCD",
-    "analysis": "人力资源管理的四大核心模块是招聘配置、培训开发、绩效考核、薪酬福利， 覆盖人才“选、育、用、留”全流程。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "招聘与配置",
-      "B": "培训与开发",
-      "C": "绩效考核",
-      "D": "薪酬福利管理"
-    }
-  },
-  {
-    "id": "zt-guan-2025-056",
-    "kind": "multi",
-    "stem": "中央广播电视总台国际传播的重点方向包括（ ）",
-    "answer": "ABCD",
-    "analysis": "总台国际传播的重点的是全方位展示中国，包括党的故事、人民的故事、中国特色社会主义故事、优秀传统文化，四项均为核心方向。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "讲好中国共产党的故事",
-      "B": "讲好中国人民的故事",
-      "C": "讲好中国特色社会主义的故事",
-      "D": "传播中国优秀传统文化"
-    }
-  },
-  {
-    "id": "zt-guan-2025-057",
-    "kind": "multi",
-    "stem": "管理决策的基本流程包括（ ）",
-    "answer": "ABCD",
-    "analysis": "管理决策的完整流程的是发现问题、确定目标→制定备选方案→评估选择方案 →实施复盘优化，确保决策科学、落地有效。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "发现问题、确定目标",
-      "B": "制定备选方案",
-      "C": "评估方案、选择方案",
-      "D": "实施方案、复盘优化"
-    }
-  },
-  {
-    "id": "zt-guan-2025-058",
-    "kind": "single",
-    "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。Whenwas China Media Groupestablished?",
-    "answer": "B",
-    "analysis": "短文第一段第一句明确提到“China Media Group (CMG),established in 2018”，故选B。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "2016",
-      "B": "2018",
-      "C": "2020",
-      "D": "2022"
-    }
-  },
-  {
-    "id": "zt-guan-2025-059",
-    "kind": "single",
-    "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。Whatis thecoremissionofCMG?",
-    "answer": "B",
-    "analysis": "第一段第二句提到其核心使命是“spreadthevoice ofthePartyand thecountry, tellChinese stories well”，A、C、D 均与原文不符。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "Topursuecommercialinterestsmaximization",
-      "B": "TospreadthevoiceofthePartyandthecountryandtellChinese storieswell",
-      "C": "Tofocusonentertainmentprograms",
-      "D": "Tocompetewith internationalmedia forratings"
-    }
-  },
-  {
-    "id": "zt-guan-2025-060",
-    "kind": "single",
-    "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。Whichofthefollowing is NOTapartofCMG'smediacommunicationmatrix?",
-    "answer": "C",
-    "analysis": "第二段提到总台传播矩阵包括“television,radio,...Yangshipin (CCTVVideo) andCCTVNews Client”，未提及People'sDaily Client（人民日报客户端），故选 C。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "Yangshipin (CCTVVideo)",
-      "B": "CCTVNews Client",
-      "C": "People'sDaily Client",
-      "D": "Radio stations"
-    }
-  },
-  {
-    "id": "zt-guan-2025-061",
-    "kind": "single",
-    "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。WhatlanguagesdoesCMG broadcastin?",
-    "answer": "C",
-    "analysis": "第三段提到“broadcastsin multiple languagesincluding English,French, Spanish,Arabic,andRussian”，C 项与原文一致，其余选项表述片面。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "Only Chinese",
-      "B": "Only English",
-      "C": "Multiple languagesincluding English,Frenchand Arabic",
-      "D": "OnlyRussianand Spanish"
-    }
-  },
-  {
-    "id": "zt-guan-2025-062",
-    "kind": "single",
-    "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。Whatis requiredformanagementpositionsin CMG?",
-    "answer": "A",
-    "analysis": "最后一段明确提到“requiredtohave ahighpoliticalliteracy,strong managementcapabilities...”，B、C、D 均与原文表述相反。",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    },
-    "options": {
-      "A": "Highpoliticalliteracyandstrong managementcapabilities",
-      "B": "Only professionaltechnicalskills",
-      "C": "No needforcommunicationskills",
-      "D": "No understandingofthemediaindustryis required"
-    }
-  },
-  {
-    "id": "zt-guan-2025-063",
-    "kind": "qa",
-    "stem": "结合中央广播电视总台的核心使命和管理岗位的职责，简述媒体融合背景下，总台管理岗位人员应如何履行职责、发挥作用？",
-    "answer": "1. 坚守政治导向，践行核心使命：牢记总台“举旗帜、聚民心、育新人、兴文化、展形象”的核心使命，将意识形态工作贯穿管理全过程，把控各项工作的政治导向和价值导向。（1 分） 2. 统筹融合发展，优化资源配置：立足媒体融合战略，统筹传统媒体与新媒体资源，推动内容、技术、渠道深度融合，打造全媒体传播体系，提升传播力和影响力。 （1 分） 3. 强化团队管理，凝聚工作合力：履行管理岗位职责，做好人员招聘、培训、激励工作，明确分工、权责对等，提升团队凝聚力和工作效率，打造适配融合发展的人才队伍。（1 分） 4. 坚守内容为王，把控工作质量：聚焦总台内容生产核心，加强节目、新闻、新媒体产品的质量管控和内容审核，兼顾精品化与传播性，满足受众需求。（1 分） 5. 主动担当作为，应对发展挑战：适应媒体融合新形势，提升应急处置、决策统筹、沟通协调能力，积极应对行业变化和各类危机，助力总台高质量发展和国际传播能力提升。（1 分）",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    }
-  },
-  {
-    "id": "zt-guan-2025-064",
-    "kind": "qa",
-    "stem": "题目：以“守正创新，履职担当——做新时代总台管理从业者”为题，结合中央广播电视总台的发展定位和管理岗位的要求，写一篇作文。",
-    "answer": "评分标准（共15 分，分四个等级评分，立意贴合主题、结合岗位实际即可酌情给分）： 1. 一等文（12-15 分）：立意鲜明，紧扣“守正创新、履职担当”主题，紧密结合总台发展定位（主流媒体、全媒体传播、国际传播）和管理岗位要求；文体规范，结构严谨，语言流畅，论据充分，有独到见解；不少于800 字，字迹工整。 2. 二等文（9-11 分）：立意明确，贴合主题，能结合总台定位和管理岗位要求；文体规范，结构完整，语言通顺，论据较充分；不少于800 字，字迹清晰。 3. 三等文（6-8 分）：立意基本明确，与主题关联度一般，结合总台定位和岗位要求不够紧密；文体基本规范，结构基本完整，语言基本通顺，论据不足；不少于800 字，字迹尚可辨认。 4. 四等文（0-5 分）：立意不明确，偏离主题；文体不规范，结构混乱，语言不通顺；字数不足800 字，字迹潦草，无法辨认；或抄袭、套作。 参考范文（供参考，不局限于以下内容，言之有理即可）： 守正创新，履职担当——做新时代总台管理从业者作为国家主流媒体的核心阵地，中央广播电视总台肩负着举旗帜、聚民心、育新人、 兴文化、展形象的神圣使命，是传播党的声音、讲好中国故事、引领主流舆论的重要力量。媒体融合向纵深发展的新时代，总台的高质量发展离不开一支政治过硬、本领高强、作风优良的管理队伍。作为新时代总台管理从业者，唯有坚守初心守正、勇于开拓创新、主动履职担当，才能在新时代新征程上，助力总台实现全球领先的全媒体机构愿景，书写主流媒体发展的新篇章。 守正为根，筑牢管理履职的政治底线。“正者，大道也”，对于总台管理从业者而言，守正就是坚守政治立场、坚守使命初心、坚守职业操守。总台作为党直接领导的新闻媒体机构，意识形态工作是生命线，任何时候都不能有丝毫动摇。在管理工作中，我们要始终坚持马克思主义新闻观，把正确的政治导向和价值导向贯穿于各项工作的全过程、各环节——无论是内容生产的审核管理，还是团队建设的方向引领，无论是资源配置的统筹规划，还是危机事件的应急处置，都要始终以党的旗帜为旗帜、以党的意志为意志，坚决守住意识形态阵地，杜绝各类不良信息传播，确保总台各项工作始终沿着正确方向前进。守正不是墨守成规，而是在坚守核心原则的基础上，守住总台的公益属性、守住媒体的职业良知、守住管理的责任底线，这是我们履职担当的根本前提。 创新为翼，激活管理发展的内生动力。媒体融合是广电行业高质量发展的必然趋势， 也是总台实现跨越式发展的必由之路。新时代的总台管理工作，早已突破传统管理的边界，面临着内容融合、技术融合、渠道融合带来的诸多新挑战、新机遇。作为管理从业者，我们不能固守传统管理模式，必须打破思维定势、勇于开拓创新，让创新成为管理履职的鲜明底色。在团队管理上，要创新人才培养和激励机制，兼顾传统媒体人才与新媒体人才的成长需求，打造一支适配全媒体发展的复合型管理团队；在资源管理上，要创新统筹模式，打破台内各平台、各部门的壁垒，推动内容、技术、渠道、人才等资源高效整合，构建全媒体传播矩阵；在工作方法上，要创新管理手段， 充分运用大数据、智能化等技术，提升管理效率和决策科学性，让管理工作更具针对性、实效性。创新的本质是解决问题、推动发展，唯有以创新破解融合发展中的痛点、难点，才能让总台的管理工作跟上时代步伐，激发机构发展的无限活力。 担当为要，扛起管理发展的时代责任。“道虽迩，不行不至；事虽小，不为不成”，履职担当是新时代总台管理从业者的核心素养，也是我们践行使命的具体体现。总台的发展关乎主流舆论的引领、关乎中国形象的传播、关乎文化自信的提升，每一位管理从业者都肩负着沉甸甸的责任。在日常工作中，我们要立足管理岗位，主动担当作为— —面对繁重的统筹任务，要勇于挑重担、扛责任，统筹协调各方力量，确保各项工作高效落地；面对融合发展的新挑战，要勇于闯难关、破难题，主动学习全媒体管理知识，提升统筹融合、应急处置、沟通协调等综合能力；面对国际传播的新形势，要勇于走出去、讲好中国故事，立足总台国际传播定位，统筹推进多语种、多平台传播， 助力提升中国文化的国际影响力。同时，要强化责任意识和服务意识，把团队建设好、把工作管理好、把服务保障好，以“时时放心不下”的责任感，做好每一项细节工作，以实际行动践行管理从业者的使命担当。 时代赋予使命，奋斗成就未来。新时代的总台管理从业者，既是主流舆论的引领者， 也是媒体融合的推动者，更是使命担当的践行者。守正与创新相辅相成，担当与责任密不可分——守正为创新指明方向，创新为守正注入活力，担当为守正创新提供保障。站在新的历史起点上，我们要始终坚守初心、牢记使命，以守正筑牢根基，以创新破解难题，以担当书写忠诚，努力成为政治过硬、本领高强、作风优良的新时代总台管理从业者，助力总台在媒体融合的浪潮中勇立潮头、奋勇前进，为传播中国声音、展示中国形象、推动文化繁荣发展贡献自己的全部力量！",
-    "analysis": "",
-    "tags": [
-      "媒体常识",
-      "总台"
-    ],
-    "source": {
-      "institution": "总台",
-      "doc": "2025年中央广播电视总台管理岗位复试真题",
-      "year": 2025,
-      "reliability": "真题合集"
-    }
+  "options": {
+   "A": "举旗帜、聚民心、育新人、兴文化、展形象",
+   "B": "传播党的声音、讲好中国故事",
+   "C": "单纯追求节目收视率和商业利益最大化",
+   "D": "引领主流舆论、弘扬正能量"
   }
+ },
+ {
+  "id": "zt-guan-2025-002",
+  "kind": "single",
+  "stem": "2025 年中央广播电视总台重点推进的战略方向是（ ）",
+  "answer": "B",
+  "analysis": "媒体融合是广电行业高质量发展的必然趋势，2025 年总台持续推进传统媒体与新媒体深度融合，打造全媒体传播矩阵，A、C、D 均不符合总台战略方向。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "单一传统媒体深耕",
+   "B": "媒体融合向纵深发展，打造全媒体传播体系",
+   "C": "减少内容产出，聚焦精品化单一品类",
+   "D": "脱离主流舆论，追求多元化娱乐导向"
+  }
+ },
+ {
+  "id": "zt-guan-2025-003",
+  "kind": "single",
+  "stem": "下列不属于中央广播电视总台旗下平台的是（ ）",
+  "answer": "D",
+  "analysis": "北京卫视是北京广播电视台旗下平台，不属于中央广播电视总台；A、B、C 均为总台核心旗下平台。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "央视综合频道（CCTV-1）",
+   "B": "中央人民广播电台",
+   "C": "中国国际电视台（CGTN）",
+   "D": "北京卫视"
+  }
+ },
+ {
+  "id": "zt-guan-2025-004",
+  "kind": "single",
+  "stem": "管理的核心职能是（ ）",
+  "answer": "D",
+  "analysis": "决策是管理的核心，贯穿管理全过程，计划、组织、协调均为管理的基本职能，围绕决策展开，服务于决策的落实。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "计划",
+   "B": "组织",
+   "C": "协调",
+   "D": "决策"
+  }
+ },
+ {
+  "id": "zt-guan-2025-005",
+  "kind": "single",
+  "stem": "中央广播电视总台实行的管理体制是（ ）",
+  "answer": "B",
+  "analysis": "总台作为国家重要媒体机构，实行集中统一领导、分级分类管理的体制，兼顾统一性和灵活性，A、C、D 表述均错误。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "分散管理、各自为政",
+   "B": "集中统一领导、分级分类管理",
+   "C": "市场化自主管理，不受监管",
+   "D": "垂直管理，无分级权限"
+  }
+ },
+ {
+  "id": "zt-guan-2025-006",
+  "kind": "single",
+  "stem": "下列关于媒体融合的表述，错误的是（ ）",
+  "answer": "C",
+  "analysis": "媒体融合需坚持主流价值导向，流量提升需建立在正确导向基础上，C 项表述错误；A、B、D 均为媒体融合的正确内涵。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "是传统媒体与新媒体的优势互补",
+   "B": "核心是内容融合，技术为支撑",
+   "C": "无需兼顾主流价值导向，重点是流量提升",
+   "D": "是广电行业高质量发展的必然趋势"
+  }
+ },
+ {
+  "id": "zt-guan-2025-007",
+  "kind": "single",
+  "stem": "人力资源管理中，“选人、育人、用人、留人”的核心是（ ）",
+  "answer": "C",
+  "analysis": "“选人、育人、留人”的最终目的是“用人”，发挥人才价值，实现组织目标，用人是核心环节。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "选人",
+   "B": "育人",
+   "C": "用人",
+   "D": "留人"
+  }
+ },
+ {
+  "id": "zt-guan-2025-008",
+  "kind": "single",
+  "stem": "中央广播电视总台的发展愿景是成为（ ）",
+  "answer": "A",
+  "analysis": "总台愿景是打造全球领先的全媒体机构，提升国际传播力；B、C、D 均不符合总台公益属性和发展定位。",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "全球领先的全媒体机构",
+   "B": "国内最大的娱乐媒体平台",
+   "C": "单一语种的国际传播平台",
+   "D": "以商业盈利为核心的媒体集团"
+  }
+ },
+ {
+  "id": "zt-guan-2025-009",
+  "kind": "single",
+  "stem": "管理岗位的核心能力不包括（ ）",
+  "answer": "B",
+  "analysis": "专业技术操作能力是一线业务岗位的核心能力，管理岗位核心能力侧重统筹、 沟通、解决问题等综合能力。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "统筹协调能力",
+   "B": "专业技术操作能力",
+   "C": "沟通表达能力",
+   "D": "问题解决能力"
+  }
+ },
+ {
+  "id": "zt-guan-2025-010",
+  "kind": "single",
+  "stem": "下列法律法规中，与广播电视管理无关的是（ ）",
+  "answer": "D",
+  "analysis": "D 项是规范道路交通安全的法律法规，与广播电视管理无关；A、B、C 均为广播电视行业相关法规或公约。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "《广播电视管理条例》",
+   "B": "《网络信息内容生态治理规定》",
+   "C": "《新闻出版广播影视从业人员廉洁行为自律公约》",
+   "D": "《中华人民共和国道路交通安全法》"
+  }
+ },
+ {
+  "id": "zt-guan-2025-011",
+  "kind": "single",
+  "stem": "计划工作的首要步骤是（ ）",
+  "answer": "A",
+  "analysis": "计划工作的逻辑顺序是：确定目标→制定方案→评估风险→执行计划，首要步骤是确定目标。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "确定目标",
+   "B": "制定方案",
+   "C": "评估风险",
+   "D": "执行计划"
+  }
+ },
+ {
+  "id": "zt-guan-2025-012",
+  "kind": "single",
+  "stem": "中央广播电视总台成立的时间是（ ）",
+  "answer": "B",
+  "analysis": "中央广播电视总台于2018 年正式成立，整合了原中央电视台、中央人民广播电台、中国国际广播电台。",
+  "tags": [
+   "媒体常识",
+   "机构历史",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "2016 年",
+   "B": "2018 年",
+   "C": "2020 年",
+   "D": "2022 年"
+  }
+ },
+ {
+  "id": "zt-guan-2025-013",
+  "kind": "single",
+  "stem": "下列关于团队管理的表述，正确的是（ ）",
+  "answer": "C",
+  "analysis": "团队管理的核心是激发团队活力，兼顾工作效率和团队凝聚力；A、B、D 表述错误，优秀团队需明确分工，领导者需带头参与、统筹协调。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "团队管理的核心是控制员工行为",
+   "B": "优秀团队无需明确分工，协同即可",
+   "C": "团队管理需兼顾效率与凝聚力",
+   "D": "领导者无需参与团队执行，只需指挥"
+  }
+ },
+ {
+  "id": "zt-guan-2025-014",
+  "kind": "single",
+  "stem": "中央广播电视总台国际传播的核心目标是（ ）",
+  "answer": "B",
+  "analysis": "总台国际传播的核心目标是讲好中国故事，展示真实、立体、全面的中国，促进国际文化交流，A、C、D 均非核心目标。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "扩大海外商业影响力",
+   "B": "向世界展示真实、立体、全面的中国",
+   "C": "引进海外娱乐节目",
+   "D": "提升海外收视率排名"
+  }
+ },
+ {
+  "id": "zt-guan-2025-015",
+  "kind": "single",
+  "stem": "沟通的关键是（ ）",
+  "answer": "B",
+  "analysis": "沟通是双向过程，核心关键是倾听与理解，确保信息传递准确、需求对接到位，表达清晰、语气委婉是沟通的辅助技巧。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "表达清晰",
+   "B": "倾听理解",
+   "C": "语气委婉",
+   "D": "信息传递速度"
+  }
+ },
+ {
+  "id": "zt-guan-2025-016",
+  "kind": "single",
+  "stem": "下列不属于管理决策基本特征的是（ ）",
+  "answer": "B",
+  "analysis": "管理决策需基于客观实际，具备目标性、可行性、选择性，主观性不属于决策的基本特征，决策应避免主观臆断。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "目标性",
+   "B": "主观性",
+   "C": "可行性",
+   "D": "选择性"
+  }
+ },
+ {
+  "id": "zt-guan-2025-017",
+  "kind": "single",
+  "stem": "中央广播电视总台旗下的新媒体平台是（ ）",
+  "answer": "C",
+  "analysis": "央视频是总台自主打造的新媒体核心平台；抖音、快手、微信视频号是第三方新媒体平台，不属于总台旗下。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "抖音",
+   "B": "快手",
+   "C": "央视频",
+   "D": "微信视频号"
+  }
+ },
+ {
+  "id": "zt-guan-2025-018",
+  "kind": "single",
+  "stem": "绩效考核的核心目的是（ ）",
+  "answer": "B",
+  "analysis": "绩效考核的核心是“激励提升”，而非惩罚或单纯分级，通过考核发现问题、激发潜力，助力组织目标实现。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "惩罚落后员工",
+   "B": "激励员工提升绩效，实现组织目标",
+   "C": "区分员工等级",
+   "D": "完成上级交办的任务"
+  }
+ },
+ {
+  "id": "zt-guan-2025-019",
+  "kind": "single",
+  "stem": "下列关于意识形态工作的表述，错误的是（ ）",
+  "answer": "C",
+  "analysis": "意识形态导向是底线，不可因追求流量而调整，必须始终坚持正确导向；A、 B、D 均为意识形态工作的正确表述。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "是广播电视工作的生命线",
+   "B": "需坚持马克思主义新闻观",
+   "C": "可根据流量需求调整意识形态导向",
+   "D": "要牢牢掌握意识形态工作领导权"
+  }
+ },
+ {
+  "id": "zt-guan-2025-020",
+  "kind": "single",
+  "stem": "组织设计的核心是（ ）",
+  "answer": "B",
+  "analysis": "组织设计的核心是合理划分权责关系，明确各岗位、各部门的权力与责任，确保协同高效，A、C、D 是组织设计的基础环节。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "明确组织目标",
+   "B": "划分权责关系",
+   "C": "确定组织规模",
+   "D": "选择组织形式"
+  }
+ },
+ {
+  "id": "zt-guan-2025-021",
+  "kind": "single",
+  "stem": "中央广播电视总台举办的重大公益活动不包括（ ）",
+  "answer": "D",
+  "analysis": "商业选秀节目以商业盈利为主要目的，不属于公益活动；A、B、C 均为总台举办的重大公益或公益相关活动（春晚兼具公益属性和文化传播属性）。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "感动中国年度人物评选",
+   "B": "春节联欢晚会",
+   "C": "公益广告展播",
+   "D": "商业选秀节目"
+  }
+ },
+ {
+  "id": "zt-guan-2025-022",
+  "kind": "single",
+  "stem": "危机管理的首要原则是（ ）",
+  "answer": "A",
+  "analysis": "危机管理的首要原则是快速响应、主动应对，及时控制事态发展；B、C、D 均为危机管理的禁忌行为。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "快速响应",
+   "B": "隐瞒信息",
+   "C": "推卸责任",
+   "D": "等待上级指示"
+  }
+ },
+ {
+  "id": "zt-guan-2025-023",
+  "kind": "single",
+  "stem": "下列关于媒体伦理的表述，正确的是（ ）",
+  "answer": "C",
+  "analysis": "媒体伦理的核心是尊重事实、坚守职业道德，A、B、D 均违反媒体伦理规范。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "为追求热点，可虚构新闻事实",
+   "B": "媒体人无需遵守廉洁自律要求",
+   "C": "需尊重事实、坚守职业道德",
+   "D": "可随意披露他人隐私获取流量"
+  }
+ },
+ {
+  "id": "zt-guan-2025-024",
+  "kind": "single",
+  "stem": "管理中的“权责对等”原则是指（ ）",
+  "answer": "C",
+  "analysis": "权责对等原则即“有多大权力，承担多大责任”，确保权力与责任相匹配，避免权力滥用或责任推诿。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "权力大于责任",
+   "B": "责任大于权力",
+   "C": "权力与责任相匹配",
+   "D": "权力与责任无关"
+  }
+ },
+ {
+  "id": "zt-guan-2025-025",
+  "kind": "single",
+  "stem": "中央广播电视总台的英文缩写是（ ）",
+  "answer": "C",
+  "analysis": "CMG 是中央广播电视总台（China Media Group）的英文缩写；CCTV 是原中央电视台缩写，CNR 是原中央人民广播电台缩写，CGTN 是中国国际电视台缩写。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "CCTV",
+   "B": "CNR",
+   "C": "CMG",
+   "D": "CGTN"
+  }
+ },
+ {
+  "id": "zt-guan-2025-026",
+  "kind": "single",
+  "stem": "下列不属于计划职能的内容是（ ）",
+  "answer": "C",
+  "analysis": "协调部门关系属于管理的协调职能，确定目标、制定策略、规划资源均为计划职能的核心内容。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "确定组织目标",
+   "B": "制定实施策略",
+   "C": "协调部门关系",
+   "D": "规划资源配置"
+  }
+ },
+ {
+  "id": "zt-guan-2025-027",
+  "kind": "single",
+  "stem": "媒体管理中，内容审核的核心是（ ）",
+  "answer": "C",
+  "analysis": "总台作为主流媒体，内容审核的核心是把控政治导向和价值导向，确保内容合规、传递正能量，A、B、D 均非核心。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "审核内容的娱乐性",
+   "B": "审核内容的商业价值",
+   "C": "审核内容的政治导向和价值导向",
+   "D": "审核内容的传播速度"
+  }
+ },
+ {
+  "id": "zt-guan-2025-028",
+  "kind": "single",
+  "stem": "领导的核心作用是（ ）",
+  "answer": "C",
+  "analysis": "领导的核心作用是引领方向、带动团队，指挥、激励是领导的具体手段，控制是管理的独立职能。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "指挥",
+   "B": "激励",
+   "C": "引领和带动",
+   "D": "控制"
+  }
+ },
+ {
+  "id": "zt-guan-2025-029",
+  "kind": "single",
+  "stem": "中央广播电视总台不涉及的业务领域是（ ）",
+  "answer": "D",
+  "analysis": "汽车制造属于工业领域，与总台媒体业务无关；A、B、C 均为总台涉及的核心业务领域。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "广播电视播出",
+   "B": "新媒体内容生产",
+   "C": "电影发行",
+   "D": "汽车制造"
+  }
+ },
+ {
+  "id": "zt-guan-2025-030",
+  "kind": "single",
+  "stem": "下列关于目标管理的表述，正确的是（ ）",
+  "answer": "B",
+  "analysis": "目标管理强调上下级共同制定目标，核心是自我管理、自我控制，需对目标完成情况进行考核，目标制定需贴合实际，A、C、D 表述错误。",
+  "tags": [
+   "媒体常识",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "目标由上级单方面制定，下级执行",
+   "B": "目标管理的核心是自我管理和自我控制",
+   "C": "无需对目标完成情况进行考核",
+   "D": "目标制定无需结合实际，越高越好"
+  }
+ },
+ {
+  "id": "zt-guan-2025-031",
+  "kind": "single",
+  "stem": "广播电视节目制作管理的核心是（ ）",
+  "answer": "B",
+  "analysis": "节目制作管理的核心是“质量+导向”，成本控制、制作速度是辅助要求，无法满足所有观众需求，B 项表述正确。",
+  "tags": [
+   "媒体常识",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "降低制作成本",
+   "B": "保证节目质量和导向正确",
+   "C": "追求制作速度",
+   "D": "满足所有观众需求"
+  }
+ },
+ {
+  "id": "zt-guan-2025-032",
+  "kind": "single",
+  "stem": "下列不属于沟通障碍的是（ ）",
+  "answer": "C",
+  "analysis": "清晰的表达是有效沟通的基础，不属于沟通障碍；语言差异、情绪干扰、传递延迟均会阻碍沟通效率。",
+  "tags": [
+   "媒体常识",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "语言差异",
+   "B": "情绪干扰",
+   "C": "清晰的表达",
+   "D": "信息传递延迟"
+  }
+ },
+ {
+  "id": "zt-guan-2025-033",
+  "kind": "single",
+  "stem": "中央广播电视总台推进媒体融合的重点举措不包括（ ）",
+  "answer": "C",
+  "analysis": "总台推进媒体融合是“传统媒体+新媒体”协同发展，而非关闭传统频道；A、B、 D 均为总台媒体融合的重点举措。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "打造融媒体产品",
+   "B": "整合台内资源",
+   "C": "关闭传统广播电视频道",
+   "D": "加强新媒体人才培养"
+  }
+ },
+ {
+  "id": "zt-guan-2025-034",
+  "kind": "single",
+  "stem": "绩效考核中，“德、能、勤、绩、廉”五个方面，核心是（ ）",
+  "answer": "C",
+  "analysis": "“德、能、勤、绩、廉”中，“绩”是核心，体现员工的工作成效和对组织的贡献， 德、能、勤、廉是绩的基础保障。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "德",
+   "B": "能",
+   "C": "绩",
+   "D": "廉"
+  }
+ },
+ {
+  "id": "zt-guan-2025-035",
+  "kind": "single",
+  "stem": "下列关于公益广告的表述，错误的是（ ）",
+  "answer": "B",
+  "analysis": "公益广告以传递正能量、履行社会责任为目的，不追求盈利；A、C、D 均为公益广告的正确表述。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "是广播电视媒体的社会责任体现",
+   "B": "以盈利为目的",
+   "C": "传递正能量和正确价值观",
+   "D": "可提升媒体公信力"
+  }
+ },
+ {
+  "id": "zt-guan-2025-036",
+  "kind": "single",
+  "stem": "管理决策中，SWOT 分析的核心是（ ）",
+  "answer": "A",
+  "analysis": "SWOT 分析的核心是梳理组织内部的优势（S）、劣势（W），以及外部环境的机会（O）、威胁（T），为决策提供依据。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "分析自身优势和劣势、外部机会和威胁",
+   "B": "分析市场竞争格局",
+   "C": "分析员工绩效",
+   "D": "分析财务状况"
+  }
+ },
+ {
+  "id": "zt-guan-2025-037",
+  "kind": "single",
+  "stem": "中央广播电视总台的核心价值观是（ ）",
+  "answer": "A",
+  "analysis": "总台作为主流媒体，核心价值观是真实、客观、公正、专业；B、C、D 不符合总台公益属性和传播定位。",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "真实、客观、公正、专业",
+   "B": "流量至上、娱乐为王",
+   "C": "商业优先、盈利为本",
+   "D": "自由、开放、多元"
+  }
+ },
+ {
+  "id": "zt-guan-2025-038",
+  "kind": "single",
+  "stem": "下列不属于组织文化的内容是（ ）",
+  "answer": "C",
+  "analysis": "组织文化是组织共同的理念、制度、作风等，组织成员的个人爱好属于个人行为，不属于组织文化范畴。",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "组织理念",
+   "B": "组织制度",
+   "C": "组织成员的个人爱好",
+   "D": "组织作风"
+  }
+ },
+ {
+  "id": "zt-guan-2025-039",
+  "kind": "single",
+  "stem": "广播电视管理中，安全播出的核心要求是（ ）",
+  "answer": "A",
+  "analysis": "安全播出的核心是“三无”：无中断、无错误、无不良信息，确保播出安全和导向正确；B、C、D 均非安全播出的核心要求。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "无中断、无错误、无不良信息",
+   "B": "收视率第一",
+   "C": "节目新颖",
+   "D": "广告投放量大"
+  }
+ },
+ {
+  "id": "zt-guan-2025-040",
+  "kind": "single",
+  "stem": "下列关于激励机制的表述，正确的是（ ）",
+  "answer": "C",
+  "analysis": "激励包括物质激励和精神激励，需结合员工需求制定，有效的激励能激发员工潜力、提升积极性，对核心员工同样有效，A、B、D 表述错误。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "激励只有物质激励一种形式",
+   "B": "激励无需结合员工需求",
+   "C": "有效的激励可提升员工积极性",
+   "D": "激励对核心员工无效"
+  }
+ },
+ {
+  "id": "zt-guan-2025-041",
+  "kind": "single",
+  "stem": "中央广播电视总台国际传播的主要语种不包括（ ）",
+  "answer": "D",
+  "analysis": "火星语并非真实存在的通用语种，总台国际传播涵盖英语、法语、日语等多种主流语种，D 项表述错误。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "英语",
+   "B": "法语",
+   "C": "日语",
+   "D": "火星语"
+  }
+ },
+ {
+  "id": "zt-guan-2025-042",
+  "kind": "single",
+  "stem": "管理中的“例外原则”是指（ ）",
+  "answer": "A",
+  "analysis": "例外原则的核心是“抓大放小”，领导者聚焦例外（非常规、重要）事务，常规事务授权下属处理，提升管理效率。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "领导者只处理例外情况，常规事务交由下属处理",
+   "B": "领导者处理所有事务，不放手给下属",
+   "C": "对例外情况视而不见",
+   "D": "例外情况由上级统一处理"
+  }
+ },
+ {
+  "id": "zt-guan-2025-043",
+  "kind": "single",
+  "stem": "下列关于新媒体管理的表述，错误的是（ ）",
+  "answer": "B",
+  "analysis": "新媒体管理同样需要严格遵守内容审核规范，坚守导向底线；A、C、D 均为新媒体管理的正确要求。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "需注重用户体验",
+   "B": "无需遵守内容审核规范",
+   "C": "要注重内容创新",
+   "D": "需加强数据监测和分析"
+  }
+ },
+ {
+  "id": "zt-guan-2025-044",
+  "kind": "single",
+  "stem": "中央广播电视总台举办的年度重大文艺活动是（ ）",
+  "answer": "A",
+  "analysis": "春节联欢晚会是总台每年举办的重大文艺活动；B、C、D 均为地方卫视或第三方平台举办的娱乐节目。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "春节联欢晚会",
+   "B": "中国好声音",
+   "C": "奔跑吧",
+   "D": "极限挑战"
+  }
+ },
+ {
+  "id": "zt-guan-2025-045",
+  "kind": "single",
+  "stem": "下列不属于管理能力的是（ ）",
+  "answer": "B",
+  "analysis": "专业编辑能力是内容制作岗位的专业能力，统筹规划、应急处置、团队领导均为管理岗位的核心能力。",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "统筹规划能力",
+   "B": "专业编辑能力",
+   "C": "应急处置能力",
+   "D": "团队领导能力"
+  }
+ },
+ {
+  "id": "zt-guan-2025-046",
+  "kind": "single",
+  "stem": "广播电视行业的发展趋势是（ ）",
+  "answer": "B",
+  "analysis": "当前广播电视行业的核心发展趋势是媒体融合、技术智能化、内容精品化，A、 C、D 均不符合行业发展规律。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "单一化、传统化",
+   "B": "融合化、智能化、精品化",
+   "C": "脱离主流、娱乐化",
+   "D": "减少内容产出、聚焦单一领域"
+  }
+ },
+ {
+  "id": "zt-guan-2025-047",
+  "kind": "single",
+  "stem": "中央广播电视总台管理岗位的核心职责是（ ）",
+  "answer": "B",
+  "analysis": "管理岗位的核心职责是统筹协调、把控方向，保障组织目标落地；A、C、D 均为一线业务岗位的职责。 有两个或两个以上正确答案，请将正确答案的序号填涂在答题卡对应位置，多选、少选、错选均不得分）",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "负责节目拍摄制作",
+   "B": "统筹协调各项工作，保障组织目标实现",
+   "C": "负责广告投放",
+   "D": "负责设备维护"
+  }
+ },
+ {
+  "id": "zt-guan-2025-048",
+  "kind": "multi",
+  "stem": "中央广播电视总台的核心职能包括（ ）",
+  "answer": "ABCD",
+  "analysis": "总台核心职能涵盖新闻宣传（传递党的声音）、内容生产（打造优质节目）、 国际传播（讲好中国故事）、公益服务（履行社会责任），四项均正确。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "新闻宣传",
+   "B": "内容生产",
+   "C": "国际传播",
+   "D": "公益服务"
+  }
+ },
+ {
+  "id": "zt-guan-2025-049",
+  "kind": "multi",
+  "stem": "管理的基本职能包括（ ）",
+  "answer": "ABCD",
+  "analysis": "管理的四大基本职能是计划、组织、领导、控制，相互关联、缺一不可，共同构成管理的完整流程。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "计划",
+   "B": "组织",
+   "C": "领导",
+   "D": "控制"
+  }
+ },
+ {
+  "id": "zt-guan-2025-050",
+  "kind": "multi",
+  "stem": "媒体融合背景下，中央广播电视总台的发展举措包括（ ）",
+  "answer": "ABC",
+  "analysis": "D 项表述错误，总台推进媒体融合是传统与新媒体协同发展，而非拒绝转型； A、B、C 均为总台媒体融合的核心举措。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "打造融媒体传播矩阵",
+   "B": "加强新媒体人才队伍建设",
+   "C": "推进内容、技术、渠道深度融合",
+   "D": "坚守传统媒体阵地，拒绝新媒体转型"
+  }
+ },
+ {
+  "id": "zt-guan-2025-051",
+  "kind": "multi",
+  "stem": "广播电视管理岗位需具备的核心素养包括（ ）",
+  "answer": "ABCD",
+  "analysis": "总台管理岗位需具备政治素养（坚守导向）、管理素养（统筹能力）、行业素养（了解广电行业）、沟通素养（协同高效），四项均为核心素养。",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "政治素养",
+   "B": "管理素养",
+   "C": "行业素养",
+   "D": "沟通素养"
+  }
+ },
+ {
+  "id": "zt-guan-2025-052",
+  "kind": "multi",
+  "stem": "下列属于中央广播电视总台旗下新媒体平台的有（ ）",
+  "answer": "ABC",
+  "analysis": "D 项人民日报客户端是人民日报社旗下平台，不属于总台；A、B、C 均为总台自主打造的新媒体平台。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "央视频",
+   "B": "央视新闻客户端",
+   "C": "央广新闻客户端",
+   "D": "人民日报客户端"
+  }
+ },
+ {
+  "id": "zt-guan-2025-053",
+  "kind": "multi",
+  "stem": "危机管理的基本流程包括（ ）",
+  "answer": "ABCD",
+  "analysis": "危机管理的完整流程是“预防→监测→处置→复盘”，预防是前提，监测是基础， 处置是核心，复盘是提升。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "危机预防",
+   "B": "危机监测",
+   "C": "危机处置",
+   "D": "危机复盘"
+  }
+ },
+ {
+  "id": "zt-guan-2025-054",
+  "kind": "multi",
+  "stem": "广播电视节目管理的核心要求包括（ ）",
+  "answer": "ABC",
+  "analysis": "D 项流量至上不符合总台节目管理要求，节目管理核心是导向正确、内容优质、安全播出，兼顾传播效果与正能量传递。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "导向正确",
+   "B": "内容优质",
+   "C": "安全播出",
+   "D": "流量至上"
+  }
+ },
+ {
+  "id": "zt-guan-2025-055",
+  "kind": "multi",
+  "stem": "人力资源管理的主要模块包括（ ）",
+  "answer": "ABCD",
+  "analysis": "人力资源管理的四大核心模块是招聘配置、培训开发、绩效考核、薪酬福利， 覆盖人才“选、育、用、留”全流程。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "招聘与配置",
+   "B": "培训与开发",
+   "C": "绩效考核",
+   "D": "薪酬福利管理"
+  }
+ },
+ {
+  "id": "zt-guan-2025-056",
+  "kind": "multi",
+  "stem": "中央广播电视总台国际传播的重点方向包括（ ）",
+  "answer": "ABCD",
+  "analysis": "总台国际传播的重点的是全方位展示中国，包括党的故事、人民的故事、中国特色社会主义故事、优秀传统文化，四项均为核心方向。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "讲好中国共产党的故事",
+   "B": "讲好中国人民的故事",
+   "C": "讲好中国特色社会主义的故事",
+   "D": "传播中国优秀传统文化"
+  }
+ },
+ {
+  "id": "zt-guan-2025-057",
+  "kind": "multi",
+  "stem": "管理决策的基本流程包括（ ）",
+  "answer": "ABCD",
+  "analysis": "管理决策的完整流程的是发现问题、确定目标→制定备选方案→评估选择方案 →实施复盘优化，确保决策科学、落地有效。",
+  "tags": [
+   "媒体常识",
+   "行业规范",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "发现问题、确定目标",
+   "B": "制定备选方案",
+   "C": "评估方案、选择方案",
+   "D": "实施方案、复盘优化"
+  }
+ },
+ {
+  "id": "zt-guan-2025-058",
+  "kind": "single",
+  "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。Whenwas China Media Groupestablished?",
+  "answer": "B",
+  "analysis": "短文第一段第一句明确提到“China Media Group (CMG),established in 2018”，故选B。",
+  "tags": [
+   "媒体常识",
+   "机构历史",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "2016",
+   "B": "2018",
+   "C": "2020",
+   "D": "2022"
+  }
+ },
+ {
+  "id": "zt-guan-2025-059",
+  "kind": "single",
+  "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。Whatis thecoremissionofCMG?",
+  "answer": "B",
+  "analysis": "第一段第二句提到其核心使命是“spreadthevoice ofthePartyand thecountry, tellChinese stories well”，A、C、D 均与原文不符。",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "Topursuecommercialinterestsmaximization",
+   "B": "TospreadthevoiceofthePartyandthecountryandtellChinese storieswell",
+   "C": "Tofocusonentertainmentprograms",
+   "D": "Tocompetewith internationalmedia forratings"
+  }
+ },
+ {
+  "id": "zt-guan-2025-060",
+  "kind": "single",
+  "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。Whichofthefollowing is NOTapartofCMG'smediacommunicationmatrix?",
+  "answer": "C",
+  "analysis": "第二段提到总台传播矩阵包括“television,radio,...Yangshipin (CCTVVideo) andCCTVNews Client”，未提及People'sDaily Client（人民日报客户端），故选 C。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "Yangshipin (CCTVVideo)",
+   "B": "CCTVNews Client",
+   "C": "People'sDaily Client",
+   "D": "Radio stations"
+  }
+ },
+ {
+  "id": "zt-guan-2025-061",
+  "kind": "single",
+  "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。WhatlanguagesdoesCMG broadcastin?",
+  "answer": "C",
+  "analysis": "第三段提到“broadcastsin multiple languagesincluding English,French, Spanish,Arabic,andRussian”，C 项与原文一致，其余选项表述片面。",
+  "tags": [
+   "媒体常识",
+   "机构业务与平台",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "Only Chinese",
+   "B": "Only English",
+   "C": "Multiple languagesincluding English,Frenchand Arabic",
+   "D": "OnlyRussianand Spanish"
+  }
+ },
+ {
+  "id": "zt-guan-2025-062",
+  "kind": "single",
+  "stem": "短文，从每题所给的四个选项中，选出最佳答案，填涂在 答题卡对应位置） Passage 1 China Media Group(CMG),establishedin 2018,isa nationalnews and media organization directlyundertheCentralCommitteeoftheCommunistPartyofChina. Itscoremissionis touphold thecorrectpoliticalorientation andpublic opinion guidance,spreadthevoice ofthePartyand thecountry, tellChinesestories well, and showa true,multi-dimensionaland panoramicChina totheworld. Againstthebackdrop ofmediaconvergence,CMG hasbeenactively promotingthe integrateddevelopmentoftraditionalmediaand newmedia.Ithasbuilt a comprehensive media communicationmatrixcovering television,radio,newspapers, websites,and newmedia platformssuchasYangshipin (CCTV Video)and CCTV News Client.Byintegrating content,technology, andchannels,CMGhassignificantly enhanceditscommunicationpower,influence,and credibility. CMGattachesgreatimportance tointernationalcommunication.Ithasestablished branchesand reportingstations inmanycountriesand regionsaroundtheworld, and broadcastsinmultiple languagesincluding English,French,Spanish,Arabic,and Russian.Throughhigh-qualitycontentandinnovative communication methods,CMG haseffectively promotedculturalexchangesandmutualunderstanding between China andothercountries. Inaddition,CMGis committedtopublic welfareundertakings.Itproducesand broadcastspublic service advertisements,holds public welfareactivities suchas \"TouchingChina\"AnnualPersonoftheYearSelection,and makespositive contributionstopromotingsocialmoralityand public welfarecauses. Formanagementpositionsin CMG,candidatesarerequiredtohave ahighpolitical literacy,strongmanagementcapabilities,good communicationskills, anda deep understandingofthemediaindustry.Theyshould also beable toadapttotheneeds ofmedia convergenceandinternationalcommunication,andmakepositive contributionstothehigh-qualitydevelopmentofCMG.。Whatis requiredformanagementpositionsin CMG?",
+  "answer": "A",
+  "analysis": "最后一段明确提到“requiredtohave ahighpoliticalliteracy,strong managementcapabilities...”，B、C、D 均与原文表述相反。",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  },
+  "options": {
+   "A": "Highpoliticalliteracyandstrong managementcapabilities",
+   "B": "Only professionaltechnicalskills",
+   "C": "No needforcommunicationskills",
+   "D": "No understandingofthemediaindustryis required"
+  }
+ },
+ {
+  "id": "zt-guan-2025-063",
+  "kind": "qa",
+  "stem": "结合中央广播电视总台的核心使命和管理岗位的职责，简述媒体融合背景下，总台管理岗位人员应如何履行职责、发挥作用？",
+  "answer": "1. 坚守政治导向，践行核心使命：牢记总台“举旗帜、聚民心、育新人、兴文化、展形象”的核心使命，将意识形态工作贯穿管理全过程，把控各项工作的政治导向和价值导向。（1 分） 2. 统筹融合发展，优化资源配置：立足媒体融合战略，统筹传统媒体与新媒体资源，推动内容、技术、渠道深度融合，打造全媒体传播体系，提升传播力和影响力。 （1 分） 3. 强化团队管理，凝聚工作合力：履行管理岗位职责，做好人员招聘、培训、激励工作，明确分工、权责对等，提升团队凝聚力和工作效率，打造适配融合发展的人才队伍。（1 分） 4. 坚守内容为王，把控工作质量：聚焦总台内容生产核心，加强节目、新闻、新媒体产品的质量管控和内容审核，兼顾精品化与传播性，满足受众需求。（1 分） 5. 主动担当作为，应对发展挑战：适应媒体融合新形势，提升应急处置、决策统筹、沟通协调能力，积极应对行业变化和各类危机，助力总台高质量发展和国际传播能力提升。（1 分）",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "战略与政策",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  }
+ },
+ {
+  "id": "zt-guan-2025-064",
+  "kind": "qa",
+  "stem": "题目：以“守正创新，履职担当——做新时代总台管理从业者”为题，结合中央广播电视总台的发展定位和管理岗位的要求，写一篇作文。",
+  "answer": "评分标准（共15 分，分四个等级评分，立意贴合主题、结合岗位实际即可酌情给分）： 1. 一等文（12-15 分）：立意鲜明，紧扣“守正创新、履职担当”主题，紧密结合总台发展定位（主流媒体、全媒体传播、国际传播）和管理岗位要求；文体规范，结构严谨，语言流畅，论据充分，有独到见解；不少于800 字，字迹工整。 2. 二等文（9-11 分）：立意明确，贴合主题，能结合总台定位和管理岗位要求；文体规范，结构完整，语言通顺，论据较充分；不少于800 字，字迹清晰。 3. 三等文（6-8 分）：立意基本明确，与主题关联度一般，结合总台定位和岗位要求不够紧密；文体基本规范，结构基本完整，语言基本通顺，论据不足；不少于800 字，字迹尚可辨认。 4. 四等文（0-5 分）：立意不明确，偏离主题；文体不规范，结构混乱，语言不通顺；字数不足800 字，字迹潦草，无法辨认；或抄袭、套作。 参考范文（供参考，不局限于以下内容，言之有理即可）： 守正创新，履职担当——做新时代总台管理从业者作为国家主流媒体的核心阵地，中央广播电视总台肩负着举旗帜、聚民心、育新人、 兴文化、展形象的神圣使命，是传播党的声音、讲好中国故事、引领主流舆论的重要力量。媒体融合向纵深发展的新时代，总台的高质量发展离不开一支政治过硬、本领高强、作风优良的管理队伍。作为新时代总台管理从业者，唯有坚守初心守正、勇于开拓创新、主动履职担当，才能在新时代新征程上，助力总台实现全球领先的全媒体机构愿景，书写主流媒体发展的新篇章。 守正为根，筑牢管理履职的政治底线。“正者，大道也”，对于总台管理从业者而言，守正就是坚守政治立场、坚守使命初心、坚守职业操守。总台作为党直接领导的新闻媒体机构，意识形态工作是生命线，任何时候都不能有丝毫动摇。在管理工作中，我们要始终坚持马克思主义新闻观，把正确的政治导向和价值导向贯穿于各项工作的全过程、各环节——无论是内容生产的审核管理，还是团队建设的方向引领，无论是资源配置的统筹规划，还是危机事件的应急处置，都要始终以党的旗帜为旗帜、以党的意志为意志，坚决守住意识形态阵地，杜绝各类不良信息传播，确保总台各项工作始终沿着正确方向前进。守正不是墨守成规，而是在坚守核心原则的基础上，守住总台的公益属性、守住媒体的职业良知、守住管理的责任底线，这是我们履职担当的根本前提。 创新为翼，激活管理发展的内生动力。媒体融合是广电行业高质量发展的必然趋势， 也是总台实现跨越式发展的必由之路。新时代的总台管理工作，早已突破传统管理的边界，面临着内容融合、技术融合、渠道融合带来的诸多新挑战、新机遇。作为管理从业者，我们不能固守传统管理模式，必须打破思维定势、勇于开拓创新，让创新成为管理履职的鲜明底色。在团队管理上，要创新人才培养和激励机制，兼顾传统媒体人才与新媒体人才的成长需求，打造一支适配全媒体发展的复合型管理团队；在资源管理上，要创新统筹模式，打破台内各平台、各部门的壁垒，推动内容、技术、渠道、人才等资源高效整合，构建全媒体传播矩阵；在工作方法上，要创新管理手段， 充分运用大数据、智能化等技术，提升管理效率和决策科学性，让管理工作更具针对性、实效性。创新的本质是解决问题、推动发展，唯有以创新破解融合发展中的痛点、难点，才能让总台的管理工作跟上时代步伐，激发机构发展的无限活力。 担当为要，扛起管理发展的时代责任。“道虽迩，不行不至；事虽小，不为不成”，履职担当是新时代总台管理从业者的核心素养，也是我们践行使命的具体体现。总台的发展关乎主流舆论的引领、关乎中国形象的传播、关乎文化自信的提升，每一位管理从业者都肩负着沉甸甸的责任。在日常工作中，我们要立足管理岗位，主动担当作为— —面对繁重的统筹任务，要勇于挑重担、扛责任，统筹协调各方力量，确保各项工作高效落地；面对融合发展的新挑战，要勇于闯难关、破难题，主动学习全媒体管理知识，提升统筹融合、应急处置、沟通协调等综合能力；面对国际传播的新形势，要勇于走出去、讲好中国故事，立足总台国际传播定位，统筹推进多语种、多平台传播， 助力提升中国文化的国际影响力。同时，要强化责任意识和服务意识，把团队建设好、把工作管理好、把服务保障好，以“时时放心不下”的责任感，做好每一项细节工作，以实际行动践行管理从业者的使命担当。 时代赋予使命，奋斗成就未来。新时代的总台管理从业者，既是主流舆论的引领者， 也是媒体融合的推动者，更是使命担当的践行者。守正与创新相辅相成，担当与责任密不可分——守正为创新指明方向，创新为守正注入活力，担当为守正创新提供保障。站在新的历史起点上，我们要始终坚守初心、牢记使命，以守正筑牢根基，以创新破解难题，以担当书写忠诚，努力成为政治过硬、本领高强、作风优良的新时代总台管理从业者，助力总台在媒体融合的浪潮中勇立潮头、奋勇前进，为传播中国声音、展示中国形象、推动文化繁荣发展贡献自己的全部力量！",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "企业文化",
+   "总台"
+  ],
+  "source": {
+   "institution": "总台",
+   "doc": "2025年中央广播电视总台管理岗位复试真题",
+   "year": 2025,
+   "reliability": "真题合集"
+  }
+ }
 ]
