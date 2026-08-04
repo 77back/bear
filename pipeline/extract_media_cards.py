@@ -280,6 +280,7 @@ def main() -> int:
               file=sys.stderr)
         return 1
 
+    removed_ids = ec.load_removed_ids()
     stats = ExtractStats()
     index_entries: list[dict] = []
     for src in SOURCES:
@@ -293,6 +294,10 @@ def main() -> int:
             continue
         items = extract_source_cards(text, src, llm, stats)
         cards = [to_card(src, i + 1, item) for i, item in enumerate(items)]
+        dropped = [c["id"] for c in cards if c["id"] in removed_ids]
+        if dropped:
+            cards = [c for c in cards if c["id"] not in removed_ids]
+            print(f"[{src.key}] 剔除过时时政题 {len(dropped)} 张：{' '.join(dropped)}")
         (CARDS_DIR / f"cards-{src.key}.json").write_text(
             json.dumps(cards, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         index_entries.append({

@@ -1193,8 +1193,20 @@ def to_card(src: Source, doc: str, seq: int, raw: RawCard) -> dict:
     return card
 
 
+REMOVED_PATH = ROOT / "removed_cards.json"
+
+
+def load_removed_ids() -> set[str]:
+    """过时时政题剔除清单（编号后按 id 过滤，幸存卡 id 保持稳定）。"""
+    if not REMOVED_PATH.exists():
+        return set()
+    data = json.loads(REMOVED_PATH.read_text(encoding="utf-8"))
+    return {e["id"] for e in data.get("removed", [])}
+
+
 def main() -> int:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    removed_ids = load_removed_ids()
     index = []
     total_cards = 0
     failures = 0
@@ -1210,6 +1222,10 @@ def main() -> int:
         text = read_source_text(src, path)
         res: ParseResult = src.parse(text)  # type: ignore[operator]
         cards = [to_card(src, doc, i + 1, raw) for i, raw in enumerate(res.cards)]
+        dropped = [c["id"] for c in cards if c["id"] in removed_ids]
+        if dropped:
+            cards = [c for c in cards if c["id"] not in removed_ids]
+            print(f"\n[{src.key}] 剔除过时时政题 {len(dropped)} 张：{' '.join(dropped)}")
         total_cards += len(cards)
 
         kinds: dict[str, int] = {}
