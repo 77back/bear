@@ -6,6 +6,10 @@
 - 每个来源文件输出一个 content/cards/cards-<key>.json（卡片数组），
   另输出 content/cards/index.json 汇总。
 - 每个来源打印卡片数、kind 分布、样例卡与无法解析的块数；数量异常会 WARN。
+- removed_cards.json 中的过时时政题 id 会在编号后剔除，幸存卡 id 稳定。
+
+注意：本脚本重写 cards-*.json 时会丢掉二级标签，
+重跑后必须接着跑 tag_cards.py（缓存命中、零 LLM）恢复，再 sync_to_app.py。
 """
 from __future__ import annotations
 
