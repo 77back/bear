@@ -64,6 +64,7 @@ const current = computed<Card | null>(() => queue.value[pos.value] ?? null)
 const picked = ref<string[]>([]) // 选择题已选
 const revealed = ref(false) // 已判分/已翻面
 const lastCorrect = ref<boolean | null>(null)
+const qaText = ref('') // 问答题用户输入（仅会话内，不持久化）
 
 const isMulti = computed(() => current.value?.kind === 'multi')
 const optionLetters = computed(() => Object.keys(current.value?.options ?? {}).sort())
@@ -112,6 +113,7 @@ function resetCard() {
   picked.value = []
   revealed.value = false
   lastCorrect.value = null
+  qaText.value = ''
 }
 
 /* ---------- 答题（与原随心练习同一套判分逻辑） ---------- */
@@ -300,7 +302,20 @@ onMounted(async () => {
           <button class="btn btn-soft" style="flex:1" :disabled="revealed" @click="pickJudge(false)">错</button>
         </div>
 
-        <!-- 翻面自评（填空/改错/问答） -->
+        <!-- 问答题：先写下回答，再看参考答案对照自评 -->
+        <div v-else-if="current.kind === 'qa'" style="margin-top:12px">
+          <template v-if="!revealed">
+            <textarea
+              v-model="qaText"
+              class="input qa-input"
+              rows="4"
+              placeholder="先写下你的回答，再看参考答案"
+            ></textarea>
+            <button class="btn btn-soft" style="margin-top:8px" @click="flip">查看参考答案</button>
+          </template>
+        </div>
+
+        <!-- 翻面自评（填空/改错） -->
         <div v-else style="margin-top:12px">
           <button v-if="!revealed" class="btn btn-soft" @click="flip">看答案</button>
         </div>
@@ -310,15 +325,18 @@ onMounted(async () => {
           <div v-if="lastCorrect !== null" class="verdict" :class="lastCorrect ? 'ok' : 'no'">
             {{ lastCorrect ? '✓ 答对了' : '✗ 答错了' }}
           </div>
+          <div v-if="current.kind === 'qa' && qaText.trim()" class="answer-box">
+            <div><b>我的回答：</b>{{ qaText }}</div>
+          </div>
           <div class="answer-box">
-            <div><b>答案：</b>{{ current.answer }}</div>
+            <div><b>{{ current.kind === 'qa' ? '参考答案' : '答案' }}：</b>{{ current.answer }}</div>
             <div v-if="current.analysis" style="margin-top:6px"><b>解析：</b>{{ current.analysis }}</div>
           </div>
           <!-- 翻面卡自评 -->
           <div v-if="!isDirectAnswer(current) && lastCorrect === null" class="grade-row">
-            <button class="btn btn-soft" @click="grade('know')">会</button>
+            <button class="btn btn-soft" @click="grade('know')">答对</button>
             <button class="btn btn-soft" @click="grade('vague')">模糊</button>
-            <button class="btn btn-soft" @click="grade('unknown')">不会</button>
+            <button class="btn btn-soft" @click="grade('unknown')">答错</button>
           </div>
           <button v-else class="btn btn-primary" style="margin-top:12px" @click="next">
             {{ pos + 1 >= queue.length ? '完成' : '下一题' }}
@@ -481,5 +499,12 @@ onMounted(async () => {
 }
 .grade-row .btn {
   flex: 1;
+}
+.qa-input {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  line-height: 1.7;
+  font-family: inherit;
 }
 </style>

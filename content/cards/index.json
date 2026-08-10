@@ -134,10 +134,10 @@
   "reliability": "真题合集",
   "tags": [
    "机构业务与平台",
-   "机构历史",
-   "行业规范",
+   "企业文化",
    "战略与政策",
-   "企业文化"
+   "行业规范",
+   "机构历史"
   ]
  },
  {
@@ -147,9 +147,10 @@
   "count": 52,
   "reliability": "真题合集",
   "tags": [
-   "行业规范",
+   "机构历史",
    "机构业务与平台",
    "战略与政策",
+   "行业规范",
    "企业文化"
   ]
  },
@@ -163,7 +164,6 @@
    "战略与政策",
    "机构业务与平台",
    "行业规范",
-   "企业文化",
    "机构历史"
   ]
  },
@@ -188,10 +188,8 @@
   "count": 65,
   "reliability": "真题合集",
   "tags": [
-   "机构历史",
-   "行业规范",
    "战略与政策",
-   "企业文化",
+   "行业规范",
    "机构业务与平台"
   ]
  },
@@ -205,8 +203,7 @@
    "企业文化",
    "战略与政策",
    "机构业务与平台",
-   "行业规范",
-   "机构历史"
+   "行业规范"
   ]
  },
  {
@@ -229,11 +226,11 @@
   "count": 50,
   "reliability": "机构模拟",
   "tags": [
-   "企业文化",
-   "行业规范",
+   "机构业务与平台",
    "战略与政策",
-   "机构历史",
-   "机构业务与平台"
+   "行业规范",
+   "企业文化",
+   "机构历史"
   ]
  },
  {
@@ -494,16 +491,6 @@
   ]
  },
  {
-  "key": "mk-xhs-culture",
-  "institution": "新华社",
-  "doc": "新华社企业文化",
-  "count": 12,
-  "reliability": "机构资料",
-  "tags": [
-   "企业文化"
-  ]
- },
- {
   "key": "mk-xhs-history",
   "institution": "新华社",
   "doc": "新华社发展史",
@@ -514,23 +501,38 @@
   ]
  },
  {
+  "key": "mk-xhs-culture",
+  "institution": "新华社",
+  "doc": "新华社企业文化",
+  "count": 12,
+  "reliability": "机构资料",
+  "tags": [
+   "企业文化"
+  ]
+ },
+ {
   "key": "mk-xhs-intro",
   "institution": "新华社",
   "doc": "新华社简介",
   "count": 15,
   "reliability": "机构资料",
   "tags": [
-   "机构历史",
-   "机构业务与平台",
-   "战略与政策",
-   "企业文化"
+   "机构业务与平台"
   ]
+ },
+ {
+  "key": "mk-zt-strategy",
+  "institution": "总台",
+  "doc": "总台发展战略",
+  "count": 12,
+  "reliability": "机构资料",
+  "tags": []
  },
  {
   "key": "mk-zt-culture",
   "institution": "总台",
   "doc": "总台企业文化",
-  "count": 14,
+  "count": 15,
   "reliability": "机构资料",
   "tags": [
    "机构历史",
@@ -544,22 +546,38 @@
   "key": "mk-zt-policy",
   "institution": "总台",
   "doc": "广电政策变动2024",
-  "count": 11,
+  "count": 12,
+  "reliability": "机构资料",
+  "tags": []
+ },
+ {
+  "key": "mk-xhs-exam-zs",
+  "institution": "新华社",
+  "doc": "新华社总社校招笔试题回忆",
+  "count": 12,
   "reliability": "机构资料",
   "tags": [
-   "战略与政策",
-   "行业规范"
+   "考情"
   ]
  },
  {
-  "key": "mk-zt-strategy",
-  "institution": "总台",
-  "doc": "总台发展战略",
-  "count": 15,
+  "key": "mk-xhs-exam-gj",
+  "institution": "新华社",
+  "doc": "新华社国际部笔试题目（可参考）",
+  "count": 9,
   "reliability": "机构资料",
   "tags": [
-   "战略与政策",
-   "机构业务与平台"
+   "考情"
+  ]
+ },
+ {
+  "key": "mk-xhs-exam-ms",
+  "institution": "新华社",
+  "doc": "新华社总社面试回忆",
+  "count": 6,
+  "reliability": "机构资料",
+  "tags": [
+   "考情"
   ]
  }
 ]

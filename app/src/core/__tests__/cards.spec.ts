@@ -358,4 +358,20 @@ describe('buildPracticeTree 机构分类树', () => {
   it('空题库返回空树', () => {
     expect(buildPracticeTree([], new Map())).toEqual([])
   })
+
+  it('二级节点排序：媒体向在前、行测类靠后，同权重内题量降序', () => {
+    const cards2 = [
+      // 新华社：行测题量更大但排在媒体常识之后
+      mk({ id: 's-1', tags: ['行测常识', '法律'], source: { institution: '新华社', doc: 'd', reliability: 'r' } }),
+      mk({ id: 's-2', tags: ['行测常识', '法律'], source: { institution: '新华社', doc: 'd', reliability: 'r' } }),
+      mk({ id: 's-3', tags: ['媒体常识'], source: { institution: '新华社', doc: 'd', reliability: 'r' } }),
+      // 人民日报：新闻实务 < 时政 < 行测*
+      mk({ id: 'p-1', tags: ['行测-言语'], source: { institution: '人民日报', doc: 'd', reliability: 'r' } }),
+      mk({ id: 'p-2', tags: ['时政'], source: { institution: '人民日报', doc: 'd', reliability: 'r' } }),
+      mk({ id: 'p-3', tags: ['新闻实务'], source: { institution: '人民日报', doc: 'd', reliability: 'r' } })
+    ]
+    const tree2 = buildPracticeTree(cards2, new Map())
+    expect(tree2[0].children.map((n) => n.label)).toEqual(['媒体常识', '行测常识'])
+    expect(tree2[1].children.map((n) => n.label)).toEqual(['新闻实务', '时政', '行测-言语'])
+  })
 })

@@ -7,6 +7,7 @@
   另输出 content/cards/index.json 汇总。
 - 每个来源打印卡片数、kind 分布、样例卡与无法解析的块数；数量异常会 WARN。
 - removed_cards.json 中的过时时政题 id 会在编号后剔除，幸存卡 id 稳定。
+- card_patches.json 中的坏题补丁会在剔除过滤后按 id 应用（修复粘连选项/缺答案）。
 
 注意：本脚本重写 cards-*.json 时会丢掉二级标签，
 重跑后必须接着跑 tag_cards.py（缓存命中、零 LLM）恢复，再 sync_to_app.py。
@@ -1198,6 +1199,7 @@ def to_card(src: Source, doc: str, seq: int, raw: RawCard) -> dict:
 
 
 REMOVED_PATH = ROOT / "removed_cards.json"
+PATCHES_PATH = ROOT / "card_patches.json"
 
 
 def load_removed_ids() -> set[str]:
@@ -1208,9 +1210,35 @@ def load_removed_ids() -> set[str]:
     return {e["id"] for e in data.get("removed", [])}
 
 
+def load_patches() -> dict[str, dict]:
+    """坏题修复清单：{id: 要覆盖的字段}（编号、剔除过滤之后按 id 应用）。"""
+    if not PATCHES_PATH.exists():
+        return {}
+    data = json.loads(PATCHES_PATH.read_text(encoding="utf-8"))
+    return {p["id"]: {k: v for k, v in p.items() if not k.startswith("_") and k != "id"}
+            for p in data.get("patches", [])}
+
+
+def apply_patches(cards: list[dict], patches: dict[str, dict]) -> list[str]:
+    """按 id 应用补丁（options 按键合并，其余字段整体覆盖）。返回已修补 id。"""
+    patched: list[str] = []
+    for c in cards:
+        p = patches.get(c["id"])
+        if not p:
+            continue
+        for k, v in p.items():
+            if k == "options" and isinstance(v, dict):
+                c.setdefault("options", {}).update(v)
+            else:
+                c[k] = v
+        patched.append(c["id"])
+    return patched
+
+
 def main() -> int:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     removed_ids = load_removed_ids()
+    patches = load_patches()
     index = []
     total_cards = 0
     failures = 0
@@ -1230,6 +1258,9 @@ def main() -> int:
         if dropped:
             cards = [c for c in cards if c["id"] not in removed_ids]
             print(f"\n[{src.key}] 剔除过时时政题 {len(dropped)} 张：{' '.join(dropped)}")
+        patched = apply_patches(cards, patches)
+        for pid in patched:
+            print(f"[{src.key}] 已修补 {pid}")
         total_cards += len(cards)
 
         kinds: dict[str, int] = {}

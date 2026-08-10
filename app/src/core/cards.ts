@@ -263,9 +263,24 @@ function byTotalDesc(a: PracticeNode, b: PracticeNode): number {
   return tail(a) - tail(b) || b.total - a.total || a.label.localeCompare(b.label, 'zh')
 }
 
+/** 二级节点排序权重：媒体向在前、行测类靠后（媒体常识 < 新闻实务 < 时政 < 行测* < 其他） */
+function groupSortWeight(label: string): number {
+  if (label === '媒体常识') return 0
+  if (label === '新闻实务') return 1
+  if (label === '时政') return 2
+  if (label.startsWith('行测')) return 3
+  return 4
+}
+
+/** 二级节点排序：先按媒体向权重，同权重内题量降序 */
+function byGroupWeight(a: PracticeNode, b: PracticeNode): number {
+  return groupSortWeight(a.label) - groupSortWeight(b.label) || byTotalDesc(a, b)
+}
+
 /**
  * 机构分类树：机构 → 一级标签（时政押题例外：按 source.doc 月份）→ 二级考点。
  * 二级考点仅当组内存在 ≥2 个不同 tags[1] 时展开，缺失二级标签的卡归入 "其他"；否则二级节点即叶子。
+ * 二级节点排序：媒体向在前、行测类靠后（见 groupSortWeight），同权重内题量降序；三级按题量降序。
  */
 export function buildPracticeTree(cards: Card[], states: Map<string, CardState>): PracticeNode[] {
   const byInst = new Map<string, Card[]>()
@@ -318,7 +333,7 @@ export function buildPracticeTree(cards: Card[], states: Map<string, CardState>)
       node.match = undefined // 有子节点的不是叶子
       node.children = subNodes
       return node
-    }).sort(ins === '时政押题' ? (a, b) => groups.indexOf(a.label) - groups.indexOf(b.label) : byTotalDesc)
+    }).sort(ins === '时政押题' ? (a, b) => groups.indexOf(a.label) - groups.indexOf(b.label) : byGroupWeight)
 
     const node = leafNode(ins, ins, list, states, () => false)
     node.match = undefined

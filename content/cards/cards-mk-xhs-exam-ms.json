@@ -1,0 +1,110 @@
+[
+ {
+  "id": "mk-xhs-exam-ms-001",
+  "kind": "qa",
+  "stem": "新华社总社面试流程中包括哪些环节？",
+  "answer": "包括自我介绍、对岗位的理解、职业规划、一道老师抽取的题目，以及现场提问（如年度新闻、新闻看法、记者素养、新华社各渠道情况等）。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "考情",
+   "机构业务与平台"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社总社面试回忆",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-exam-ms-002",
+  "kind": "qa",
+  "stem": "新华社总社面试中，考生需要做哪些陈述？",
+  "answer": "需要做自我介绍，并阐述对岗位的理解和职业规划。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "考情",
+   "机构业务与平台"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社总社面试回忆",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-exam-ms-004",
+  "kind": "qa",
+  "stem": "新华社总社面试中是否要求列举年度新闻？",
+  "answer": "是，要求回忆当年印象最深刻的十大国内新闻/国际新闻。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "考情",
+   "战略与政策"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社总社面试回忆",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-exam-ms-005",
+  "kind": "qa",
+  "stem": "新华社总社面试中会如何询问对新闻的看法？",
+  "answer": "会问“你对XX新闻的看法”，其中XX指代具体新闻事件（原文未指明）。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "考情",
+   "机构业务与平台"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社总社面试回忆",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-exam-ms-006",
+  "kind": "qa",
+  "stem": "新华社总社面试中关于记者素养的提问是什么？",
+  "answer": "问题为“你认为做记者应该XXX”，其中XXX为原文未给出的完整内容。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "考情",
+   "行业规范"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社总社面试回忆",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ },
+ {
+  "id": "mk-xhs-exam-ms-007",
+  "kind": "qa",
+  "stem": "新华社总社面试中是否涉及对新华社新媒体渠道的询问？",
+  "answer": "是，询问新华社各渠道（客户端、微信公众号、微博）的区别，以及每天签发多少条新闻。",
+  "analysis": "",
+  "tags": [
+   "媒体常识",
+   "考情",
+   "机构业务与平台"
+  ],
+  "source": {
+   "institution": "新华社",
+   "doc": "新华社总社面试回忆",
+   "year": null,
+   "reliability": "机构资料"
+  }
+ }
+]

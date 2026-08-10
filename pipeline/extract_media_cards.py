@@ -44,6 +44,7 @@ class MediaSource:
     relpath: str
     tags: list[str]
     year: int | None = None
+    exam_info: bool = False  # 考情叙述资料（笔试结构/面试流程），用专用 prompt
 
 
 SOURCES: list[MediaSource] = [
@@ -62,6 +63,15 @@ SOURCES: list[MediaSource] = [
     MediaSource("mk-zt-policy", "总台", "广电政策变动2024",
                 "中央广播电视总台近期广播电视新政策/2024年广播电视文化传媒相关政策变动.docx",
                 ["媒体常识", "总台"], year=2024),
+    MediaSource("mk-xhs-exam-zs", "新华社", "新华社总社校招笔试题回忆",
+                "6-新华社历史笔试题库/新华社总社校招笔试题回忆.docx",
+                ["媒体常识", "考情"], exam_info=True),
+    MediaSource("mk-xhs-exam-gj", "新华社", "新华社国际部笔试题目（可参考）",
+                "6-新华社历史笔试题库/新华社国际部笔试题目(可参考）.pdf",
+                ["媒体常识", "考情"], exam_info=True),
+    MediaSource("mk-xhs-exam-ms", "新华社", "新华社总社面试回忆",
+                "6-新华社历史笔试题库/新华社总社面试回忆.docx",
+                ["媒体常识", "考情"], exam_info=True),
 ]
 
 
@@ -128,7 +138,19 @@ SYSTEM_PROMPT = (
 )
 
 
-def build_user_prompt(doc: str, chunk: str, part: str) -> str:
+def build_user_prompt(doc: str, chunk: str, part: str, exam_info: bool = False) -> str:
+    if exam_info:
+        return f"""以下是《{doc}》的考情叙述正文{part}（考生对笔试/面试的回忆记录）。请从文中提炼 5-12 张"考情问答卡"，帮助考生了解考试形式与流程。
+
+要求：
+- 聚焦考情本身：笔试分几部分、题型构成、题量与时长、内容范围与侧重、面试流程与环节、被问到的具体问题、注意事项；
+- 问题必须自足（不依赖"文中/该资料"等上下文指代），如"新华社总社校招笔试包括哪几个部分？"；
+- 答案简明准确，严格只基于原文，原文没有的信息绝不编造、不推测；
+- 文中提到的具体题目可整理为问答卡，但不得虚构原文没有的题目或答案；
+- 以 JSON 数组返回，格式：[{{"stem":"问题","answer":"答案","analysis":"补充背景（可空字符串）"}}]
+
+考情正文：
+{chunk}"""
     return f"""以下是《{doc}》的资料正文{part}。请站在"媒体机构笔试会问什么"的角度，从文中提炼 {CARDS_PER_CHUNK} 张问答卡。
 
 要求：
@@ -232,7 +254,8 @@ def extract_source_cards(text: str, src: MediaSource, llm,
     raw_cards: list[dict] = []
     for i, chunk in enumerate(chunks):
         part = f"（第 {i + 1}/{len(chunks)} 部分）" if len(chunks) > 1 else ""
-        raw = llm.complete(SYSTEM_PROMPT, build_user_prompt(src.doc, chunk, part))
+        raw = llm.complete(SYSTEM_PROMPT,
+                           build_user_prompt(src.doc, chunk, part, src.exam_info))
         cards = parse_cards_json(raw)
         if not cards:
             stats.parse_failed += 1

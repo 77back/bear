@@ -173,7 +173,7 @@ describe('PracticeView 刷题主页', () => {
     // 填空题：翻面自评
     await wrapper.findAll('button').find((b) => b.text() === '看答案')!.trigger('click')
     await settle(20)
-    await wrapper.findAll('button').find((b) => b.text() === '会')!.trigger('click')
+    await wrapper.findAll('button').find((b) => b.text() === '答对')!.trigger('click')
     await settle(20)
     const st = await db.cardStates.get('a-3')
     expect(st?.correctCount).toBe(1)
@@ -194,7 +194,7 @@ describe('PracticeView 刷题主页', () => {
       } else {
         await wrapper.findAll('button').find((b) => b.text() === '看答案')!.trigger('click')
         await settle(20)
-        await wrapper.findAll('button').find((b) => b.text() === '会')!.trigger('click')
+        await wrapper.findAll('button').find((b) => b.text() === '答对')!.trigger('click')
       }
       await settle(20)
       const next = wrapper.findAll('button').find((b) => ['下一题', '完成'].includes(b.text()))
@@ -203,5 +203,82 @@ describe('PracticeView 刷题主页', () => {
     }
     expect(wrapper.text()).toContain('本轮完成')
     expect(await db.cardAttempts.count()).toBe(4)
+  })
+
+  it('问答卡：输入回答 → 查看参考答案 → 上下对照 → 自评记录', async () => {
+    globalThis.fetch = (async (url: string) => {
+      const data = url.includes('index.json')
+        ? [{ key: 'q', institution: '新华社', doc: '问答', count: 1, reliability: '机构题库', tags: ['媒体常识'] }]
+        : [
+            {
+              id: 'q-1',
+              kind: 'qa',
+              stem: '简述新华社的职能',
+              answer: '参考答案文本',
+              analysis: '解析文本',
+              tags: ['媒体常识'],
+              source: { institution: '新华社', doc: '问答', reliability: '机构题库' }
+            }
+          ]
+      return { ok: true, status: 200, json: async () => data }
+    }) as unknown as typeof fetch
+
+    const wrapper = mount(PracticeView, { global: { plugins: [makeRouter()] } })
+    await settle()
+    await wrapper.find('.tree-head').trigger('click')
+    await wrapper.find('.tree-row.leaf').trigger('click')
+    await settle(20)
+
+    // 先出输入框 + 查看参考答案按钮
+    const ta = wrapper.find('textarea.qa-input')
+    expect(ta.exists()).toBe(true)
+    await ta.setValue('我的回答内容')
+    await wrapper.findAll('button').find((b) => b.text() === '查看参考答案')!.trigger('click')
+    await settle(20)
+
+    // 上下对照：我的回答在上，参考答案/解析在下
+    const text = wrapper.text()
+    expect(text).toContain('我的回答')
+    expect(text).toContain('我的回答内容')
+    expect(text).toContain('参考答案')
+    expect(text).toContain('参考答案文本')
+    expect(text).toContain('解析文本')
+
+    // 自评"答对" → 走同一套 recordAttempt/SRS 流程
+    await wrapper.findAll('button').find((b) => b.text() === '答对')!.trigger('click')
+    await settle(20)
+    const attempts = await db.cardAttempts.toArray()
+    expect(attempts).toHaveLength(1)
+    expect(attempts[0]).toMatchObject({ cardId: 'q-1', correct: true, selfGrade: 'know' })
+  })
+
+  it('问答卡：不输入也能直接看答案（无"我的回答"块）', async () => {
+    globalThis.fetch = (async (url: string) => {
+      const data = url.includes('index.json')
+        ? [{ key: 'q', institution: '新华社', doc: '问答', count: 1, reliability: '机构题库', tags: ['媒体常识'] }]
+        : [
+            {
+              id: 'q-1',
+              kind: 'qa',
+              stem: '简述新华社的职能',
+              answer: '参考答案文本',
+              analysis: '',
+              tags: ['媒体常识'],
+              source: { institution: '新华社', doc: '问答', reliability: '机构题库' }
+            }
+          ]
+      return { ok: true, status: 200, json: async () => data }
+    }) as unknown as typeof fetch
+
+    const wrapper = mount(PracticeView, { global: { plugins: [makeRouter()] } })
+    await settle()
+    await wrapper.find('.tree-head').trigger('click')
+    await wrapper.find('.tree-row.leaf').trigger('click')
+    await settle(20)
+
+    await wrapper.findAll('button').find((b) => b.text() === '查看参考答案')!.trigger('click')
+    await settle(20)
+    expect(wrapper.text()).toContain('参考答案文本')
+    expect(wrapper.text()).not.toContain('我的回答')
   })
 })
