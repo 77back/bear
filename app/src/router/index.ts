@@ -6,17 +6,11 @@ const router = createRouter({
   routes: [
     { path: '/', redirect: '/today' },
     { path: '/today', name: 'today', component: () => import('@/views/TodayView.vue') },
-    { path: '/xc', name: 'xc', component: () => import('@/views/XingceView.vue') },
-    { path: '/xc/quiz', name: 'xc-quiz', component: () => import('@/views/sub/QuizPage.vue') },
-    { path: '/xc/import', name: 'xc-import', component: () => import('@/views/sub/ImportPage.vue') },
-    { path: '/sl', name: 'sl', component: () => import('@/views/ShenlunView.vue') },
-    { path: '/sl/material/:id', name: 'sl-material', component: () => import('@/views/sub/MaterialDetail.vue') },
-    { path: '/sl/cases', name: 'sl-cases', component: () => import('@/views/sub/CaseLibrary.vue') },
     { path: '/sw', name: 'sw', component: () => import('@/views/ShiwuView.vue') },
     { path: '/media', name: 'media', component: () => import('@/views/MediaView.vue') },
     { path: '/sw/shizheng', name: 'sw-shizheng', component: () => import('@/views/sub/ShizhengLibrary.vue') },
     { path: '/sw/practice', name: 'sw-practice', component: () => import('@/views/sub/WritingPractice.vue') },
-    { path: '/practice', name: 'practice', component: () => import('@/views/sub/CasualPractice.vue') },
+    { path: '/practice', name: 'practice', component: () => import('@/views/PracticeView.vue') },
     { path: '/report', name: 'report', component: () => import('@/views/sub/ReportPage.vue') },
     { path: '/settings', name: 'settings', component: () => import('@/views/sub/SettingsPage.vue') }
   ]

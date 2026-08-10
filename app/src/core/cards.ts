@@ -222,3 +222,117 @@ export function moduleSession(
       return ma - mb || a.id.localeCompare(b.id)
     })
 }
+
+/* ---------- 刷题主页：机构分类树（参考粉笔层级树 + 每节点进度） ---------- */
+
+export interface PracticeNode {
+  key: string // 全路径唯一键：机构 / 机构|一级 / 机构|一级|二级
+  label: string
+  total: number
+  done: number // 组内有答题记录（cardState 存在）的卡数
+  mastered: number // 组内 state.mastered 的卡数
+  children: PracticeNode[]
+  match?: (c: Card) => boolean // 仅叶子节点：筛出本组卡片
+}
+
+/** 机构固定排序，未列出的机构排最后 */
+const INSTITUTION_ORDER = ['新华社', '人民日报', '总台', '时政押题']
+
+/** 时政押题来源文档 → 月份分组标签（"1月份押题（带答案版）" → "1月"），无法解析归 "其他" */
+export function shizhengMonth(doc: string): string {
+  const m = /(\d{1,2})\s*月/.exec(doc)
+  return m ? `${Number(m[1])}月` : '其他'
+}
+
+function leafNode(key: string, label: string, list: Card[], states: Map<string, CardState>, match: (c: Card) => boolean): PracticeNode {
+  let done = 0
+  let mastered = 0
+  for (const c of list) {
+    const s = states.get(c.id)
+    if (s) {
+      done += 1
+      if (s.mastered) mastered += 1
+    }
+  }
+  return { key, label, total: list.length, done, mastered, children: [], match }
+}
+
+/** 组内排序：题量降序，"其他"/"未分类" 兜底组排最后 */
+function byTotalDesc(a: PracticeNode, b: PracticeNode): number {
+  const tail = (n: PracticeNode) => (n.label === '其他' || n.label === '未分类' ? 1 : 0)
+  return tail(a) - tail(b) || b.total - a.total || a.label.localeCompare(b.label, 'zh')
+}
+
+/**
+ * 机构分类树：机构 → 一级标签（时政押题例外：按 source.doc 月份）→ 二级考点。
+ * 二级考点仅当组内存在 ≥2 个不同 tags[1] 时展开，缺失二级标签的卡归入 "其他"；否则二级节点即叶子。
+ */
+export function buildPracticeTree(cards: Card[], states: Map<string, CardState>): PracticeNode[] {
+  const byInst = new Map<string, Card[]>()
+  for (const c of cards) {
+    const ins = c.source.institution
+    if (!byInst.has(ins)) byInst.set(ins, [])
+    byInst.get(ins)!.push(c)
+  }
+  const institutions = [...byInst.keys()].sort((a, b) => {
+    const ia = INSTITUTION_ORDER.indexOf(a)
+    const ib = INSTITUTION_ORDER.indexOf(b)
+    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b, 'zh')
+  })
+
+  return institutions.map((ins) => {
+    const list = byInst.get(ins)!
+    // 二级分组键：时政押题按月份，其余按一级标签 tags[0]
+    const groupOf = (c: Card) => (ins === '时政押题' ? shizhengMonth(c.source.doc) : c.tags[0] ?? '未分类')
+    const byGroup = new Map<string, Card[]>()
+    for (const c of list) {
+      const g = groupOf(c)
+      if (!byGroup.has(g)) byGroup.set(g, [])
+      byGroup.get(g)!.push(c)
+    }
+    const groups = [...byGroup.keys()].sort((a, b) =>
+      ins === '时政押题' && a !== '其他' && b !== '其他'
+        ? Number.parseInt(a) - Number.parseInt(b)
+        : 0
+    )
+
+    const children = groups.map((g) => {
+      const glist = byGroup.get(g)!
+      const gkey = `${ins}|${g}`
+      const matchGroup = (c: Card) => c.source.institution === ins && groupOf(c) === g
+      if (ins === '时政押题') return leafNode(gkey, g, glist, states, matchGroup) // 月分组即叶子
+
+      // 三级：≥2 个不同 tags[1] 才展开，缺失的归 "其他"
+      const subs = new Set(glist.map((c) => c.tags[1]).filter((t): t is string => !!t))
+      if (subs.size < 2) return leafNode(gkey, g, glist, states, matchGroup)
+      const bySub = new Map<string, Card[]>()
+      for (const c of glist) {
+        const s = c.tags[1] ?? '其他'
+        if (!bySub.has(s)) bySub.set(s, [])
+        bySub.get(s)!.push(c)
+      }
+      const subNodes = [...bySub.keys()].map((s) =>
+        leafNode(`${gkey}|${s}`, s, bySub.get(s)!, states, (c) => matchGroup(c) && (c.tags[1] ?? '其他') === s)
+      ).sort(byTotalDesc)
+      const node = leafNode(gkey, g, glist, states, matchGroup)
+      node.match = undefined // 有子节点的不是叶子
+      node.children = subNodes
+      return node
+    }).sort(ins === '时政押题' ? (a, b) => groups.indexOf(a.label) - groups.indexOf(b.label) : byTotalDesc)
+
+    const node = leafNode(ins, ins, list, states, () => false)
+    node.match = undefined
+    node.children = children
+    return node
+  })
+}
+
+/** 叶子节点刷题队列：该组全部卡，未掌握在前、按 id 稳定排序（与 moduleSession 同策略） */
+export function nodeSession(cards: Card[], node: PracticeNode, states: Map<string, CardState>): Card[] {
+  if (!node.match) return []
+  return cards.filter(node.match).sort((a, b) => {
+    const ma = states.get(a.id)?.mastered ? 1 : 0
+    const mb = states.get(b.id)?.mastered ? 1 : 0
+    return ma - mb || a.id.localeCompare(b.id)
+  })
+}

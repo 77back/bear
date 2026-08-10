@@ -100,16 +100,6 @@ function onReport(type: 'week' | 'month') {
       </div>
     </div>
 
-    <!-- 随心练习入口（碎片时间刷真题） -->
-    <div class="card rec-card" style="border-left-color:var(--brand)" @click="router.push('/practice')">
-      <div class="rec-head">
-        <span class="tag brand">随心练习</span>
-        <span style="font-size:11px;color:var(--text-3)">碎片时间刷一道</span>
-      </div>
-      <div class="rec-title">随机刷真题 · 时政押题</div>
-      <div class="rec-body">新华社 / 总台 / 人民日报真题 + 每月时政押题，做一道是一道，错题自动记录。</div>
-    </div>
-
     <!-- 今日任务 -->
     <div class="card">
       <div class="card-title">

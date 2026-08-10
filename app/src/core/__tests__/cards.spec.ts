@@ -14,7 +14,10 @@ import {
   coverageByTag,
   moduleSession,
   wrongCount,
-  wrongCards
+  wrongCards,
+  shizhengMonth,
+  buildPracticeTree,
+  nodeSession
 } from '../cards'
 import type { Card } from '@/stores/cards'
 import type { CardState } from '@/db'
@@ -265,5 +268,94 @@ describe('wrongCards / wrongCount 错题本', () => {
   it('无错题返回空', () => {
     expect(wrongCards(cards, new Map())).toEqual([])
     expect(wrongCount(new Map().values())).toBe(0)
+  })
+})
+
+describe('shizhengMonth 时政押题月份解析', () => {
+  it('从来源文档解析月份', () => {
+    expect(shizhengMonth('1月份押题（带答案版）')).toBe('1月')
+    expect(shizhengMonth('12月份押题（含答案版）')).toBe('12月')
+    expect(shizhengMonth('无月份文档')).toBe('其他')
+  })
+})
+
+describe('buildPracticeTree 机构分类树', () => {
+  const cards = [
+    // 新华社 · 行测常识：2 个二级考点 + 1 张缺二级 → 展开三级
+    mk({ id: 'x-1', tags: ['行测常识', '法律'], source: { institution: '新华社', doc: 'd', reliability: 'r' } }),
+    mk({ id: 'x-2', tags: ['行测常识', '法律'], source: { institution: '新华社', doc: 'd', reliability: 'r' } }),
+    mk({ id: 'x-3', tags: ['行测常识', '政治理论'], source: { institution: '新华社', doc: 'd', reliability: 'r' } }),
+    mk({ id: 'x-4', tags: ['行测常识'], source: { institution: '新华社', doc: 'd', reliability: 'r' } }),
+    // 新华社 · 媒体常识：仅 1 个二级考点 → 二级节点即叶子
+    mk({ id: 'x-5', tags: ['媒体常识', '机构历史'], source: { institution: '新华社', doc: 'd', reliability: 'r' } }),
+    // 人民日报 · 新闻实务：无二级标签 → 叶子
+    mk({ id: 'r-1', tags: ['新闻实务'], source: { institution: '人民日报', doc: 'd', reliability: 'r' } }),
+    // 时政押题：按 source.doc 月份分组（二级考点存在但不展开）
+    mk({ id: 'y-1', tags: ['时政', '科技成就'], source: { institution: '时政押题', doc: '1月份押题（带答案版）', reliability: 'r' } }),
+    mk({ id: 'y-2', tags: ['时政', '经济金融'], source: { institution: '时政押题', doc: '1月份押题（带答案版）', reliability: 'r' } }),
+    mk({ id: 'y-3', tags: ['时政', '科技成就'], source: { institution: '时政押题', doc: '2月份押题（带答案版）', reliability: 'r' } }),
+    mk({ id: 'y-4', tags: ['时政'], source: { institution: '时政押题', doc: '每月时政汇总', reliability: 'r' } })
+  ]
+  const mkState = (cardId: string, mastered: boolean): CardState => ({
+    cardId, seen: 1, correctCount: mastered ? 1 : 0, wrongCount: mastered ? 0 : 1, streak: 0, mastered, lastAt: 0
+  })
+  const states = new Map<string, CardState>([
+    ['x-1', mkState('x-1', true)], // 做过且掌握
+    ['x-2', mkState('x-2', false)], // 做过未掌握
+    ['y-1', mkState('y-1', true)]
+  ])
+  const tree = buildPracticeTree(cards, states)
+
+  it('一级为机构，按固定顺序排列', () => {
+    expect(tree.map((n) => n.label)).toEqual(['新华社', '人民日报', '时政押题'])
+    expect(tree.every((n) => !n.match && n.children.length)).toBe(true)
+  })
+
+  it('进度口径：done=有 state 的卡数，mastered=掌握的卡数，逐级汇总', () => {
+    const xs = tree[0]
+    expect(xs).toMatchObject({ total: 5, done: 2, mastered: 1 })
+    const rm = tree[1]
+    expect(rm).toMatchObject({ total: 1, done: 0, mastered: 0 })
+    const yati = tree[2]
+    expect(yati).toMatchObject({ total: 4, done: 1, mastered: 1 })
+  })
+
+  it('二级按一级标签分组；≥2 个不同 tags[1] 展开三级，缺失归 "其他"', () => {
+    const xs = tree[0]
+    const xc = xs.children.find((n) => n.label === '行测常识')!
+    expect(xc).toMatchObject({ total: 4, done: 2, mastered: 1 })
+    expect(xc.match).toBeUndefined() // 分组节点不是叶子
+    expect(xc.children.map((n) => n.label)).toEqual(['法律', '政治理论', '其他']) // 题量降序，其他垫底
+    const law = xc.children[0]
+    expect(law).toMatchObject({ total: 2, done: 2, mastered: 1 })
+    expect(law.match).toBeDefined() // 叶子有过滤器
+    // 仅 1 个二级考点 → 二级节点即叶子
+    const mt = xs.children.find((n) => n.label === '媒体常识')!
+    expect(mt.children).toEqual([])
+    expect(mt.match).toBeDefined()
+    expect(mt).toMatchObject({ total: 1, done: 0, mastered: 0 })
+  })
+
+  it('时政押题按月分组且月份节点即叶子（不展开二级考点），无法解析归 "其他"', () => {
+    const yati = tree[2]
+    expect(yati.children.map((n) => n.label)).toEqual(['1月', '2月', '其他'])
+    const jan = yati.children[0]
+    expect(jan).toMatchObject({ total: 2, done: 1, mastered: 1 })
+    expect(jan.children).toEqual([])
+    expect(jan.match).toBeDefined()
+  })
+
+  it('nodeSession 叶子队列：未掌握在前、按 id 稳定排序', () => {
+    const xc = tree[0].children.find((n) => n.label === '行测常识')!
+    const law = xc.children[0]
+    expect(nodeSession(cards, law, states).map((c) => c.id)).toEqual(['x-2', 'x-1']) // 已掌握的 x-1 排后
+    const jan = tree[2].children[0]
+    expect(nodeSession(cards, jan, states).map((c) => c.id)).toEqual(['y-2', 'y-1'])
+    // 非叶子返回空
+    expect(nodeSession(cards, xc, states)).toEqual([])
+  })
+
+  it('空题库返回空树', () => {
+    expect(buildPracticeTree([], new Map())).toEqual([])
   })
 })
