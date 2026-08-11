@@ -45,10 +45,10 @@
     "selectedColor": "#5a7a5a",
     "backgroundColor": "#ffffff",
     "list": [
-      { "pagePath": "pages/today/index", "text": "今日" },
-      { "pagePath": "pages/practice/index", "text": "刷题" },
-      { "pagePath": "pages/shiwu/index", "text": "实务" },
-      { "pagePath": "pages/media/index", "text": "媒体" }
+      { "pagePath": "pages/today/index", "text": "今日", "iconPath": "static/tab/today.png", "selectedIconPath": "static/tab/today-active.png" },
+      { "pagePath": "pages/practice/index", "text": "刷题", "iconPath": "static/tab/practice.png", "selectedIconPath": "static/tab/practice-active.png" },
+      { "pagePath": "pages/shiwu/index", "text": "实务", "iconPath": "static/tab/shiwu.png", "selectedIconPath": "static/tab/shiwu-active.png" },
+      { "pagePath": "pages/media/index", "text": "媒体", "iconPath": "static/tab/media.png", "selectedIconPath": "static/tab/media-active.png" }
     ]
   },
   "globalStyle": {
