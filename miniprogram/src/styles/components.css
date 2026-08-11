@@ -317,12 +317,13 @@
   align-items: center;
   justify-content: center;
 }
-.ring .num b {
+/* 小程序版：b/small 元素选择器不可用，改类选择器（视图迁移时用对应 class 的 text） */
+.ring .num .num-b {
   font-size: 22px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
-.ring .num small {
+.ring .num .num-s {
   font-size: 11px;
   color: var(--text-3);
 }
@@ -644,52 +645,6 @@
 }
 .cal-cell.empty {
   background: transparent;
-}
-
-/* ---------- 底部 Tab ---------- */
-.tabbar {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 480px;
-  height: 78px;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  border-top: 1px solid var(--line);
-  display: flex;
-  padding: 6px 4px 18px;
-  z-index: 10;
-}
-.tab {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  cursor: pointer;
-  color: var(--text-3);
-  min-height: 44px;
-  transition: color 0.18s ease;
-  border: none;
-  background: none;
-}
-.tab svg {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.18s ease;
-}
-.tab span {
-  font-size: 10px;
-  font-weight: 500;
-}
-.tab.active {
-  color: var(--brand);
-}
-.tab.active svg {
-  transform: translateY(-1px);
 }
 
 /* ---------- 表单 ---------- */

@@ -12,11 +12,24 @@
 export * from '@shared/types'
 export { todayStr, addDays, parseDate } from '@shared/dates'
 
+import type {
+  Task,
+  Checkin,
+  QuizLog,
+  Material,
+  Review,
+  PracticeLog,
+  Setting,
+  Course,
+  CardAttempt,
+  CardState
+} from '@shared/types'
+
 type AnyRecord = Record<string, unknown>
 
 const FLUSH_DELAY = 300
 
-class MiniTable<T extends AnyRecord> {
+class MiniTable<T extends object> {
   private items: T[] = []
   private loaded = false
   private timer: ReturnType<typeof setTimeout> | null = null
@@ -51,18 +64,22 @@ class MiniTable<T extends AnyRecord> {
     }, FLUSH_DELAY)
   }
 
+  private rec(it: T): AnyRecord {
+    return it as AnyRecord
+  }
+
   private nextId(): number {
     let max = 0
     for (const it of this.items) {
-      const id = it.id as number | undefined
+      const id = this.rec(it).id as number | undefined
       if (typeof id === 'number' && id > max) max = id
     }
     return max + 1
   }
 
   private findIndex(key: unknown): number {
-    if (!this.keyPath) return this.items.findIndex((it) => it.id === key)
-    return this.items.findIndex((it) => it[this.keyPath!] === key)
+    if (!this.keyPath) return this.items.findIndex((it) => this.rec(it).id === key)
+    return this.items.findIndex((it) => this.rec(it)[this.keyPath!] === key)
   }
 
   async toArray(): Promise<T[]> {
@@ -83,7 +100,7 @@ class MiniTable<T extends AnyRecord> {
 
   async put(item: T): Promise<unknown> {
     await this.ensureLoaded()
-    const key = this.keyPath ? item[this.keyPath] : item.id
+    const key = this.keyPath ? this.rec(item)[this.keyPath] : this.rec(item).id
     const i = this.findIndex(key)
     if (i >= 0) this.items[i] = item
     else this.items.push(item)
@@ -97,10 +114,10 @@ class MiniTable<T extends AnyRecord> {
 
   async add(item: T): Promise<number> {
     await this.ensureLoaded()
-    if (item.id === undefined) item.id = this.nextId()
+    if (this.rec(item).id === undefined) this.rec(item).id = this.nextId()
     this.items.push(item)
     this.scheduleFlush()
-    return item.id as number
+    return this.rec(item).id as number
   }
 
   async bulkAdd(items: T[]): Promise<void> {
@@ -139,7 +156,7 @@ class MiniTable<T extends AnyRecord> {
         return {
           async toArray(): Promise<T[]> {
             await self.ensureLoaded()
-            return self.items.filter((it) => it[field] === value)
+            return self.items.filter((it) => self.rec(it)[field] === value)
           }
         }
       },
@@ -148,7 +165,9 @@ class MiniTable<T extends AnyRecord> {
           async toArray(): Promise<T[]> {
             await self.ensureLoaded()
             return self.items.filter(
-              (it) => typeof it[field] === 'string' && (it[field] as string).startsWith(prefix)
+              (it) =>
+                typeof self.rec(it)[field] === 'string' &&
+                (self.rec(it)[field] as string).startsWith(prefix)
             )
           }
         }
@@ -162,25 +181,26 @@ class MiniTable<T extends AnyRecord> {
       async last(): Promise<T | undefined> {
         await self.ensureLoaded()
         if (!self.items.length) return undefined
-        return [...self.items].sort((a, b) => ((a[field] as number) ?? 0) - ((b[field] as number) ?? 0))[
-          self.items.length - 1
-        ]
+        return [...self.items]
+          .sort(
+            (a, b) => ((self.rec(a)[field] as number) ?? 0) - ((self.rec(b)[field] as number) ?? 0)
+          )[self.items.length - 1]
       }
     }
   }
 }
 
 class PrepDB {
-  tasks = new MiniTable('tasks')
-  checkins = new MiniTable('checkins', 'date')
-  quizLogs = new MiniTable('quizLogs')
-  materials = new MiniTable('materials')
-  reviews = new MiniTable('reviews')
-  practiceLogs = new MiniTable('practiceLogs')
-  settings = new MiniTable('settings', 'key')
-  courses = new MiniTable('courses')
-  cardAttempts = new MiniTable('cardAttempts')
-  cardStates = new MiniTable('cardStates', 'cardId')
+  tasks = new MiniTable<Task>('tasks')
+  checkins = new MiniTable<Checkin>('checkins', 'date')
+  quizLogs = new MiniTable<QuizLog>('quizLogs')
+  materials = new MiniTable<Material>('materials')
+  reviews = new MiniTable<Review>('reviews')
+  practiceLogs = new MiniTable<PracticeLog>('practiceLogs')
+  settings = new MiniTable<Setting>('settings', 'key')
+  courses = new MiniTable<Course>('courses')
+  cardAttempts = new MiniTable<CardAttempt>('cardAttempts')
+  cardStates = new MiniTable<CardState>('cardStates', 'cardId')
 
   /**
    * 对齐 Dexie transaction 签名：transaction('rw', table1, table2, fn)。
