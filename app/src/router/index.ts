@@ -11,6 +11,7 @@ const router = createRouter({
     { path: '/sw/shizheng', name: 'sw-shizheng', component: () => import('@/views/sub/ShizhengLibrary.vue') },
     { path: '/sw/practice', name: 'sw-practice', component: () => import('@/views/sub/WritingPractice.vue') },
     { path: '/practice', name: 'practice', component: () => import('@/views/PracticeView.vue') },
+    { path: '/exam', name: 'exam', component: () => import('@/views/sub/ExamAnalysis.vue') },
     { path: '/report', name: 'report', component: () => import('@/views/sub/ReportPage.vue') },
     { path: '/settings', name: 'settings', component: () => import('@/views/sub/SettingsPage.vue') }
   ]

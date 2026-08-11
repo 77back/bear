@@ -63,15 +63,8 @@ SOURCES: list[MediaSource] = [
     MediaSource("mk-zt-policy", "总台", "广电政策变动2024",
                 "中央广播电视总台近期广播电视新政策/2024年广播电视文化传媒相关政策变动.docx",
                 ["媒体常识", "总台"], year=2024),
-    MediaSource("mk-xhs-exam-zs", "新华社", "新华社总社校招笔试题回忆",
-                "6-新华社历史笔试题库/新华社总社校招笔试题回忆.docx",
-                ["媒体常识", "考情"], exam_info=True),
-    MediaSource("mk-xhs-exam-gj", "新华社", "新华社国际部笔试题目（可参考）",
-                "6-新华社历史笔试题库/新华社国际部笔试题目(可参考）.pdf",
-                ["媒体常识", "考情"], exam_info=True),
-    MediaSource("mk-xhs-exam-ms", "新华社", "新华社总社面试回忆",
-                "6-新华社历史笔试题库/新华社总社面试回忆.docx",
-                ["媒体常识", "考情"], exam_info=True),
+    # 考情叙述资料（笔试结构/面试流程）不做题卡——内容在 pipeline/exam_analysis.py
+    # 的考情分析可视化数据中呈现（用户反馈：词典要求、面试流程等不适合做题）。
 ]
 
 

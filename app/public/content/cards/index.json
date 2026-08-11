@@ -535,35 +535,5 @@
   "count": 11,
   "reliability": "机构资料",
   "tags": []
- },
- {
-  "key": "mk-xhs-exam-zs",
-  "institution": "新华社",
-  "doc": "新华社总社校招笔试题回忆",
-  "count": 12,
-  "reliability": "机构资料",
-  "tags": [
-   "考情"
-  ]
- },
- {
-  "key": "mk-xhs-exam-gj",
-  "institution": "新华社",
-  "doc": "新华社国际部笔试题目（可参考）",
-  "count": 9,
-  "reliability": "机构资料",
-  "tags": [
-   "考情"
-  ]
- },
- {
-  "key": "mk-xhs-exam-ms",
-  "institution": "新华社",
-  "doc": "新华社总社面试回忆",
-  "count": 3,
-  "reliability": "机构资料",
-  "tags": [
-   "考情"
-  ]
  }
 ]

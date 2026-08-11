@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useCardsStore, type Card } from '@/stores/cards'
 import {
   buildSession,
@@ -25,6 +26,7 @@ import { todayStr, type CardMode } from '@/db'
  */
 
 const store = useCardsStore()
+const router = useRouter()
 
 type Phase = 'home' | 'session' | 'done'
 const phase = ref<Phase>('home')
@@ -179,7 +181,10 @@ onMounted(async () => {
 
 <template>
   <div>
-    <div class="page-title">刷题</div>
+    <div class="page-title" style="display:flex;align-items:center">
+      刷题
+      <button class="exam-link" @click="router.push('/exam')">考情分析 ›</button>
+    </div>
     <div class="page-sub">
       <template v-if="totalCount">{{ totalCount }} 题 · {{ institutionSummary }}</template>
       <template v-else>题库暂未上线</template>
@@ -506,5 +511,11 @@ onMounted(async () => {
   resize: vertical;
   line-height: 1.7;
   font-family: inherit;
+}
+.exam-link {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--brand);
+  padding: 4px 0 4px 12px;
 }
 </style>
