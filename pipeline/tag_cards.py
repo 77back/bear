@@ -240,6 +240,22 @@ def run(llm, cards_dir: Path = CARDS_DIR, cache_dir: Path = CACHE_DIR,
             labels = load_cache(group, bno, cache_dir)
             if labels is not None:
                 stats.cache_hits += 1
+                # 缓存回填：批内缺 id 的卡（历史上 LLM 漏答被静默跳过）补问 LLM 并合并进缓存
+                missing = [c for c in pending if c["id"] not in labels]
+                if missing and llm is not None:
+                    valid_missing = {c["id"] for c in missing}
+                    for _ in range(3):
+                        try:
+                            raw = llm.complete(SYSTEM_PROMPT, build_tag_prompt(group, missing))
+                            stats.llm_calls += 1
+                        except Exception:  # noqa: BLE001
+                            continue
+                        extra, invalid = parse_tag_json(raw, valid_missing, group)
+                        stats.invalid_label += invalid
+                        if extra:
+                            labels.update(extra)
+                            save_cache(group, bno, labels, cache_dir)
+                            break
             elif llm is None:
                 stats.batch_failed += 1
                 stats.warnings.append(f"{group} 批{bno}：无缓存且 LLM 未启用，跳过")

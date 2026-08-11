@@ -5,8 +5,8 @@ import EChart from '@/components/EChart.vue'
 import type { EChartsOption } from 'echarts'
 
 /**
- * 考情分析（/exam）：考什么题型、怎么分布。
- * 数据来自管线产物 content/exam/analysis.json（同源托管，失败优雅降级）。
+ * 考情分析（/exam）：真实考试的考情（真题合集 + 一手回忆），不是题库构成。
+ * 数据来自管线产物 content/exam/analysis.json（同源托管，失败/旧结构优雅降级）。
  * 图表走 EChart.vue（echarts/core 按需引入）。
  */
 
@@ -17,11 +17,30 @@ interface CountRow {
   label: string
   count: number
 }
+interface ValueRow {
+  label: string
+  value: number
+}
+interface Round2Post {
+  post: string
+  items: string[]
+}
 interface InstitutionBlock {
   name: string
-  total: number
-  boards: CountRow[]
-  kinds: { kind: string; label: string; count: number }[]
+  realQuestions?: number
+  boards?: CountRow[]
+  kinds?: { kind: string; label: string; count: number }[]
+  scoreStructure?: ValueRow[]
+  timeStructure?: ValueRow[]
+  domains?: CountRow[]
+  round2Count?: number
+  round2Posts?: Round2Post[]
+}
+interface ComparisonRow {
+  name: string
+  structure: string
+  duration: string
+  feature: string
 }
 interface Narrative {
   institution: string
@@ -29,10 +48,10 @@ interface Narrative {
   sections: { title: string; items: string[] }[]
 }
 interface ExamAnalysis {
-  total: number
-  institutions: InstitutionBlock[]
-  shizheng: { byMonth: CountRow[]; byDomain: CountRow[] }
-  narratives: Narrative[]
+  note?: string
+  comparison?: ComparisonRow[]
+  institutions?: InstitutionBlock[]
+  narratives?: Narrative[]
 }
 
 const data = ref<ExamAnalysis | null>(null)
@@ -50,6 +69,9 @@ onMounted(async () => {
   }
 })
 
+// 旧结构缓存兼容：字段缺失一律按空数组处理，不白屏
+const comparison = computed(() => (Array.isArray(data.value?.comparison) ? data.value.comparison : []))
+const institutions = computed(() => (Array.isArray(data.value?.institutions) ? data.value.institutions : []))
 const narrativeOf = computed(() => {
   const m = new Map<string, Narrative>()
   for (const n of data.value?.narratives ?? []) m.set(n.institution, n)
@@ -59,13 +81,12 @@ const narrativeOf = computed(() => {
 /* ---------- 图表 option（配色沿用 design-tokens） ---------- */
 const PALETTE = ['#3e7a5e', '#4f8a8b', '#d4723f', '#c9a227', '#2e5c46', '#93a199']
 const AXIS_LABEL = { color: '#6b6560', fontSize: 12 }
-const VALUE_LABEL = { show: true, color: '#6b6560', fontSize: 11 }
 
-/** 横向条形图（量大的在上） */
-function hbar(rows: CountRow[], color = '#3e7a5e'): EChartsOption {
+/** 横向条形图（量大的在上），suffix 为数值单位（分/分钟） */
+function hbar(rows: CountRow[], color = '#3e7a5e', suffix = ''): EChartsOption {
   const sorted = [...rows].sort((a, b) => a.count - b.count)
   return {
-    grid: { left: 8, right: 40, top: 8, bottom: 8, containLabel: true },
+    grid: { left: 8, right: 48, top: 8, bottom: 8, containLabel: true },
     xAxis: { type: 'value', show: false },
     yAxis: {
       type: 'category',
@@ -80,31 +101,7 @@ function hbar(rows: CountRow[], color = '#3e7a5e'): EChartsOption {
         data: sorted.map((r) => r.count),
         barWidth: 12,
         itemStyle: { color, borderRadius: [0, 6, 6, 0] },
-        label: { ...VALUE_LABEL, position: 'right' }
-      }
-    ]
-  }
-}
-
-/** 竖向柱状图（按月等自然顺序） */
-function vbar(rows: CountRow[], color = '#3e7a5e'): EChartsOption {
-  return {
-    grid: { left: 8, right: 8, top: 20, bottom: 4, containLabel: true },
-    xAxis: {
-      type: 'category',
-      data: rows.map((r) => r.label),
-      axisLine: { show: false },
-      axisTick: { show: false },
-      axisLabel: AXIS_LABEL
-    },
-    yAxis: { type: 'value', show: false },
-    series: [
-      {
-        type: 'bar',
-        data: rows.map((r) => r.count),
-        barWidth: 22,
-        itemStyle: { color, borderRadius: [6, 6, 0, 0] },
-        label: { ...VALUE_LABEL, position: 'top' }
+        label: { show: true, position: 'right', color: '#6b6560', fontSize: 11, formatter: `{c}${suffix}` }
       }
     ]
   }
@@ -130,6 +127,8 @@ function pie(rows: CountRow[]): EChartsOption {
     ]
   }
 }
+
+const toRows = (list?: ValueRow[]): CountRow[] => (list ?? []).map((r) => ({ label: r.label, count: r.value }))
 </script>
 
 <template>
@@ -137,42 +136,73 @@ function pie(rows: CountRow[]): EChartsOption {
     <!-- 返回栏 -->
     <button class="back-bar" @click="router.back()">‹ 返回</button>
     <div class="page-title">考情分析</div>
-    <div class="page-sub">
-      <template v-if="data">{{ data.total }} 题 · {{ data.institutions.length }} 大来源 · 数据截至题库当前版本</template>
-      <template v-else>考什么题型、怎么分布</template>
-    </div>
+    <div class="page-sub">真实考试怎么考、考什么</div>
 
     <div v-if="loading" class="card" style="text-align:center;color:var(--text-3);font-size:13px">加载中…</div>
-    <div v-else-if="!data" class="card" style="text-align:center;color:var(--text-3);font-size:13px;padding:32px 16px">
+    <div v-else-if="!data || !institutions.length" class="card" style="text-align:center;color:var(--text-3);font-size:13px;padding:32px 16px">
       考情数据暂未上线，等内容更新后再来。
     </div>
 
     <template v-else>
-      <!-- 总览：机构题量占比 -->
-      <div class="card">
-        <div class="card-title">总览 · 题量分布</div>
-        <EChart :option="hbar(data.institutions.map((i) => ({ label: i.name, count: i.total })))" :height="150" />
+      <!-- 分析口径说明 -->
+      <div v-if="data.note" class="exam-note" style="margin-bottom:12px">{{ data.note }}</div>
+
+      <!-- 三家考试对比 -->
+      <div v-if="comparison.length" class="card">
+        <div class="card-title">三家考试对比</div>
+        <div v-for="c in comparison" :key="c.name" class="cmp-row">
+          <div class="cmp-name">{{ c.name }}</div>
+          <div class="cmp-line"><span class="cmp-label">结构</span>{{ c.structure }}</div>
+          <div class="cmp-line"><span class="cmp-label">时长</span>{{ c.duration }}</div>
+          <div class="cmp-line"><span class="cmp-label">特点</span>{{ c.feature }}</div>
+        </div>
       </div>
 
       <!-- 机构区块 -->
-      <div v-for="ins in data.institutions" :key="ins.name" class="card">
+      <div v-for="ins in institutions" :key="ins.name" class="card">
         <div class="card-title">
           {{ ins.name }}
-          <span style="font-size:12px;color:var(--text-3);font-weight:400">{{ ins.total }} 题</span>
+          <span style="font-size:12px;color:var(--text-3);font-weight:400">
+            {{ ins.realQuestions ? `真题统计 ${ins.realQuestions} 题` : '考生一手回忆' }}
+          </span>
         </div>
         <div v-if="narrativeOf(ins.name)?.note" class="exam-note">{{ narrativeOf(ins.name)!.note }}</div>
 
-        <div class="chart-cap">板块构成</div>
-        <EChart :option="hbar(ins.boards)" :height="Math.max(110, ins.boards.length * 34)" />
-        <div class="chart-cap">题型分布</div>
-        <EChart :option="pie(ins.kinds)" :height="210" />
+        <!-- 新华社：分值构成 + 环节时长（无真题分布图） -->
+        <template v-if="ins.scoreStructure?.length">
+          <div class="chart-cap">分值构成（满分 100）</div>
+          <EChart :option="hbar(toRows(ins.scoreStructure), '#3e7a5e', ' 分')" :height="Math.max(110, ins.scoreStructure.length * 34)" />
+        </template>
+        <template v-if="ins.timeStructure?.length">
+          <div class="chart-cap">环节时长</div>
+          <EChart :option="hbar(toRows(ins.timeStructure), '#4f8a8b', ' 分钟')" :height="Math.max(90, ins.timeStructure.length * 40)" />
+        </template>
 
-        <!-- 时政押题：按月 / 按领域 -->
-        <template v-if="ins.name === '时政押题'">
-          <div class="chart-cap">按月分布</div>
-          <EChart :option="vbar(data.shizheng.byMonth, '#4f8a8b')" :height="170" />
-          <div class="chart-cap">按领域分布</div>
-          <EChart :option="hbar(data.shizheng.byDomain, '#4f8a8b')" :height="Math.max(150, data.shizheng.byDomain.length * 30)" />
+        <!-- 板块构成（多于一个板块才有意义） -->
+        <template v-if="(ins.boards?.length ?? 0) > 1">
+          <div class="chart-cap">{{ ins.name === '人民日报' ? '一轮板块构成' : '板块构成' }}</div>
+          <EChart :option="hbar(ins.boards!)" :height="Math.max(110, ins.boards!.length * 34)" />
+        </template>
+
+        <!-- 总台：领域分布（重点） -->
+        <template v-if="ins.domains?.length">
+          <div class="chart-cap">领域分布</div>
+          <EChart :option="hbar(ins.domains!, '#4f8a8b')" :height="Math.max(110, ins.domains!.length * 34)" />
+        </template>
+
+        <!-- 题型分布 -->
+        <template v-if="(ins.kinds?.length ?? 0) > 1">
+          <div class="chart-cap">题型分布</div>
+          <EChart :option="pie(ins.kinds!)" :height="210" />
+        </template>
+
+        <!-- 人民日报：次轮（回忆版）分岗位 -->
+        <template v-if="ins.round2Posts?.length">
+          <div class="chart-cap">次轮（回忆版 {{ ins.round2Count }} 题，无标准答案）</div>
+          <div v-for="p in ins.round2Posts" :key="p.post" class="post-card">
+            <div class="post-name">{{ p.post }}</div>
+            <div v-for="(it, i) in p.items" :key="i" class="exam-item">{{ it }}</div>
+          </div>
         </template>
 
         <!-- 考情要点 -->
@@ -207,6 +237,46 @@ function pie(rows: CountRow[]): EChartsOption {
   padding: 8px 12px;
   border-radius: 10px;
   background: var(--bg);
+}
+.cmp-row {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.cmp-row:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+.cmp-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.cmp-line {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-2);
+  display: flex;
+  gap: 8px;
+}
+.cmp-label {
+  flex-shrink: 0;
+  color: var(--text-3);
+  font-size: 12px;
+  padding-top: 1px;
+  width: 28px;
+}
+.post-card {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--bg);
+}
+.post-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
 }
 .exam-sec {
   margin-top: 14px;
