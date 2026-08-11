@@ -1,5 +1,5 @@
-import type { PracticeLog, PracticeQtype } from '@/db'
-import { todayStr, addDays, parseDate } from '@/db'
+import type { PracticeLog, PracticeQtype } from './types'
+import { todayStr, addDays, parseDate } from './dates'
 
 /**
  * 推荐规则（构建框架.md §7.5）。规则引擎，不用算法。纯函数。

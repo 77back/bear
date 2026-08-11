@@ -1,0 +1,50 @@
+/*
+ * design-tokens.css（小程序版）
+ * 与网页版 app/src/design-tokens.css 同一套变量；差异：
+ * - :root → page（小程序无 :root/html/body）
+ * - 去掉 * 通配 reset（WXSS 不支持）与 #app 布局壳（PWA 专用）
+ * - CSS 变量在 mp-weixin 受支持（基础库 2.x+）
+ */
+page {
+  --brand: #3e7a5e;
+  --brand-dark: #2e5c46;
+  --xc: #4f8a8b; /* 行测 teal */
+  --sl: #c9a227; /* 申论 gold */
+  --sw: #d4723f; /* 实务 orange */
+  --bg: #f4f5f3;
+  --card: #ffffff;
+  --text: #1f2a24;
+  --text-2: #5c6b62;
+  --text-3: #93a199;
+  --line: #e6e9e5;
+  --radius: 16px;
+  --shadow: 0 2px 10px rgba(31, 42, 36, 0.06);
+
+  /* 字阶 */
+  --fs-12: 12px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-24: 24px;
+
+  /* 间距栅格 8px */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button {
+  font-family: inherit;
+}
+
+/* 数字等宽，统计页用 */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}

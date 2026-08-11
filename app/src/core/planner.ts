@@ -1,4 +1,4 @@
-import type { Subject, Task } from '@/db'
+import type { Subject, Task } from './types'
 
 /**
  * 任务生成（构建框架.md §7.1）。

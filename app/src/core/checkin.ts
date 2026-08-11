@@ -1,4 +1,4 @@
-import type { Checkin, Task } from '@/db'
+import type { Checkin, Task } from './types'
 
 /**
  * 打卡判定与连续天数（构建框架.md §7.2）。

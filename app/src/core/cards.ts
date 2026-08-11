@@ -1,5 +1,5 @@
 import type { Card } from '@/stores/cards'
-import type { CardState, SelfGrade } from '@/db'
+import type { CardState, SelfGrade } from './types'
 
 /**
  * 刷题卡片纯逻辑（考点地图与命题库设计.md §六）。

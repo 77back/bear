@@ -1,0 +1,60 @@
+{
+  "easycom": {
+    "autoscan": true
+  },
+  "pages": [
+    {
+      "path": "pages/today/index",
+      "style": { "navigationBarTitleText": "今日" }
+    },
+    {
+      "path": "pages/practice/index",
+      "style": { "navigationBarTitleText": "刷题" }
+    },
+    {
+      "path": "pages/shiwu/index",
+      "style": { "navigationBarTitleText": "实务" }
+    },
+    {
+      "path": "pages/media/index",
+      "style": { "navigationBarTitleText": "媒体" }
+    },
+    {
+      "path": "pages/sub/exam",
+      "style": { "navigationBarTitleText": "考情分析" }
+    },
+    {
+      "path": "pages/sub/shizheng",
+      "style": { "navigationBarTitleText": "时政库" }
+    },
+    {
+      "path": "pages/sub/writing",
+      "style": { "navigationBarTitleText": "写作练习" }
+    },
+    {
+      "path": "pages/sub/report",
+      "style": { "navigationBarTitleText": "学习报表" }
+    },
+    {
+      "path": "pages/sub/settings",
+      "style": { "navigationBarTitleText": "设置" }
+    }
+  ],
+  "tabBar": {
+    "color": "#8a8578",
+    "selectedColor": "#5a7a5a",
+    "backgroundColor": "#ffffff",
+    "list": [
+      { "pagePath": "pages/today/index", "text": "今日" },
+      { "pagePath": "pages/practice/index", "text": "刷题" },
+      { "pagePath": "pages/shiwu/index", "text": "实务" },
+      { "pagePath": "pages/media/index", "text": "媒体" }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "备考小熊",
+    "navigationBarBackgroundColor": "#f7f4ee",
+    "backgroundColor": "#f7f4ee"
+  }
+}
