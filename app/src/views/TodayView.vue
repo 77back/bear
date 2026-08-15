@@ -13,6 +13,8 @@ const content = useContentStore()
 const nickname = ref('小熊')
 const examDate = ref('2026-11-27')
 const toast = ref('')
+// 构建标识（vite define 注入），页面底部展示，便于确认部署版本
+const buildRev = __BUILD_REV__
 let toastTimer: ReturnType<typeof setTimeout> | undefined
 
 const weekdayCN = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
@@ -236,6 +238,9 @@ function onReport(type: 'week' | 'month') {
     </div>
 
     <button class="btn btn-soft" style="margin-bottom:12px" @click="router.push('/settings')">设置 · 考试日与目标</button>
+
+    <!-- 版本标识：确认部署是否已更新 -->
+    <div style="text-align:center;font-size:11px;color:var(--text-3);margin-bottom:8px">{{ buildRev }}</div>
 
     <div class="toast" :class="{ show: toast }">{{ toast }}</div>
   </div>
