@@ -342,12 +342,23 @@ export function buildPracticeTree(cards: Card[], states: Map<string, CardState>)
   })
 }
 
-/** 叶子节点刷题队列：该组全部卡，未掌握在前、按 id 稳定排序（与 moduleSession 同策略） */
+/**
+ * 叶子节点刷题队列：从上次刷到的地方继续——
+ * 1) 从未做过的卡（无 state 或 seen===0）在最前，即"续刷位"；
+ * 2) 做过但未掌握的卡居中；3) 已掌握的卡殿后。段内均按 id 稳定排序（不洗牌）。
+ */
 export function nodeSession(cards: Card[], node: PracticeNode, states: Map<string, CardState>): Card[] {
   if (!node.match) return []
-  return cards.filter(node.match).sort((a, b) => {
-    const ma = states.get(a.id)?.mastered ? 1 : 0
-    const mb = states.get(b.id)?.mastered ? 1 : 0
-    return ma - mb || a.id.localeCompare(b.id)
-  })
+  const rank = (c: Card) => {
+    const s = states.get(c.id)
+    if (!s || s.seen === 0) return 0
+    return s.mastered ? 2 : 1
+  }
+  return cards.filter(node.match).sort((a, b) => rank(a) - rank(b) || a.id.localeCompare(b.id))
+}
+
+/** 叶子节点原始顺序队列（「重刷本组」用）：不看答题状态，全部卡按 id 稳定排序 */
+export function nodeSessionAll(cards: Card[], node: PracticeNode): Card[] {
+  if (!node.match) return []
+  return cards.filter(node.match).sort((a, b) => a.id.localeCompare(b.id))
 }

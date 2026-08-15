@@ -17,7 +17,9 @@ import {
   wrongCards,
   shizhengMonth,
   buildPracticeTree,
-  nodeSession
+  nodeSession,
+  nodeSessionAll,
+  type PracticeNode
 } from '../cards'
 import type { Card } from '@/stores/cards'
 import type { CardState } from '@/db'
@@ -345,12 +347,12 @@ describe('buildPracticeTree 机构分类树', () => {
     expect(jan.match).toBeDefined()
   })
 
-  it('nodeSession 叶子队列：未掌握在前、按 id 稳定排序', () => {
+  it('nodeSession 叶子队列：未做过的在前，已掌握殿后', () => {
     const xc = tree[0].children.find((n) => n.label === '行测常识')!
     const law = xc.children[0]
-    expect(nodeSession(cards, law, states).map((c) => c.id)).toEqual(['x-2', 'x-1']) // 已掌握的 x-1 排后
+    expect(nodeSession(cards, law, states).map((c) => c.id)).toEqual(['x-2', 'x-1']) // x-2 做过未掌握，已掌握的 x-1 殿后
     const jan = tree[2].children[0]
-    expect(nodeSession(cards, jan, states).map((c) => c.id)).toEqual(['y-2', 'y-1'])
+    expect(nodeSession(cards, jan, states).map((c) => c.id)).toEqual(['y-2', 'y-1']) // 没做过的 y-2 在已掌握的 y-1 前
     // 非叶子返回空
     expect(nodeSession(cards, xc, states)).toEqual([])
   })
@@ -373,5 +375,51 @@ describe('buildPracticeTree 机构分类树', () => {
     const tree2 = buildPracticeTree(cards2, new Map())
     expect(tree2[0].children.map((n) => n.label)).toEqual(['媒体常识', '行测常识'])
     expect(tree2[1].children.map((n) => n.label)).toEqual(['新闻实务', '时政', '行测-言语'])
+  })
+})
+
+describe('nodeSession 节点续刷 / nodeSessionAll 重刷', () => {
+  const node: PracticeNode = {
+    key: '新华社|媒体常识',
+    label: '媒体常识',
+    total: 4,
+    done: 0,
+    mastered: 0,
+    children: [],
+    match: (c) => c.source.institution === '新华社'
+  }
+  const cards = [mk({ id: 'n-1' }), mk({ id: 'n-2' }), mk({ id: 'n-3' }), mk({ id: 'n-4' })]
+  const mkState = (cardId: string, seen: number, mastered: boolean): CardState => ({
+    cardId, seen, correctCount: mastered ? 2 : 0, wrongCount: mastered ? 0 : 1, streak: 0, mastered, lastAt: 0
+  })
+
+  it('全部没做过：按 id 原顺序', () => {
+    expect(nodeSession(cards, node, new Map()).map((c) => c.id)).toEqual(['n-1', 'n-2', 'n-3', 'n-4'])
+  })
+
+  it('续刷位置：做过未掌握的排在没做过的后面（上次刷到哪就从哪继续）', () => {
+    const states = new Map<string, CardState>([
+      ['n-1', mkState('n-1', 1, false)],
+      ['n-2', mkState('n-2', 3, false)]
+    ])
+    expect(nodeSession(cards, node, states).map((c) => c.id)).toEqual(['n-3', 'n-4', 'n-1', 'n-2'])
+  })
+
+  it('seen===0 的记录视为没做过，已掌握的殿后', () => {
+    const states = new Map<string, CardState>([
+      ['n-1', mkState('n-1', 0, false)], // 有记录但没做过 → 第一段
+      ['n-3', mkState('n-3', 2, true)] // 已掌握 → 殿后
+    ])
+    expect(nodeSession(cards, node, states).map((c) => c.id)).toEqual(['n-1', 'n-2', 'n-4', 'n-3'])
+  })
+
+  it('nodeSessionAll 不看状态，全部卡按 id 原序（重刷本组用）', () => {
+    expect(nodeSessionAll(cards, node).map((c) => c.id)).toEqual(['n-1', 'n-2', 'n-3', 'n-4'])
+  })
+
+  it('非叶子节点两者都返回空', () => {
+    const group: PracticeNode = { ...node, match: undefined }
+    expect(nodeSession(cards, group, new Map())).toEqual([])
+    expect(nodeSessionAll(cards, group)).toEqual([])
   })
 })

@@ -7,6 +7,7 @@ import {
   buildReviewQueue,
   buildPracticeTree,
   nodeSession,
+  nodeSessionAll,
   gradeChoice,
   gradeJudge,
   selfGradeCorrect,
@@ -61,6 +62,7 @@ const queue = ref<Card[]>([])
 const pos = ref(0)
 const answeredCount = ref(0)
 const correctCount = ref(0)
+const sessionNode = ref<PracticeNode | null>(null) // 节点开刷的会话标记（用于「重刷本组」）
 const current = computed<Card | null>(() => queue.value[pos.value] ?? null)
 
 const picked = ref<string[]>([]) // 选择题已选
@@ -71,7 +73,7 @@ const qaText = ref('') // 问答题用户输入（仅会话内，不持久化）
 const isMulti = computed(() => current.value?.kind === 'multi')
 const optionLetters = computed(() => Object.keys(current.value?.options ?? {}).sort())
 
-function beginSession(cards: Card[], title: string, m: CardMode) {
+function beginSession(cards: Card[], title: string, m: CardMode, node: PracticeNode | null = null) {
   if (!cards.length) return
   mode.value = m
   sessionTitle.value = title
@@ -79,6 +81,7 @@ function beginSession(cards: Card[], title: string, m: CardMode) {
   pos.value = 0
   answeredCount.value = 0
   correctCount.value = 0
+  sessionNode.value = node
   phase.value = 'session'
   resetCard()
 }
@@ -105,10 +108,21 @@ function startCasual() {
   beginSession(session, '随心练习', 'casual')
 }
 
-/** 叶子节点开刷：未掌握在前 */
+/** 叶子节点开刷：从上次刷到的地方继续（未做过的在前） */
 function startNode(node: PracticeNode, parentLabel?: string) {
   const session = nodeSession(allCards.value, node, store.states)
-  beginSession(session, parentLabel ? `${parentLabel} · ${node.label}` : node.label, 'casual')
+  beginSession(session, parentLabel ? `${parentLabel} · ${node.label}` : node.label, 'casual', node)
+}
+
+/** 重刷本组：队列重置为原始顺序（不过滤已做，按 id），从头开始 */
+function restartNode() {
+  const node = sessionNode.value
+  if (!node) return
+  queue.value = nodeSessionAll(allCards.value, node)
+  pos.value = 0
+  answeredCount.value = 0
+  correctCount.value = 0
+  resetCard()
 }
 
 function resetCard() {
@@ -263,9 +277,12 @@ onMounted(async () => {
 
     <!-- 答题 -->
     <template v-else-if="phase === 'session' && current">
-      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-3);margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-3);margin-bottom:8px">
         <span>{{ sessionTitle }} · 第 {{ pos + 1 }} / {{ queue.length }} 题</span>
-        <span>已答 {{ answeredCount }} · 答对 {{ correctCount }}</span>
+        <span style="display:flex;align-items:center;gap:10px">
+          <button v-if="sessionNode" class="reshuffle-link" @click="restartNode">重刷本组</button>
+          <span>已答 {{ answeredCount }} · 答对 {{ correctCount }}</span>
+        </span>
       </div>
 
       <div class="card">
@@ -517,5 +534,10 @@ onMounted(async () => {
   font-size: 12px;
   color: var(--brand);
   padding: 4px 0 4px 12px;
+}
+.reshuffle-link {
+  font-size: 12px;
+  color: var(--brand);
+  padding: 2px 0;
 }
 </style>
