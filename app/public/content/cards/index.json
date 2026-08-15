@@ -3,7 +3,7 @@
   "key": "yati-01",
   "institution": "时政押题",
   "doc": "1月份押题（带答案版）",
-  "count": 169,
+  "count": 168,
   "reliability": "押题",
   "tags": [
    "领导人活动",
@@ -37,7 +37,7 @@
   "key": "yati-03",
   "institution": "时政押题",
   "doc": "3月份押题（带答案版）",
-  "count": 157,
+  "count": 156,
   "reliability": "押题",
   "tags": [
    "领导人活动",
@@ -54,7 +54,7 @@
   "key": "yati-04",
   "institution": "时政押题",
   "doc": "4月份押题（带答案版）",
-  "count": 147,
+  "count": 145,
   "reliability": "押题",
   "tags": [
    "会议与文件",
@@ -282,7 +282,8 @@
    "管理",
    "历史人文",
    "言语理解",
-   "判断推理"
+   "判断推理",
+   "数量关系"
   ]
  },
  {

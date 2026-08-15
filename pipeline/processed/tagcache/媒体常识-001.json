@@ -15,9 +15,8 @@
  "mk-zt-culture-012": "企业文化",
  "mk-zt-culture-013": "企业文化",
  "mk-zt-culture-014": "企业文化",
- "mk-zt-policy-001": "战略与政策",
+ "mk-zt-culture-015": "企业文化",
  "mk-zt-policy-002": "战略与政策",
- "mk-zt-policy-003": "战略与政策",
  "mk-zt-policy-004": "战略与政策",
  "mk-zt-policy-005": "行业规范",
  "mk-zt-policy-006": "行业规范",
@@ -27,6 +26,7 @@
  "mk-zt-policy-010": "战略与政策",
  "mk-zt-policy-011": "战略与政策",
  "mk-zt-policy-012": "战略与政策",
+ "mk-zt-policy-013": "战略与政策",
  "mk-zt-strategy-001": "战略与政策",
  "mk-zt-strategy-002": "机构业务与平台",
  "mk-zt-strategy-003": "机构业务与平台",
@@ -38,7 +38,5 @@
  "mk-zt-strategy-009": "机构业务与平台",
  "mk-zt-strategy-010": "机构业务与平台",
  "mk-zt-strategy-011": "战略与政策",
- "mk-zt-strategy-012": "机构业务与平台",
- "mk-zt-culture-015": "企业文化",
- "mk-zt-policy-013": "战略与政策"
+ "mk-zt-strategy-012": "机构业务与平台"
 }
