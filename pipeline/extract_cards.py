@@ -1178,6 +1178,11 @@ def read_source_text(src: Source, path: Path) -> str:
     return pdf_text(path)
 
 
+# 一级标签命名统一：历史遗留的无连字符“行测常识”规范为“行测-常识”。
+# tag_cards.py 的 primary_group 对两种写法都映射到同一二级词表组，批划分与缓存不受影响。
+TAG_ALIAS = {"行测常识": "行测-常识"}
+
+
 def to_card(src: Source, doc: str, seq: int, raw: RawCard) -> dict:
     card = {
         "id": f"{src.key}-{seq:03d}",
@@ -1185,7 +1190,7 @@ def to_card(src: Source, doc: str, seq: int, raw: RawCard) -> dict:
         "stem": raw.stem,
         "answer": raw.answer,
         "analysis": raw.analysis,
-        "tags": raw.tags,
+        "tags": [TAG_ALIAS.get(t, t) for t in raw.tags],
         "source": {
             "institution": src.institution,
             "doc": doc,
